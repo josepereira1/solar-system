@@ -1,6 +1,3 @@
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 void write_on_file(const char* data, const char* path) {
 	FILE *fp = fopen(path, "ab");
