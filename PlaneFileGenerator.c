@@ -1,4 +1,4 @@
-designPlane(int f,const* char file){
+design_plane(int f,const* char file){
     float c = f%2;
 	glBegin(GL_TRIANGLES);
     
