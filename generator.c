@@ -1,6 +1,7 @@
 
 void write_on_file(const char* data, const char* path) {
-	FILE *fp = fopen(path, "ab");
+
+	FILE *fp = fopen(path, "w");
     if (fp != NULL)
     {
         fputs(data, fp);
@@ -13,7 +14,10 @@ void design_sphere(float radius, int slices, int stacks, const char* patch) {
 }
 
 void design_plane(float side, const char* patch) {
-
+	float c = side / 2.0;
+    char* str = malloc(sizeof(char)*1024*1024);
+    sprintf(str,"2\n1 2 3\n1 3 4\n4\n %.5f, 0.0, -%.5f\n-%.5f, 0.0, -%.5f\n-%.5f, 0.0,  %.5f\n %.5f, 0.0,  %.5f \n",c,c,c,c,c,c,c,c);
+    write_on_file(str,patch);
 }
 
 void design_box(float x, float y, float z, int divisions, const char* patch) {
