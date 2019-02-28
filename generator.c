@@ -1,6 +1,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 void write_on_file(const char* data, const char* path) {
 	FILE *fp = fopen(path, "ab");
@@ -29,7 +30,19 @@ void design_box(float x, float y, float z, int divisions, const char* patch) {
 }
 
 void design_cone(float radius, float height, int slices, int stacks, const char* patch) {
+	float angle = (2*M_PI)/slices;
+	int i, j;
+	for(j = 0, i = 0; i < slices; i++){
 
+		//	APENAS PARA DEBUG!!!
+		printf("Ponto %d: x = %f | y = %f | z = %f\n\n", j++, radius*sin(angle*i), 0.0, radius*cos(angle*i));
+		printf("Ponto %d: x = %f | y = %f | z = %f\n\n", j++, 0.0, 0.0, 0.0);
+		printf("Ponto %d: x = %f | y = %f | z = %f\n\n", j++, radius*sin(angle*(i+1)), 0.0, radius*cos(angle*(i+1)));
+		//	--------------------------------------------------------------------------------------------
+		printf("Ponto %d: x = %f | y = %f | z = %f\n\n", j++, radius*sin(angle*(i+1)), 0.0, radius*cos(angle*(i+1)));
+		printf("Ponto %d: x = %f | y = %f | z = %f\n\n", j++, 0.0, height, 0.0);
+		printf("Ponto %d: x = %f | y = %f | z = %f\n\n", j++, radius*sin(angle*i), 0.0, radius*cos(angle*i));
+	}
 }
 
 int main(int argc, char** argv) {
@@ -72,5 +85,6 @@ int main(int argc, char** argv) {
 		perror("Invalid geometric figure!\n");
 		exit(2);
 	}
+	design_cone(3,3,10,0,"");
 	return 0;
 }
