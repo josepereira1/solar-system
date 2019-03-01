@@ -71,28 +71,4 @@ void design_sphere(float radius, int slices, int stacks, const char* patch) {
     //cria ultimo ponto
     sprintf(tmp,"%.5f, -%.5f, %.5f\n",0.0,radius,0.0);
     strcat(str,tmp);
-
-    // nº de ligações de vertices
-    sprintf(tmp,"%d\n",slices*(stacks-1)*2);
-    strcat(str,tmp);
-    // tenho stack + 1 camadas para ligar, a 1ª e a ultima têm 1 vertice
-    for(m1=0;m1<=stacks;m1++){ // vertices nas pontas = nº de slices
-    	for(m2=1;m2<=slices;m2++){ //  vertices interiores = nº de slices * 2
-    		if(m1==0){
-
-    			if(m2 == 1){sprintf(tmp,"%d, %d, %d\n",1,slices+1,2);}
-    			else{sprintf(tmp,"%d, %d, %d\n",1,m2,m2+1);}
-
-    		} else if(m1 == 4){
-
-    			if(m2 == 1){sprintf(tmp,"%d, %d, %d\n",max,max-1,max-slices);}//contar todos para cima
-    			else{sprintf(tmp,"%d, %d, %d\n",max,max-slices+m2,max-slices+m2-1);}
-
-    		} else{
-
-    			//sprintf(tmp,"%d, %d, %d\n",);
-
-    		}
-    	}
-    }
 }
