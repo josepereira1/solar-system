@@ -10,8 +10,7 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-TAD_ARRAY_LIST design_sphere(float radius, int slices, int stacks, const char* patch) {
-    printf("A começar esfera\n");
+void design_sphere(float radius, int slices, int stacks, const char* patch) {
 	float r = radius;
     float r1 = radius;
     float r2 = radius;
@@ -23,8 +22,6 @@ TAD_ARRAY_LIST design_sphere(float radius, int slices, int stacks, const char* p
     int max = slices*(stacks-1)+2;
     TAD_ARRAY_LIST l1 = ARRAY_LIST(max);
     TAD_ARRAY_LIST l2 = ARRAY_LIST(max);
-    TAD_ARRAY_LIST l3;
-    TAD_ARRAY_LIST l4;
     int m1,m2;
     //cria ponto superior
     TAD_POINT p;
@@ -86,14 +83,12 @@ TAD_ARRAY_LIST design_sphere(float radius, int slices, int stacks, const char* p
             }
         }
     }
-    //printer(l2);
-    printf("A devolver esfera\n");
-    //filter(l2,l3,l4);
+    filter(l1,l2);
     return l2;
 }
 
 
-
+// debug
 void printer(TAD_ARRAY_LIST l1){
     int x = getArraySize(l1);
     int i;
