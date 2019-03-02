@@ -1,4 +1,4 @@
-void design_sphere(float radius, int slices, int stacks, const char* patch) {
+TAD_ARRAY_LIST design_sphere(float radius, int slices, int stacks, const char* patch) {
 	float r = radius;
 	float height = radius;
     int max = slices*(stacks-1)+2;
@@ -60,5 +60,6 @@ void design_sphere(float radius, int slices, int stacks, const char* patch) {
             }
         }
     }
-    filter(l2,l3,l4);
+    //filter(l2,l3,l4);
+    return l2;
 }
