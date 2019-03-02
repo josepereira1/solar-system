@@ -28,9 +28,6 @@ TAD_ARRAY_LIST design_sphere(float radius, int slices, int stacks, const char* p
     int m1,m2;
     //cria ponto superior
     TAD_POINT p;
-
-    printf("alfa. = %f\n", alfa);
-
     p = POINT(0.0,radius,0.0);
     addElem(l1,p);
     //cria pontos intermédios
@@ -89,7 +86,7 @@ TAD_ARRAY_LIST design_sphere(float radius, int slices, int stacks, const char* p
             }
         }
     }
-    printer(l2);
+    //printer(l2);
     printf("A devolver esfera\n");
     //filter(l2,l3,l4);
     return l2;
