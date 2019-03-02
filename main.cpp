@@ -8,6 +8,7 @@ extern "C"
 {
     #include "ArrayList.h"
     #include "Point.h"
+    #include "newSphereGenerator.h"
 }
 
 #define _USE_MATH_DEFINES
@@ -19,6 +20,8 @@ float pz = 0.0;
 int mode = GL_FILL;
 int face = GL_FRONT;
 TAD_ARRAY_LIST l =  ARRAY_LIST(3);
+float dAlfa2 = 0;
+float dBeta = 0;
 
 void changeSize(int w, int h) {
 
@@ -47,16 +50,20 @@ void changeSize(int w, int h) {
 
 
 void draw() {
-    int i;
+  int i;
+  int w = 0;
 	int size = getArraySize(l);
-    // put code to draw cylinder in here
-    glBegin(GL_TRIANGLES);
-    for(i=0;i<size;i+=3){
-        glVertex3f((float) getX((TAD_POINT)getElem(l,i)),(float)getY((TAD_POINT)getElem(l,i)),(float)getZ((TAD_POINT)getElem(l,i)));
-        glVertex3f((float)getX((TAD_POINT)getElem(l,i+1)),(float)getY((TAD_POINT)getElem(l,i+1)),(float)getZ((TAD_POINT)getElem(l,i+1)));
-        glVertex3f((float)getX((TAD_POINT)getElem(l,i+2)),(float)getY((TAD_POINT)getElem(l,i+2)),(float)getZ((TAD_POINT)getElem(l,i+2)));
-    }
-    glEnd();
+  // put code to draw cylinder in here
+  glBegin(GL_TRIANGLES);
+  for(i=0;i<size;i+=3,w+=25){
+      glColor3f(255,0,255);
+      glVertex3f((float)getX((TAD_POINT)getElem(l,i)),(float)getY((TAD_POINT)getElem(l,i)),(float)getZ((TAD_POINT)getElem(l,i)));
+       glColor3f(0,0,255);
+      glVertex3f((float)getX((TAD_POINT)getElem(l,i+1)),(float)getY((TAD_POINT)getElem(l,i+1)),(float)getZ((TAD_POINT)getElem(l,i+1)));
+       glColor3f(100,150,255);
+      glVertex3f((float)getX((TAD_POINT)getElem(l,i+2)),(float)getY((TAD_POINT)getElem(l,i+2)),(float)getZ((TAD_POINT)getElem(l,i+2)));
+  }
+  glEnd();
 	glEnable(GL_CULL_FACE);
 	
 }
@@ -70,11 +77,11 @@ void renderScene(void) {
 
 	// set the camera
 	glLoadIdentity();
-	gluLookAt(5.0,5.0,5.0,
+	gluLookAt(5.0*cos(dAlfa2),5.0*sin(dBeta),5.0*sin(dAlfa2),
 		      px, py, pz,
 			  0.0f,1.0f,0.0f);
 
-    glColor3f(0,255,255);
+  glColor3f(0,255,255);
 	draw();
 
 	// End of frame
@@ -90,20 +97,18 @@ void processKeys(unsigned char c, int xx, int yy) {
      if(c == 'a'){ face = GL_FRONT;}
      if(c == 's'){ face = GL_BACK;}
      if(c == 'd'){ face = GL_FRONT_AND_BACK;}
-   //  if(c == 'j'){ dAlfa++;}
-   //  if(c == 'l'){ dAlfa--;}
-   //  if(c == 'i'){
-   //  	if(dBeta<M_PI/2){dBeta+=0.2;}
-   //     if(dBeta == M_PI/2){dBeta = (M_PI/2);}
-   //  }
-   //  if(c == 'k'){
-   //  	if(dBeta>-M_PI/2){dBeta-=0.2;}
-   //  	if(dBeta == -(M_PI/2)){dBeta = (M_PI/2);}
-   //    }
+     if(c == 'j'){ dAlfa2++;}
+     if(c == 'l'){ dAlfa2--;}
+     if(c == 'i'){ 
+      if(dBeta<M_PI/2){dBeta+=0.2;}
+        if(dBeta == M_PI/2){dBeta= (M_PI/2);}
+     }
+     if(c == 'k'){ 
+      if(dBeta>-M_PI/2){dBeta-=0.2;}
+      if(dBeta == -(M_PI/2)){dBeta == (M_PI/2);}
+     }
      glPolygonMode(face,mode);
      glutPostRedisplay();
-     // faces: GL_FRONT, GL_BACK, GL_FRONT_AND_BACK
-     // mode: GL_FILL, GL_LINE, GL_POINT
 }
 
 
@@ -117,7 +122,12 @@ void processSpecialKeys(int key, int xx, int yy) {
 int main(int argc, char** argv) {
     int i;
     int x = getArraySize(l);
-
+    /*
+    addElemAtIndex(l,POINT(-1,0,-1),0);
+    addElemAtIndex(l,POINT(-1,0,1),1);
+    addElemAtIndex(l,POINT(1,0,1),2);
+    */
+    l = design_sphere(2,10,10, "sphere.3D");
     // init GLUT and the window
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DEPTH|GLUT_DOUBLE|GLUT_RGBA);
