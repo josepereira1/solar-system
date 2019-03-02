@@ -1,0 +1,1 @@
+void drawCone(float radius, float height, int slices);

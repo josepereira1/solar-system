@@ -1,6 +1,9 @@
 IDIR=lib
 CC=gcc
+
 CFLAGS = -Wall -I$(IDIR)
+
+
 C_FILES=$(wildcard $(IDIR)/*.c)
 
 get_teste:
@@ -11,7 +14,6 @@ get_generator:
 
 get_design:
 	$(CC) $(CFLAGS) $(C_FILES) design.cpp -o design
-
 
 install:
 	cp generator /usr/local/bin/

@@ -1,2 +1,2 @@
 
-designPlane(int f,const* char file);
+design_plane(int f,const* char file);
