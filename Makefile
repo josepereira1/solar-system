@@ -1,6 +1,9 @@
 IDIR=lib
 CC=gcc
-CFLAGS = -Wall -std=c11 -g `pkg-config --cflags libxml-2.0` -I$(IDIR)
+
+CFLAGS = -Wall -I$(IDIR)
+
+
 C_FILES=$(wildcard $(IDIR)/*.c)
 
 get_teste:
@@ -8,6 +11,9 @@ get_teste:
 
 get_generator:
 	$(CC) $(CFLAGS) generator.c -o generator
+
+get_design:
+	$(CC) $(CFLAGS) $(C_FILES) design.cpp -o design
 
 install:
 	cp generator /usr/local/bin/
