@@ -83,7 +83,7 @@ void design_sphere(float radius, int slices, int stacks, const char* patch) {
             }
         }
     }
-    filter(l1,l2);
+    filter(l2);
     return l2;
 }
 
