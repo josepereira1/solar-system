@@ -62,9 +62,7 @@ int* getPositions(TAD_ARRAY_LIST all_points, TAD_ARRAY_LIST filtered_points){
 
 int getPosition(TAD_ARRAY_LIST points, TAD_POINT point){
 	int i, size = getArraySize(points);
-	TAD_POINT aux_point;
 	for(i = 0; i < size; i++){
-		aux_point = (TAD_POINT) getElem(points, i);
 		if(equalsPoint(getElem(points, i), point))return i;
 	}
 	return -1;
