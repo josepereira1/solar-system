@@ -1,0 +1,54 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/josepereira/Desktop/pasta sem nome/ArrayList.c
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+ArrayList.h
+/Users/josepereira/Desktop/pasta sem nome/ArrayList.h
+
+/Users/josepereira/Desktop/pasta sem nome/ArrayList.h
+
+/Users/josepereira/Desktop/pasta sem nome/Point.c
+stdio.h
+-
+stdlib.h
+-
+math.h
+-
+string.h
+-
+Point.h
+/Users/josepereira/Desktop/pasta sem nome/Point.h
+
+/Users/josepereira/Desktop/pasta sem nome/Point.h
+
+/Users/josepereira/Desktop/pasta sem nome/newSphereGenerator.c
+stdio.h
+-
+stdlib.h
+-
+math.h
+-
+string.h
+-
+newSphereGenerator.h
+/Users/josepereira/Desktop/pasta sem nome/newSphereGenerator.h
+math.h
+-
+
+/Users/josepereira/Desktop/pasta sem nome/newSphereGenerator.h
+Point.h
+/Users/josepereira/Desktop/pasta sem nome/Point.h
+ArrayList.h
+/Users/josepereira/Desktop/pasta sem nome/ArrayList.h
+

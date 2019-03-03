@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/josepereira/Desktop/pasta sem nome/ArrayList.h
+
+/Users/josepereira/Desktop/pasta sem nome/Point.h
+
+/Users/josepereira/Desktop/pasta sem nome/main.cpp
+GLUT/glut.h
+-
+GL/glut.h
+-
+ArrayList.h
+/Users/josepereira/Desktop/pasta sem nome/ArrayList.h
+Point.h
+/Users/josepereira/Desktop/pasta sem nome/Point.h
+newSphereGenerator.h
+/Users/josepereira/Desktop/pasta sem nome/newSphereGenerator.h
+math.h
+-
+
+/Users/josepereira/Desktop/pasta sem nome/newSphereGenerator.h
+Point.h
+/Users/josepereira/Desktop/pasta sem nome/Point.h
+ArrayList.h
+/Users/josepereira/Desktop/pasta sem nome/ArrayList.h
+

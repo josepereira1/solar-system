@@ -1,0 +1,91 @@
+#define SIZE 50
+#include <ArrayList.h>
+#include <Point.h>
+
+TAD_ARRAY_LIST getPointsOfBox(float x, float y, float z, int divisions) {
+	TAD_ARRAY_LIST points = ARRAY_LIST(SIZE);
+
+	if(divisions==0) divisions = 1;//avoid division by 0
+	float xmin = -x/2, ymin = -y/2, zmin = -z/2, xmax = x/2, ymax = y/2, zmax = z/2;//max and min values to x y z
+	float dx = x/divisions, dy = y/divisions, dz = z/divisions;//size of divisions
+	int i,j;//Variables to run faces
+	//frontal face
+	for(i = 0 ; i < divisions ; i++) {
+		for(j = 0 ; j < divisions ; j++) {
+			//1º triangle
+			addElem(points,POINT(xmin+(j+1)*dx,ymin+i*dy,zmax));
+			addElem(points,POINT(xmin+(j+1)*dx,ymin+(i+1)*dy,zmax));
+			addElem(points,POINT(xmin+j*dx,ymin+i*dy,zmax));
+			//2º triangle
+			addElem(points,POINT(xmin+j*dx,ymin+i*dy,zmax));
+			addElem(points,POINT(xmin+(j+1)*dx,ymin+(i+1)*dy,zmax));
+			addElem(points,POINT(xmin+j*dx,ymin+(i+1)*dy,zmax));
+		}
+	}
+	//rigth face
+	for(i = 0 ; i < divisions ; i++) {
+		for(j = 0 ; j < divisions ; j++) {
+			//1º triangle
+			addElem(points,POINT(xmax,ymin+i*dy,zmax-(j+1)*dz));
+			addElem(points,POINT(xmax,ymin+(i+1)*dy,zmax-(j+1)*dz));
+			addElem(points,POINT(xmax,ymin+i*dy,zmax-j*dz));
+			//2º triangle
+			addElem(points,POINT(xmax,ymin+i*dy,zmax-j*dz));
+			addElem(points,POINT(xmax,ymin+(i+1)*dy,zmax-(j+1)*dz));
+			addElem(points,POINT(xmax,ymin+(i+1)*dy,zmax-j*dz));
+		}
+	}
+	//up face
+	for(i = 0 ; i < divisions ; i++) {
+		for(j = 0 ; j < divisions ; j++) {
+			//1º triangle
+			addElem(points,POINT(xmax-j*dx,ymax,zmax-(j+1)*dz));
+			addElem(points,POINT(xmax-(j+1)*dx,ymax,zmax-(j+1)*dz));
+			addElem(points,POINT(xmax-j*dx,ymax,zmax-j*dz));
+			//2º triangle
+			addElem(points,POINT(xmax-j*dx,ymax,zmax-j*dz));
+			addElem(points,POINT(xmax-(j+1)*dx,ymax,zmax-(j+1)*dz));
+			addElem(points,POINT(xmax-(j+1)*dx,ymax,zmax-j*dz));
+		}
+	}
+	//back face
+	for(i = 0 ; i < divisions ; i++) {
+		for(j = 0 ; j < divisions ; j++) {
+			//1º triangle
+			addElem(points,POINT(xmax-(j+1)*dx,ymin+i*dy,zmin));
+			addElem(points,POINT(xmax-(j+1)*dx,ymin+(i+1)*dy,zmin));
+			addElem(points,POINT(xmax-j*dz,ymin+i*dy,zmin));
+			//2º triangle
+			addElem(points,POINT(xmax-j*dz,ymin+i*dy,zmin));
+			addElem(points,POINT(xmax-(j+1)*dx,ymin+(i+1)*dy,zmin));
+			addElem(points,POINT(xmax-j*dx,ymin+(i+1)*dy,zmin));
+		}
+	}
+	//left face
+	for(i = 0 ; i < divisions ; i++) {
+		for(j = 0 ; j < divisions ; j++) {
+			//1º triangle
+			addElem(points,POINT(xmin,ymin+i*dy,zmin+(j+1)*dz));
+			addElem(points,POINT(xmin,ymin+(i+1)*dy,zmin+(j+1)*dz));
+			addElem(points,POINT(xmin,ymin+i*dy,zmin+j*dz));
+			//2º triangle
+			addElem(points,POINT(xmin,ymin+i*dy,zmin+j*dz));
+			addElem(points,POINT(xmin,ymin+(i+1)*dy,zmin+(j+1)*dz));
+			addElem(points,POINT(xmin,ymin+(i+1)*dy,zmin+j*dz));
+		}
+	}
+	//down face
+	for(i = 0 ; i < divisions ; i++) {
+		for(j = 0 ; j < divisions ; j++) {
+			//1º triangle
+			addElem(points,POINT(xmin+j*dx,ymin,zmin+(j+1)*dz));
+			addElem(points,POINT(xmin+(j+1)*dx,ymin,zmin+(j+1)*dz));
+			addElem(points,POINT(xmin+j*dx,ymin,zmin+j*dz));
+			//2º triangle
+			addElem(points,POINT(xmin+j*dx,ymin,zmin+j*dz));
+			addElem(points,POINT(xmin+(j+1)*dx,ymin,zmin+(j+1)*dz));
+			addElem(points,POINT(xmin+(j+1)*dx,ymin,zmin+j*dz));
+		}
+	}
+	return points;
+}
