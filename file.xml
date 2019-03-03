@@ -1,4 +1,3 @@
 <scene>
-     <model file="a.3d" />
-     <model file="b.3d" />
+     <model file="exemplo.3d" />
 </scene>

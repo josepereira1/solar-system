@@ -35,7 +35,10 @@ static TAD_ARRAY_LIST getFileNames(const char* path){
     LIBXML_TEST_VERSION
     xmlTextReaderPtr tree = NULL;
     if ((tree = xmlReaderForFile(path, NULL, 0)) == NULL ) {
-        perror("error: could not parse file");
+        char* errorMsg = malloc(sizeof(char)*(strlen(path)+21));
+        sprintf(errorMsg, "could not open file %s", path);
+        perror(errorMsg);
+        free(errorMsg);
         exit(1);
     }
     TAD_ARRAY_LIST fileNames = ARRAY_LIST(1);
@@ -43,7 +46,7 @@ static TAD_ARRAY_LIST getFileNames(const char* path){
         search_elements(tree, fileNames);
         xmlFreeTextReader(tree);
     }
-    printf("models parser done!\n");
+    // printf("models parser done!\n");
     return fileNames;
 }
 

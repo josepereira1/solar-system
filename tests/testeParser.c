@@ -10,7 +10,7 @@ static void printPointsArray(TAD_ARRAY_LIST pontos) {
 
 int main()
 {
-	TAD_ARRAY_LIST pontos = getPointsFromFiles("../file.xml");
+	TAD_ARRAY_LIST pontos = getPointsFromFiles("file.xml");
     printPointsArray(pontos);
 	return 0;
 }
