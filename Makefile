@@ -1,25 +1,12 @@
-IDIR=lib
+IDIR=include/
+LIBXML2DIR=libxml2-2.9.8/
 CC=gcc
+CFLAGS = -Wall -I $(IDIR)
 
-CFLAGS = -Wall -I$(IDIR)
-
-
-C_FILES=$(wildcard $(IDIR)/*.c)
-
-get_teste:
-	$(CC) $(CFLAGS) $(C_FILES) -o teste
+C_FILES_GENERATOR=src/ArrayList.c src/filterPoints.c src/list2file.c src/Point.c generators/boxGenerator.c generators/coneGenerator.c generators/sphereGenerator.c generators/planeGenerator.c src/generator.c 
 
 get_generator:
-	$(CC) $(CFLAGS) generator.c -o generator
-
-get_design:
-	$(CC) $(CFLAGS) $(C_FILES) design.cpp -o design
-
-run:
-	clear
-	rm exe
-	rm dados.txt
-	gcc src/generator.c src/filterPoints.c src/file2list.c src/ArrayList.c src/Point.c src/list2file.c  generators/boxGenerator.c generators/coneGenerator.c generators/sphereGenerator.c generators/planeGenerator.c -I include/ -o exe
+	$(CC) $(CFLAGS) $(C_FILES_GENERATOR) -o generator
 
 install:
 	cp generator /usr/local/bin/
@@ -28,7 +15,6 @@ uninstall:
 	make clean
 
 clean:
-	rm -f teste
 	rm -f *.3d
 	rm -f generator
 	rm -f /usr/local/bin/generator

@@ -15,9 +15,13 @@
 
 static char* getfile(const char* path) {
 	void* tmp = malloc(MB); // criar o buffer com 1 MB
-	int fd = open(path, O_RDONLY); // abre o ficheiro para leitura apenas 
+	int fd;
+	if ( (fd = open(path, O_RDONLY)) == -1) { // abre o ficheiro para leitura apenas 
+		perror("could not open file");
+		exit(1);
+	}
 	read(fd, tmp, MB); // lê 1 MB do ficheiro e coloca no buffer
-	char* res = malloc(sizeof(char) * strlen(tmp)); 
+	char* res = malloc(sizeof(char) * (strlen(tmp)+1)); 
 	strcpy(res,tmp);
 	free(tmp);
 	return res;
