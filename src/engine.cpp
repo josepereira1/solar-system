@@ -8,6 +8,8 @@
 #include <Point.h>
 #include <xmlParser.h>
 
+#include <stdio.h>
+
 #define _USE_MATH_DEFINES
 #include <math.h>
 
@@ -45,13 +47,14 @@ void changeSize(int w, int h) {
 
 
 void draw() {
-    int i;
+
 	int size = getArraySize(pontos);
+
     glBegin(GL_TRIANGLES);
-    for(i=0;i<size;i++){
-    	TAD_POINT p = (TAD_POINT) getElem(pontos,i);
-        glVertex3f(getX(p), getY(p), getZ(p));
-    }
+	    for(int i=0;i<size;i++){
+	    	TAD_POINT p = (TAD_POINT) getElem(pontos,i);
+	        glVertex3f(getX(p), getY(p), getZ(p));
+	    }
     glEnd();
 	glEnable(GL_CULL_FACE);
 }
@@ -64,12 +67,14 @@ void renderScene(void) {
 
 	// set the camera
 	glLoadIdentity();
-	gluLookAt(5.0,5.0,5.0,
+	gluLookAt(30.0, 30.0, 30.0,
 		      px, py, pz,
 			  0.0f,1.0f,0.0f);
 
 	glColor3f(0,255,255);
-	draw();
+
+	draw(); // imprime as figuras
+
 
 	// End of frame
 	glutSwapBuffers();
@@ -102,8 +107,8 @@ static void printPointsArray(TAD_ARRAY_LIST pontos) {
 
 int main(int argc, char** argv) {
     
-    TAD_ARRAY_LIST pontos = getPointsFromFiles("file.xml");
-    printPointsArray(pontos);
+    pontos = getPointsFromFiles("file.xml");
+    // printPointsArray(pontos);
 
     // init GLUT and the window
     glutInit(&argc, argv);

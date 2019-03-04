@@ -7,16 +7,57 @@ CMakeFiles/engine.dir/ArrayList.cpp.o
 CMakeFiles/engine.dir/Point.cpp.o
  /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/Point.h
  /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/Point.cpp
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinystr.cpp.o
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinystr.cpp
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinystr.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxml.cpp.o
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinystr.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxml.cpp
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxml.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxmlerror.cpp.o
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinystr.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxml.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxmlerror.cpp
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxmlparser.cpp.o
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinystr.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxml.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxmlparser.cpp
+CMakeFiles/engine.dir/boxGenerator.cpp.o
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/ArrayList.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/Point.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/boxGenerator.cpp
+CMakeFiles/engine.dir/coneGenerator.cpp.o
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/ArrayList.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/Point.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/coneGenerator.cpp
+CMakeFiles/engine.dir/engine.cpp.o
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/ArrayList.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/Point.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/xmlParser.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/engine.cpp
 CMakeFiles/engine.dir/file2list.cpp.o
  /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/ArrayList.h
  /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/Point.h
  /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/file2list.h
  /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/file2list.cpp
-CMakeFiles/engine.dir/main.cpp.o
+CMakeFiles/engine.dir/filterPoints.cpp.o
  /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/ArrayList.h
  /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/Point.h
- /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/xmlParser.h
- /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/main.cpp
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/filterPoints.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/filterPoints.cpp
+CMakeFiles/engine.dir/list2file.cpp.o
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/ArrayList.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/Point.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/list2file.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/list2file.cpp
+CMakeFiles/engine.dir/planeGenerator.cpp.o
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/ArrayList.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/Point.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/planeGenerator.cpp
+CMakeFiles/engine.dir/sphereGenerator.cpp.o
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/ArrayList.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/Point.h
+ /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/sphereGenerator.cpp
 CMakeFiles/engine.dir/xmlParser.cpp.o
  /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/ArrayList.h
  /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/Point.h

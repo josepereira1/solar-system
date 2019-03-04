@@ -14,7 +14,7 @@
 #define 		 MB		   1024*KB
 
 static char* getfile(char* path) {
-	void* tmp = malloc(MB); // criar o buffer com 1 MB
+	void* tmp = malloc(10*MB); // criar o buffer com 1 MB
 	int fd;
 	if ( (fd = open(path, O_RDONLY)) == -1) { // abre o ficheiro para leitura apenas 
 		char* errorMsg = (char*) malloc(sizeof(char)*(strlen(path)+21));
