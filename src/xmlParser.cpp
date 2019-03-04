@@ -6,21 +6,23 @@
 #include <Point.h>
 
 static TAD_ARRAY_LIST getFileNames(char* path){
+    TAD_ARRAY_LIST fileNames = ARRAY_LIST(1);
     TiXmlDocument doc(path);
-
     if(doc.LoadFile())
     {
         // doc.Print( stdout );
-        TiXmlElement *pRoot, *pParm;
+        TiXmlElement *pRoot, *pChild;
         pRoot = doc.FirstChildElement("scene");
         if(pRoot)
         {
-            pParm = pRoot->FirstChildElement("model");
-            while(pParm)
+            pChild = pRoot->FirstChildElement("model");
+            while(pChild)
             {
-                const char* fileName = pRoot->ToElement()->Attribute("file");
-                printf("%s\n", fileName);
-                pParm = pParm->NextSiblingElement("model");
+                const char* fileName = pChild->Attribute("file");
+                char* str = (char*) malloc(sizeof(char)*(strlen(fileName)+1));
+                strcpy(str, fileName);
+                addElem(fileNames, str);
+                pChild = pChild->NextSiblingElement("model");
             }
         }
     }
@@ -29,6 +31,7 @@ static TAD_ARRAY_LIST getFileNames(char* path){
         perror("Could not load XML File");
         exit(1);
     }
+    return fileNames;
 }
 
 
