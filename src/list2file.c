@@ -12,8 +12,9 @@ void list2file(TAD_ARRAY_LIST points, int positions[], int tam, const char* path
 		sprintf(str,"%s",tmp);
 		deslocamento += len;
 		free(tmp);
+		int i;
 		//put the positions
-		for(int i=0 ; i<tam ; i+=3) {
+		for(i=0 ; i<(tam-1) ; i+=3) {
 			char* tmp2 = malloc(256);
 			sprintf(tmp2,"%d, %d, %d\n",positions[i],positions[i+1],positions[i+2]);
 			len = strlen(tmp2);
@@ -21,6 +22,12 @@ void list2file(TAD_ARRAY_LIST points, int positions[], int tam, const char* path
 			deslocamento+=len;
 			free(tmp2);
 		}
+		char* tmp2 = malloc(256);
+		sprintf(tmp2,"%d, %d, %d",positions[i],positions[i+1],positions[i+2]);
+		len = strlen(tmp2);
+		sprintf(str+deslocamento,"%s",tmp2);
+		deslocamento+=len;
+		free(tmp2);
 		int size = getArraySize(points);
 		//put number of points
 		char* tmp3 = malloc(256);
@@ -30,7 +37,7 @@ void list2file(TAD_ARRAY_LIST points, int positions[], int tam, const char* path
 		deslocamento+=len;
 		free(tmp3);
 		//put the points (x,y,z)
-		for(int i=0 ; i<size ; i++) {
+		for(i=0 ; i<(size-1) ; i++) {
 			TAD_POINT point = getElem(points,i);
 			char* tmp4 = malloc(256);
 			sprintf(tmp4,"%.5f, %.5f, %.5f\n",getX(point),getY(point),getZ(point));
@@ -39,6 +46,13 @@ void list2file(TAD_ARRAY_LIST points, int positions[], int tam, const char* path
 			deslocamento+=len;
 			free(tmp4);
 		}
+		TAD_POINT point = getElem(points,i);
+		char* tmp4 = malloc(256);
+		sprintf(tmp4,"%.5f, %.5f, %.5f",getX(point),getY(point),getZ(point));
+		len = strlen(tmp4);
+		sprintf(str+deslocamento,"%s",tmp4);
+		deslocamento+=len;
+		free(tmp4);
 		//save on file
         fputs(str,file);
         //close the file

@@ -31,7 +31,7 @@ void write_points_to_file(TAD_ARRAY_LIST points, const char* patch){
 	filter(points, &withoutRepeated, &positions);
 
 	size = getArraySize(points);
-    printf("%d\n",size);
+
 	list2file(withoutRepeated, positions, size , patch);
 }
 
