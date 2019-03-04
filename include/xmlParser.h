@@ -3,6 +3,6 @@
 
 #include <ArrayList.h>
 
-TAD_ARRAY_LIST getPointsFromFiles(const char* path);
+TAD_ARRAY_LIST getPointsFromFiles(char* path);
 
 #endif

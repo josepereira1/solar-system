@@ -29,11 +29,11 @@ typedef struct TCD_ARRAY_LIST{
 */
 TAD_ARRAY_LIST ARRAY_LIST(int N){
 
-    TAD_ARRAY_LIST list = malloc(sizeof(TCD_ARRAY_LIST));
+    TAD_ARRAY_LIST list = (TAD_ARRAY_LIST) malloc(sizeof(TCD_ARRAY_LIST));
 
     list->dim = N;
     list->ocupados = 0;
-    list->array = malloc(list->dim * sizeof(void *));
+    list->array = (void**) malloc(list->dim * sizeof(void *));
 
     return list;
 }
@@ -56,7 +56,7 @@ static void** array_copy(void** old_array, int old_dim, long new_dim){
     }
     #endif
 
-	void** new_array = malloc(new_dim * sizeof(void*));	
+	void** new_array = (void**) malloc(new_dim * sizeof(void*));	
 
 	memcpy(new_array, old_array, old_dim * sizeof(void*));
 

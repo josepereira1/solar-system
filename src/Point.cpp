@@ -13,7 +13,7 @@ typedef struct TCD_Point{
 
 // CONSTRUTOR
 TAD_POINT POINT(float x, float y, float z) {
-	TAD_POINT point = malloc(sizeof(TCD_Point));
+	TAD_POINT point = (TAD_POINT) malloc(sizeof(TCD_Point));
 	point->x = x;
 	point->y = y;
 	point->z = z;

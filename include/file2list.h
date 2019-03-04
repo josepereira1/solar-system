@@ -3,6 +3,6 @@
 
 #include <ArrayList.h>
 
-TAD_ARRAY_LIST file2list(const char* path);
+TAD_ARRAY_LIST file2list(char* path);
 
 #endif

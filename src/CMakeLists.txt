@@ -7,9 +7,10 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 include_directories (
 ../include  
+../tinyxml
 )
 
-add_executable(${PROJECT_NAME} main.cpp file2list.c Point.c ArrayList.c xmlParser.c)
+add_executable(${PROJECT_NAME} main.cpp xmlParser.cpp file2list.cpp Point.cpp ArrayList.cpp )
 
 find_package(OpenGL REQUIRED)
 include_directories(${OpenGL_INCLUDE_DIRS})

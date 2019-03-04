@@ -123,86 +123,86 @@ engine/fast:
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/build
 .PHONY : engine/fast
 
-ArrayList.o: ArrayList.c.o
+ArrayList.o: ArrayList.cpp.o
 
 .PHONY : ArrayList.o
 
 # target to build an object file
-ArrayList.c.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/ArrayList.c.o
-.PHONY : ArrayList.c.o
+ArrayList.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/ArrayList.cpp.o
+.PHONY : ArrayList.cpp.o
 
-ArrayList.i: ArrayList.c.i
+ArrayList.i: ArrayList.cpp.i
 
 .PHONY : ArrayList.i
 
 # target to preprocess a source file
-ArrayList.c.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/ArrayList.c.i
-.PHONY : ArrayList.c.i
+ArrayList.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/ArrayList.cpp.i
+.PHONY : ArrayList.cpp.i
 
-ArrayList.s: ArrayList.c.s
+ArrayList.s: ArrayList.cpp.s
 
 .PHONY : ArrayList.s
 
 # target to generate assembly for a file
-ArrayList.c.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/ArrayList.c.s
-.PHONY : ArrayList.c.s
+ArrayList.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/ArrayList.cpp.s
+.PHONY : ArrayList.cpp.s
 
-Point.o: Point.c.o
+Point.o: Point.cpp.o
 
 .PHONY : Point.o
 
 # target to build an object file
-Point.c.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point.c.o
-.PHONY : Point.c.o
+Point.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point.cpp.o
+.PHONY : Point.cpp.o
 
-Point.i: Point.c.i
+Point.i: Point.cpp.i
 
 .PHONY : Point.i
 
 # target to preprocess a source file
-Point.c.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point.c.i
-.PHONY : Point.c.i
+Point.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point.cpp.i
+.PHONY : Point.cpp.i
 
-Point.s: Point.c.s
+Point.s: Point.cpp.s
 
 .PHONY : Point.s
 
 # target to generate assembly for a file
-Point.c.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point.c.s
-.PHONY : Point.c.s
+Point.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point.cpp.s
+.PHONY : Point.cpp.s
 
-file2list.o: file2list.c.o
+file2list.o: file2list.cpp.o
 
 .PHONY : file2list.o
 
 # target to build an object file
-file2list.c.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/file2list.c.o
-.PHONY : file2list.c.o
+file2list.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/file2list.cpp.o
+.PHONY : file2list.cpp.o
 
-file2list.i: file2list.c.i
+file2list.i: file2list.cpp.i
 
 .PHONY : file2list.i
 
 # target to preprocess a source file
-file2list.c.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/file2list.c.i
-.PHONY : file2list.c.i
+file2list.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/file2list.cpp.i
+.PHONY : file2list.cpp.i
 
-file2list.s: file2list.c.s
+file2list.s: file2list.cpp.s
 
 .PHONY : file2list.s
 
 # target to generate assembly for a file
-file2list.c.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/file2list.c.s
-.PHONY : file2list.c.s
+file2list.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/file2list.cpp.s
+.PHONY : file2list.cpp.s
 
 main.o: main.cpp.o
 
@@ -231,32 +231,32 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-xmlParser.o: xmlParser.c.o
+xmlParser.o: xmlParser.cpp.o
 
 .PHONY : xmlParser.o
 
 # target to build an object file
-xmlParser.c.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/xmlParser.c.o
-.PHONY : xmlParser.c.o
+xmlParser.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/xmlParser.cpp.o
+.PHONY : xmlParser.cpp.o
 
-xmlParser.i: xmlParser.c.i
+xmlParser.i: xmlParser.cpp.i
 
 .PHONY : xmlParser.i
 
 # target to preprocess a source file
-xmlParser.c.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/xmlParser.c.i
-.PHONY : xmlParser.c.i
+xmlParser.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/xmlParser.cpp.i
+.PHONY : xmlParser.cpp.i
 
-xmlParser.s: xmlParser.c.s
+xmlParser.s: xmlParser.cpp.s
 
 .PHONY : xmlParser.s
 
 # target to generate assembly for a file
-xmlParser.c.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/xmlParser.c.s
-.PHONY : xmlParser.c.s
+xmlParser.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/xmlParser.cpp.s
+.PHONY : xmlParser.cpp.s
 
 # Help Target
 help:

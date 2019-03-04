@@ -13,19 +13,19 @@
 #define 		 KB         1024*B
 #define 		 MB		   1024*KB
 
-static char* getfile(const char* path) {
+static char* getfile(char* path) {
 	void* tmp = malloc(MB); // criar o buffer com 1 MB
 	int fd;
 	if ( (fd = open(path, O_RDONLY)) == -1) { // abre o ficheiro para leitura apenas 
-		char* errorMsg = malloc(sizeof(char)*(strlen(path)+21));
+		char* errorMsg = (char*) malloc(sizeof(char)*(strlen(path)+21));
 		sprintf(errorMsg, "could not open file %s", path);
 		perror(errorMsg);
 		free(errorMsg);
 		exit(1);
 	}
 	read(fd, tmp, MB); // lê 1 MB do ficheiro e coloca no buffer
-	char* res = malloc(sizeof(char) * (strlen(tmp)+1)); 
-	strcpy(res,tmp);
+	char* res = (char*) malloc(sizeof(char) * (strlen((char*)tmp)+1)); 
+	strcpy(res,(char*)tmp);
 	free(tmp);
 	return res;
 }
@@ -42,7 +42,7 @@ static int readLn(char* str) {
 
 static char* subStr(int start, int end, char* str) {
 	int len = end - start;
-	char* res = malloc(sizeof(char)*(len+1));
+	char* res = (char*) malloc(sizeof(char)*(len+1));
 	memcpy(res, str + start, len);
 	res[len] = '\0';
 	return res;
@@ -56,7 +56,7 @@ static void indices2list(TAD_ARRAY_LIST arr, char* str){
 		if (str[i] == ',' || str[i] == '\0') {
 			tmp = subStr(start, i, str);
 			start = i + 2;
-			int* n = malloc(sizeof(int));
+			int* n = (int*) malloc(sizeof(int));
 			*n = atoi(tmp);
 			addElem(arr, n);
 			free(tmp);
@@ -86,7 +86,7 @@ static void pontos2list(TAD_ARRAY_LIST arr, char* str){
 }
 
 
-TAD_ARRAY_LIST file2list(const char* path) {
+TAD_ARRAY_LIST file2list(char* path) {
 	
 	char* buf = getfile(path), *tmp; // puxa a info do ficheiro para uma string
 	int currentIndex = 0, i;

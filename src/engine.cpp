@@ -4,11 +4,9 @@
 #include <GL/glut.h>
 #endif
 
-extern "C" {
-   #include <ArrayList.h>
-   #include <Point.h>
-   #include <xmlParser.h>
-}
+#include <ArrayList.h>
+#include <Point.h>
+#include <xmlParser.h>
 
 #define _USE_MATH_DEFINES
 #include <math.h>

@@ -92,7 +92,8 @@ void printer(TAD_ARRAY_LIST l1){
     int x = getArraySize(l1);
     int i;
     for(i = 0;i<x;i++){
-        printf("%f, %f, %f\n",getX(getElem(l1,i)),getY(getElem(l1,i)),getZ(getElem(l1,i)));
+        TAD_POINT point = (TAD_POINT) getElem(l1,i);
+        printf("%f, %f, %f\n",getX(point),getY(point),getZ(point));
         if(((i+1)%3) == 0) printf("\n\n");
     }
 
