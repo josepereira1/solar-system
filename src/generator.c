@@ -26,11 +26,12 @@ void write_on_file(const char* data, const char* path) {
 void write_points_to_file(TAD_ARRAY_LIST points, const char* patch){
 	TAD_ARRAY_LIST withoutRepeated;
 	int *positions, size;
+	printf("%d\n",getArraySize(points));
 
 	filter(points, &withoutRepeated, &positions);
 
-	size = getArraySize(withoutRepeated);
-
+	size = getArraySize(points);
+    printf("%d\n",size);
 	list2file(withoutRepeated, positions, size , patch);
 }
 
