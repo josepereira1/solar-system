@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/ArrayList.h
+
 /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/ArrayList.c
 stdlib.h
 -
@@ -14,17 +16,5 @@ stdio.h
 string.h
 -
 ArrayList.h
--
-
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/Point.c
-stdio.h
--
-stdlib.h
--
-math.h
--
-string.h
--
-Point.h
 -
 

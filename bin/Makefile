@@ -48,10 +48,10 @@ RM = /Applications/CMake.app/Contents/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/josepereira/Desktop/pasta sem nome"
+CMAKE_SOURCE_DIR = /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/josepereira/Desktop/akakaka/projeto-cg/bin
+CMAKE_BINARY_DIR = /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/josepereira/Desktop/akakaka/projeto-cg/bin/CMakeFiles /Users/josepereira/Desktop/akakaka/projeto-cg/bin/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin/CMakeFiles /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/josepereira/Desktop/akakaka/projeto-cg/bin/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named class2
+# Target rules for targets named engine
 
 # Build rule for target.
-class2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 class2
-.PHONY : class2
+engine: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 engine
+.PHONY : engine
 
 # fast build rule for target.
-class2/fast:
-	$(MAKE) -f CMakeFiles/class2.dir/build.make CMakeFiles/class2.dir/build
-.PHONY : class2/fast
+engine/fast:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/build
+.PHONY : engine/fast
+
+#=============================================================================
+# Target rules for targets named src
+
+# Build rule for target.
+src: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 src
+.PHONY : src
+
+# fast build rule for target.
+src/fast:
+	$(MAKE) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/build
+.PHONY : src/fast
 
 ArrayList.o: ArrayList.c.o
 
@@ -129,7 +142,7 @@ ArrayList.o: ArrayList.c.o
 
 # target to build an object file
 ArrayList.c.o:
-	$(MAKE) -f CMakeFiles/class2.dir/build.make CMakeFiles/class2.dir/ArrayList.c.o
+	$(MAKE) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/ArrayList.c.o
 .PHONY : ArrayList.c.o
 
 ArrayList.i: ArrayList.c.i
@@ -138,7 +151,7 @@ ArrayList.i: ArrayList.c.i
 
 # target to preprocess a source file
 ArrayList.c.i:
-	$(MAKE) -f CMakeFiles/class2.dir/build.make CMakeFiles/class2.dir/ArrayList.c.i
+	$(MAKE) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/ArrayList.c.i
 .PHONY : ArrayList.c.i
 
 ArrayList.s: ArrayList.c.s
@@ -147,35 +160,8 @@ ArrayList.s: ArrayList.c.s
 
 # target to generate assembly for a file
 ArrayList.c.s:
-	$(MAKE) -f CMakeFiles/class2.dir/build.make CMakeFiles/class2.dir/ArrayList.c.s
+	$(MAKE) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/ArrayList.c.s
 .PHONY : ArrayList.c.s
-
-Point.o: Point.c.o
-
-.PHONY : Point.o
-
-# target to build an object file
-Point.c.o:
-	$(MAKE) -f CMakeFiles/class2.dir/build.make CMakeFiles/class2.dir/Point.c.o
-.PHONY : Point.c.o
-
-Point.i: Point.c.i
-
-.PHONY : Point.i
-
-# target to preprocess a source file
-Point.c.i:
-	$(MAKE) -f CMakeFiles/class2.dir/build.make CMakeFiles/class2.dir/Point.c.i
-.PHONY : Point.c.i
-
-Point.s: Point.c.s
-
-.PHONY : Point.s
-
-# target to generate assembly for a file
-Point.c.s:
-	$(MAKE) -f CMakeFiles/class2.dir/build.make CMakeFiles/class2.dir/Point.c.s
-.PHONY : Point.c.s
 
 main.o: main.cpp.o
 
@@ -183,7 +169,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/class2.dir/build.make CMakeFiles/class2.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -192,7 +178,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/class2.dir/build.make CMakeFiles/class2.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -201,35 +187,8 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/class2.dir/build.make CMakeFiles/class2.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/main.cpp.s
 .PHONY : main.cpp.s
-
-newSphereGenerator.o: newSphereGenerator.c.o
-
-.PHONY : newSphereGenerator.o
-
-# target to build an object file
-newSphereGenerator.c.o:
-	$(MAKE) -f CMakeFiles/class2.dir/build.make CMakeFiles/class2.dir/newSphereGenerator.c.o
-.PHONY : newSphereGenerator.c.o
-
-newSphereGenerator.i: newSphereGenerator.c.i
-
-.PHONY : newSphereGenerator.i
-
-# target to preprocess a source file
-newSphereGenerator.c.i:
-	$(MAKE) -f CMakeFiles/class2.dir/build.make CMakeFiles/class2.dir/newSphereGenerator.c.i
-.PHONY : newSphereGenerator.c.i
-
-newSphereGenerator.s: newSphereGenerator.c.s
-
-.PHONY : newSphereGenerator.s
-
-# target to generate assembly for a file
-newSphereGenerator.c.s:
-	$(MAKE) -f CMakeFiles/class2.dir/build.make CMakeFiles/class2.dir/newSphereGenerator.c.s
-.PHONY : newSphereGenerator.c.s
 
 # Help Target
 help:
@@ -239,19 +198,14 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... class2"
+	@echo "... engine"
+	@echo "... src"
 	@echo "... ArrayList.o"
 	@echo "... ArrayList.i"
 	@echo "... ArrayList.s"
-	@echo "... Point.o"
-	@echo "... Point.i"
-	@echo "... Point.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... newSphereGenerator.o"
-	@echo "... newSphereGenerator.i"
-	@echo "... newSphereGenerator.s"
 .PHONY : help
 
 

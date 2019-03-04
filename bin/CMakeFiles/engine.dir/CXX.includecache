@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/ArrayList.h
+
+/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/Point.h
+
+/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/file2list.h
+ArrayList.h
+-
+
 /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/main.cpp
 GLUT/glut.h
 -

@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/ArrayList.h
+
+/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/Point.h
+
 /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/ArrayList.c
 stdlib.h
 -

@@ -1,16 +1,22 @@
 cmake_minimum_required(VERSION 3.5)
 
 # Project Name
-PROJECT(class2)
+PROJECT(engine)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-add_executable(${PROJECT_NAME} main.cpp ArrayList.c Point.c newSphereGenerator.c)
+add_library(src ArrayList.c)
+include_directories (../include)
+# add_subdirectory (src) 
+
+add_executable(${PROJECT_NAME} main.cpp )
+target_link_libraries (${PROJECT_NAME} src) # meti eu
 
 find_package(OpenGL REQUIRED)
 include_directories(${OpenGL_INCLUDE_DIRS})
 link_directories(${OpenGL_LIBRARY_DIRS})
 add_definitions(${OpenGL_DEFINITIONS})
+
 
 if(NOT OPENGL_FOUND)
     message(ERROR " OPENGL not found!")

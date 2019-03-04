@@ -43,10 +43,10 @@ RM = /Applications/CMake.app/Contents/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/josepereira/Desktop/pasta sem nome"
+CMAKE_SOURCE_DIR = /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/josepereira/Desktop/akakaka/projeto-cg/bin
+CMAKE_BINARY_DIR = /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin
 
 # Include any dependencies generated for this target.
 include CMakeFiles/class2.dir/depend.make
@@ -58,17 +58,17 @@ include CMakeFiles/class2.dir/progress.make
 include CMakeFiles/class2.dir/flags.make
 
 CMakeFiles/class2.dir/main.cpp.o: CMakeFiles/class2.dir/flags.make
-CMakeFiles/class2.dir/main.cpp.o: /Users/josepereira/Desktop/pasta\ sem\ nome/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/josepereira/Desktop/akakaka/projeto-cg/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/class2.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/class2.dir/main.cpp.o -c "/Users/josepereira/Desktop/pasta sem nome/main.cpp"
+CMakeFiles/class2.dir/main.cpp.o: /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/class2.dir/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/class2.dir/main.cpp.o -c /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/main.cpp
 
 CMakeFiles/class2.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/class2.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/josepereira/Desktop/pasta sem nome/main.cpp" > CMakeFiles/class2.dir/main.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/main.cpp > CMakeFiles/class2.dir/main.cpp.i
 
 CMakeFiles/class2.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/class2.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/josepereira/Desktop/pasta sem nome/main.cpp" -o CMakeFiles/class2.dir/main.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/main.cpp -o CMakeFiles/class2.dir/main.cpp.s
 
 CMakeFiles/class2.dir/main.cpp.o.requires:
 
@@ -82,17 +82,17 @@ CMakeFiles/class2.dir/main.cpp.o.provides.build: CMakeFiles/class2.dir/main.cpp.
 
 
 CMakeFiles/class2.dir/ArrayList.c.o: CMakeFiles/class2.dir/flags.make
-CMakeFiles/class2.dir/ArrayList.c.o: /Users/josepereira/Desktop/pasta\ sem\ nome/ArrayList.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/josepereira/Desktop/akakaka/projeto-cg/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/class2.dir/ArrayList.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/class2.dir/ArrayList.c.o   -c "/Users/josepereira/Desktop/pasta sem nome/ArrayList.c"
+CMakeFiles/class2.dir/ArrayList.c.o: /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/ArrayList.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/class2.dir/ArrayList.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/class2.dir/ArrayList.c.o   -c /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/ArrayList.c
 
 CMakeFiles/class2.dir/ArrayList.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/class2.dir/ArrayList.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/Users/josepereira/Desktop/pasta sem nome/ArrayList.c" > CMakeFiles/class2.dir/ArrayList.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/ArrayList.c > CMakeFiles/class2.dir/ArrayList.c.i
 
 CMakeFiles/class2.dir/ArrayList.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/class2.dir/ArrayList.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/Users/josepereira/Desktop/pasta sem nome/ArrayList.c" -o CMakeFiles/class2.dir/ArrayList.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/ArrayList.c -o CMakeFiles/class2.dir/ArrayList.c.s
 
 CMakeFiles/class2.dir/ArrayList.c.o.requires:
 
@@ -106,17 +106,17 @@ CMakeFiles/class2.dir/ArrayList.c.o.provides.build: CMakeFiles/class2.dir/ArrayL
 
 
 CMakeFiles/class2.dir/Point.c.o: CMakeFiles/class2.dir/flags.make
-CMakeFiles/class2.dir/Point.c.o: /Users/josepereira/Desktop/pasta\ sem\ nome/Point.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/josepereira/Desktop/akakaka/projeto-cg/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/class2.dir/Point.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/class2.dir/Point.c.o   -c "/Users/josepereira/Desktop/pasta sem nome/Point.c"
+CMakeFiles/class2.dir/Point.c.o: /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/Point.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/class2.dir/Point.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/class2.dir/Point.c.o   -c /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/Point.c
 
 CMakeFiles/class2.dir/Point.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/class2.dir/Point.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/Users/josepereira/Desktop/pasta sem nome/Point.c" > CMakeFiles/class2.dir/Point.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/Point.c > CMakeFiles/class2.dir/Point.c.i
 
 CMakeFiles/class2.dir/Point.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/class2.dir/Point.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/Users/josepereira/Desktop/pasta sem nome/Point.c" -o CMakeFiles/class2.dir/Point.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/Point.c -o CMakeFiles/class2.dir/Point.c.s
 
 CMakeFiles/class2.dir/Point.c.o.requires:
 
@@ -129,36 +129,11 @@ CMakeFiles/class2.dir/Point.c.o.provides: CMakeFiles/class2.dir/Point.c.o.requir
 CMakeFiles/class2.dir/Point.c.o.provides.build: CMakeFiles/class2.dir/Point.c.o
 
 
-CMakeFiles/class2.dir/newSphereGenerator.c.o: CMakeFiles/class2.dir/flags.make
-CMakeFiles/class2.dir/newSphereGenerator.c.o: /Users/josepereira/Desktop/pasta\ sem\ nome/newSphereGenerator.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/josepereira/Desktop/akakaka/projeto-cg/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/class2.dir/newSphereGenerator.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/class2.dir/newSphereGenerator.c.o   -c "/Users/josepereira/Desktop/pasta sem nome/newSphereGenerator.c"
-
-CMakeFiles/class2.dir/newSphereGenerator.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/class2.dir/newSphereGenerator.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/Users/josepereira/Desktop/pasta sem nome/newSphereGenerator.c" > CMakeFiles/class2.dir/newSphereGenerator.c.i
-
-CMakeFiles/class2.dir/newSphereGenerator.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/class2.dir/newSphereGenerator.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/Users/josepereira/Desktop/pasta sem nome/newSphereGenerator.c" -o CMakeFiles/class2.dir/newSphereGenerator.c.s
-
-CMakeFiles/class2.dir/newSphereGenerator.c.o.requires:
-
-.PHONY : CMakeFiles/class2.dir/newSphereGenerator.c.o.requires
-
-CMakeFiles/class2.dir/newSphereGenerator.c.o.provides: CMakeFiles/class2.dir/newSphereGenerator.c.o.requires
-	$(MAKE) -f CMakeFiles/class2.dir/build.make CMakeFiles/class2.dir/newSphereGenerator.c.o.provides.build
-.PHONY : CMakeFiles/class2.dir/newSphereGenerator.c.o.provides
-
-CMakeFiles/class2.dir/newSphereGenerator.c.o.provides.build: CMakeFiles/class2.dir/newSphereGenerator.c.o
-
-
 # Object files for target class2
 class2_OBJECTS = \
 "CMakeFiles/class2.dir/main.cpp.o" \
 "CMakeFiles/class2.dir/ArrayList.c.o" \
-"CMakeFiles/class2.dir/Point.c.o" \
-"CMakeFiles/class2.dir/newSphereGenerator.c.o"
+"CMakeFiles/class2.dir/Point.c.o"
 
 # External object files for target class2
 class2_EXTERNAL_OBJECTS =
@@ -166,10 +141,9 @@ class2_EXTERNAL_OBJECTS =
 class2: CMakeFiles/class2.dir/main.cpp.o
 class2: CMakeFiles/class2.dir/ArrayList.c.o
 class2: CMakeFiles/class2.dir/Point.c.o
-class2: CMakeFiles/class2.dir/newSphereGenerator.c.o
 class2: CMakeFiles/class2.dir/build.make
 class2: CMakeFiles/class2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/josepereira/Desktop/akakaka/projeto-cg/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable class2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable class2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/class2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -180,7 +154,6 @@ CMakeFiles/class2.dir/build: class2
 CMakeFiles/class2.dir/requires: CMakeFiles/class2.dir/main.cpp.o.requires
 CMakeFiles/class2.dir/requires: CMakeFiles/class2.dir/ArrayList.c.o.requires
 CMakeFiles/class2.dir/requires: CMakeFiles/class2.dir/Point.c.o.requires
-CMakeFiles/class2.dir/requires: CMakeFiles/class2.dir/newSphereGenerator.c.o.requires
 
 .PHONY : CMakeFiles/class2.dir/requires
 
@@ -189,6 +162,6 @@ CMakeFiles/class2.dir/clean:
 .PHONY : CMakeFiles/class2.dir/clean
 
 CMakeFiles/class2.dir/depend:
-	cd /Users/josepereira/Desktop/akakaka/projeto-cg/bin && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/josepereira/Desktop/pasta sem nome" "/Users/josepereira/Desktop/pasta sem nome" /Users/josepereira/Desktop/akakaka/projeto-cg/bin /Users/josepereira/Desktop/akakaka/projeto-cg/bin /Users/josepereira/Desktop/akakaka/projeto-cg/bin/CMakeFiles/class2.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin/CMakeFiles/class2.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/class2.dir/depend
 

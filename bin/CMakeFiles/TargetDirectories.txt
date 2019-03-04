@@ -1,3 +1,4 @@
-/Users/josepereira/Desktop/akakaka/projeto-cg/bin/CMakeFiles/rebuild_cache.dir
-/Users/josepereira/Desktop/akakaka/projeto-cg/bin/CMakeFiles/edit_cache.dir
-/Users/josepereira/Desktop/akakaka/projeto-cg/bin/CMakeFiles/class2.dir
+/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin/CMakeFiles/rebuild_cache.dir
+/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin/CMakeFiles/edit_cache.dir
+/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin/CMakeFiles/engine.dir
+/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin/CMakeFiles/src.dir

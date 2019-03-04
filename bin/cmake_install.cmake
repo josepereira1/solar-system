@@ -1,4 +1,4 @@
-# Install script for directory: /Users/josepereira/Desktop/pasta sem nome
+# Install script for directory: /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/josepereira/Desktop/akakaka/projeto-cg/bin/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

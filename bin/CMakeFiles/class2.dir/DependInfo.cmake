@@ -5,9 +5,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/josepereira/Desktop/pasta sem nome/ArrayList.c" "/Users/josepereira/Desktop/akakaka/projeto-cg/bin/CMakeFiles/class2.dir/ArrayList.c.o"
-  "/Users/josepereira/Desktop/pasta sem nome/Point.c" "/Users/josepereira/Desktop/akakaka/projeto-cg/bin/CMakeFiles/class2.dir/Point.c.o"
-  "/Users/josepereira/Desktop/pasta sem nome/newSphereGenerator.c" "/Users/josepereira/Desktop/akakaka/projeto-cg/bin/CMakeFiles/class2.dir/newSphereGenerator.c.o"
+  "/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/ArrayList.c" "/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin/CMakeFiles/class2.dir/ArrayList.c.o"
+  "/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/Point.c" "/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin/CMakeFiles/class2.dir/Point.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 
@@ -16,7 +15,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/josepereira/Desktop/pasta sem nome/main.cpp" "/Users/josepereira/Desktop/akakaka/projeto-cg/bin/CMakeFiles/class2.dir/main.cpp.o"
+  "/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/main.cpp" "/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/bin/CMakeFiles/class2.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

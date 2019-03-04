@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libsrca.a  CMakeFiles/srca.dir/ArrayList.c.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libsrca.a

@@ -2,7 +2,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/class2.dir/main.cpp.o"
   "CMakeFiles/class2.dir/ArrayList.c.o"
   "CMakeFiles/class2.dir/Point.c.o"
-  "CMakeFiles/class2.dir/newSphereGenerator.c.o"
   "class2.pdb"
   "class2"
 )

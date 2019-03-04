@@ -4,12 +4,10 @@
 #include <GL/glut.h>
 #endif
 
-extern "C"
-{
-    #include "ArrayList.h"
-    #include "Point.h"
-    #include "newSphereGenerator.h"
-}
+#include <ArrayList.h>
+#include <Point.h>
+#include <file2list.h>
+
 
 #define _USE_MATH_DEFINES
 #include <math.h>
@@ -19,7 +17,7 @@ float py = 0.0;
 float pz = 0.0;
 int mode = GL_FILL;
 int face = GL_FRONT;
-TAD_ARRAY_LIST l =  ARRAY_LIST(50);
+TAD_ARRAY_LIST pontos;
 
 void changeSize(int w, int h) {
 
@@ -49,20 +47,18 @@ void changeSize(int w, int h) {
 
 void draw() {
     int i;
-	int size = getArraySize(l);
-    // put code to draw cylinder in here
+	int size = getArraySize(pontos);
     glBegin(GL_TRIANGLES);
     for(i=0;i<size;i++){
-        glVertex3f((float) getX((TAD_POINT)getElem(l,i)),(float)getY((TAD_POINT)getElem(l,i)),(float)getZ((TAD_POINT)getElem(l,i)));
+    	TAD_POINT p = (TAD_POINT) getElem(pontos,i);
+        glVertex3f(getX(p), getY(p), getZ(p));
     }
     glEnd();
 	glEnable(GL_CULL_FACE);
-	
 }
 
 
 void renderScene(void) {
-
 
 	// clear buffers
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -73,7 +69,7 @@ void renderScene(void) {
 		      px, py, pz,
 			  0.0f,1.0f,0.0f);
 
-  glColor3f(0,255,255);
+	glColor3f(0,255,255);
 	draw();
 
 	// End of frame
@@ -95,30 +91,22 @@ void processKeys(unsigned char c, int xx, int yy) {
 
 
 void processSpecialKeys(int key, int xx, int yy) {
-
    // put code to process special keys in here
-
 }
 
+// para DEBUG
+static void printPointsArray(TAD_ARRAY_LIST pontos) {
+	for(int i=0; i<getArraySize(pontos); i++) {
+		point2string((TAD_POINT) getElem(pontos, i));
+	} 
+}
 
 int main(int argc, char** argv) {
+    
+    pontos = file2list("exemplo.3d");
+    printPointsArray(pontos);
+
     // init GLUT and the window
-
-	printf("passei aqui!\n");
-
-    l = file2list("dados.txt");
-
-    TAD_POINT point;
-
-    printf("%d\n", getArraySize(l));
-
-    for(int i = 0; i < getArraySize(l); i++){
-    	point = getElem(l,i);
-    	point2string(point);
-    }
-
-    //draw();
-
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DEPTH|GLUT_DOUBLE|GLUT_RGBA);
     glutInitWindowPosition(100,100);
@@ -128,10 +116,8 @@ int main(int argc, char** argv) {
     // Required callback registry 
 	glutDisplayFunc(renderScene);
 	glutReshapeFunc(changeSize);
-
 	
     // put here the registration of the keyboard callbacks
-
     glutKeyboardFunc(processKeys);
     glutSpecialFunc(processSpecialKeys);
 
