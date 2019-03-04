@@ -30,6 +30,7 @@ static char* getfile(const char* path) {
 	return res;
 }
 
+
 static int readLn(char* str) {
 	int i;
 	for(i=0; str[i] != '\0'; i++) {
@@ -37,6 +38,7 @@ static int readLn(char* str) {
 	}
 	return i;
 }
+
 
 static char* subStr(int start, int end, char* str) {
 	int len = end - start;
@@ -62,6 +64,7 @@ static void indices2list(TAD_ARRAY_LIST arr, char* str){
 		}
 	}
 }
+
 
 static void pontos2list(TAD_ARRAY_LIST arr, char* str){
 	int start = 0, count = 1;
@@ -121,12 +124,13 @@ TAD_ARRAY_LIST file2list(const char* path) {
 	free(buf);
 
 	TAD_ARRAY_LIST res = ARRAY_LIST(INITIAL_DIM);
-	for(i=0; i < getArraySize(indices); i++){
+	int dim = getArraySize(indices);
+	for(i=0; i < dim; i++){
     	int indice = *(int*) getElem(indices, i);
     	TAD_POINT ponto = (TAD_POINT) getElem(pontos, indice);
     	addElem(res, ponto);
   	}
-  	for(i = 0; i < getArraySize(indices); i++){
+  	for(i = 0; i < dim; i++){
     	int* n = (int*) getElem(indices, i);
     	free(n);
   	}

@@ -123,26 +123,13 @@ engine/fast:
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/build
 .PHONY : engine/fast
 
-#=============================================================================
-# Target rules for targets named src
-
-# Build rule for target.
-src: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 src
-.PHONY : src
-
-# fast build rule for target.
-src/fast:
-	$(MAKE) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/build
-.PHONY : src/fast
-
 ArrayList.o: ArrayList.c.o
 
 .PHONY : ArrayList.o
 
 # target to build an object file
 ArrayList.c.o:
-	$(MAKE) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/ArrayList.c.o
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/ArrayList.c.o
 .PHONY : ArrayList.c.o
 
 ArrayList.i: ArrayList.c.i
@@ -151,7 +138,7 @@ ArrayList.i: ArrayList.c.i
 
 # target to preprocess a source file
 ArrayList.c.i:
-	$(MAKE) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/ArrayList.c.i
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/ArrayList.c.i
 .PHONY : ArrayList.c.i
 
 ArrayList.s: ArrayList.c.s
@@ -160,8 +147,62 @@ ArrayList.s: ArrayList.c.s
 
 # target to generate assembly for a file
 ArrayList.c.s:
-	$(MAKE) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/ArrayList.c.s
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/ArrayList.c.s
 .PHONY : ArrayList.c.s
+
+Point.o: Point.c.o
+
+.PHONY : Point.o
+
+# target to build an object file
+Point.c.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point.c.o
+.PHONY : Point.c.o
+
+Point.i: Point.c.i
+
+.PHONY : Point.i
+
+# target to preprocess a source file
+Point.c.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point.c.i
+.PHONY : Point.c.i
+
+Point.s: Point.c.s
+
+.PHONY : Point.s
+
+# target to generate assembly for a file
+Point.c.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point.c.s
+.PHONY : Point.c.s
+
+file2list.o: file2list.c.o
+
+.PHONY : file2list.o
+
+# target to build an object file
+file2list.c.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/file2list.c.o
+.PHONY : file2list.c.o
+
+file2list.i: file2list.c.i
+
+.PHONY : file2list.i
+
+# target to preprocess a source file
+file2list.c.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/file2list.c.i
+.PHONY : file2list.c.i
+
+file2list.s: file2list.c.s
+
+.PHONY : file2list.s
+
+# target to generate assembly for a file
+file2list.c.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/file2list.c.s
+.PHONY : file2list.c.s
 
 main.o: main.cpp.o
 
@@ -190,6 +231,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+xmlParser.o: xmlParser.c.o
+
+.PHONY : xmlParser.o
+
+# target to build an object file
+xmlParser.c.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/xmlParser.c.o
+.PHONY : xmlParser.c.o
+
+xmlParser.i: xmlParser.c.i
+
+.PHONY : xmlParser.i
+
+# target to preprocess a source file
+xmlParser.c.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/xmlParser.c.i
+.PHONY : xmlParser.c.i
+
+xmlParser.s: xmlParser.c.s
+
+.PHONY : xmlParser.s
+
+# target to generate assembly for a file
+xmlParser.c.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/xmlParser.c.s
+.PHONY : xmlParser.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -199,13 +267,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... engine"
-	@echo "... src"
 	@echo "... ArrayList.o"
 	@echo "... ArrayList.i"
 	@echo "... ArrayList.s"
+	@echo "... Point.o"
+	@echo "... Point.i"
+	@echo "... Point.s"
+	@echo "... file2list.o"
+	@echo "... file2list.i"
+	@echo "... file2list.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... xmlParser.o"
+	@echo "... xmlParser.i"
+	@echo "... xmlParser.s"
 .PHONY : help
 
 

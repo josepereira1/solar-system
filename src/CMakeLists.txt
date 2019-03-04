@@ -5,12 +5,11 @@ PROJECT(engine)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-add_library(src ArrayList.c)
-include_directories (../include)
-# add_subdirectory (src) 
+include_directories (
+../include  
+)
 
-add_executable(${PROJECT_NAME} main.cpp )
-target_link_libraries (${PROJECT_NAME} src) # meti eu
+add_executable(${PROJECT_NAME} main.cpp file2list.c Point.c ArrayList.c xmlParser.c)
 
 find_package(OpenGL REQUIRED)
 include_directories(${OpenGL_INCLUDE_DIRS})

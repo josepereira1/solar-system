@@ -4,10 +4,11 @@
 #include <GL/glut.h>
 #endif
 
-#include <ArrayList.h>
-#include <Point.h>
-#include <file2list.h>
-
+extern "C" {
+   #include <ArrayList.h>
+   #include <Point.h>
+   #include <xmlParser.h>
+}
 
 #define _USE_MATH_DEFINES
 #include <math.h>
@@ -103,7 +104,7 @@ static void printPointsArray(TAD_ARRAY_LIST pontos) {
 
 int main(int argc, char** argv) {
     
-    pontos = file2list("exemplo.3d");
+    TAD_ARRAY_LIST pontos = getPointsFromFiles("file.xml");
     printPointsArray(pontos);
 
     // init GLUT and the window

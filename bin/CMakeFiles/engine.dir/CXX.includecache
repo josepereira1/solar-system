@@ -10,7 +10,7 @@
 
 /Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/Point.h
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/file2list.h
+/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/xmlParser.h
 ArrayList.h
 -
 
@@ -23,7 +23,7 @@ ArrayList.h
 -
 Point.h
 -
-file2list.h
+xmlParser.h
 -
 math.h
 -
