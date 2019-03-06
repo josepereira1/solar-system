@@ -14,7 +14,6 @@
 
 
 void write_on_file(const char* data, const char* path) {
-
 	FILE *fp = fopen(path, "w");
     if (fp != NULL)
     {
@@ -23,40 +22,27 @@ void write_on_file(const char* data, const char* path) {
     }
 }
 
-void write_points_to_file(TAD_ARRAY_LIST points, const char* patch){
-	TAD_ARRAY_LIST withoutRepeated;
-	int *positions, size;
-	printf("%d\n",getArraySize(points));
-
-	filter(points, &withoutRepeated, &positions);
-
-	size = getArraySize(points);
-
-	list2file(withoutRepeated, positions, size , patch);
+void write_points_to_file(TAD_ARRAY_LIST points, const char* path){
+	list2file(points, path);
 }
 
 void design_sphere(float radius, int slices, int stacks, const char* patch) {
 	TAD_ARRAY_LIST points = getPointsOfSphere(radius,slices,stacks);
-
 	write_points_to_file(points,patch);
 }
 
 void design_plane(float side, const char* patch) {
 	TAD_ARRAY_LIST points = getPointsOfPlane(side);
-
 	write_points_to_file(points,patch);	
 }
 
 void design_box(float x, float y, float z, int divisions, const char* patch) {
 	TAD_ARRAY_LIST points = getPointsOfBox(x, y, z, divisions);
-
 	write_points_to_file(points,patch);
 }
 
 void design_cone(float radius, float height, int slices, int stacks, const char* patch) {
-
 	TAD_ARRAY_LIST points = getPointsOfCone(radius, height, slices, stacks);
-	
 	write_points_to_file(points,patch);
 }
 

@@ -6,5 +6,5 @@ CXX_FLAGS =  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include -I/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../tinyxml -I/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers 
+CXX_INCLUDES = -I/Users/ricardopetronilho/Desktop/projeto-cg/src/../include -I/Users/ricardopetronilho/Desktop/projeto-cg/src/../tinyxml -I/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers 
 

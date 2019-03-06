@@ -6,21 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/ArrayList.h
+/Users/ricardopetronilho/Desktop/projeto-cg/src/../include/ArrayList.h
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/Point.h
+/Users/ricardopetronilho/Desktop/projeto-cg/src/../include/Point.h
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/file2list.h
+/Users/ricardopetronilho/Desktop/projeto-cg/src/../include/file2list.h
 ArrayList.h
 -
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/filterPoints.h
+/Users/ricardopetronilho/Desktop/projeto-cg/src/../include/filterPoints.h
 ArrayList.h
 -
 Point.h
 -
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/list2file.h
+/Users/ricardopetronilho/Desktop/projeto-cg/src/../include/list2file.h
 Point.h
 -
 ArrayList.h
@@ -32,17 +32,17 @@ stdlib.h
 stdio.h
 -
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../include/xmlParser.h
+/Users/ricardopetronilho/Desktop/projeto-cg/src/../include/xmlParser.h
 ArrayList.h
 -
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../tinyxml/tinystr.h
+/Users/ricardopetronilho/Desktop/projeto-cg/src/../tinyxml/tinystr.h
 assert.h
 -
 string.h
 -
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../tinyxml/tinyxml.h
+/Users/ricardopetronilho/Desktop/projeto-cg/src/../tinyxml/tinyxml.h
 ctype.h
 -
 stdio.h
@@ -60,9 +60,9 @@ iostream
 sstream
 -
 tinystr.h
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/../tinyxml/tinystr.h
+/Users/ricardopetronilho/Desktop/projeto-cg/src/../tinyxml/tinystr.h
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/ArrayList.cpp
+/Users/ricardopetronilho/Desktop/projeto-cg/src/ArrayList.cpp
 stdlib.h
 -
 stdio.h
@@ -72,7 +72,7 @@ string.h
 ArrayList.h
 -
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/Point.cpp
+/Users/ricardopetronilho/Desktop/projeto-cg/src/Point.cpp
 stdio.h
 -
 stdlib.h
@@ -84,13 +84,13 @@ string.h
 Point.h
 -
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/boxGenerator.cpp
+/Users/ricardopetronilho/Desktop/projeto-cg/src/boxGenerator.cpp
 ArrayList.h
 -
 Point.h
 -
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/coneGenerator.cpp
+/Users/ricardopetronilho/Desktop/projeto-cg/src/coneGenerator.cpp
 math.h
 -
 Point.h
@@ -98,7 +98,7 @@ Point.h
 ArrayList.h
 -
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/engine.cpp
+/Users/ricardopetronilho/Desktop/projeto-cg/src/engine.cpp
 GLUT/glut.h
 -
 GL/glut.h
@@ -114,7 +114,7 @@ stdio.h
 math.h
 -
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/file2list.cpp
+/Users/ricardopetronilho/Desktop/projeto-cg/src/file2list.cpp
 string.h
 -
 stdio.h
@@ -132,7 +132,7 @@ file2list.h
 Point.h
 -
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/filterPoints.cpp
+/Users/ricardopetronilho/Desktop/projeto-cg/src/filterPoints.cpp
 stdio.h
 -
 stdlib.h
@@ -148,17 +148,17 @@ Point.h
 filterPoints.h
 -
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/list2file.cpp
+/Users/ricardopetronilho/Desktop/projeto-cg/src/list2file.cpp
 list2file.h
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/list2file.h
+/Users/ricardopetronilho/Desktop/projeto-cg/src/list2file.h
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/planeGenerator.cpp
+/Users/ricardopetronilho/Desktop/projeto-cg/src/planeGenerator.cpp
 ArrayList.h
 -
 Point.h
 -
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/sphereGenerator.cpp
+/Users/ricardopetronilho/Desktop/projeto-cg/src/sphereGenerator.cpp
 stdio.h
 -
 stdlib.h
@@ -174,7 +174,7 @@ Point.h
 math.h
 -
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/xmlParser.cpp
+/Users/ricardopetronilho/Desktop/projeto-cg/src/xmlParser.cpp
 tinyxml.h
 -
 ArrayList.h
@@ -186,17 +186,17 @@ file2list.h
 Point.h
 -
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinystr.cpp
+/Users/ricardopetronilho/Desktop/projeto-cg/tinyxml/tinystr.cpp
 tinystr.h
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinystr.h
+/Users/ricardopetronilho/Desktop/projeto-cg/tinyxml/tinystr.h
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinystr.h
+/Users/ricardopetronilho/Desktop/projeto-cg/tinyxml/tinystr.h
 assert.h
 -
 string.h
 -
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxml.cpp
+/Users/ricardopetronilho/Desktop/projeto-cg/tinyxml/tinyxml.cpp
 ctype.h
 -
 sstream
@@ -204,9 +204,9 @@ sstream
 iostream
 -
 tinyxml.h
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxml.h
+/Users/ricardopetronilho/Desktop/projeto-cg/tinyxml/tinyxml.h
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxml.h
+/Users/ricardopetronilho/Desktop/projeto-cg/tinyxml/tinyxml.h
 ctype.h
 -
 stdio.h
@@ -224,19 +224,19 @@ iostream
 sstream
 -
 tinystr.h
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinystr.h
+/Users/ricardopetronilho/Desktop/projeto-cg/tinyxml/tinystr.h
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxmlerror.cpp
+/Users/ricardopetronilho/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp
 tinyxml.h
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxml.h
+/Users/ricardopetronilho/Desktop/projeto-cg/tinyxml/tinyxml.h
 
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxmlparser.cpp
+/Users/ricardopetronilho/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp
 ctype.h
 -
 stddef.h
 -
 tinyxml.h
-/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxml.h
+/Users/ricardopetronilho/Desktop/projeto-cg/tinyxml/tinyxml.h
 windows.h
 -
 

@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/engine.dir/engine.cpp.o"
-  "CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinystr.cpp.o"
-  "CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxml.cpp.o"
-  "CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxmlerror.cpp.o"
-  "CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/tinyxml/tinyxmlparser.cpp.o"
+  "CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/projeto-cg/tinyxml/tinystr.cpp.o"
+  "CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o"
+  "CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o"
+  "CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o"
   "CMakeFiles/engine.dir/ArrayList.cpp.o"
   "CMakeFiles/engine.dir/Point.cpp.o"
   "CMakeFiles/engine.dir/boxGenerator.cpp.o"

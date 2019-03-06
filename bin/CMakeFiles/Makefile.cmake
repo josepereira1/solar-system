@@ -33,7 +33,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.8.0-rc1/CMakeCCompiler.cmake"
   "CMakeFiles/3.8.0-rc1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.8.0-rc1/CMakeSystem.cmake"
-  "/Users/ricardopetronilho/Desktop/projeto-cg_vONTESTE/src/CMakeLists.txt"
+  "/Users/ricardopetronilho/Desktop/projeto-cg/src/CMakeLists.txt"
   )
 
 # The corresponding makefile is:

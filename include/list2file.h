@@ -7,6 +7,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void list2file(TAD_ARRAY_LIST points, int positions[], int tam, const char* path);
+void list2file(TAD_ARRAY_LIST points, const char* path);
 
 #endif

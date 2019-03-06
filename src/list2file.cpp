@@ -3,7 +3,7 @@
 int save_coordinates(TAD_POINT point, char* str, int deslocamento) {
 	char* tmp = (char*) malloc(256);
 	sprintf(tmp,"%.5f, %.5f, %.5f\n", getX(point),getY(point),getZ(point));
-	len = strlen(tmp);
+	int len = strlen(tmp);
 	sprintf(str+deslocamento,"%s",tmp);
 	deslocamento+=len;
 	free(tmp);
@@ -13,7 +13,7 @@ int save_coordinates(TAD_POINT point, char* str, int deslocamento) {
 void list2file(TAD_ARRAY_LIST points, const char* path) {
 	FILE *file = fopen(path,"w");
 	if (file != NULL) {
-		char* str = (char*) malloc(1024*1024*10);//alloc memory to final string
+		char* str = (char*) malloc(1024*1024*1024);//alloc memory to final string
 		int deslocamento = 0;//displacement
 		//put number of points
 		int size = getArraySize(points);
@@ -24,6 +24,7 @@ void list2file(TAD_ARRAY_LIST points, const char* path) {
 		deslocamento+=len;
 		free(tmp);
 		//put the points (x,y,z)
+		printf("%d\n", size);
 		for(int i=0 ; i<size ; i++) {
 			TAD_POINT point = (TAD_POINT) getElem(points,i);
 			deslocamento = save_coordinates(point,str,deslocamento);
