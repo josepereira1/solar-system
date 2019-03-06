@@ -13,10 +13,10 @@ int save_coordinates(TAD_POINT point, char* str, int deslocamento) {
 void list2file(TAD_ARRAY_LIST points, const char* path) {
 	FILE *file = fopen(path,"w");
 	if (file != NULL) {
-		char* str = (char*) malloc(1024*1024*1024);//alloc memory to final string
+		int size = getArraySize(points);
+		char* str = (char*) malloc(140 * size);//alloc memory to final string
 		int deslocamento = 0;//displacement
 		//put number of points
-		int size = getArraySize(points);
 		char* tmp = (char*) malloc(256);
 		sprintf(tmp,"%d\n",size);
 		int len = strlen(tmp);

@@ -4,7 +4,6 @@
 #include <ArrayList.h>
 #include <Point.h>
 #include <list2file.h>
-#include <filterPoints.h>
 
 //	generators:
 #include <coneGenerator.h>
@@ -52,22 +51,22 @@ int main(int argc, char** argv) {
 		exit(1);
 	}
 	if(strcmp(argv[1],"sphere")==0) {
-		if(argc < 6) {
-			perror("Insufficient parameters to generate sphere!\n");
+		if(argc != 6) {
+			perror("Invalid parameters to generate sphere!\n");
 			exit(1);
 		}
 		design_sphere(atof(argv[2]),atoi(argv[3]),atoi(argv[4]),argv[5]);
 	}
 	else if(strcmp(argv[1],"plane")==0) {
-		if(argc < 4) {
-			perror("Insufficient parameters to generate plane!\n");
+		if(argc != 4) {
+			perror("Invalid parameters to generate plane!\n");
 			exit(1);
 		}
 		design_plane(atof(argv[2]),argv[3]);
 	}
 	else if(strcmp(argv[1],"box")==0) {
-		if(argc < 7) {
-			perror("Insufficient parameters to generate box!\n");
+		if(argc < 7 || argc > 8) {
+			perror("Invalid parameters to generate box!\n");
 			exit(1);
 		}
 		if(argc < 6)
@@ -77,7 +76,7 @@ int main(int argc, char** argv) {
 	}
 	else if(strcmp(argv[1],"cone")==0) {
 		if(argc < 7) {
-			perror("Insufficient parameters to generate cone!\n");
+			perror("Invalid parameters to generate cone!\n");
 			exit(1);
 		}
 		design_cone(atof(argv[2]),atof(argv[3]),atoi(argv[4]),atoi(argv[5]),argv[6]);

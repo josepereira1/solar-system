@@ -8,15 +8,17 @@
 #include <file2list.h>
 #include <Point.h>
 
-#define INITIAL_DIM				50
-#define 		  B			     1
-#define 		 KB         1024*B
-#define 		 MB		   1024*KB
-#define 		 GB		   1024*MB
+#define INITIAL_DIM			  1024
 
 
-static char* getfile(char* path) {
-	void* tmp = malloc(GB); // criar o buffer com 1 GB
+static int readLn(char* str);
+static char* subStr(int start, int end, char* str);
+
+
+static char* getfile(char* path, int* n_pontos) {
+	int dim = 64;
+	char* line = (char*) malloc(sizeof(char)*dim); // 64 bytes para o buffer inicial
+	
 	int fd;
 	if ( (fd = open(path, O_RDONLY)) == -1) { // abre o ficheiro para leitura apenas 
 		char* errorMsg = (char*) malloc(sizeof(char)*(strlen(path)+21));
@@ -25,10 +27,26 @@ static char* getfile(char* path) {
 		free(errorMsg);
 		exit(1);
 	}
-	read(fd, tmp, GB); // lê 1 GB do ficheiro e coloca no buffer
-	char* res = (char*) malloc(sizeof(char) * (strlen((char*)tmp)+1)); 
-	strcpy(res,(char*)tmp);
+
+	// lê a linha
+	read(fd, line, dim); // lê 64 bytes
+	int i = readLn(line); // dá o index do '\n'
+	char* tmp = subStr(0, i, line); // saca o número de linhas
+	free(line); 
+	*n_pontos = atoi(tmp);
+	free(tmp); 
+
+	dim = 140 * (*n_pontos);
+	tmp = (char*) malloc(sizeof(char) * dim); // criar o buffer com X bytes
+	lseek(fd,0,SEEK_SET);
+	read(fd, tmp, dim); // lê X bytes do ficheiro e coloca no buffer
+	close(fd);
+	
+	// alocar apenas o que é necessário
+	char* res = (char*) malloc( sizeof(char) * (strlen((char*)tmp)-i) ); 
+	strcpy(res,(char*)tmp + i + 1);
 	free(tmp);
+
 	return res;
 }
 
@@ -72,15 +90,10 @@ static void pontos2list(TAD_ARRAY_LIST arr, char* str){
 
 
 TAD_ARRAY_LIST file2list(char* path) {
-	
-	char* buf = getfile(path), *tmp; // puxa a info do ficheiro para uma string
-	int currentIndex = 0, i;
 
-	i = readLn(buf);
-	tmp = subStr(0, i, buf); 
-	int n_pontos = atoi(tmp); // número de linhas
-	currentIndex += i + 1; // i + '\n'
-	free(tmp); 
+	int n_pontos = 0;
+	char* buf = getfile(path, &n_pontos), *tmp; // puxa a info do ficheiro para uma string
+	int currentIndex = 0, i;
 
 	TAD_ARRAY_LIST pontos = ARRAY_LIST(INITIAL_DIM);
 	for(int k=0; k < n_pontos; k++) { 
