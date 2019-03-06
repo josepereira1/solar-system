@@ -393,33 +393,6 @@ file2list.cpp.s:
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/file2list.cpp.s
 .PHONY : file2list.cpp.s
 
-filterPoints.o: filterPoints.cpp.o
-
-.PHONY : filterPoints.o
-
-# target to build an object file
-filterPoints.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/filterPoints.cpp.o
-.PHONY : filterPoints.cpp.o
-
-filterPoints.i: filterPoints.cpp.i
-
-.PHONY : filterPoints.i
-
-# target to preprocess a source file
-filterPoints.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/filterPoints.cpp.i
-.PHONY : filterPoints.cpp.i
-
-filterPoints.s: filterPoints.cpp.s
-
-.PHONY : filterPoints.s
-
-# target to generate assembly for a file
-filterPoints.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/filterPoints.cpp.s
-.PHONY : filterPoints.cpp.s
-
 list2file.o: list2file.cpp.o
 
 .PHONY : list2file.o
@@ -567,9 +540,6 @@ help:
 	@echo "... file2list.o"
 	@echo "... file2list.i"
 	@echo "... file2list.s"
-	@echo "... filterPoints.o"
-	@echo "... filterPoints.i"
-	@echo "... filterPoints.s"
 	@echo "... list2file.o"
 	@echo "... list2file.i"
 	@echo "... list2file.s"

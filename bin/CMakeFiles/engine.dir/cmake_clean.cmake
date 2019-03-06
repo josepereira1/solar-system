@@ -9,7 +9,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/engine.dir/boxGenerator.cpp.o"
   "CMakeFiles/engine.dir/coneGenerator.cpp.o"
   "CMakeFiles/engine.dir/file2list.cpp.o"
-  "CMakeFiles/engine.dir/filterPoints.cpp.o"
   "CMakeFiles/engine.dir/list2file.cpp.o"
   "CMakeFiles/engine.dir/planeGenerator.cpp.o"
   "CMakeFiles/engine.dir/sphereGenerator.cpp.o"

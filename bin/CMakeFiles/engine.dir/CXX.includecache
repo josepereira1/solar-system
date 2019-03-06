@@ -14,12 +14,6 @@
 ArrayList.h
 -
 
-/Users/ricardopetronilho/Desktop/projeto-cg/src/../include/filterPoints.h
-ArrayList.h
--
-Point.h
--
-
 /Users/ricardopetronilho/Desktop/projeto-cg/src/../include/list2file.h
 Point.h
 -
@@ -130,22 +124,6 @@ ArrayList.h
 file2list.h
 -
 Point.h
--
-
-/Users/ricardopetronilho/Desktop/projeto-cg/src/filterPoints.cpp
-stdio.h
--
-stdlib.h
--
-string.h
--
-math.h
--
-ArrayList.h
--
-Point.h
--
-filterPoints.h
 -
 
 /Users/ricardopetronilho/Desktop/projeto-cg/src/list2file.cpp

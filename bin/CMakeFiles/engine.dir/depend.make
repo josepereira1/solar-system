@@ -40,11 +40,6 @@ CMakeFiles/engine.dir/file2list.cpp.o: /Users/ricardopetronilho/Desktop/projeto-
 CMakeFiles/engine.dir/file2list.cpp.o: /Users/ricardopetronilho/Desktop/projeto-cg/src/../include/file2list.h
 CMakeFiles/engine.dir/file2list.cpp.o: /Users/ricardopetronilho/Desktop/projeto-cg/src/file2list.cpp
 
-CMakeFiles/engine.dir/filterPoints.cpp.o: /Users/ricardopetronilho/Desktop/projeto-cg/src/../include/ArrayList.h
-CMakeFiles/engine.dir/filterPoints.cpp.o: /Users/ricardopetronilho/Desktop/projeto-cg/src/../include/Point.h
-CMakeFiles/engine.dir/filterPoints.cpp.o: /Users/ricardopetronilho/Desktop/projeto-cg/src/../include/filterPoints.h
-CMakeFiles/engine.dir/filterPoints.cpp.o: /Users/ricardopetronilho/Desktop/projeto-cg/src/filterPoints.cpp
-
 CMakeFiles/engine.dir/list2file.cpp.o: /Users/ricardopetronilho/Desktop/projeto-cg/src/../include/ArrayList.h
 CMakeFiles/engine.dir/list2file.cpp.o: /Users/ricardopetronilho/Desktop/projeto-cg/src/../include/Point.h
 CMakeFiles/engine.dir/list2file.cpp.o: /Users/ricardopetronilho/Desktop/projeto-cg/src/../include/list2file.h

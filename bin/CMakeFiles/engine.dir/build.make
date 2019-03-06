@@ -297,33 +297,9 @@ CMakeFiles/engine.dir/file2list.cpp.o.provides: CMakeFiles/engine.dir/file2list.
 CMakeFiles/engine.dir/file2list.cpp.o.provides.build: CMakeFiles/engine.dir/file2list.cpp.o
 
 
-CMakeFiles/engine.dir/filterPoints.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/filterPoints.cpp.o: /Users/ricardopetronilho/Desktop/projeto-cg/src/filterPoints.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/projeto-cg/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/engine.dir/filterPoints.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/filterPoints.cpp.o -c /Users/ricardopetronilho/Desktop/projeto-cg/src/filterPoints.cpp
-
-CMakeFiles/engine.dir/filterPoints.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/filterPoints.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ricardopetronilho/Desktop/projeto-cg/src/filterPoints.cpp > CMakeFiles/engine.dir/filterPoints.cpp.i
-
-CMakeFiles/engine.dir/filterPoints.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/filterPoints.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ricardopetronilho/Desktop/projeto-cg/src/filterPoints.cpp -o CMakeFiles/engine.dir/filterPoints.cpp.s
-
-CMakeFiles/engine.dir/filterPoints.cpp.o.requires:
-
-.PHONY : CMakeFiles/engine.dir/filterPoints.cpp.o.requires
-
-CMakeFiles/engine.dir/filterPoints.cpp.o.provides: CMakeFiles/engine.dir/filterPoints.cpp.o.requires
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/filterPoints.cpp.o.provides.build
-.PHONY : CMakeFiles/engine.dir/filterPoints.cpp.o.provides
-
-CMakeFiles/engine.dir/filterPoints.cpp.o.provides.build: CMakeFiles/engine.dir/filterPoints.cpp.o
-
-
 CMakeFiles/engine.dir/list2file.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/list2file.cpp.o: /Users/ricardopetronilho/Desktop/projeto-cg/src/list2file.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/projeto-cg/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/engine.dir/list2file.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/projeto-cg/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/engine.dir/list2file.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/list2file.cpp.o -c /Users/ricardopetronilho/Desktop/projeto-cg/src/list2file.cpp
 
 CMakeFiles/engine.dir/list2file.cpp.i: cmake_force
@@ -347,7 +323,7 @@ CMakeFiles/engine.dir/list2file.cpp.o.provides.build: CMakeFiles/engine.dir/list
 
 CMakeFiles/engine.dir/planeGenerator.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/planeGenerator.cpp.o: /Users/ricardopetronilho/Desktop/projeto-cg/src/planeGenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/projeto-cg/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/engine.dir/planeGenerator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/projeto-cg/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/engine.dir/planeGenerator.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/planeGenerator.cpp.o -c /Users/ricardopetronilho/Desktop/projeto-cg/src/planeGenerator.cpp
 
 CMakeFiles/engine.dir/planeGenerator.cpp.i: cmake_force
@@ -371,7 +347,7 @@ CMakeFiles/engine.dir/planeGenerator.cpp.o.provides.build: CMakeFiles/engine.dir
 
 CMakeFiles/engine.dir/sphereGenerator.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/sphereGenerator.cpp.o: /Users/ricardopetronilho/Desktop/projeto-cg/src/sphereGenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/projeto-cg/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/engine.dir/sphereGenerator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/projeto-cg/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/engine.dir/sphereGenerator.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/sphereGenerator.cpp.o -c /Users/ricardopetronilho/Desktop/projeto-cg/src/sphereGenerator.cpp
 
 CMakeFiles/engine.dir/sphereGenerator.cpp.i: cmake_force
@@ -395,7 +371,7 @@ CMakeFiles/engine.dir/sphereGenerator.cpp.o.provides.build: CMakeFiles/engine.di
 
 CMakeFiles/engine.dir/xmlParser.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/xmlParser.cpp.o: /Users/ricardopetronilho/Desktop/projeto-cg/src/xmlParser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/projeto-cg/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/engine.dir/xmlParser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/projeto-cg/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/engine.dir/xmlParser.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/xmlParser.cpp.o -c /Users/ricardopetronilho/Desktop/projeto-cg/src/xmlParser.cpp
 
 CMakeFiles/engine.dir/xmlParser.cpp.i: cmake_force
@@ -429,7 +405,6 @@ engine_OBJECTS = \
 "CMakeFiles/engine.dir/boxGenerator.cpp.o" \
 "CMakeFiles/engine.dir/coneGenerator.cpp.o" \
 "CMakeFiles/engine.dir/file2list.cpp.o" \
-"CMakeFiles/engine.dir/filterPoints.cpp.o" \
 "CMakeFiles/engine.dir/list2file.cpp.o" \
 "CMakeFiles/engine.dir/planeGenerator.cpp.o" \
 "CMakeFiles/engine.dir/sphereGenerator.cpp.o" \
@@ -448,14 +423,13 @@ engine: CMakeFiles/engine.dir/Point.cpp.o
 engine: CMakeFiles/engine.dir/boxGenerator.cpp.o
 engine: CMakeFiles/engine.dir/coneGenerator.cpp.o
 engine: CMakeFiles/engine.dir/file2list.cpp.o
-engine: CMakeFiles/engine.dir/filterPoints.cpp.o
 engine: CMakeFiles/engine.dir/list2file.cpp.o
 engine: CMakeFiles/engine.dir/planeGenerator.cpp.o
 engine: CMakeFiles/engine.dir/sphereGenerator.cpp.o
 engine: CMakeFiles/engine.dir/xmlParser.cpp.o
 engine: CMakeFiles/engine.dir/build.make
 engine: CMakeFiles/engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/ricardopetronilho/Desktop/projeto-cg/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/ricardopetronilho/Desktop/projeto-cg/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/engine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -473,7 +447,6 @@ CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/Point.cpp.o.requires
 CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/boxGenerator.cpp.o.requires
 CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/coneGenerator.cpp.o.requires
 CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/file2list.cpp.o.requires
-CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/filterPoints.cpp.o.requires
 CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/list2file.cpp.o.requires
 CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/planeGenerator.cpp.o.requires
 CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/sphereGenerator.cpp.o.requires
