@@ -1,11 +1,8 @@
-#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
+#include <string.h>
 
 #include <ArrayList.h>
-#include <file2list.h>
 #include <Point.h>
 
 
@@ -18,8 +15,10 @@ static void openError(char* path) {
 }
 
 
-TAD_ARRAY_LIST file2list(char* path) {
-
+int main(int argc, char const *argv[])
+{
+	char path[] = "bin/a.3d";
+	
 	FILE* fd;
 	if ( (fd = fopen(path, "r")) == NULL) { // abre o ficheiro para leitura apenas 
 		openError(path);
@@ -35,5 +34,5 @@ TAD_ARRAY_LIST file2list(char* path) {
 		addElem(pontos, POINT(x, y, z));
 	}
 
-	return pontos;
+	return 0;
 }

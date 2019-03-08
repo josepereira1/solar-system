@@ -6,3 +6,4 @@ prog
 program
 generator
 parser
+bin/
