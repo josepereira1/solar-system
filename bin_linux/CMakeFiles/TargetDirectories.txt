@@ -1,0 +1,3 @@
+/home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles/rebuild_cache.dir
+/home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles/engine.dir
+/home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles/edit_cache.dir
