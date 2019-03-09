@@ -1,0 +1,62 @@
+﻿  Building Custom Rule C:/Users/Ricardo Petronilho/Desktop/projeto-cg/generator_vs_project/CMakeLists.txt
+  CMake does not need to re-run because C:/Users/Ricardo Petronilho/Desktop/projeto-cg/bin_windows_generator/CMakeFiles/generate.stamp is up-to-date.
+  generator.cpp
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\generator.cpp(16): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(208): note: see declaration of 'fopen'
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\generator.cpp(39): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\generator.cpp(63): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\generator.cpp(70): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\generator.cpp(78): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\generator.cpp(80): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\generator.cpp(87): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  ArrayList.cpp
+  Point.cpp
+  boxGenerator.cpp
+  coneGenerator.cpp
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\coneGenerator.cpp(9): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\coneGenerator.cpp(21): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\coneGenerator.cpp(23): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\coneGenerator.cpp(32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\coneGenerator.cpp(33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\coneGenerator.cpp(34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\coneGenerator.cpp(36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\coneGenerator.cpp(37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\coneGenerator.cpp(38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\coneGenerator.cpp(10): warning C4101: 'p11': unreferenced local variable
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\coneGenerator.cpp(10): warning C4101: 'p12': unreferenced local variable
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\coneGenerator.cpp(10): warning C4101: 'p10': unreferenced local variable
+  list2file.cpp
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\list2file.cpp(5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1774): note: see declaration of 'sprintf'
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\list2file.cpp(7): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1774): note: see declaration of 'sprintf'
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\list2file.cpp(14): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(208): note: see declaration of 'fopen'
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\list2file.cpp(21): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1774): note: see declaration of 'sprintf'
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\list2file.cpp(23): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1774): note: see declaration of 'sprintf'
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\list2file.cpp(33): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1774): note: see declaration of 'sprintf'
+  planeGenerator.cpp
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\planeGenerator.cpp(6): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  sphereGenerator.cpp
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\sphereGenerator.cpp(17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\sphereGenerator.cpp(32): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\sphereGenerator.cpp(34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\sphereGenerator.cpp(47): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\sphereGenerator.cpp(48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\sphereGenerator.cpp(53): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\sphereGenerator.cpp(55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\sphereGenerator.cpp(61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\sphereGenerator.cpp(63): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\sphereGenerator.cpp(68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\sphereGenerator.cpp(70): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\sphereGenerator.cpp(72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\sphereGenerator.cpp(76): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\sphereGenerator.cpp(78): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\sphereGenerator.cpp(80): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\sphereGenerator.cpp(16): warning C4101: 'z': unreferenced local variable
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\sphereGenerator.cpp(16): warning C4101: 'x': unreferenced local variable
+  Generating Code...
+  generator.vcxproj -> C:\Users\Ricardo Petronilho\Desktop\projeto-cg\bin_windows_generator\Release\generator.exe

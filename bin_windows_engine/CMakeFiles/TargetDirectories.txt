@@ -1,0 +1,3 @@
+C:/Users/Ricardo Petronilho/Desktop/projeto-cg/bin_windows_engine/CMakeFiles/engine.dir
+C:/Users/Ricardo Petronilho/Desktop/projeto-cg/bin_windows_engine/CMakeFiles/ALL_BUILD.dir
+C:/Users/Ricardo Petronilho/Desktop/projeto-cg/bin_windows_engine/CMakeFiles/ZERO_CHECK.dir

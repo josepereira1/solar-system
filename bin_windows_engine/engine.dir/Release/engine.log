@@ -1,0 +1,23 @@
+﻿  Building Custom Rule C:/Users/Ricardo Petronilho/Desktop/projeto-cg/engine_CMake/CMakeLists.txt
+  CMake does not need to re-run because C:/Users/Ricardo Petronilho/Desktop/projeto-cg/bin_windows_engine/CMakeFiles/generate.stamp is up-to-date.
+  engine.cpp
+  tinystr.cpp
+  tinyxml.cpp
+  tinyxmlerror.cpp
+  tinyxmlparser.cpp
+  ArrayList.cpp
+  Point.cpp
+  file2list.cpp
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\file2list.cpp(12): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1774): note: see declaration of 'sprintf'
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\file2list.cpp(22): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(208): note: see declaration of 'fopen'
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\file2list.cpp(27): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1197): note: see declaration of 'fscanf'
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\file2list.cpp(32): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1197): note: see declaration of 'fscanf'
+  xmlParser.cpp
+C:\Users\Ricardo Petronilho\Desktop\projeto-cg\src\xmlParser.cpp(23): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
+  Generating Code...
+  engine.vcxproj -> C:\Users\Ricardo Petronilho\Desktop\projeto-cg\bin_windows_engine\Release\engine.exe
