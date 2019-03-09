@@ -21,6 +21,11 @@ void write_on_file(const char* data, const char* path) {
     }
 }
 
+void printInstructions(){
+	char* str = "\nType the following commands on terminal to generator points to:\nplane -> generator plane side name_file.3d\nbox -> generator box x y z divisions name_file.3d\nsphere -> generator sphere radius slices stacks name_file.3d\ncone -> generator cone radius height slices stacks name_file.3d\n";
+	puts(str);
+}
+
 void write_points_to_file(TAD_ARRAY_LIST points, const char* path){
 	list2file(points, path);
 }
@@ -80,8 +85,13 @@ int main(int argc, char** argv) {
 			exit(1);
 		}
 		design_cone(atof(argv[2]),atof(argv[3]),atoi(argv[4]),atoi(argv[5]),argv[6]);
-	}
-	else {
+	}else if(strcmp(argv[1],"help")==0) {
+		if(argc != 2) {
+			perror("Invalid parameters to help!\n");
+			exit(1);
+		}
+		printInstructions();
+	}else {
 		perror("Invalid geometric figure!\n");
 		exit(2);
 	}
