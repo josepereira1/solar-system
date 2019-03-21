@@ -16,9 +16,10 @@ get_xml:
 generate: install
 	generator cone 10 10 10 10 cone.3d
 	generator sphere 10 10 10 sphere.3d
-	cp cone.3d sphere.3d file.xml bin_linux/
-	cp cone.3d sphere.3d file.xml bin_windows_engine/
-	cp cone.3d sphere.3d file.xml bin_osx/
+	generator box 10 10 10 3 box.3d
+	cp cone.3d sphere.3d box.3d file.xml bin_linux/
+	cp cone.3d sphere.3d box.3d file.xml bin_windows_engine/
+	cp cone.3d sphere.3d box.3d file.xml bin_osx/
 
 
 install: get_generator
