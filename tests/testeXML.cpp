@@ -48,12 +48,12 @@ static void searchRec(TiXmlElement *pRoot) {
     }
 }
 
-static void getFileNames(char* path){
+static void parse(const char* path){
     TiXmlDocument doc(path);
     if(doc.LoadFile())
     {
         // doc.Print( stdout );
-        TiXmlElement *pRoot, *pChild;
+        TiXmlElement *pRoot;
         pRoot = doc.FirstChildElement("scene");
         if(pRoot) {
             pRoot = pRoot->FirstChildElement("group");
@@ -71,6 +71,6 @@ static void getFileNames(char* path){
 }
 
 int main() {
-    getFileNames("file.xml");
+    parse("file.xml");
     return 0;
 }

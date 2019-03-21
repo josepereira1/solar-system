@@ -7,18 +7,18 @@ CPP_FILES_EXCLUDE=src/generator.cpp src/engine.cpp
 CPP_FILES_GENERATOR=$(filter-out $(CPP_FILES_EXCLUDE), $(wildcard src/*.cpp)) src/generator.cpp
 CPP_FILES_TINYXML=$(wildcard tinyxml/*.cpp)
 
-get_generator:
+get_generator: 
 	g++ $(CFLAGS) $(CPP_FILES_GENERATOR) -o generator
 
 get_xml:
 	g++ $(CFLAGS) tests/testeXML.cpp -o xml
 
-generate:
-	generator cone 10 10 10 10 a.3d
-	generator sphere 10 10 10 b.3d
-	cp a.3d b.3d bin_linux
-	cp a.3d b.3d bin_windows
-	cp a.3d b.3d bin_osx
+generate: install
+	generator cone 10 10 10 10 cone.3d
+	generator sphere 10 10 10 sphere.3d
+	cp cone.3d sphere.3d file.xml bin_linux/
+	cp cone.3d sphere.3d file.xml bin_windows_engine/
+	cp cone.3d sphere.3d file.xml bin_osx/
 
 
 install: get_generator
@@ -30,3 +30,8 @@ clean:
 	rm -f generator
 	rm -f /usr/local/bin/generator
 	rm -f xml
+	rm -f *.3d
+	rm -f bin_osx/*.3d
+	rm -f bin_windows_engine/*.3d
+	rm -f bin_linux/*.3d
+	rm -f *.out

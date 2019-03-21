@@ -13,7 +13,6 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks) {
 	float r = radius;
     float r1 = radius;
     float r2 = radius;
-    float x,z;
     float alfa = (2*M_PI)/slices;
     float betaYoX = (2*radius)/stacks;
 	float height = radius;

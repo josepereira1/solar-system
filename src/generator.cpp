@@ -22,7 +22,7 @@ void write_on_file(const char* data, const char* path) {
 }
 
 void printInstructions(){
-	char* str = "\nType the following commands on terminal to generate points to:\nplane -> generator plane side name_file.3d\nbox -> generator box x y z divisions name_file.3d\nsphere -> generator sphere radius slices stacks name_file.3d\ncone -> generator cone radius height slices stacks name_file.3d\n";
+	const char* str = "\nType the following commands on terminal to generate points to:\nplane -> generator plane side name_file.3d\nbox -> generator box x y z divisions name_file.3d\nsphere -> generator sphere radius slices stacks name_file.3d\ncone -> generator cone radius height slices stacks name_file.3d\n";
 	puts(str);
 }
 
