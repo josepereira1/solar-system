@@ -12,3 +12,8 @@
      	</group>
      </group>
 </scene>
+
+<scene>
+     <model file="a.3d" />
+     <model file="b.3d" />
+</scene>

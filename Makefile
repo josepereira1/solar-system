@@ -10,6 +10,9 @@ CPP_FILES_TINYXML=$(wildcard tinyxml/*.cpp)
 get_generator:
 	g++ $(CFLAGS) $(CPP_FILES_GENERATOR) -o generator
 
+get_xml:
+	g++ $(CFLAGS) tests/testeXML.cpp -o xml
+
 generate:
 	generator cone 10 10 10 10 a.3d
 	generator sphere 10 10 10 b.3d
@@ -26,3 +29,4 @@ uninstall: clean
 clean:
 	rm -f generator
 	rm -f /usr/local/bin/generator
+	rm -f xml
