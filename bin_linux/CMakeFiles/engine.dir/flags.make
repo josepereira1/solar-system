@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/jose/Desktop/projeto-cg/src/../include -I/home/jose/Desktop/projeto-cg/src/../tinyxml 
+CXX_INCLUDES = -I/home/joaomarques/Desktop/CG/projeto-cg/engine_CMake/../include -I/home/joaomarques/Desktop/CG/projeto-cg/engine_CMake/../tinyxml 
 

@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jose/Desktop/projeto-cg/src
+CMAKE_SOURCE_DIR = /home/joaomarques/Desktop/CG/projeto-cg/engine_CMake
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jose/Desktop/projeto-cg/bin_linux
+CMAKE_BINARY_DIR = /home/joaomarques/Desktop/CG/projeto-cg/bin_linux
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles /home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles /home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,383 +123,248 @@ engine/fast:
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/build
 .PHONY : engine/fast
 
-ArrayList.o: ArrayList.cpp.o
+home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.o: home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o
 
-.PHONY : ArrayList.o
-
-# target to build an object file
-ArrayList.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/ArrayList.cpp.o
-.PHONY : ArrayList.cpp.o
-
-ArrayList.i: ArrayList.cpp.i
-
-.PHONY : ArrayList.i
-
-# target to preprocess a source file
-ArrayList.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/ArrayList.cpp.i
-.PHONY : ArrayList.cpp.i
-
-ArrayList.s: ArrayList.cpp.s
-
-.PHONY : ArrayList.s
-
-# target to generate assembly for a file
-ArrayList.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/ArrayList.cpp.s
-.PHONY : ArrayList.cpp.s
-
-Point.o: Point.cpp.o
-
-.PHONY : Point.o
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.o
 
 # target to build an object file
-Point.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point.cpp.o
-.PHONY : Point.cpp.o
+home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o
 
-Point.i: Point.cpp.i
+home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.i: home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.i
 
-.PHONY : Point.i
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.i
 
 # target to preprocess a source file
-Point.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point.cpp.i
-.PHONY : Point.cpp.i
+home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.i
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.i
 
-Point.s: Point.cpp.s
+home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.s: home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.s
 
-.PHONY : Point.s
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.s
 
 # target to generate assembly for a file
-Point.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point.cpp.s
-.PHONY : Point.cpp.s
+home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.s
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.s
 
-boxGenerator.o: boxGenerator.cpp.o
+home/joaomarques/Desktop/CG/projeto-cg/src/Point.o: home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o
 
-.PHONY : boxGenerator.o
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/Point.o
 
 # target to build an object file
-boxGenerator.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/boxGenerator.cpp.o
-.PHONY : boxGenerator.cpp.o
+home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o
 
-boxGenerator.i: boxGenerator.cpp.i
+home/joaomarques/Desktop/CG/projeto-cg/src/Point.i: home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.i
 
-.PHONY : boxGenerator.i
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/Point.i
 
 # target to preprocess a source file
-boxGenerator.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/boxGenerator.cpp.i
-.PHONY : boxGenerator.cpp.i
+home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.i
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.i
 
-boxGenerator.s: boxGenerator.cpp.s
+home/joaomarques/Desktop/CG/projeto-cg/src/Point.s: home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.s
 
-.PHONY : boxGenerator.s
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/Point.s
 
 # target to generate assembly for a file
-boxGenerator.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/boxGenerator.cpp.s
-.PHONY : boxGenerator.cpp.s
+home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.s
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.s
 
-coneGenerator.o: coneGenerator.cpp.o
+home/joaomarques/Desktop/CG/projeto-cg/src/engine.o: home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o
 
-.PHONY : coneGenerator.o
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/engine.o
 
 # target to build an object file
-coneGenerator.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/coneGenerator.cpp.o
-.PHONY : coneGenerator.cpp.o
+home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o
 
-coneGenerator.i: coneGenerator.cpp.i
+home/joaomarques/Desktop/CG/projeto-cg/src/engine.i: home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.i
 
-.PHONY : coneGenerator.i
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/engine.i
 
 # target to preprocess a source file
-coneGenerator.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/coneGenerator.cpp.i
-.PHONY : coneGenerator.cpp.i
+home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.i
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.i
 
-coneGenerator.s: coneGenerator.cpp.s
+home/joaomarques/Desktop/CG/projeto-cg/src/engine.s: home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.s
 
-.PHONY : coneGenerator.s
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/engine.s
 
 # target to generate assembly for a file
-coneGenerator.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/coneGenerator.cpp.s
-.PHONY : coneGenerator.cpp.s
+home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.s
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.s
 
-engine.o: engine.cpp.o
+home/joaomarques/Desktop/CG/projeto-cg/src/file2list.o: home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o
 
-.PHONY : engine.o
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/file2list.o
 
 # target to build an object file
-engine.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/engine.cpp.o
-.PHONY : engine.cpp.o
+home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o
 
-engine.i: engine.cpp.i
+home/joaomarques/Desktop/CG/projeto-cg/src/file2list.i: home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.i
 
-.PHONY : engine.i
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/file2list.i
 
 # target to preprocess a source file
-engine.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/engine.cpp.i
-.PHONY : engine.cpp.i
+home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.i
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.i
 
-engine.s: engine.cpp.s
+home/joaomarques/Desktop/CG/projeto-cg/src/file2list.s: home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.s
 
-.PHONY : engine.s
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/file2list.s
 
 # target to generate assembly for a file
-engine.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/engine.cpp.s
-.PHONY : engine.cpp.s
+home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.s
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.s
 
-file2list.o: file2list.cpp.o
+home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.o: home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o
 
-.PHONY : file2list.o
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.o
 
 # target to build an object file
-file2list.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/file2list.cpp.o
-.PHONY : file2list.cpp.o
+home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o
 
-file2list.i: file2list.cpp.i
+home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.i: home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.i
 
-.PHONY : file2list.i
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.i
 
 # target to preprocess a source file
-file2list.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/file2list.cpp.i
-.PHONY : file2list.cpp.i
+home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.i
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.i
 
-file2list.s: file2list.cpp.s
+home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.s: home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.s
 
-.PHONY : file2list.s
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.s
 
 # target to generate assembly for a file
-file2list.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/file2list.cpp.s
-.PHONY : file2list.cpp.s
+home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.s
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.s
 
-home/jose/Desktop/projeto-cg/tinyxml/tinystr.o: home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.o: home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o
 
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinystr.o
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.o
 
 # target to build an object file
-home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o
 
-home/jose/Desktop/projeto-cg/tinyxml/tinystr.i: home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.i
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.i: home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.i
 
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinystr.i
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.i
 
 # target to preprocess a source file
-home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.i
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.i
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.i
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.i
 
-home/jose/Desktop/projeto-cg/tinyxml/tinystr.s: home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.s
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.s: home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.s
 
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinystr.s
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.s
 
 # target to generate assembly for a file
-home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.s
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.s
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.s
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.s
 
-home/jose/Desktop/projeto-cg/tinyxml/tinyxml.o: home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.o: home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o
 
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinyxml.o
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.o
 
 # target to build an object file
-home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o
 
-home/jose/Desktop/projeto-cg/tinyxml/tinyxml.i: home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.i
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.i: home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.i
 
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinyxml.i
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.i
 
 # target to preprocess a source file
-home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.i
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.i
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.i
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.i
 
-home/jose/Desktop/projeto-cg/tinyxml/tinyxml.s: home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.s
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.s: home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.s
 
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinyxml.s
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.s
 
 # target to generate assembly for a file
-home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.s
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.s
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.s
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.s
 
-home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.o: home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.o: home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o
 
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.o
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.o
 
 # target to build an object file
-home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o
 
-home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.i: home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.i
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.i: home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.i
 
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.i
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.i
 
 # target to preprocess a source file
-home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.i
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.i
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.i
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.i
 
-home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.s: home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.s
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.s: home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.s
 
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.s
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.s
 
 # target to generate assembly for a file
-home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.s
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.s
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.s
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.s
 
-home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.o: home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.o: home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o
 
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.o
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.o
 
 # target to build an object file
-home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o
 
-home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.i: home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.i
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.i: home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.i
 
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.i
-
-# target to preprocess a source file
-home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.i
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.i
-
-home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.s: home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.s
-
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.s
-
-# target to generate assembly for a file
-home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.s
-.PHONY : home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.s
-
-list2file.o: list2file.cpp.o
-
-.PHONY : list2file.o
-
-# target to build an object file
-list2file.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/list2file.cpp.o
-.PHONY : list2file.cpp.o
-
-list2file.i: list2file.cpp.i
-
-.PHONY : list2file.i
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.i
 
 # target to preprocess a source file
-list2file.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/list2file.cpp.i
-.PHONY : list2file.cpp.i
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.i
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.i
 
-list2file.s: list2file.cpp.s
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.s: home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.s
 
-.PHONY : list2file.s
-
-# target to generate assembly for a file
-list2file.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/list2file.cpp.s
-.PHONY : list2file.cpp.s
-
-planeGenerator.o: planeGenerator.cpp.o
-
-.PHONY : planeGenerator.o
-
-# target to build an object file
-planeGenerator.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/planeGenerator.cpp.o
-.PHONY : planeGenerator.cpp.o
-
-planeGenerator.i: planeGenerator.cpp.i
-
-.PHONY : planeGenerator.i
-
-# target to preprocess a source file
-planeGenerator.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/planeGenerator.cpp.i
-.PHONY : planeGenerator.cpp.i
-
-planeGenerator.s: planeGenerator.cpp.s
-
-.PHONY : planeGenerator.s
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.s
 
 # target to generate assembly for a file
-planeGenerator.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/planeGenerator.cpp.s
-.PHONY : planeGenerator.cpp.s
-
-sphereGenerator.o: sphereGenerator.cpp.o
-
-.PHONY : sphereGenerator.o
-
-# target to build an object file
-sphereGenerator.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/sphereGenerator.cpp.o
-.PHONY : sphereGenerator.cpp.o
-
-sphereGenerator.i: sphereGenerator.cpp.i
-
-.PHONY : sphereGenerator.i
-
-# target to preprocess a source file
-sphereGenerator.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/sphereGenerator.cpp.i
-.PHONY : sphereGenerator.cpp.i
-
-sphereGenerator.s: sphereGenerator.cpp.s
-
-.PHONY : sphereGenerator.s
-
-# target to generate assembly for a file
-sphereGenerator.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/sphereGenerator.cpp.s
-.PHONY : sphereGenerator.cpp.s
-
-xmlParser.o: xmlParser.cpp.o
-
-.PHONY : xmlParser.o
-
-# target to build an object file
-xmlParser.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/xmlParser.cpp.o
-.PHONY : xmlParser.cpp.o
-
-xmlParser.i: xmlParser.cpp.i
-
-.PHONY : xmlParser.i
-
-# target to preprocess a source file
-xmlParser.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/xmlParser.cpp.i
-.PHONY : xmlParser.cpp.i
-
-xmlParser.s: xmlParser.cpp.s
-
-.PHONY : xmlParser.s
-
-# target to generate assembly for a file
-xmlParser.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/xmlParser.cpp.s
-.PHONY : xmlParser.cpp.s
+home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.s
+.PHONY : home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.s
 
 # Help Target
 help:
@@ -510,48 +375,33 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... engine"
 	@echo "... edit_cache"
-	@echo "... ArrayList.o"
-	@echo "... ArrayList.i"
-	@echo "... ArrayList.s"
-	@echo "... Point.o"
-	@echo "... Point.i"
-	@echo "... Point.s"
-	@echo "... boxGenerator.o"
-	@echo "... boxGenerator.i"
-	@echo "... boxGenerator.s"
-	@echo "... coneGenerator.o"
-	@echo "... coneGenerator.i"
-	@echo "... coneGenerator.s"
-	@echo "... engine.o"
-	@echo "... engine.i"
-	@echo "... engine.s"
-	@echo "... file2list.o"
-	@echo "... file2list.i"
-	@echo "... file2list.s"
-	@echo "... home/jose/Desktop/projeto-cg/tinyxml/tinystr.o"
-	@echo "... home/jose/Desktop/projeto-cg/tinyxml/tinystr.i"
-	@echo "... home/jose/Desktop/projeto-cg/tinyxml/tinystr.s"
-	@echo "... home/jose/Desktop/projeto-cg/tinyxml/tinyxml.o"
-	@echo "... home/jose/Desktop/projeto-cg/tinyxml/tinyxml.i"
-	@echo "... home/jose/Desktop/projeto-cg/tinyxml/tinyxml.s"
-	@echo "... home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.o"
-	@echo "... home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.i"
-	@echo "... home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.s"
-	@echo "... home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.o"
-	@echo "... home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.i"
-	@echo "... home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.s"
-	@echo "... list2file.o"
-	@echo "... list2file.i"
-	@echo "... list2file.s"
-	@echo "... planeGenerator.o"
-	@echo "... planeGenerator.i"
-	@echo "... planeGenerator.s"
-	@echo "... sphereGenerator.o"
-	@echo "... sphereGenerator.i"
-	@echo "... sphereGenerator.s"
-	@echo "... xmlParser.o"
-	@echo "... xmlParser.i"
-	@echo "... xmlParser.s"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.o"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.i"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.s"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/src/Point.o"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/src/Point.i"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/src/Point.s"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/src/engine.o"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/src/engine.i"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/src/engine.s"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/src/file2list.o"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/src/file2list.i"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/src/file2list.s"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.o"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.i"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.s"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.o"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.i"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.s"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.o"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.i"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.s"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.o"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.i"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.s"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.o"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.i"
+	@echo "... home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.s"
 .PHONY : help
 
 

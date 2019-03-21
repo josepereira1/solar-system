@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jose/Desktop/projeto-cg/src
+CMAKE_SOURCE_DIR = /home/joaomarques/Desktop/CG/projeto-cg/engine_CMake
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jose/Desktop/projeto-cg/bin_linux
+CMAKE_BINARY_DIR = /home/joaomarques/Desktop/CG/projeto-cg/bin_linux
 
 # Include any dependencies generated for this target.
 include CMakeFiles/engine.dir/depend.make
@@ -57,376 +57,246 @@ include CMakeFiles/engine.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/engine.dir/flags.make
 
-CMakeFiles/engine.dir/engine.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/engine.cpp.o: /home/jose/Desktop/projeto-cg/src/engine.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/engine.dir/engine.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/engine.cpp.o -c /home/jose/Desktop/projeto-cg/src/engine.cpp
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o: /home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o -c /home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp
 
-CMakeFiles/engine.dir/engine.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/engine.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jose/Desktop/projeto-cg/src/engine.cpp > CMakeFiles/engine.dir/engine.cpp.i
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp > CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.i
 
-CMakeFiles/engine.dir/engine.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/engine.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jose/Desktop/projeto-cg/src/engine.cpp -o CMakeFiles/engine.dir/engine.cpp.s
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp -o CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.s
 
-CMakeFiles/engine.dir/engine.cpp.o.requires:
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o.requires:
 
-.PHONY : CMakeFiles/engine.dir/engine.cpp.o.requires
+.PHONY : CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o.requires
 
-CMakeFiles/engine.dir/engine.cpp.o.provides: CMakeFiles/engine.dir/engine.cpp.o.requires
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/engine.cpp.o.provides.build
-.PHONY : CMakeFiles/engine.dir/engine.cpp.o.provides
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o.provides: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o.provides
 
-CMakeFiles/engine.dir/engine.cpp.o.provides.build: CMakeFiles/engine.dir/engine.cpp.o
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o.provides.build: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o
 
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o: /home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o -c /home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o: /home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o -c /home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp > CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.i
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp > CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.i
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp -o CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.s
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp -o CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.s
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o.requires:
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o.requires:
 
-.PHONY : CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o.requires
+.PHONY : CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o.requires
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o.provides: CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o.requires
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o.provides.build
-.PHONY : CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o.provides
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o.provides: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o.provides
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o.provides.build: CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o.provides.build: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o
 
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o: /home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o -c /home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o: /home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o -c /home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp > CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.i
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp > CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.i
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp -o CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.s
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp -o CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.s
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o.requires:
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o.requires:
 
-.PHONY : CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o.requires
+.PHONY : CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o.requires
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o.provides: CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o.requires
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o.provides.build
-.PHONY : CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o.provides
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o.provides: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o.provides
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o.provides.build: CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o.provides.build: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o
 
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o: /home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o -c /home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o: /home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o -c /home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp > CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.i
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp > CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.i
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp -o CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.s
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp -o CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.s
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o.requires:
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o.requires:
 
-.PHONY : CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o.requires
+.PHONY : CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o.requires
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o.provides: CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o.requires
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o.provides.build
-.PHONY : CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o.provides
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o.provides: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o.provides
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o.provides.build: CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o.provides.build: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o
 
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o: /home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o -c /home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o: /home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o -c /home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp > CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.i
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp > CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.i
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp -o CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.s
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp -o CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.s
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o.requires:
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o.requires:
 
-.PHONY : CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o.requires
+.PHONY : CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o.requires
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o.provides: CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o.requires
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o.provides.build
-.PHONY : CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o.provides
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o.provides: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o.provides
 
-CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o.provides.build: CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o.provides.build: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o
 
 
-CMakeFiles/engine.dir/ArrayList.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/ArrayList.cpp.o: /home/jose/Desktop/projeto-cg/src/ArrayList.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/engine.dir/ArrayList.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/ArrayList.cpp.o -c /home/jose/Desktop/projeto-cg/src/ArrayList.cpp
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o: /home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o -c /home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp
 
-CMakeFiles/engine.dir/ArrayList.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/ArrayList.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jose/Desktop/projeto-cg/src/ArrayList.cpp > CMakeFiles/engine.dir/ArrayList.cpp.i
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp > CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.i
 
-CMakeFiles/engine.dir/ArrayList.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/ArrayList.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jose/Desktop/projeto-cg/src/ArrayList.cpp -o CMakeFiles/engine.dir/ArrayList.cpp.s
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp -o CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.s
 
-CMakeFiles/engine.dir/ArrayList.cpp.o.requires:
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o.requires:
 
-.PHONY : CMakeFiles/engine.dir/ArrayList.cpp.o.requires
+.PHONY : CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o.requires
 
-CMakeFiles/engine.dir/ArrayList.cpp.o.provides: CMakeFiles/engine.dir/ArrayList.cpp.o.requires
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/ArrayList.cpp.o.provides.build
-.PHONY : CMakeFiles/engine.dir/ArrayList.cpp.o.provides
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o.provides: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o.provides
 
-CMakeFiles/engine.dir/ArrayList.cpp.o.provides.build: CMakeFiles/engine.dir/ArrayList.cpp.o
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o.provides.build: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o
 
 
-CMakeFiles/engine.dir/Point.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/Point.cpp.o: /home/jose/Desktop/projeto-cg/src/Point.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/engine.dir/Point.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/Point.cpp.o -c /home/jose/Desktop/projeto-cg/src/Point.cpp
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o: /home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o -c /home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp
 
-CMakeFiles/engine.dir/Point.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/Point.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jose/Desktop/projeto-cg/src/Point.cpp > CMakeFiles/engine.dir/Point.cpp.i
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp > CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.i
 
-CMakeFiles/engine.dir/Point.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/Point.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jose/Desktop/projeto-cg/src/Point.cpp -o CMakeFiles/engine.dir/Point.cpp.s
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp -o CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.s
 
-CMakeFiles/engine.dir/Point.cpp.o.requires:
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o.requires:
 
-.PHONY : CMakeFiles/engine.dir/Point.cpp.o.requires
+.PHONY : CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o.requires
 
-CMakeFiles/engine.dir/Point.cpp.o.provides: CMakeFiles/engine.dir/Point.cpp.o.requires
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point.cpp.o.provides.build
-.PHONY : CMakeFiles/engine.dir/Point.cpp.o.provides
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o.provides: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o.provides
 
-CMakeFiles/engine.dir/Point.cpp.o.provides.build: CMakeFiles/engine.dir/Point.cpp.o
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o.provides.build: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o
 
 
-CMakeFiles/engine.dir/boxGenerator.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/boxGenerator.cpp.o: /home/jose/Desktop/projeto-cg/src/boxGenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/engine.dir/boxGenerator.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/boxGenerator.cpp.o -c /home/jose/Desktop/projeto-cg/src/boxGenerator.cpp
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o: /home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o -c /home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp
 
-CMakeFiles/engine.dir/boxGenerator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/boxGenerator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jose/Desktop/projeto-cg/src/boxGenerator.cpp > CMakeFiles/engine.dir/boxGenerator.cpp.i
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp > CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.i
 
-CMakeFiles/engine.dir/boxGenerator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/boxGenerator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jose/Desktop/projeto-cg/src/boxGenerator.cpp -o CMakeFiles/engine.dir/boxGenerator.cpp.s
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp -o CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.s
 
-CMakeFiles/engine.dir/boxGenerator.cpp.o.requires:
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o.requires:
 
-.PHONY : CMakeFiles/engine.dir/boxGenerator.cpp.o.requires
+.PHONY : CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o.requires
 
-CMakeFiles/engine.dir/boxGenerator.cpp.o.provides: CMakeFiles/engine.dir/boxGenerator.cpp.o.requires
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/boxGenerator.cpp.o.provides.build
-.PHONY : CMakeFiles/engine.dir/boxGenerator.cpp.o.provides
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o.provides: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o.provides
 
-CMakeFiles/engine.dir/boxGenerator.cpp.o.provides.build: CMakeFiles/engine.dir/boxGenerator.cpp.o
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o.provides.build: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o
 
 
-CMakeFiles/engine.dir/coneGenerator.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/coneGenerator.cpp.o: /home/jose/Desktop/projeto-cg/src/coneGenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/engine.dir/coneGenerator.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/coneGenerator.cpp.o -c /home/jose/Desktop/projeto-cg/src/coneGenerator.cpp
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o: /home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o -c /home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp
 
-CMakeFiles/engine.dir/coneGenerator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/coneGenerator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jose/Desktop/projeto-cg/src/coneGenerator.cpp > CMakeFiles/engine.dir/coneGenerator.cpp.i
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp > CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.i
 
-CMakeFiles/engine.dir/coneGenerator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/coneGenerator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jose/Desktop/projeto-cg/src/coneGenerator.cpp -o CMakeFiles/engine.dir/coneGenerator.cpp.s
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp -o CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.s
 
-CMakeFiles/engine.dir/coneGenerator.cpp.o.requires:
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o.requires:
 
-.PHONY : CMakeFiles/engine.dir/coneGenerator.cpp.o.requires
+.PHONY : CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o.requires
 
-CMakeFiles/engine.dir/coneGenerator.cpp.o.provides: CMakeFiles/engine.dir/coneGenerator.cpp.o.requires
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/coneGenerator.cpp.o.provides.build
-.PHONY : CMakeFiles/engine.dir/coneGenerator.cpp.o.provides
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o.provides: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o.provides
 
-CMakeFiles/engine.dir/coneGenerator.cpp.o.provides.build: CMakeFiles/engine.dir/coneGenerator.cpp.o
-
-
-CMakeFiles/engine.dir/file2list.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/file2list.cpp.o: /home/jose/Desktop/projeto-cg/src/file2list.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/engine.dir/file2list.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/file2list.cpp.o -c /home/jose/Desktop/projeto-cg/src/file2list.cpp
-
-CMakeFiles/engine.dir/file2list.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/file2list.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jose/Desktop/projeto-cg/src/file2list.cpp > CMakeFiles/engine.dir/file2list.cpp.i
-
-CMakeFiles/engine.dir/file2list.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/file2list.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jose/Desktop/projeto-cg/src/file2list.cpp -o CMakeFiles/engine.dir/file2list.cpp.s
-
-CMakeFiles/engine.dir/file2list.cpp.o.requires:
-
-.PHONY : CMakeFiles/engine.dir/file2list.cpp.o.requires
-
-CMakeFiles/engine.dir/file2list.cpp.o.provides: CMakeFiles/engine.dir/file2list.cpp.o.requires
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/file2list.cpp.o.provides.build
-.PHONY : CMakeFiles/engine.dir/file2list.cpp.o.provides
-
-CMakeFiles/engine.dir/file2list.cpp.o.provides.build: CMakeFiles/engine.dir/file2list.cpp.o
-
-
-CMakeFiles/engine.dir/list2file.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/list2file.cpp.o: /home/jose/Desktop/projeto-cg/src/list2file.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/engine.dir/list2file.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/list2file.cpp.o -c /home/jose/Desktop/projeto-cg/src/list2file.cpp
-
-CMakeFiles/engine.dir/list2file.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/list2file.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jose/Desktop/projeto-cg/src/list2file.cpp > CMakeFiles/engine.dir/list2file.cpp.i
-
-CMakeFiles/engine.dir/list2file.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/list2file.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jose/Desktop/projeto-cg/src/list2file.cpp -o CMakeFiles/engine.dir/list2file.cpp.s
-
-CMakeFiles/engine.dir/list2file.cpp.o.requires:
-
-.PHONY : CMakeFiles/engine.dir/list2file.cpp.o.requires
-
-CMakeFiles/engine.dir/list2file.cpp.o.provides: CMakeFiles/engine.dir/list2file.cpp.o.requires
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/list2file.cpp.o.provides.build
-.PHONY : CMakeFiles/engine.dir/list2file.cpp.o.provides
-
-CMakeFiles/engine.dir/list2file.cpp.o.provides.build: CMakeFiles/engine.dir/list2file.cpp.o
-
-
-CMakeFiles/engine.dir/planeGenerator.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/planeGenerator.cpp.o: /home/jose/Desktop/projeto-cg/src/planeGenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/engine.dir/planeGenerator.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/planeGenerator.cpp.o -c /home/jose/Desktop/projeto-cg/src/planeGenerator.cpp
-
-CMakeFiles/engine.dir/planeGenerator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/planeGenerator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jose/Desktop/projeto-cg/src/planeGenerator.cpp > CMakeFiles/engine.dir/planeGenerator.cpp.i
-
-CMakeFiles/engine.dir/planeGenerator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/planeGenerator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jose/Desktop/projeto-cg/src/planeGenerator.cpp -o CMakeFiles/engine.dir/planeGenerator.cpp.s
-
-CMakeFiles/engine.dir/planeGenerator.cpp.o.requires:
-
-.PHONY : CMakeFiles/engine.dir/planeGenerator.cpp.o.requires
-
-CMakeFiles/engine.dir/planeGenerator.cpp.o.provides: CMakeFiles/engine.dir/planeGenerator.cpp.o.requires
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/planeGenerator.cpp.o.provides.build
-.PHONY : CMakeFiles/engine.dir/planeGenerator.cpp.o.provides
-
-CMakeFiles/engine.dir/planeGenerator.cpp.o.provides.build: CMakeFiles/engine.dir/planeGenerator.cpp.o
-
-
-CMakeFiles/engine.dir/sphereGenerator.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/sphereGenerator.cpp.o: /home/jose/Desktop/projeto-cg/src/sphereGenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/engine.dir/sphereGenerator.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/sphereGenerator.cpp.o -c /home/jose/Desktop/projeto-cg/src/sphereGenerator.cpp
-
-CMakeFiles/engine.dir/sphereGenerator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/sphereGenerator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jose/Desktop/projeto-cg/src/sphereGenerator.cpp > CMakeFiles/engine.dir/sphereGenerator.cpp.i
-
-CMakeFiles/engine.dir/sphereGenerator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/sphereGenerator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jose/Desktop/projeto-cg/src/sphereGenerator.cpp -o CMakeFiles/engine.dir/sphereGenerator.cpp.s
-
-CMakeFiles/engine.dir/sphereGenerator.cpp.o.requires:
-
-.PHONY : CMakeFiles/engine.dir/sphereGenerator.cpp.o.requires
-
-CMakeFiles/engine.dir/sphereGenerator.cpp.o.provides: CMakeFiles/engine.dir/sphereGenerator.cpp.o.requires
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/sphereGenerator.cpp.o.provides.build
-.PHONY : CMakeFiles/engine.dir/sphereGenerator.cpp.o.provides
-
-CMakeFiles/engine.dir/sphereGenerator.cpp.o.provides.build: CMakeFiles/engine.dir/sphereGenerator.cpp.o
-
-
-CMakeFiles/engine.dir/xmlParser.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/xmlParser.cpp.o: /home/jose/Desktop/projeto-cg/src/xmlParser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/engine.dir/xmlParser.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/xmlParser.cpp.o -c /home/jose/Desktop/projeto-cg/src/xmlParser.cpp
-
-CMakeFiles/engine.dir/xmlParser.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/xmlParser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jose/Desktop/projeto-cg/src/xmlParser.cpp > CMakeFiles/engine.dir/xmlParser.cpp.i
-
-CMakeFiles/engine.dir/xmlParser.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/xmlParser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jose/Desktop/projeto-cg/src/xmlParser.cpp -o CMakeFiles/engine.dir/xmlParser.cpp.s
-
-CMakeFiles/engine.dir/xmlParser.cpp.o.requires:
-
-.PHONY : CMakeFiles/engine.dir/xmlParser.cpp.o.requires
-
-CMakeFiles/engine.dir/xmlParser.cpp.o.provides: CMakeFiles/engine.dir/xmlParser.cpp.o.requires
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/xmlParser.cpp.o.provides.build
-.PHONY : CMakeFiles/engine.dir/xmlParser.cpp.o.provides
-
-CMakeFiles/engine.dir/xmlParser.cpp.o.provides.build: CMakeFiles/engine.dir/xmlParser.cpp.o
+CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o.provides.build: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o
 
 
 # Object files for target engine
 engine_OBJECTS = \
-"CMakeFiles/engine.dir/engine.cpp.o" \
-"CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o" \
-"CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o" \
-"CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o" \
-"CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o" \
-"CMakeFiles/engine.dir/ArrayList.cpp.o" \
-"CMakeFiles/engine.dir/Point.cpp.o" \
-"CMakeFiles/engine.dir/boxGenerator.cpp.o" \
-"CMakeFiles/engine.dir/coneGenerator.cpp.o" \
-"CMakeFiles/engine.dir/file2list.cpp.o" \
-"CMakeFiles/engine.dir/list2file.cpp.o" \
-"CMakeFiles/engine.dir/planeGenerator.cpp.o" \
-"CMakeFiles/engine.dir/sphereGenerator.cpp.o" \
-"CMakeFiles/engine.dir/xmlParser.cpp.o"
+"CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o" \
+"CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o" \
+"CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o" \
+"CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o" \
+"CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o" \
+"CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o" \
+"CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o" \
+"CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o" \
+"CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o"
 
 # External object files for target engine
 engine_EXTERNAL_OBJECTS =
 
-engine: CMakeFiles/engine.dir/engine.cpp.o
-engine: CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o
-engine: CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o
-engine: CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o
-engine: CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o
-engine: CMakeFiles/engine.dir/ArrayList.cpp.o
-engine: CMakeFiles/engine.dir/Point.cpp.o
-engine: CMakeFiles/engine.dir/boxGenerator.cpp.o
-engine: CMakeFiles/engine.dir/coneGenerator.cpp.o
-engine: CMakeFiles/engine.dir/file2list.cpp.o
-engine: CMakeFiles/engine.dir/list2file.cpp.o
-engine: CMakeFiles/engine.dir/planeGenerator.cpp.o
-engine: CMakeFiles/engine.dir/sphereGenerator.cpp.o
-engine: CMakeFiles/engine.dir/xmlParser.cpp.o
+engine: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o
+engine: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o
+engine: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o
+engine: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o
+engine: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o
+engine: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o
+engine: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o
+engine: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o
+engine: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o
 engine: CMakeFiles/engine.dir/build.make
 engine: /usr/lib/x86_64-linux-gnu/libGL.so
 engine: /usr/lib/x86_64-linux-gnu/libGLU.so
@@ -434,7 +304,7 @@ engine: /usr/lib/x86_64-linux-gnu/libglut.so
 engine: /usr/lib/x86_64-linux-gnu/libXmu.so
 engine: /usr/lib/x86_64-linux-gnu/libXi.so
 engine: CMakeFiles/engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/engine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -442,20 +312,15 @@ CMakeFiles/engine.dir/build: engine
 
 .PHONY : CMakeFiles/engine.dir/build
 
-CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/engine.cpp.o.requires
-CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp.o.requires
-CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp.o.requires
-CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp.o.requires
-CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp.o.requires
-CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/ArrayList.cpp.o.requires
-CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/Point.cpp.o.requires
-CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/boxGenerator.cpp.o.requires
-CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/coneGenerator.cpp.o.requires
-CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/file2list.cpp.o.requires
-CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/list2file.cpp.o.requires
-CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/planeGenerator.cpp.o.requires
-CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/sphereGenerator.cpp.o.requires
-CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/xmlParser.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o.requires
 
 .PHONY : CMakeFiles/engine.dir/requires
 
@@ -464,6 +329,6 @@ CMakeFiles/engine.dir/clean:
 .PHONY : CMakeFiles/engine.dir/clean
 
 CMakeFiles/engine.dir/depend:
-	cd /home/jose/Desktop/projeto-cg/bin_linux && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jose/Desktop/projeto-cg/src /home/jose/Desktop/projeto-cg/src /home/jose/Desktop/projeto-cg/bin_linux /home/jose/Desktop/projeto-cg/bin_linux /home/jose/Desktop/projeto-cg/bin_linux/CMakeFiles/engine.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/joaomarques/Desktop/CG/projeto-cg/bin_linux && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/joaomarques/Desktop/CG/projeto-cg/engine_CMake /home/joaomarques/Desktop/CG/projeto-cg/engine_CMake /home/joaomarques/Desktop/CG/projeto-cg/bin_linux /home/joaomarques/Desktop/CG/projeto-cg/bin_linux /home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles/engine.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/engine.dir/depend
 

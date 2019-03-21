@@ -1,4 +1,14 @@
 <scene>
-     <model file="a.3d" />
-     <model file="b.3d" />
+	<group>
+		<translate X=5 Y=0 Z=2 />
+		<models>
+     		<model file="a.3d" />
+     	</models>
+     	<group>
+     		<translate Y=1 />
+     		<models>
+     			<model file="b.3d" />
+     		</models>
+     	</group>
+     </group>
 </scene>

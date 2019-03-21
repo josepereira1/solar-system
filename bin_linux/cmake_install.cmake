@@ -1,4 +1,4 @@
-# Install script for directory: /home/jose/Desktop/projeto-cg/src
+# Install script for directory: /home/joaomarques/Desktop/CG/projeto-cg/engine_CMake
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/jose/Desktop/projeto-cg/bin_linux/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
