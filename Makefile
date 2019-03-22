@@ -11,7 +11,7 @@ get_generator:
 	g++ $(CFLAGS) $(CPP_FILES_GENERATOR) -o generator
 
 get_xml:
-	g++ $(CFLAGS) tests/testeXML.cpp -o xml
+	g++ $(CFLAGS) src/group.cpp src/operation.cpp tests/testeXML.cpp -o xml
 
 get_test:
 	g++ $(CFLAGS) src/group.cpp src/operation.cpp tests/testGROUP_OPERATION.cpp -o teste
