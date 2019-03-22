@@ -11,8 +11,6 @@
 
 using namespace std;
 
-//static float getAttribute(TiXmlElement* pRoot)
-
 static Group searchRec(map<string,Figura> figuras, TiXmlElement *pRoot) {
     bool t = false, r = false, s = false, m = false;
     pRoot = pRoot->FirstChildElement();
@@ -79,11 +77,17 @@ static Group searchRec(map<string,Figura> figuras, TiXmlElement *pRoot) {
                 TiXmlElement *pChild = pRoot->FirstChildElement("model");
                 while(pChild) {
                     name = (string)pChild->Attribute("file");
+                    
                     if(figuras.find(name) == figuras.end()) { // se não  existir
+                        // printf("name: %s\n", name.c_str());
                         Figura f;
                         f.pontos = file2list(name.c_str());
                         figuras[name] = f;
+                        /*for(unsigned k=0; k<f.pontos.size(); k+=3) {
+                            printf("file: %s, X=%f, Y=%f, Z=%f\n", name.c_str(), figuras[name].pontos[k], figuras[name].pontos[k+1], figuras[name].pontos[k+2]);
+                        }*/
                     }
+
                     group.ficheiros.push_back(name);
                     pChild = pChild->NextSiblingElement("model");
                 }
@@ -102,7 +106,7 @@ static Group searchRec(map<string,Figura> figuras, TiXmlElement *pRoot) {
     return group;
 }
 
-static void parse(Group group, map<string,Figura> figuras, const char* path){
+void parse(Group* group, map<string,Figura> figuras, const char* path){
     TiXmlDocument doc(path);
     if(doc.LoadFile()) {
         TiXmlElement *pRoot;
@@ -110,15 +114,17 @@ static void parse(Group group, map<string,Figura> figuras, const char* path){
         if(pRoot) {
             pRoot = pRoot->FirstChildElement("group");
             if(pRoot) {
-                group = searchRec(figuras,pRoot);
+                *group = searchRec(figuras,pRoot);
             }
         }
     }
-    perror("Could not load XML File\n");
-    exit(1);
+    else {
+        perror("ERROR => Could not load XML File!\n");
+        exit(1);
+    }
 }
 
-void printGroup(Group g) {
+static void printGroup(Group g) {
     printf("GROUP:-----------------------------------------------\n");
     for(unsigned i = 0; i<g.operacoes.size() ;i++) {
         Operation op = g.operacoes[i];
@@ -134,10 +140,19 @@ void printGroup(Group g) {
     }
 }
 
+static void printFiguras(map<string,Figura> figuras) {
+    printf("SIZE=%lu\n", figuras.size());
+    vector<float> pontos = figuras["cone.3d"].pontos;
+    for(unsigned k=0; k<pontos.size(); k+=3) {
+        printf("X=%f, Y=%f, Z=%f\n", pontos[k], pontos[k+1], pontos[k+2]);
+    }
+}
+
 int main() {
     Group group;
     map<string,Figura> figuras;
-    parse(group,figuras,"file.xml");
+    parse(&group,figuras,"file.xml");
     printGroup(group);
+    printFiguras(figuras);
     return 0;
 }
