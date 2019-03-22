@@ -1,9 +1,8 @@
 .DS_Store
-a.out
-exe
-execute
-prog
-program
+*.out
+*.3d
 generator
 parser
+xml
 bin/
+*.out

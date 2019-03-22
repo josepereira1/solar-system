@@ -30,7 +30,7 @@ void list2file(TAD_ARRAY_LIST points, const char* path) {
 			deslocamento = save_coordinates(point,str,deslocamento);
 		}
 		deslocamento--;
-		sprintf(str+deslocamento,"\0");
+		sprintf(str+deslocamento,"%s","\0");
 		//save on file
         fputs(str,file);
         //close the file
