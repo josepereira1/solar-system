@@ -109,6 +109,7 @@ static Group parse(const char* path){
 }
 
 void printGroup(Group g) {
+    printf("GROUP:-----------------------------------------------\n");
     for(unsigned i = 0; i<g.operacoes.size() ;i++) {
         Operation op = g.operacoes[i];
         printf("Operacao: Flag=%c ,X=%f ,Y=%f ,Z=%f ,Angle=%f\n",op.flag,op.x,op.y,op.z,op.ang);
@@ -119,7 +120,6 @@ void printGroup(Group g) {
     }
     for(unsigned i = 0; i<g.filhos.size() ;i++) {
         Group a = g.filhos[i];
-        printf("GROUP:-----------------------------------------------\n");
         printGroup(a);
     }
 }
