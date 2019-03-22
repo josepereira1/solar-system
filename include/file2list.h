@@ -5,6 +5,6 @@
 
 using namespace std;
 
-vector<float> file2list(char* path);
+vector<float> file2list(const char*);
 
 #endif

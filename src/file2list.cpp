@@ -5,16 +5,16 @@
 
 #include <file2list.h>
 
-static void openError(char* path) {
+static void openError(const char* path) {
 	char* errorMsg = (char*) malloc(sizeof(char)*(strlen(path)+21));
-	sprintf(errorMsg, "could not open file %s", path);
+	sprintf(errorMsg, "ERROR => could not open file %s", path);
 	perror(errorMsg);
 	free(errorMsg);
 	exit(EXIT_FAILURE);
 }
 
 
-vector<float> file2list(char* path) {
+vector<float> file2list(const char* path) {
 
 	FILE* fd;
 	if((fd = fopen(path,"r")) == NULL) { // abre o ficheiro para leitura apenas 

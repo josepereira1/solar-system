@@ -5,12 +5,15 @@
 #include <group.h>
 #include <operation.h>
 #include <vector>
+#include <Figura.h>
+#include <map>
+#include <file2list.h>
 
 using namespace std;
 
 //static float getAttribute(TiXmlElement* pRoot)
 
-static Group searchRec(map<string,Figura> figuras,TiXmlElement *pRoot) {
+static Group searchRec(map<string,Figura> figuras, TiXmlElement *pRoot) {
     bool t = false, r = false, s = false, m = false;
     pRoot = pRoot->FirstChildElement();
     Group group = Group();
@@ -76,10 +79,10 @@ static Group searchRec(map<string,Figura> figuras,TiXmlElement *pRoot) {
                 TiXmlElement *pChild = pRoot->FirstChildElement("model");
                 while(pChild) {
                     name = (string)pChild->Attribute("file");
-                    Figura f = figuras.get(name);
-                    if(f==NULL) {
-                        f = file2list(name);
-                        
+                    if(figuras.find(name) == figuras.end()) { // se não  existir
+                        Figura f;
+                        f.pontos = file2list(name.c_str());
+                        figuras[name] = f;
                     }
                     group.ficheiros.push_back(name);
                     pChild = pChild->NextSiblingElement("model");
@@ -92,7 +95,7 @@ static Group searchRec(map<string,Figura> figuras,TiXmlElement *pRoot) {
             }
         }
         else if(name.compare("group")==0) {
-            group.filhos.push_back(searchRec(pRoot));
+            group.filhos.push_back(searchRec(figuras, pRoot));
         }
         pRoot = pRoot->NextSiblingElement();
     }
@@ -132,8 +135,8 @@ void printGroup(Group g) {
 }
 
 int main() {
-    Group group = Group();
-    map<string,Figura> figuras = map<>();
+    Group group;
+    map<string,Figura> figuras;
     parse(group,figuras,"file.xml");
     printGroup(group);
     return 0;
