@@ -8,7 +8,9 @@
 
 using namespace std;
 
-static Group searchRec(TiXmlElement *pRoot) {
+//static float getAttribute(TiXmlElement* pRoot)
+
+static Group searchRec(map<string,Figura> figuras,TiXmlElement *pRoot) {
     bool t = false, r = false, s = false, m = false;
     pRoot = pRoot->FirstChildElement();
     Group group = Group();
@@ -74,6 +76,11 @@ static Group searchRec(TiXmlElement *pRoot) {
                 TiXmlElement *pChild = pRoot->FirstChildElement("model");
                 while(pChild) {
                     name = (string)pChild->Attribute("file");
+                    Figura f = figuras.get(name);
+                    if(f==NULL) {
+                        f = file2list(name);
+                        
+                    }
                     group.ficheiros.push_back(name);
                     pChild = pChild->NextSiblingElement("model");
                 }
@@ -92,7 +99,7 @@ static Group searchRec(TiXmlElement *pRoot) {
     return group;
 }
 
-static Group parse(const char* path){
+static void parse(Group group, map<string,Figura> figuras, const char* path){
     TiXmlDocument doc(path);
     if(doc.LoadFile()) {
         TiXmlElement *pRoot;
@@ -100,7 +107,7 @@ static Group parse(const char* path){
         if(pRoot) {
             pRoot = pRoot->FirstChildElement("group");
             if(pRoot) {
-                return searchRec(pRoot);
+                group = searchRec(figuras,pRoot);
             }
         }
     }
@@ -125,7 +132,9 @@ void printGroup(Group g) {
 }
 
 int main() {
-    Group a = parse("file.xml");
-    printGroup(a);
+    Group group = Group();
+    map<string,Figura> figuras = map<>();
+    parse(group,figuras,"file.xml");
+    printGroup(group);
     return 0;
 }

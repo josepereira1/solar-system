@@ -10,16 +10,11 @@ CPP_FILES_TINYXML=$(wildcard tinyxml/*.cpp)
 get_generator: 
 	g++ $(CFLAGS) $(CPP_FILES_GENERATOR) -o generator
 
-get_xml:
+teste_xml:
 	g++ $(CFLAGS) src/group.cpp src/operation.cpp tests/testeXML.cpp -o xml
 
-get_test:
-	g++ $(CFLAGS) src/group.cpp src/operation.cpp tests/testGROUP_OPERATION.cpp -o teste
-
-get_test_figura:
-	clear
-	g++ $(CFLAGS) src/figura.cpp tests/testeFigura.cpp -o teste
-
+teste_f2l:
+	g++ $(CFLAGS) src/file2list.cpp tests/testef2l.cpp -o f2l
 
 generate: install
 	generator cone 10 10 10 10 cone.3d
@@ -46,3 +41,4 @@ clean:
 	rm -f *.out
 	rm -f teste
 	rm -f test
+	rm -f f2l

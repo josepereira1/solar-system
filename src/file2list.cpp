@@ -1,11 +1,9 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <vector>
 
-#include <ArrayList.h>
 #include <file2list.h>
-#include <Point.h>
-
 
 static void openError(char* path) {
 	char* errorMsg = (char*) malloc(sizeof(char)*(strlen(path)+21));
@@ -16,21 +14,22 @@ static void openError(char* path) {
 }
 
 
-TAD_ARRAY_LIST file2list(char* path) {
+vector<float> file2list(char* path) {
 
 	FILE* fd;
-	if ( (fd = fopen(path, "r")) == NULL) { // abre o ficheiro para leitura apenas 
+	if((fd = fopen(path,"r")) == NULL) { // abre o ficheiro para leitura apenas 
 		openError(path);
 	}
-	
 	int n_pontos;
-	fscanf(fd, "%d\n", &n_pontos);
+	fscanf(fd,"%d\n",&n_pontos);
 
-	TAD_ARRAY_LIST pontos = ARRAY_LIST(n_pontos);
+	vector<float> pontos;
 	float x, y, z;
 	for(int i=0; i < n_pontos; i++) { 
 		fscanf(fd, "%f, %f, %f\n", &x, &y, &z);
-		addElem(pontos, POINT(x, y, z));
+		pontos.push_back(x);
+		pontos.push_back(y);
+		pontos.push_back(z);
 	}
 
 	return pontos;
