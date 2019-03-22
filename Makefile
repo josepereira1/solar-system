@@ -16,6 +16,11 @@ get_xml:
 get_test:
 	g++ $(CFLAGS) src/group.cpp src/operation.cpp tests/testGROUP_OPERATION.cpp -o teste
 
+get_test_figura:
+	clear
+	g++ $(CFLAGS) src/figura.cpp tests/testeFigura.cpp -o teste
+
+
 generate: install
 	generator cone 10 10 10 10 cone.3d
 	generator sphere 10 10 10 sphere.3d
