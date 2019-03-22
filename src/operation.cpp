@@ -1,6 +1,4 @@
-#include "../include/operation.h"
-
-using namespace std;
+#include <operation.h>
 
  Operation::Operation(char flag, float x, float y, float z, float angulo){
         this->flag = flag;

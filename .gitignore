@@ -6,3 +6,5 @@ parser
 xml
 bin/
 *.out
+teste
+test

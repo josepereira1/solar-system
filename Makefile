@@ -39,3 +39,5 @@ clean:
 	rm -f bin_windows_engine/*.3d
 	rm -f bin_linux/*.3d
 	rm -f *.out
+	rm -f teste
+	rm -f test
