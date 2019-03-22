@@ -2,8 +2,7 @@
 #include <stdio.h>
 #include <string>
 #include <iostream>
-#include <group.h>
-#include <operation.h>
+#include "../include/group.h"
 #include <vector>
 
 using namespace std;
@@ -11,19 +10,19 @@ using namespace std;
 static Group searchRec(TiXmlElement *pRoot) {
     bool t = false, r = false, s = false, m = false;
     pRoot = pRoot->FirstChildElement();
-    Group group = GROUP();
+    Group group = Group();
     while(pRoot) {
         string name = (string)pRoot->Value();
         Operation op;
         float x=0.0f,y=0.0f,z=0.0f,angle=0.0f;
-        char *sx,*sy,*sz,*sangle;
+        const char *sx,*sy,*sz,*sangle;
         if(name.compare("translate")==0) {
             if(!t) {
-                sx = pRoot->Attrbute("X");
+                sx = pRoot->Attribute("X");
                 if(sx) x = atof(sx);
-                sy = pRoot->Attrbute("Y");
+                sy = pRoot->Attribute("Y");
                 if(sy) y = atof(sy);
-                sz = pRoot->Attrbute("Z");
+                sz = pRoot->Attribute("Z");
                 if(sz) z = atof(sz);
                 op = Operation('t',x,y,z,angle);
                 printf("TRANSLATE: X=%f Y=%f Z=%f\n",x,y,z);
@@ -39,11 +38,11 @@ static Group searchRec(TiXmlElement *pRoot) {
             if(!r) {
                 sangle = pRoot->Attribute("angle");
                 if(sangle) angle = atof(sangle);
-                sx = pRoot->Attrbute("axisX");
+                sx = pRoot->Attribute("axisX");
                 if(sx) x = atof(sx);
-                sy = pRoot->Attrbute("axisY");
+                sy = pRoot->Attribute("axisY");
                 if(sy) y = atof(sy);
-                sz = pRoot->Attrbute("axisZ");
+                sz = pRoot->Attribute("axisZ");
                 if(sz) z = atof(sz);
                 op = Operation('r',x,y,z,angle);
                 printf("ROTATE: Angle=%f X=%f Y=%f Z=%f\n",angle,x,y,z);
@@ -57,11 +56,11 @@ static Group searchRec(TiXmlElement *pRoot) {
         }
         else if(name.compare("scale")==0) {
             if(!s) {
-                sx = pRoot->Attrbute("X");
+                sx = pRoot->Attribute("X");
                 if(sx) x = atof(sx);
-                sy = pRoot->Attrbute("Y");
+                sy = pRoot->Attribute("Y");
                 if(sy) y = atof(sy);
-                sz = pRoot->Attrbute("Z");
+                sz = pRoot->Attribute("Z");
                 if(sz) z = atof(sz);
                 op = Operation('s',x,y,z,angle);
                 printf("SCALE: X=%f Y=%f Z=%f\n",x,y,z);
@@ -112,10 +111,10 @@ static Group parse(const char* path){
         }
     }
     else {
-        perror("Could not load XML File");
+        perror("Could not load XML File\n");
         exit(1);
     }
-    return NULL;
+    //return NULL;
 }
 
 int main() {

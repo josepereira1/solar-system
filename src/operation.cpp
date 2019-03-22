@@ -1,3 +1,4 @@
+#include "../include/operation.h"
 
 using namespace std;
 
@@ -8,8 +9,3 @@ using namespace std;
         this->z = z;
         this->ang = angulo;
     }
-
-
-
-
-

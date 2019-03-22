@@ -1,6 +1,6 @@
 IDIR=include/
 TINYXMLDIR=tinyxml/
-CFLAGS = -Wall -Wextra -I $(IDIR) -I $(TINYXMLDIR) $(CPP_FILES_TINYXML)
+CFLAGS = -std=c++11 -Wall -Wextra -I $(IDIR) -I $(TINYXMLDIR) $(CPP_FILES_TINYXML) 
 
 CPP_FILES_EXCLUDE=src/generator.cpp src/engine.cpp
 
@@ -12,6 +12,9 @@ get_generator:
 
 get_xml:
 	g++ $(CFLAGS) tests/testeXML.cpp -o xml
+
+get_test:
+	g++ $(CFLAGS) src/group.cpp src/operation.cpp tests/testGROUP_OPERATION.cpp -o teste
 
 generate: install
 	generator cone 10 10 10 10 cone.3d

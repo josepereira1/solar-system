@@ -1,10 +1,9 @@
 #include <string>
 #include <vector>
-#include <iostream>
-#include "operation.cpp"
+#include <group.h>
+#include <operation.h>
 
 using namespace std;
-
 
 Group:: Group(){
 	vector<Operation> operacoes;

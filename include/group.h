@@ -1,7 +1,8 @@
+#ifndef GROUP_H
+#define GROUP_H
 #include <string>
 #include <vector>
-#include <iostream>
-#include "../src/operation.cpp"
+#include <operation.h>
 
 using namespace std;
 
@@ -9,7 +10,9 @@ class Group{
 public:
 	Group();
 	~Group();
-	vector<OPERATION> operacoes;
+	vector<Operation> operacoes;
 	vector<string> ficheiros;
-	vector<GROUP> filhos;
+	vector<Group> filhos;
 };
+
+#endif
