@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <string>
 #include <iostream>
-#include "../include/group.h"
+#include <group.h>
+#include <operation.h>
 #include <vector>
 
 using namespace std;
@@ -13,7 +14,6 @@ static Group searchRec(TiXmlElement *pRoot) {
     Group group = Group();
     while(pRoot) {
         string name = (string)pRoot->Value();
-        Operation op;
         float x=0.0f,y=0.0f,z=0.0f,angle=0.0f;
         const char *sx,*sy,*sz,*sangle;
         if(name.compare("translate")==0) {
@@ -24,10 +24,9 @@ static Group searchRec(TiXmlElement *pRoot) {
                 if(sy) y = atof(sy);
                 sz = pRoot->Attribute("Z");
                 if(sz) z = atof(sz);
-                op = Operation('t',x,y,z,angle);
-                printf("TRANSLATE: X=%f Y=%f Z=%f\n",x,y,z);
+                Operation op = Operation('t',x,y,z,angle);
                 t = true;
-                group.operacoes.add(op);
+                group.operacoes.push_back(op);
             }
             else {
                 perror("2 or more translation in same GROUP!\n");
@@ -44,10 +43,9 @@ static Group searchRec(TiXmlElement *pRoot) {
                 if(sy) y = atof(sy);
                 sz = pRoot->Attribute("axisZ");
                 if(sz) z = atof(sz);
-                op = Operation('r',x,y,z,angle);
-                printf("ROTATE: Angle=%f X=%f Y=%f Z=%f\n",angle,x,y,z);
+                Operation op = Operation('r',x,y,z,angle);
                 r = true;
-                group.operacoes.add(op);
+                group.operacoes.push_back(op);
             }
             else {
                 perror("2 or more rotate in same GROUP!\n");
@@ -62,10 +60,9 @@ static Group searchRec(TiXmlElement *pRoot) {
                 if(sy) y = atof(sy);
                 sz = pRoot->Attribute("Z");
                 if(sz) z = atof(sz);
-                op = Operation('s',x,y,z,angle);
-                printf("SCALE: X=%f Y=%f Z=%f\n",x,y,z);
+                Operation op = Operation('s',x,y,z,angle);
                 s = true;
-                group.operacoes.add(op);
+                group.operacoes.push_back(op);
             }
             else {
                 perror("2 or more scale in same GROUP!\n");
@@ -75,11 +72,9 @@ static Group searchRec(TiXmlElement *pRoot) {
         else if(name.compare("models")==0) {
             if(!m) {
                 TiXmlElement *pChild = pRoot->FirstChildElement("model");
-                printf("MODELS:\n");
                 while(pChild) {
                     name = (string)pChild->Attribute("file");
-                    group.ficheiros.add(name);
-                    cout << "File= " + name + "\n";
+                    group.ficheiros.push_back(name);
                     pChild = pChild->NextSiblingElement("model");
                 }
                 m = true;
@@ -90,8 +85,7 @@ static Group searchRec(TiXmlElement *pRoot) {
             }
         }
         else if(name.compare("group")==0) {
-            printf("GROUP\n");
-            group.filhos.add(searchRec(pRoot));
+            group.filhos.push_back(searchRec(pRoot));
         }
         pRoot = pRoot->NextSiblingElement();
     }
@@ -110,14 +104,28 @@ static Group parse(const char* path){
             }
         }
     }
-    else {
-        perror("Could not load XML File\n");
-        exit(1);
+    perror("Could not load XML File\n");
+    exit(1);
+}
+
+void printGroup(Group g) {
+    printf("GROUP:-----------------------------------------------\n");
+    for(unsigned i = 0; i<g.operacoes.size() ;i++) {
+        Operation op = g.operacoes[i];
+        printf("Operacao: Flag=%c ,X=%f ,Y=%f ,Z=%f ,Angle=%f\n",op.flag,op.x,op.y,op.z,op.ang);
     }
-    //return NULL;
+    for(unsigned i = 0; i<g.ficheiros.size() ;i++) {
+        string str = g.ficheiros[i];
+        cout << "Ficheiro=" + str +"\n";
+    }
+    for(unsigned i = 0; i<g.filhos.size() ;i++) {
+        Group a = g.filhos[i];
+        printGroup(a);
+    }
 }
 
 int main() {
     Group a = parse("file.xml");
+    printGroup(a);
     return 0;
 }
