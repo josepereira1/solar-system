@@ -4,22 +4,31 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp" "/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/ArrayList.cpp.o"
-  "/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp" "/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/Point.cpp.o"
-  "/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp" "/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/engine.cpp.o"
-  "/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp" "/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/file2list.cpp.o"
-  "/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp" "/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/src/xmlParser.cpp.o"
-  "/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp" "/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinystr.cpp.o"
-  "/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp" "/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxml.cpp.o"
-  "/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp" "/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlerror.cpp.o"
-  "/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp" "/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles/engine.dir/home/joaomarques/Desktop/CG/projeto-cg/tinyxml/tinyxmlparser.cpp.o"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/src/ArrayList.cpp" "/Users/josepereira/src/univ/programs/projects/projeto-cg/bin_linux/CMakeFiles/engine.dir/Users/josepereira/src/univ/programs/projects/projeto-cg/src/ArrayList.cpp.o"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/src/Figura.cpp" "/Users/josepereira/src/univ/programs/projects/projeto-cg/bin_linux/CMakeFiles/engine.dir/Users/josepereira/src/univ/programs/projects/projeto-cg/src/Figura.cpp.o"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/src/Point.cpp" "/Users/josepereira/src/univ/programs/projects/projeto-cg/bin_linux/CMakeFiles/engine.dir/Users/josepereira/src/univ/programs/projects/projeto-cg/src/Point.cpp.o"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/src/boxGenerator.cpp" "/Users/josepereira/src/univ/programs/projects/projeto-cg/bin_linux/CMakeFiles/engine.dir/Users/josepereira/src/univ/programs/projects/projeto-cg/src/boxGenerator.cpp.o"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/src/coneGenerator.cpp" "/Users/josepereira/src/univ/programs/projects/projeto-cg/bin_linux/CMakeFiles/engine.dir/Users/josepereira/src/univ/programs/projects/projeto-cg/src/coneGenerator.cpp.o"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/src/engine.cpp" "/Users/josepereira/src/univ/programs/projects/projeto-cg/bin_linux/CMakeFiles/engine.dir/Users/josepereira/src/univ/programs/projects/projeto-cg/src/engine.cpp.o"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/src/file2list.cpp" "/Users/josepereira/src/univ/programs/projects/projeto-cg/bin_linux/CMakeFiles/engine.dir/Users/josepereira/src/univ/programs/projects/projeto-cg/src/file2list.cpp.o"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/src/group.cpp" "/Users/josepereira/src/univ/programs/projects/projeto-cg/bin_linux/CMakeFiles/engine.dir/Users/josepereira/src/univ/programs/projects/projeto-cg/src/group.cpp.o"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/src/list2file.cpp" "/Users/josepereira/src/univ/programs/projects/projeto-cg/bin_linux/CMakeFiles/engine.dir/Users/josepereira/src/univ/programs/projects/projeto-cg/src/list2file.cpp.o"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/src/operation.cpp" "/Users/josepereira/src/univ/programs/projects/projeto-cg/bin_linux/CMakeFiles/engine.dir/Users/josepereira/src/univ/programs/projects/projeto-cg/src/operation.cpp.o"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/src/planeGenerator.cpp" "/Users/josepereira/src/univ/programs/projects/projeto-cg/bin_linux/CMakeFiles/engine.dir/Users/josepereira/src/univ/programs/projects/projeto-cg/src/planeGenerator.cpp.o"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/src/sphereGenerator.cpp" "/Users/josepereira/src/univ/programs/projects/projeto-cg/bin_linux/CMakeFiles/engine.dir/Users/josepereira/src/univ/programs/projects/projeto-cg/src/sphereGenerator.cpp.o"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/src/xmlParser.cpp" "/Users/josepereira/src/univ/programs/projects/projeto-cg/bin_linux/CMakeFiles/engine.dir/Users/josepereira/src/univ/programs/projects/projeto-cg/src/xmlParser.cpp.o"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinystr.cpp" "/Users/josepereira/src/univ/programs/projects/projeto-cg/bin_linux/CMakeFiles/engine.dir/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinystr.cpp.o"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinyxml.cpp" "/Users/josepereira/src/univ/programs/projects/projeto-cg/bin_linux/CMakeFiles/engine.dir/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinyxml.cpp.o"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinyxmlerror.cpp" "/Users/josepereira/src/univ/programs/projects/projeto-cg/bin_linux/CMakeFiles/engine.dir/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinyxmlerror.cpp.o"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinyxmlparser.cpp" "/Users/josepereira/src/univ/programs/projects/projeto-cg/bin_linux/CMakeFiles/engine.dir/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinyxmlparser.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/joaomarques/Desktop/CG/projeto-cg/engine_CMake/../include"
-  "/home/joaomarques/Desktop/CG/projeto-cg/engine_CMake/../tinyxml"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/engine_CMake/../include"
+  "/Users/josepereira/src/univ/programs/projects/projeto-cg/engine_CMake/../tinyxml"
+  "/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"
   )
 
 # Targets to which this target links.

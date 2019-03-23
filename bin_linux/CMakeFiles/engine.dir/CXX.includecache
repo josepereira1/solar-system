@@ -6,15 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/home/jose/Desktop/projeto-cg/src/../include/ArrayList.h
+/Users/josepereira/src/univ/programs/projects/projeto-cg/engine_CMake/../include/ArrayList.h
 
-/home/jose/Desktop/projeto-cg/src/../include/Point.h
-
-/home/jose/Desktop/projeto-cg/src/../include/file2list.h
-ArrayList.h
+/Users/josepereira/src/univ/programs/projects/projeto-cg/engine_CMake/../include/Figura.h
+vector
 -
 
-/home/jose/Desktop/projeto-cg/src/../include/list2file.h
+/Users/josepereira/src/univ/programs/projects/projeto-cg/engine_CMake/../include/Point.h
+
+/Users/josepereira/src/univ/programs/projects/projeto-cg/engine_CMake/../include/file2list.h
+vector
+-
+
+/Users/josepereira/src/univ/programs/projects/projeto-cg/engine_CMake/../include/group.h
+string
+-
+vector
+-
+operation.h
+-
+
+/Users/josepereira/src/univ/programs/projects/projeto-cg/engine_CMake/../include/list2file.h
 Point.h
 -
 ArrayList.h
@@ -26,17 +38,23 @@ stdlib.h
 stdio.h
 -
 
-/home/jose/Desktop/projeto-cg/src/../include/xmlParser.h
-ArrayList.h
+/Users/josepereira/src/univ/programs/projects/projeto-cg/engine_CMake/../include/operation.h
+
+/Users/josepereira/src/univ/programs/projects/projeto-cg/engine_CMake/../include/xmlParser.h
+group.h
+-
+map
+-
+Figura.h
 -
 
-/home/jose/Desktop/projeto-cg/src/../tinyxml/tinystr.h
+/Users/josepereira/src/univ/programs/projects/projeto-cg/engine_CMake/../tinyxml/tinystr.h
 assert.h
 -
 string.h
 -
 
-/home/jose/Desktop/projeto-cg/src/../tinyxml/tinyxml.h
+/Users/josepereira/src/univ/programs/projects/projeto-cg/engine_CMake/../tinyxml/tinyxml.h
 ctype.h
 -
 stdio.h
@@ -54,9 +72,9 @@ iostream
 sstream
 -
 tinystr.h
-/home/jose/Desktop/projeto-cg/src/../tinyxml/tinystr.h
+/Users/josepereira/src/univ/programs/projects/projeto-cg/engine_CMake/../tinyxml/tinystr.h
 
-/home/jose/Desktop/projeto-cg/src/ArrayList.cpp
+/Users/josepereira/src/univ/programs/projects/projeto-cg/src/ArrayList.cpp
 stdlib.h
 -
 stdio.h
@@ -66,7 +84,13 @@ string.h
 ArrayList.h
 -
 
-/home/jose/Desktop/projeto-cg/src/Point.cpp
+/Users/josepereira/src/univ/programs/projects/projeto-cg/src/Figura.cpp
+vector
+-
+Figura.h
+-
+
+/Users/josepereira/src/univ/programs/projects/projeto-cg/src/Point.cpp
 stdio.h
 -
 stdlib.h
@@ -78,13 +102,13 @@ string.h
 Point.h
 -
 
-/home/jose/Desktop/projeto-cg/src/boxGenerator.cpp
+/Users/josepereira/src/univ/programs/projects/projeto-cg/src/boxGenerator.cpp
 ArrayList.h
 -
 Point.h
 -
 
-/home/jose/Desktop/projeto-cg/src/coneGenerator.cpp
+/Users/josepereira/src/univ/programs/projects/projeto-cg/src/coneGenerator.cpp
 math.h
 -
 Point.h
@@ -92,47 +116,69 @@ Point.h
 ArrayList.h
 -
 
-/home/jose/Desktop/projeto-cg/src/engine.cpp
+/Users/josepereira/src/univ/programs/projects/projeto-cg/src/engine.cpp
 GLUT/glut.h
 -
 GL/glut.h
 -
-ArrayList.h
--
-Point.h
+stdio.h
 -
 xmlParser.h
 -
-stdio.h
+string
+-
+iostream
+-
+group.h
+-
+operation.h
+-
+vector
+-
+Figura.h
+-
+map
 -
 math.h
 -
 
-/home/jose/Desktop/projeto-cg/src/file2list.cpp
+/Users/josepereira/src/univ/programs/projects/projeto-cg/src/file2list.cpp
 string.h
 -
 stdio.h
 -
 stdlib.h
 -
-ArrayList.h
+vector
 -
 file2list.h
 -
-Point.h
+
+/Users/josepereira/src/univ/programs/projects/projeto-cg/src/group.cpp
+string
+-
+vector
+-
+group.h
+-
+operation.h
 -
 
-/home/jose/Desktop/projeto-cg/src/list2file.cpp
+/Users/josepereira/src/univ/programs/projects/projeto-cg/src/list2file.cpp
 list2file.h
-/home/jose/Desktop/projeto-cg/src/list2file.h
+-
 
-/home/jose/Desktop/projeto-cg/src/planeGenerator.cpp
+/Users/josepereira/src/univ/programs/projects/projeto-cg/src/operation.cpp
+operation.h
+-
+
+/Users/josepereira/src/univ/programs/projects/projeto-cg/src/planeGenerator.cpp
 ArrayList.h
 -
 Point.h
 -
 
-/home/jose/Desktop/projeto-cg/src/sphereGenerator.cpp
+/Users/josepereira/src/univ/programs/projects/projeto-cg/src/sphereGenerator.cpp
 stdio.h
 -
 stdlib.h
@@ -148,29 +194,39 @@ Point.h
 math.h
 -
 
-/home/jose/Desktop/projeto-cg/src/xmlParser.cpp
+/Users/josepereira/src/univ/programs/projects/projeto-cg/src/xmlParser.cpp
 tinyxml.h
 -
-ArrayList.h
+stdio.h
 -
-xmlParser.h
+string
+-
+iostream
+-
+group.h
+-
+operation.h
+-
+vector
+-
+Figura.h
+-
+map
 -
 file2list.h
 -
-Point.h
--
 
-/home/jose/Desktop/projeto-cg/tinyxml/tinystr.cpp
+/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinystr.cpp
 tinystr.h
-/home/jose/Desktop/projeto-cg/tinyxml/tinystr.h
+/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinystr.h
 
-/home/jose/Desktop/projeto-cg/tinyxml/tinystr.h
+/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinystr.h
 assert.h
 -
 string.h
 -
 
-/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.cpp
+/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinyxml.cpp
 ctype.h
 -
 sstream
@@ -178,9 +234,9 @@ sstream
 iostream
 -
 tinyxml.h
-/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.h
+/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinyxml.h
 
-/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.h
+/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinyxml.h
 ctype.h
 -
 stdio.h
@@ -198,19 +254,19 @@ iostream
 sstream
 -
 tinystr.h
-/home/jose/Desktop/projeto-cg/tinyxml/tinystr.h
+/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinystr.h
 
-/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlerror.cpp
+/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinyxmlerror.cpp
 tinyxml.h
-/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.h
+/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinyxml.h
 
-/home/jose/Desktop/projeto-cg/tinyxml/tinyxmlparser.cpp
+/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinyxmlparser.cpp
 ctype.h
 -
 stddef.h
 -
 tinyxml.h
-/home/jose/Desktop/projeto-cg/tinyxml/tinyxml.h
+/Users/josepereira/src/univ/programs/projects/projeto-cg/tinyxml/tinyxml.h
 windows.h
 -
 
