@@ -150,6 +150,33 @@ Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/ArrayList.cpp.s:
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/ArrayList.cpp.s
 .PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/ArrayList.cpp.s
 
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.o: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.o
+
+# target to build an object file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.i: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.i
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.i
+
+# target to preprocess a source file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.i
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.i
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.s: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.s
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.s
+
+# target to generate assembly for a file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.s
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.s
+
 Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.o: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp.o
 
 .PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.o
@@ -176,6 +203,60 @@ Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.s: Users/ricard
 Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp.s:
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp.s
 .PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp.s
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.o: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.o
+
+# target to build an object file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.i: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.i
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.i
+
+# target to preprocess a source file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.i
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.i
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.s: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.s
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.s
+
+# target to generate assembly for a file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.s
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.s
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.o: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.o
+
+# target to build an object file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.i: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.i
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.i
+
+# target to preprocess a source file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.i
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.i
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.s: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.s
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.s
+
+# target to generate assembly for a file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.s
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.s
 
 Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/engine.o: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/engine.cpp.o
 
@@ -230,6 +311,141 @@ Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.s: Users/ri
 Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp.s:
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp.s
 .PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp.s
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.o: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.o
+
+# target to build an object file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.i: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.i
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.i
+
+# target to preprocess a source file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.i
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.i
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.s: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.s
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.s
+
+# target to generate assembly for a file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.s
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.s
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.o: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.o
+
+# target to build an object file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.i: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.i
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.i
+
+# target to preprocess a source file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.i
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.i
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.s: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.s
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.s
+
+# target to generate assembly for a file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.s
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.s
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.o: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.o
+
+# target to build an object file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.i: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.i
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.i
+
+# target to preprocess a source file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.i
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.i
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.s: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.s
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.s
+
+# target to generate assembly for a file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.s
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.s
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.o: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.o
+
+# target to build an object file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.i: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.i
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.i
+
+# target to preprocess a source file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.i
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.i
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.s: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.s
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.s
+
+# target to generate assembly for a file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.s
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.s
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.o: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.o
+
+# target to build an object file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.i: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.i
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.i
+
+# target to preprocess a source file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.i
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.i
+
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.s: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.s
+
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.s
+
+# target to generate assembly for a file
+Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.s
+.PHONY : Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.s
 
 Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.o: Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o
 
@@ -378,15 +594,39 @@ help:
 	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/ArrayList.o"
 	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/ArrayList.i"
 	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/ArrayList.s"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.o"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.i"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.s"
 	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.o"
 	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.i"
 	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.s"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.o"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.i"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.s"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.o"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.i"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.s"
 	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/engine.o"
 	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/engine.i"
 	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/engine.s"
 	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.o"
 	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.i"
 	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.s"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.o"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.i"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.s"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.o"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.i"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.s"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.o"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.i"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.s"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.o"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.i"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.s"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.o"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.i"
+	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.s"
 	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.o"
 	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.i"
 	@echo "... Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.s"

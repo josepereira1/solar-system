@@ -4,23 +4,53 @@
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/ArrayList.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/ArrayList.h
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/ArrayList.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/ArrayList.cpp
 
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/Figura.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp
+
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/Point.h
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp
 
-CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/engine.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/ArrayList.h
-CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/engine.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/Point.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/ArrayList.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/Point.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/ArrayList.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/Point.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/engine.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/Figura.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/engine.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/group.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/engine.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/operation.h
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/engine.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/xmlParser.h
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/engine.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/engine.cpp
 
-CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/ArrayList.h
-CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/Point.h
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/file2list.h
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp
 
-CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/ArrayList.h
-CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/Point.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/group.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/operation.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/ArrayList.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/Point.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/list2file.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/operation.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/ArrayList.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/Point.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/ArrayList.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/Point.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/Figura.h
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/file2list.h
-CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/xmlParser.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/group.h
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../include/operation.h
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../tinyxml/tinystr.h
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/engine_CMake/../tinyxml/tinyxml.h
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp

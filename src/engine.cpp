@@ -4,11 +4,15 @@
 #include <GL/glut.h>
 #endif
 
-#include <ArrayList.h>
-#include <Point.h>
-#include <xmlParser.h>
-
 #include <stdio.h>
+#include <xmlParser.h>
+#include <string>
+#include <iostream>
+#include <group.h>
+#include <operation.h>
+#include <vector>
+#include <Figura.h>
+#include <map>
 
 #define _USE_MATH_DEFINES
 #include <math.h>
@@ -18,7 +22,9 @@ float py = 0.0;
 float pz = 0.0;
 int mode = GL_FILL;
 int face = GL_FRONT;
-TAD_ARRAY_LIST pontos;
+
+Group group;
+map<string,Figura> figuras;
 
 void changeSize(int w, int h) {
 
@@ -47,14 +53,8 @@ void changeSize(int w, int h) {
 
 
 void draw() {
-
-	int size = getArraySize(pontos);
-
     glBegin(GL_TRIANGLES);
-	    for(int i=0;i<size;i++){
-	    	TAD_POINT p = (TAD_POINT) getElem(pontos,i);
-	        glVertex3f(getX(p), getY(p), getZ(p));
-	    }
+	    //TODO
     glEnd();
 	glEnable(GL_CULL_FACE);
 }
@@ -98,17 +98,40 @@ void processSpecialKeys(int key, int xx, int yy) {
    // put code to process special keys in here
 }
 
-// para DEBUG
-static void printPointsArray(TAD_ARRAY_LIST pontos) {
-	for(int i=0; i<getArraySize(pontos); i++) {
-		point2string((TAD_POINT) getElem(pontos, i));
-	} 
+
+// DEBUG
+static void printGroup(Group g) {
+    printf("GROUP:-----------------------------------------------\n");
+    for(unsigned i = 0; i<g.operacoes.size() ;i++) {
+        Operation op = g.operacoes[i];
+        printf("Operacao: Flag=%c ,X=%f ,Y=%f ,Z=%f ,Angle=%f\n",op.flag,op.x,op.y,op.z,op.ang);
+    }
+    for(unsigned i = 0; i<g.ficheiros.size() ;i++) {
+        string str = g.ficheiros[i];
+        cout << "Ficheiro=" + str +"\n";
+    }
+    for(unsigned i = 0; i<g.filhos.size() ;i++) {
+        Group a = g.filhos[i];
+        printGroup(a);
+    }
+}
+
+// DEBUG
+static void printFiguras(map<string,Figura> figuras) {
+    map<string, Figura>::iterator it;
+    for (it = figuras.begin(); it != figuras.end(); it++) {
+        vector<float> pontos = it->second.pontos;
+        for(unsigned k=0; k<pontos.size(); k+=3) {
+            printf("file:%s => X=%f, Y=%f, Z=%f\n", it->first.c_str(), pontos[k], pontos[k+1], pontos[k+2]);
+        }
+    }
 }
 
 int main(int argc, char** argv) {
     
-    pontos = getPointsFromFiles("file.xml");
-    // printPointsArray(pontos);
+    parse(group,figuras,"file.xml");
+    printGroup(group);
+    printFiguras(figuras);
 
     // init GLUT and the window
     glutInit(&argc, argv);

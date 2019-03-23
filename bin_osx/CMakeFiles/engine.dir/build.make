@@ -201,9 +201,33 @@ CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/ArrayList.cpp.o.provides.build: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/ArrayList.cpp.o
 
 
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/bin_osx/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o -c /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp > CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.i
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.s
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o.requires:
+
+.PHONY : CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o.requires
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o.provides: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o.provides
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o.provides.build: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o
+
+
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/bin_osx/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/bin_osx/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp.o -c /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp
 
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp.i: cmake_force
@@ -225,9 +249,57 @@ CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp.o.provides.build: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp.o
 
 
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/bin_osx/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o -c /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp > CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.i
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.s
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o.requires:
+
+.PHONY : CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o.requires
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o.provides: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o.provides
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o.provides.build: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o
+
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/bin_osx/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o -c /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp > CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.i
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.s
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o.requires:
+
+.PHONY : CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o.requires
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o.provides: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o.provides
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o.provides.build: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o
+
+
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/bin_osx/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/bin_osx/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp.o -c /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp
 
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp.i: cmake_force
@@ -249,9 +321,129 @@ CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp.o.provides.build: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp.o
 
 
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/bin_osx/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o -c /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp > CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.i
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.s
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o.requires:
+
+.PHONY : CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o.requires
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o.provides: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o.provides
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o.provides.build: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o
+
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/bin_osx/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o -c /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp > CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.i
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.s
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o.requires:
+
+.PHONY : CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o.requires
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o.provides: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o.provides
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o.provides.build: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o
+
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/bin_osx/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o -c /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp > CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.i
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.s
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o.requires:
+
+.PHONY : CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o.requires
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o.provides: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o.provides
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o.provides.build: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o
+
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/bin_osx/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o -c /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp > CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.i
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.s
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o.requires:
+
+.PHONY : CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o.requires
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o.provides: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o.provides
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o.provides.build: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o
+
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/bin_osx/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o -c /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp > CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.i
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.s
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o.requires:
+
+.PHONY : CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o.requires
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o.provides: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o.provides
+
+CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o.provides.build: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o
+
+
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o: /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/bin_osx/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/bin_osx/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o -c /Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp
 
 CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.i: cmake_force
@@ -281,8 +473,16 @@ engine_OBJECTS = \
 "CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/tinyxml/tinyxmlerror.cpp.o" \
 "CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/tinyxml/tinyxmlparser.cpp.o" \
 "CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/ArrayList.cpp.o" \
+"CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o" \
 "CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp.o" \
+"CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o" \
+"CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o" \
 "CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp.o" \
+"CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o" \
+"CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o" \
+"CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o" \
+"CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o" \
+"CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o" \
 "CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o"
 
 # External object files for target engine
@@ -294,12 +494,20 @@ engine: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projet
 engine: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/tinyxml/tinyxmlerror.cpp.o
 engine: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/tinyxml/tinyxmlparser.cpp.o
 engine: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/ArrayList.cpp.o
+engine: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o
 engine: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp.o
+engine: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o
+engine: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o
 engine: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp.o
+engine: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o
+engine: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o
+engine: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o
+engine: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o
+engine: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o
 engine: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o
 engine: CMakeFiles/engine.dir/build.make
 engine: CMakeFiles/engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/bin_osx/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/bin_osx/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/engine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -313,8 +521,16 @@ CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/Users/ricardopetronilho/De
 CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/tinyxml/tinyxmlerror.cpp.o.requires
 CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/tinyxml/tinyxmlparser.cpp.o.requires
 CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/ArrayList.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Figura.cpp.o.requires
 CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/Point.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/boxGenerator.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/coneGenerator.cpp.o.requires
 CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/file2list.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/group.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/list2file.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/operation.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/planeGenerator.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/sphereGenerator.cpp.o.requires
 CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/Users/ricardopetronilho/Desktop/CG/Trabalho/projeto-cg/src/xmlParser.cpp.o.requires
 
 .PHONY : CMakeFiles/engine.dir/requires
