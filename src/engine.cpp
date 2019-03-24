@@ -61,8 +61,8 @@ void design(Group g){
         pontos = figuras[nome_ficheiro].pontos;
 
         glBegin(GL_TRIANGLES);
-        for(unsigned i = 0; i < pontos.size(); )
-            glVertex3f(pontos[i++], pontos[i++], pontos[i++]);
+        for(unsigned i = 0; i < pontos.size(); i+=3)
+            glVertex3f(pontos[i], pontos[i+1], pontos[i+2]);
         glEnd();
 		glEnable(GL_CULL_FACE);
     } 
