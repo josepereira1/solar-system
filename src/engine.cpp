@@ -61,12 +61,12 @@ void design(Group g){
         for(unsigned i = 0; i < pontos.size(); )
             glVertex3f(pontos[i++], pontos[i++], pontos[i++]);
         glEnd();
-    }
-    glPopMatrix();
+    } 
 
     for(unsigned i = 0; i < g.filhos.size();i++)
         design(g.filhos[i]);
 
+    glPopMatrix(); 
 }
 
 void spherical2Cartesian() {
@@ -209,8 +209,8 @@ static void printFiguras(map<string,Figura> figuras) {
 int main(int argc, char** argv) {
     
     parse(group,figuras,"file.xml");
-    printGroup(group);
-    printFiguras(figuras);
+    //printGroup(group);    //  DEBUG
+    //printFiguras(figuras);
 
     // init GLUT and the window
     glutInit(&argc, argv);
