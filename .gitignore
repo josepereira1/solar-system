@@ -8,3 +8,7 @@ bin/
 teste
 test
 f2l
+bin_linux/*
+bin_osx/*
+bin_windows_engine/*
+bin_windows_generator/*

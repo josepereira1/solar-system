@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
@@ -47,6 +49,7 @@ void design(Group g){
                 break;
             default:
                 perror("Modificação inexistente!\n");
+				exit(1);
         }
 
     }
@@ -61,6 +64,7 @@ void design(Group g){
         for(unsigned i = 0; i < pontos.size(); )
             glVertex3f(pontos[i++], pontos[i++], pontos[i++]);
         glEnd();
+		glEnable(GL_CULL_FACE);
     } 
 
     for(unsigned i = 0; i < g.filhos.size();i++)
@@ -209,7 +213,7 @@ static void printFiguras(map<string,Figura> figuras) {
 int main(int argc, char** argv) {
     
     parse(group,figuras,"file.xml");
-    //printGroup(group);    //  DEBUG
+    printGroup(group);    //  DEBUG
     //printFiguras(figuras);
 
     // init GLUT and the window
