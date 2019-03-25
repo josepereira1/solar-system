@@ -61,7 +61,7 @@ void design(Group g){
         pontos = figuras[nome_ficheiro].pontos;
 
         glBegin(GL_TRIANGLES);
-        for(unsigned i = 0; i < pontos.size(); i+=3)
+        for(unsigned i = 0; i < pontos.size(); i+=3 )
             glVertex3f(pontos[i], pontos[i+1], pontos[i+2]);
         glEnd();
 		glEnable(GL_CULL_FACE);
@@ -105,13 +105,6 @@ void changeSize(int w, int h) {
 	glMatrixMode(GL_MODELVIEW);
 }
 
-
-void draw() {
-    glBegin(GL_TRIANGLES);
-	    //TODO
-    glEnd();
-	glEnable(GL_CULL_FACE);
-}
 
 
 void renderScene(void) {
@@ -213,8 +206,8 @@ static void printFiguras(map<string,Figura> figuras) {
 int main(int argc, char** argv) {
     
     parse(group,figuras,"file.xml");
-    printGroup(group);    //  DEBUG
-    //printFiguras(figuras);
+    // printGroup(group);    //  DEBUG
+    // printFiguras(figuras); //  DEBUG
 
     // init GLUT and the window
     glutInit(&argc, argv);

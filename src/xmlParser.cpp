@@ -78,7 +78,7 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
                 while(pChild) {
                     name = (string)pChild->Attribute("file");
                     if(figuras.find(name) == figuras.end()) { // se não  existir
-                        printf("name: %s\n", name.c_str());
+                        // printf("name: %s\n", name.c_str());
                         Figura f;
                         f.pontos = file2list(name.c_str());
                         figuras[name] = f; 
