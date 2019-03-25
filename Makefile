@@ -29,9 +29,10 @@ clean:
 	rm -f xml
 	rm -f *.3d
 	rm -f *.3D
-	rm -f bin_osx/*.3d
+	rm -f bin/*.3d
+	rm -f bin/*.xml
 	rm -f bin_windows_engine/*.3d
-	rm -f bin_linux/*.3d
+	rm -f bin_windows_engine/*.xml
 	rm -f *.out
 	rm -f teste
 	rm -f test

@@ -8,13 +8,10 @@ bin/
 teste
 test
 f2l
-bin_linux/*
-!bin_linux/*.3d
-!bin_linux/*.xml
 
-bin_osx/*
-!bin_osx/*.3d
-!bin_osx/*.xml
+bin/*
+!bin/*.3d
+!bin/*.xml
 
 bin_windows_engine/*
 !bin_windows_engine/*.3d
