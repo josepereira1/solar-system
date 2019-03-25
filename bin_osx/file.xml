@@ -1,0 +1,13 @@
+<scene>
+    <group>
+        <models>
+            <model file="sphere.3d" />
+        </models>
+        <group>
+            <translate X=0 Y=0 Z= 100/>
+                <models>
+                    <model file="sphere.3d" />
+                </models>
+        </group>
+    </group>
+</scene>
