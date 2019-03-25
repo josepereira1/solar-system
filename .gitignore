@@ -18,5 +18,4 @@ bin_windows_engine/*
 !bin_windows_engine/*.xml
 
 bin_windows_generator/*
-!bin_windows_generator/*.3d
-!bin_windows_generator/*.xml
+!bin_windows_generator/*.txt
