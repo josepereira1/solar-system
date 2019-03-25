@@ -148,21 +148,21 @@ void processSpecialKeys(int key, int xx, int yy) {
     switch (key) {
 
     case GLUT_KEY_RIGHT:
-        alfa -= 1.0f; break;
+        alfa -= 0.1f; break;
 
     case GLUT_KEY_LEFT:
-        alfa += 1.0f; break;
+        alfa += 0.1f; break;
 
     case GLUT_KEY_UP:
-        beta += 1.0f;
+        beta += 0.1f;
         if (beta > 1.5f)
-            beta = 1.0f;
+            beta = 1.5f;
         break;
 
     case GLUT_KEY_DOWN:
-        beta -= 1.0f;
+        beta -= 0.1f;
         if (beta < -1.5f)
-            beta = -1.0f;
+            beta = -1.5f;
         break;
 
     case GLUT_KEY_PAGE_DOWN: radius -= 50.0f;
