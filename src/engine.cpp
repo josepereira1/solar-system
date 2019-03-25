@@ -67,7 +67,7 @@ void design(Group g){
             glVertex3f(pontos[i], pontos[i+1], pontos[i+2]);
         glEnd();
         //glEnable(GL_CULL_FACE);
-    } 
+    }
 
     for(unsigned i = 0; i < g.filhos.size();i++)
         design(g.filhos[i]);
@@ -101,7 +101,7 @@ void changeSize(int w, int h) {
     glViewport(0, 0, w, h);
 
 	// Set perspective
-	gluPerspective(45.0f ,ratio, 1.0f ,1000.0f);
+	gluPerspective(45.0f ,ratio, 1.0f ,10000.0f);
 
 	// return to the model view matrix mode
 	glMatrixMode(GL_MODELVIEW);
