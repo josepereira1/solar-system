@@ -1,13 +1,161 @@
 <scene>
-    <group>
-        <models>
-            <model file="sphere.3d" />
-        </models>
-        <group>
-            <translate X=0 Y=0 Z= 100/>
+     <group>
+          <models>
+                <model file="sphere1.3d" />
+          </models>
+          <group>
+                <translate X=0 Y=0 Z=90 />
+                <scale X=0.1 Y=-0.1 Z=0.1 />
                 <models>
-                    <model file="sphere.3d" />
+                     <model file="sphere2.3d" />
                 </models>
-        </group>
-    </group>
+                <group>
+                     <translate X=0 Y=0 Z=15 />
+                     <models>
+                          <model file="sphere3.3d" />
+                     </models>
+                </group>
+          </group>
+          <group>
+                <translate X=0 Y=0 Z=120 />
+                <scale X=0.4 Y=0.4 Z=0.4 />
+                <models>
+                     <model file="sphere2.3d" />
+                </models>
+                <group>
+                     <translate X=0 Y=0 Z=15 />
+                     <scale X=-1 Y=-1 Z=-1 />
+                     <models>
+                          <model file="sphere3.3d" />
+                     </models>
+                </group>
+          </group>
+          <group>
+                <translate X=0 Y=0 Z=150 />
+                <scale X=0.5 Y=0.5 Z=0.5 />
+                <models>
+                     <model file="sphere2.3d" />
+                </models>
+                <group>
+                     <translate X=0 Y=0 Z=15 />
+                     <models>
+                          <model file="sphere3.3d" />
+                     </models>
+                </group>
+          </group>
+          <group>
+                <translate X=0 Y=0 Z=180 />
+                <scale X=0.2 Y=0.2 Z=0.2 />
+                <models>
+                     <model file="sphere2.3d" />
+                </models>
+                <group>
+                     <translate X=0 Y=0 Z=15 />
+                     <models>
+                          <model file="sphere3.3d" />
+                     </models>
+                </group>
+          </group>
+          <group>
+                <translate X=0 Y=0 Z=220 />
+                <scale X=1.5 Y=1.5 Z=1.5 />
+                <models>
+                     <model file="sphere2.3d" />
+                </models>
+                <group>
+                     <translate X=0 Y=0 Z=15 />
+                     <scale X=0.5 Y=0.5 Z=0.5 />
+                     <models>
+                          <model file="sphere3.3d" />
+                     </models>
+                </group>
+                <group>
+                     <rotate axisX=1 axisY=1 axisZ=0 angle=72 />
+                     <translate X=0 Y=0 Z=15 />
+                     <scale X=0.5 Y=0.5 Z=0.5 />
+                     <models>
+                          <model file="sphere3.3d" />
+                     </models>
+                </group>
+                <group>
+                     <rotate axisX=0 axisY=1 axisZ=1 angle=144 />
+                     <translate X=0 Y=0 Z=15 />
+                     <scale X=0.5 Y=0.5 Z=0.5 />
+                     <models>
+                          <model file="sphere3.3d" />
+                     </models>
+                </group>
+                <group>
+                     <rotate axisX=0 axisY=0 axisZ=1 angle=216 />
+                     <translate X=0 Y=0 Z=15 />
+                     <scale X=0.5 Y=0.5 Z=0.5 />
+                     <models>
+                          <model file="sphere3.3d" />
+                     </models>
+                </group>
+                <group>
+                     <rotate axisX=1 axisY=0 axisZ=1 angle=288 />
+                     <translate X=0 Y=0 Z=15 />
+                     <scale X=0.5 Y=0.5 Z=0.5 />
+                     <models>
+                          <model file="sphere3.3d" />
+                     </models>
+                </group>
+                <group>
+                     <rotate axisX=-1 axisY=0 axisZ=1 angle=100 />
+                     <translate X=0 Y=0 Z=15 />
+                     <scale X=0.5 Y=0.5 Z=0.5 />
+                     <models>
+                          <model file="sphere3.3d" />
+                     </models>
+                </group>
+                <group>
+                     <rotate axisX=-1 axisY=-1 axisZ= angle=72 />
+                     <translate X=0 Y=0 Z=15 />
+                     <scale X=0.5 Y=0.5 Z=0.5 />
+                     <models>
+                          <model file="sphere3.3d" />
+                     </models>
+                </group>
+          </group>
+          <group>
+                <translate X=0 Y=0 Z=270 />
+                <scale X=1.2 Y=1.2 Z=1.2 />
+                <models>
+                     <model file="sphere2.3d" />
+                </models>
+                <group>
+                     <translate X=0 Y=0 Z=15 />
+                     <models>
+                          <model file="sphere3.3d" />
+                     </models>
+                </group>
+          </group>
+          <group>
+                <translate X=0 Y=0 Z=310 />
+                <scale X=0.9 Y=0.9 Z=0.9 />
+                <models>
+                     <model file="sphere2.3d" />
+                </models>
+                <group>
+                     <translate X=0 Y=0 Z=15 />
+                     <models>
+                          <model file="sphere3.3d" />
+                     </models>
+                </group>
+          </group>
+          <group>
+                <translate X=0 Y=0 Z=350 />
+                <scale X=0.7 Y=0.7 Z=0.7 />
+                <models>
+                     <model file="sphere2.3d" />
+                </models>
+                <group>
+                     <translate X=0 Y=0 Z=15 />
+                     <models>
+                          <model file="sphere3.3d" />
+                     </models>
+                </group>
+          </group>
+     </group>
 </scene>

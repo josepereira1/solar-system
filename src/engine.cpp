@@ -19,8 +19,10 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-float alfa = 0.0f, beta = 0.5f, radius = 100.0f;
-float camX, camY, camZ;
+float alfa = 0.0f, beta = 0.0f, radius = 100.0f;
+float camX = 100.0f;
+float camY = 0.0f;
+float camZ = 150.0f;
 
 float px = 0.0;
 float py = 0.0;
@@ -64,7 +66,7 @@ void design(Group g){
         for(unsigned i = 0; i < pontos.size(); i+=3 )
             glVertex3f(pontos[i], pontos[i+1], pontos[i+2]);
         glEnd();
-		glEnable(GL_CULL_FACE);
+        //glEnable(GL_CULL_FACE);
     } 
 
     for(unsigned i = 0; i < g.filhos.size();i++)
@@ -146,29 +148,29 @@ void processSpecialKeys(int key, int xx, int yy) {
     switch (key) {
 
     case GLUT_KEY_RIGHT:
-        alfa -= 0.1; break;
+        alfa -= 1.0f; break;
 
     case GLUT_KEY_LEFT:
-        alfa += 0.1; break;
+        alfa += 1.0f; break;
 
     case GLUT_KEY_UP:
-        beta += 0.1f;
+        beta += 1.0f;
         if (beta > 1.5f)
-            beta = 1.5f;
+            beta = 1.0f;
         break;
 
     case GLUT_KEY_DOWN:
-        beta -= 0.1f;
+        beta -= 1.0f;
         if (beta < -1.5f)
-            beta = -1.5f;
+            beta = -1.0f;
         break;
 
-    case GLUT_KEY_PAGE_DOWN: radius -= 1.0f;
+    case GLUT_KEY_PAGE_DOWN: radius -= 50.0f;
         if (radius < 1.0f)
-            radius = 1.0f;
+            radius = 50.0f;
         break;
 
-    case GLUT_KEY_PAGE_UP: radius += 1.0f; break;
+    case GLUT_KEY_PAGE_UP: radius += 50.0f; break;
     }
     spherical2Cartesian();
     glutPostRedisplay();
