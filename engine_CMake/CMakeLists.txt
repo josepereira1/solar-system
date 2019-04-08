@@ -10,7 +10,7 @@ include_directories (
 ../tinyxml
 )
 
-add_executable(${PROJECT_NAME} ../src/engine.cpp ../tinyxml/tinystr.cpp ../tinyxml/tinyxml.cpp ../tinyxml/tinyxmlerror.cpp ../tinyxml/tinyxmlparser.cpp ../src/ArrayList.cpp ../src/Point.cpp ../src/file2list.cpp ../src/xmlParser.cpp )
+add_executable(${PROJECT_NAME} ../src/engine.cpp ../tinyxml/tinystr.cpp ../tinyxml/tinyxml.cpp ../tinyxml/tinyxmlerror.cpp ../tinyxml/tinyxmlparser.cpp  ../src/ArrayList.cpp ../src/Figura.cpp ../src/Point.cpp ../src/boxGenerator.cpp ../src/coneGenerator.cpp ../src/file2list.cpp ../src/group.cpp ../src/list2file.cpp ../src/operation.cpp ../src/planeGenerator.cpp ../src/sphereGenerator.cpp ../src/xmlParser.cpp )
 
 find_package(OpenGL REQUIRED)
 include_directories(${OpenGL_INCLUDE_DIRS})

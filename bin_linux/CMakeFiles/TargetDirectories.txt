@@ -1,3 +1,0 @@
-/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles/rebuild_cache.dir
-/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles/engine.dir
-/home/joaomarques/Desktop/CG/projeto-cg/bin_linux/CMakeFiles/edit_cache.dir

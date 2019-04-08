@@ -1,24 +1,86 @@
+#include <stdlib.h>
+
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
 #include <GL/glut.h>
 #endif
 
-#include <ArrayList.h>
-#include <Point.h>
-#include <xmlParser.h>
-
 #include <stdio.h>
+#include <xmlParser.h>
+#include <string>
+#include <iostream>
+#include <group.h>
+#include <operation.h>
+#include <vector>
+#include <Figura.h>
+#include <map>
 
 #define _USE_MATH_DEFINES
 #include <math.h>
+
+float alfa = 0.0f, beta = 0.0f, radius = 100.0f;
+float camX = 100.0f;
+float camY = 0.0f;
+float camZ = 150.0f;
 
 float px = 0.0;
 float py = 0.0;
 float pz = 0.0;
 int mode = GL_FILL;
 int face = GL_FRONT;
-TAD_ARRAY_LIST pontos;
+
+Group group;
+map<string,Figura> figuras;
+
+void design(Group g){
+    glPushMatrix();
+
+    for(unsigned i = 0; i<g.operacoes.size() ;i++) {
+        Operation op = g.operacoes[i];
+
+        switch(op.flag){
+            case 't':
+                glTranslatef(op.x,op.y,op.z);
+                break;
+            case 'r':
+                glRotatef(op.ang, op.x,op.y,op.z);
+                break;
+            case 's':
+                glScalef(op.x,op.y,op.z);
+                break;
+            default:
+                perror("Modificação inexistente!\n");
+				exit(1);
+        }
+
+    }
+
+    for(unsigned i = 0; i<g.ficheiros.size() ;i++) {
+        string nome_ficheiro = g.ficheiros[i];
+        std::vector<float> pontos;
+        
+        pontos = figuras[nome_ficheiro].pontos;
+
+        glBegin(GL_TRIANGLES);
+        for(unsigned i = 0; i < pontos.size(); i+=3 )
+            glVertex3f(pontos[i], pontos[i+1], pontos[i+2]);
+        glEnd();
+        //glEnable(GL_CULL_FACE);
+    }
+
+    for(unsigned i = 0; i < g.filhos.size();i++)
+        design(g.filhos[i]);
+
+    glPopMatrix(); 
+}
+
+void spherical2Cartesian() {
+
+    camX = radius * cos(beta) * sin(alfa);
+    camY = radius * sin(beta);
+    camZ = radius * cos(beta) * cos(alfa);
+}
 
 void changeSize(int w, int h) {
 
@@ -39,25 +101,12 @@ void changeSize(int w, int h) {
     glViewport(0, 0, w, h);
 
 	// Set perspective
-	gluPerspective(45.0f ,ratio, 1.0f ,1000.0f);
+	gluPerspective(45.0f ,ratio, 1.0f ,10000.0f);
 
 	// return to the model view matrix mode
 	glMatrixMode(GL_MODELVIEW);
 }
 
-
-void draw() {
-
-	int size = getArraySize(pontos);
-
-    glBegin(GL_TRIANGLES);
-	    for(int i=0;i<size;i++){
-	    	TAD_POINT p = (TAD_POINT) getElem(pontos,i);
-	        glVertex3f(getX(p), getY(p), getZ(p));
-	    }
-    glEnd();
-	glEnable(GL_CULL_FACE);
-}
 
 
 void renderScene(void) {
@@ -67,13 +116,13 @@ void renderScene(void) {
 
 	// set the camera
 	glLoadIdentity();
-	gluLookAt(30.0, 30.0, 30.0,
+	gluLookAt(camX, camY, camZ,
 		      px, py, pz,
 			  0.0f,1.0f,0.0f);
 
 	glColor3f(0,255,255);
 
-	draw(); // imprime as figuras
+	design(group);
 
 
 	// End of frame
@@ -96,19 +145,71 @@ void processKeys(unsigned char c, int xx, int yy) {
 
 void processSpecialKeys(int key, int xx, int yy) {
    // put code to process special keys in here
+    switch (key) {
+
+    case GLUT_KEY_RIGHT:
+        alfa -= 0.1f; break;
+
+    case GLUT_KEY_LEFT:
+        alfa += 0.1f; break;
+
+    case GLUT_KEY_UP:
+        beta += 0.1f;
+        if (beta > 1.5f)
+            beta = 1.5f;
+        break;
+
+    case GLUT_KEY_DOWN:
+        beta -= 0.1f;
+        if (beta < -1.5f)
+            beta = -1.5f;
+        break;
+
+    case GLUT_KEY_PAGE_DOWN: radius -= 50.0f;
+        if (radius < 1.0f)
+            radius = 50.0f;
+        break;
+
+    case GLUT_KEY_PAGE_UP: radius += 50.0f; break;
+    }
+    spherical2Cartesian();
+    glutPostRedisplay();
 }
 
-// para DEBUG
-static void printPointsArray(TAD_ARRAY_LIST pontos) {
-	for(int i=0; i<getArraySize(pontos); i++) {
-		point2string((TAD_POINT) getElem(pontos, i));
-	} 
+
+// DEBUG
+static void printGroup(Group g) {
+    printf("GROUP:-----------------------------------------------\n");
+    for(unsigned i = 0; i<g.operacoes.size() ;i++) {
+        Operation op = g.operacoes[i];
+        printf("Operacao: Flag=%c ,X=%f ,Y=%f ,Z=%f ,Angle=%f\n",op.flag,op.x,op.y,op.z,op.ang);
+    }
+    for(unsigned i = 0; i<g.ficheiros.size() ;i++) {
+        string str = g.ficheiros[i];
+        cout << "Ficheiro=" + str +"\n";
+    }
+    for(unsigned i = 0; i<g.filhos.size() ;i++) {
+        Group a = g.filhos[i];
+        printGroup(a);
+    }
+}
+
+// DEBUG
+static void printFiguras(map<string,Figura> figuras) {
+    map<string, Figura>::iterator it;
+    for (it = figuras.begin(); it != figuras.end(); it++) {
+        vector<float> pontos = it->second.pontos;
+        for(unsigned k=0; k<pontos.size(); k+=3) {
+            printf("file:%s => X=%f, Y=%f, Z=%f\n", it->first.c_str(), pontos[k], pontos[k+1], pontos[k+2]);
+        }
+    }
 }
 
 int main(int argc, char** argv) {
     
-    pontos = getPointsFromFiles("file.xml");
-    // printPointsArray(pontos);
+    parse(group,figuras,"file.xml");
+    // printGroup(group);    //  DEBUG
+    // printFiguras(figuras); //  DEBUG
 
     // init GLUT and the window
     glutInit(&argc, argv);
@@ -128,6 +229,8 @@ int main(int argc, char** argv) {
     //  OpenGL settings
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
+
+    spherical2Cartesian();
 	
     // enter GLUT's main cycle
 	glutMainLoop();

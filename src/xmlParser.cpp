@@ -1,52 +1,121 @@
 #include <tinyxml.h>
-
-#include <ArrayList.h>
-#include <xmlParser.h>
+#include <stdio.h>
+#include <string>
+#include <iostream>
+#include <group.h>
+#include <operation.h>
+#include <vector>
+#include <Figura.h>
+#include <map>
 #include <file2list.h>
-#include <Point.h>
 
-static TAD_ARRAY_LIST getFileNames(char* path){
-    TAD_ARRAY_LIST fileNames = ARRAY_LIST(1);
+using namespace std;
+
+static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
+    bool t = false, r = false, s = false, m = false;
+    pRoot = pRoot->FirstChildElement();
+    Group group = Group();
+    while(pRoot) {
+        string name = (string)pRoot->Value();
+        float x=0.0f,y=0.0f,z=0.0f,angle=0.0f;
+        const char *sx,*sy,*sz,*sangle;
+        if(name.compare("translate")==0) {
+            if(!t) {
+                sx = pRoot->Attribute("X");
+                if(sx) x = atof(sx);
+                sy = pRoot->Attribute("Y");
+                if(sy) y = atof(sy);
+                sz = pRoot->Attribute("Z");
+                if(sz) z = atof(sz);
+                Operation op = Operation('t',x,y,z,angle);
+                t = true;
+                group.operacoes.push_back(op);
+            }
+            else {
+                perror("2 or more translation in same GROUP!\n");
+                exit(1);
+            }
+        }
+        else if(name.compare("rotate")==0) {
+            if(!r) {
+                sangle = pRoot->Attribute("angle");
+                if(sangle) angle = atof(sangle);
+                sx = pRoot->Attribute("axisX");
+                if(sx) x = atof(sx);
+                sy = pRoot->Attribute("axisY");
+                if(sy) y = atof(sy);
+                sz = pRoot->Attribute("axisZ");
+                if(sz) z = atof(sz);
+                Operation op = Operation('r',x,y,z,angle);
+                r = true;
+                group.operacoes.push_back(op);
+            }
+            else {
+                perror("2 or more rotate in same GROUP!\n");
+                exit(2);
+            }
+        }
+        else if(name.compare("scale")==0) {
+            if(!s) {
+                sx = pRoot->Attribute("X");
+                if(sx) x = atof(sx);
+                sy = pRoot->Attribute("Y");
+                if(sy) y = atof(sy);
+                sz = pRoot->Attribute("Z");
+                if(sz) z = atof(sz);
+                Operation op = Operation('s',x,y,z,angle);
+                s = true;
+                group.operacoes.push_back(op);
+            }
+            else {
+                perror("2 or more scale in same GROUP!\n");
+                exit(3);
+            }
+        }
+        else if(name.compare("models")==0) {
+            if(!m) {
+                TiXmlElement *pChild = pRoot->FirstChildElement("model");
+                while(pChild) {
+                    name = (string)pChild->Attribute("file");
+                    if(figuras.find(name) == figuras.end()) { // se não  existir
+                        // printf("name: %s\n", name.c_str());
+                        Figura f;
+                        f.pontos = file2list(name.c_str());
+                        figuras[name] = f; 
+                    }
+
+                    group.ficheiros.push_back(name);
+                    pChild = pChild->NextSiblingElement("model");
+                }
+                m = true;
+            }
+            else {
+                perror("2 or more models in same GROUP!\n");
+                exit(4);
+            }
+        }
+        else if(name.compare("group")==0) {
+            group.filhos.push_back(searchRec(figuras, pRoot));
+        }
+        pRoot = pRoot->NextSiblingElement();
+    }
+    return group;
+}
+
+void parse(Group &group, map<string,Figura> &figuras, const char* path){
     TiXmlDocument doc(path);
-    if(doc.LoadFile())
-    {
-        // doc.Print( stdout );
-        TiXmlElement *pRoot, *pChild;
+    if(doc.LoadFile()) {
+        TiXmlElement *pRoot;
         pRoot = doc.FirstChildElement("scene");
-        if(pRoot)
-        {
-            pChild = pRoot->FirstChildElement("model");
-            while(pChild)
-            {
-                const char* fileName = pChild->Attribute("file");
-                char* str = (char*) malloc(sizeof(char)*(strlen(fileName)+1));
-                strcpy(str, fileName);
-                addElem(fileNames, str);
-                pChild = pChild->NextSiblingElement("model");
+        if(pRoot) {
+            pRoot = pRoot->FirstChildElement("group");
+            if(pRoot) {
+                group = searchRec(figuras,pRoot);
             }
         }
     }
-    else 
-    {
-        perror("Could not load XML File");
+    else {
+        perror("ERROR => Could not load XML File!\n");
         exit(1);
     }
-    return fileNames;
-}
-
-
-TAD_ARRAY_LIST getPointsFromFiles(char* path) {
-    TAD_ARRAY_LIST fileNames = getFileNames(path); // saca o nome dos ficheiros
-    TAD_ARRAY_LIST res = ARRAY_LIST(50); // lista de pontos
-    for(int i=0; i<getArraySize(fileNames); i++) {
-        char* fileName = (char*) getElem(fileNames, i);
-        TAD_ARRAY_LIST pontos = file2list(fileName);
-        free(fileName);
-        for(int v=0; v<getArraySize(pontos); v++) { // copia para o res
-            TAD_POINT p = (TAD_POINT) getElem(pontos, v);
-            addElem(res, p);
-        }
-        free_ARRAY_LIST(pontos);
-    }
-    return res;
 }

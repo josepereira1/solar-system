@@ -1,8 +1,10 @@
 #ifndef FILE2LIST
 #define FILE2LIST
 
-#include <ArrayList.h>
+#include <vector>
 
-TAD_ARRAY_LIST file2list(char* path);
+using namespace std;
+
+vector<float> file2list(const char*);
 
 #endif
