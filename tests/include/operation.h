@@ -4,6 +4,8 @@
 #include <Point.h>
 #include <vector>
 
+using namespace std;
+
 class Operation
  {
  public:
