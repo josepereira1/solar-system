@@ -20,13 +20,13 @@ static void printGroup(Group g) {
             printf("Operacao: Flag=%c , Angle=%f ,Time=%d\n",op.flag,op.ang,op.time);
             for(unsigned j = 0; j<op.point.size() ; i++) {
                 TAD_POINT point = op.point[i];
-                printf("Point: X=%f ,Y=%f ,Z=%f\n",point.getX(),point.getY(),point.getZ());
+                printf("\tPoint: X=%f ,Y=%f ,Z=%f\n",getX(point),getY(point),getZ(point));
             }
 
         }
         else {
             TAD_POINT point = op.point[0];
-            printf("Operacao: Flag=%c ,X=%f ,Y=%f ,Z=%f ,Angle=%f, Time=%d\n",op.flag,point.getX(),point.getY(),point.getZ(),op.ang,op.time);
+            printf("Operacao: Flag=%c ,X=%f ,Y=%f ,Z=%f ,Angle=%f, Time=%d\n",op.flag,getX(point),getY(point),getZ(point),op.ang,op.time);
         }
     }
     for(unsigned i = 0; i<g.ficheiros.size() ;i++) {
