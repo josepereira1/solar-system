@@ -1,0 +1,35 @@
+<scene>
+    <group>
+        <models>
+            <model file="sphere1.3d" texture=""/>
+        </models>
+        <group>
+            <rotate axisX=0 axisY=1 axisZ=0 angle=35 time=10/>
+            <translate time=5 >
+                <point X=10 Y=0 Z=0 />
+                <point X=0 Y=0 Z=-10 />
+                <point X=-10 Y=0 Z=0 />
+                <point X=0 Y=0 Z=10 />
+            </translate>
+            <scale X=0.1 Y=-0.1 Z=0.1 />
+            <models>
+                <model file="sphere2.3d" texture=""/>
+            </models>
+            <group>
+            <translate time=10 >
+                <point X=20 Y=0 Z=0 />
+                <point X=15 Y=0 Z=-15 />
+                <point X=0 Y=0 Z=-20 />
+                <point X=-15 Y=0 Z=-15 />
+                <point X=-20 Y=0 Z=0 />
+                <point X=-15 Y=0 Z=15 />
+                <point X=0 Y=0 Z=20 />
+                <point X=15 Y=0 Z=15 />
+            </translate>
+            <models>
+                <model file="sphere3.3d" texture=""/>
+            </models>
+            </group>
+        </group>
+    </group>
+</scene>

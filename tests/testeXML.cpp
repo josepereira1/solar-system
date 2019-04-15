@@ -6,6 +6,7 @@
 #include <operation.h>
 #include <vector>
 #include <Figura.h>
+#include <Point.h>
 #include <map>
 #include <xmlParser.h>
 
@@ -15,7 +16,18 @@ static void printGroup(Group g) {
     printf("GROUP:-----------------------------------------------\n");
     for(unsigned i = 0; i<g.operacoes.size() ;i++) {
         Operation op = g.operacoes[i];
-        printf("Operacao: Flag=%c ,X=%f ,Y=%f ,Z=%f ,Angle=%f\n",op.flag,op.x,op.y,op.z,op.ang);
+        if(op.flag == 't') {
+            printf("Operacao: Flag=%c , Angle=%f ,Time=%d\n",op.flag,op.ang,op.time);
+            for(unsigned j = 0; j<op.point.size() ; i++) {
+                TAD_POINT point = op.point[i];
+                printf("Point: X=%f ,Y=%f ,Z=%f\n",point.getX(),point.getY(),point.getZ());
+            }
+
+        }
+        else {
+            TAD_POINT point = op.point[0];
+            printf("Operacao: Flag=%c ,X=%f ,Y=%f ,Z=%f ,Angle=%f, Time=%d\n",op.flag,point.getX(),point.getY(),point.getZ(),op.ang,op.time);
+        }
     }
     for(unsigned i = 0; i<g.ficheiros.size() ;i++) {
         string str = g.ficheiros[i];
@@ -40,8 +52,8 @@ static void printFiguras(map<string,Figura> figuras) {
 int main() {
     Group group;
     map<string,Figura> figuras;
-    parse(group,figuras,"file.xml");
+    parse(group,figuras,"xmlTest.xml");
     printGroup(group);
-    printFiguras(figuras);
+    //printFiguras(figuras);
     return 0;
 }
