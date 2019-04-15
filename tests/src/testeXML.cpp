@@ -17,16 +17,16 @@ static void printGroup(Group g) {
     for(unsigned i = 0; i<g.operacoes.size() ;i++) {
         Operation op = g.operacoes[i];
         if(op.flag == 't') {
-            printf("Operacao: Flag=%c , Angle=%f ,Time=%d\n",op.flag,op.ang,op.time);
-            for(unsigned j = 0; j<op.point.size() ; i++) {
-                TAD_POINT point = op.point[i];
+            printf("Operacao: Flag=%c ,Angle=%f ,Time=%d\n",op.flag,op.ang,op.time);
+            for(unsigned j = 0; j<op.point.size() ; j++) {
+                TAD_POINT point = op.point[j];
                 printf("\tPoint: X=%f ,Y=%f ,Z=%f\n",getX(point),getY(point),getZ(point));
             }
 
         }
         else {
             TAD_POINT point = op.point[0];
-            printf("Operacao: Flag=%c ,X=%f ,Y=%f ,Z=%f ,Angle=%f, Time=%d\n",op.flag,getX(point),getY(point),getZ(point),op.ang,op.time);
+            printf("Operacao: Flag=%c ,X=%f ,Y=%f ,Z=%f ,Angle=%f ,Time=%d\n",op.flag,getX(point),getY(point),getZ(point),op.ang,op.time);
         }
     }
     for(unsigned i = 0; i<g.ficheiros.size() ;i++) {

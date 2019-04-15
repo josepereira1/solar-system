@@ -25,7 +25,8 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
             if(!t) {
                 stime = pRoot->Attribute("time");
                 if(stime) time = atoi(stime);
-                pChild = pRoot->NextSiblingElement();
+                pChild = pRoot->FirstChildElement("point");
+                name = (string)pChild->Value();
                 vector<TAD_POINT> coords;
                 while(pChild) {
                     if(name.compare("point")==0) {
@@ -99,7 +100,6 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
                 while(pChild) {
                     name = (string)pChild->Attribute("file");
                     if(figuras.find(name) == figuras.end()) { // se não  existir
-                        // printf("name: %s\n", name.c_str());
                         Figura f;
                         f.pontos = file2list(name.c_str());
                         figuras[name] = f; 
