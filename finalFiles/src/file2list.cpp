@@ -6,9 +6,11 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#include <ArrayList.h>
 #include <file2list.h>
 #include <Point.h>
+#include <vector>
+
+using namespace std;
 
 #define INITIAL_DIM				50
 #define 		  B			     1
@@ -42,8 +44,7 @@ static char* subStr(int start, int end, char* str) {
 	return res;
 }
 
-
-static void indices2list(TAD_ARRAY_LIST arr, char* str){
+static void indices2list(vector<int> arr, char* str){
 	int start = 0;
 	char* tmp;
 	for(int i=0; ; i++) {
@@ -52,14 +53,14 @@ static void indices2list(TAD_ARRAY_LIST arr, char* str){
 			start = i + 2;
 			int* n = malloc(sizeof(int));
 			*n = atoi(tmp);
-			addElem(arr, n);
+			arr.push_back(n);
 			free(tmp);
 			if (str[i] == '\0') break;
 		}
 	}
 }
 
-static void pontos2list(TAD_ARRAY_LIST arr, char* str){
+static void pontos2list(vector<TAD_POINT> arr, char* str){
 	int start = 0, count = 1;
 	float x, y, z;
 	char* tmp;
@@ -75,7 +76,7 @@ static void pontos2list(TAD_ARRAY_LIST arr, char* str){
 			count++;
 		}
 	}
-	addElem(arr, POINT(x, y, z));
+	arr.push_back(POINT(x,y,z));
 }
 
 
@@ -102,8 +103,7 @@ static void printPointsArray(TAD_ARRAY_LIST arr) {
 }
 */
 
-
-TAD_ARRAY_LIST file2list(const char* path) {
+vector<float> file2list(const char* path) {
 	
 	char* buf = getfile(path); // puxa a info do ficheiro para uma string
 
@@ -117,7 +117,7 @@ TAD_ARRAY_LIST file2list(const char* path) {
 	currentIndex += i + 1; // i + '\n'
 	free(tmp); 
 
-	TAD_ARRAY_LIST indices = ARRAY_LIST(INITIAL_DIM);
+	vector<int> indices;
 
 	for(int k=0; k < n_patches; k++) { 
 		i = readLn(buf + currentIndex); // lê a proxima linha
@@ -137,7 +137,7 @@ TAD_ARRAY_LIST file2list(const char* path) {
 	currentIndex += i + 1;
 	free(tmp); 
 
-	TAD_ARRAY_LIST pontos = ARRAY_LIST(INITIAL_DIM);
+	vector<TAD_POINT> pontos;
 
 	for(int k=0; k < n_pontos; k++) { 
 		i = readLn(buf + currentIndex); // lê a proxima linha
@@ -152,23 +152,15 @@ TAD_ARRAY_LIST file2list(const char* path) {
 
 	//printPointsArray(pontos);
 
-	TAD_ARRAY_LIST res = ARRAY_LIST(INITIAL_DIM);
+	vector<TAD_POINT> res;
 
-	for(i=0; i < getArraySize(indices); i++){
-    	int indice = *(int*) getElem(indices, i);
-    	TAD_POINT ponto = (TAD_POINT) getElem(pontos, indice);
-    	addElem(res, ponto);
-  	}
-
-  	// libertar toda a memória utilizada
-
-  	for(i = 0; i < getArraySize(indices); i++){
-    	int* n = (int*) getElem(indices, i);
-    	free(n);
-  	}
-
-  	free_ARRAY_LIST(indices);
-  	free_ARRAY_LIST(pontos);
+	for(i=0; i < indices.size(); i++){
+		int indice = *(int*) indices[i];
+    	TAD_POINT ponto = pontos[indice];
+    	res.push_back(getX(ponto));
+    	res.push_back(getY(ponto));
+    	res.push_back(getZ(ponto));
+   	}
 
 	return res;
 }

@@ -1,0 +1,212 @@
+<scene>
+    <group>
+        <models>
+            <model file="sphere1.3d" />
+        </models>
+        <group>
+            <rotate axisX=0 axisY=1 axisZ=0 angle=35 />
+            <translate time=5>
+                <point X=0 Y=0 Z=90> 
+            </translate>
+            <scale X=0.1 Y=-0.1 Z=0.1 />
+            <models>
+                <model file="sphere2.3d" />
+            </models>
+            <group>
+                <translate time=5>
+                    <point X=0 Y=0 Z=15> 
+                </translate>
+                <models>
+                    <model file="sphere3.3d" />
+                </models>
+            </group>
+        </group>
+        <group>
+            <rotate axisX=0 axisY=1 axisZ=0 angle=120 />
+            <translate time=10>
+                <point X=0 Y=0 Z=120 />
+            </translate>
+            <scale X=0.4 Y=0.4 Z=0.4 />
+            <models>
+                <model file="sphere2.3d" />
+            </models>
+            <group>
+                <translate time=10 >
+                    <point X=0 Y=0 Z=15 />
+                </translate>
+                <scale X=-1 Y=-1 Z=-1 />
+                <models>
+                    <model file="sphere3.3d" />
+                </models>
+            </group>
+        </group>
+        <group>
+            <rotate axisX=0 axisY=1 axisZ=0 angle=25 />
+            <translate time=15 >
+                <point X=0 Y=0 Z=150 />
+            </translate>
+            <scale X=0.5 Y=0.5 Z=0.5 />
+            <models>
+                <model file="sphere2.3d" />
+            </models>
+            <group>
+                <translate time=15 >
+                    <point X=0 Y=0 Z=15 />
+                </translate>
+                <models>
+                    <model file="sphere3.3d" />
+                </models>
+            </group>
+        </group>
+        <group>
+            <rotate axisX=0 axisY=1 axisZ=0 angle=300 />
+            <translate time=20 >
+                <point X=0 Y=0 Z=180 />
+            </translate>
+            <scale X=0.2 Y=0.2 Z=0.2 />
+            <models>
+                <model file="sphere2.3d" />
+            </models>
+            <group>
+                <translate time=25 >
+                    <point X=0 Y=0 Z=15 />
+                </translate>
+                <models>
+                    <model file="sphere3.3d" />
+                </models>
+            </group>
+        </group>
+        <group>
+            <translate time=30 >
+                <point X=0 Y=0 Z=220 />
+            </translate>
+            <scale X=1.5 Y=1.5 Z=1.5 />
+            <models>
+                <model file="sphere2.3d" />
+            </models>
+            <group>
+                <translate time=30 >
+                    <point X=0 Y=0 Z=15 />
+                </translate>
+                <scale X=0.5 Y=0.5 Z=0.5 />
+                <models>
+                    <model file="sphere3.3d" />
+                </models>
+            </group>
+            <group>
+                <rotate axisX=1 axisY=1 axisZ=0 angle=72 />
+                <translate time=30 >
+                    <point X=0 Y=0 Z=15 />
+                </translate>
+                <scale X=0.5 Y=0.5 Z=0.5 />
+                <models>
+                    <model file="sphere3.3d" />
+                </models>
+            </group>
+            <group>
+                <rotate axisX=0 axisY=1 axisZ=1 angle=144 />
+                <translate time=30 >
+                    <point X=0 Y=0 Z=15 />
+                </translate>
+                <scale X=0.5 Y=0.5 Z=0.5 />
+                <models>
+                    <model file="sphere3.3d" />
+                </models>
+            </group>
+            <group>
+                <rotate axisX=0 axisY=0 axisZ=1 angle=216 />
+                <translate time=30 >
+                    <point X=0 Y=0 Z=15 />
+                </translate>
+                <scale X=0.5 Y=0.5 Z=0.5 />
+                <models>
+                    <model file="sphere3.3d" />
+                </models>
+            </group>
+            <group>
+                <rotate axisX=1 axisY=0 axisZ=1 angle=288 />
+                <translate time=30 >
+                    <point X=0 Y=0 Z=15 />
+                </translate>
+                <scale X=0.5 Y=0.5 Z=0.5 />
+                <models>
+                    <model file="sphere3.3d" />
+                </models>
+            </group>
+            <group>
+                <rotate axisX=-1 axisY=0 axisZ=1 angle=100 />
+                <translate time=30 >
+                    <point X=0 Y=0 Z=15 />
+                </translate>
+                <scale X=0.5 Y=0.5 Z=0.5 />
+                <models>
+                    <model file="sphere3.3d" />
+                </models>
+            </group>
+            <group>
+                <rotate axisX=-1 axisY=-1 axisZ= angle=72 />
+                <translate time=30 >
+                    <point X=0 Y=0 Z=15 />
+                </translate>
+                <scale X=0.5 Y=0.5 Z=0.5 />
+                <models>
+                    <model file="sphere3.3d" />
+                </models>
+            </group>
+        </group>
+        <group>
+            <rotate axisX=0 axisY=1 axisZ=0 angle=265 />
+            <translate time=35 >
+                <point X=0 Y=0 Z=270 />
+            </translate>
+            <scale X=1.2 Y=1.2 Z=1.2 />
+            <models>
+                <model file="sphere2.3d" />
+            </models>
+            <group>
+                <translate time=35 >
+                    <point X=0 Y=0 Z=15 />
+                </translate>
+                <models>
+                    <model file="sphere3.3d" />
+                </models>
+            </group>
+        </group>
+        <group>
+            <rotate axisX=0 axisY=1 axisZ=0 angle=335 />
+            <translate time=40 >
+                <point X=0 Y=0 Z=310 />
+            </translate>
+            <scale X=0.9 Y=0.9 Z=0.9 />
+            <models>
+                <model file="sphere2.3d" />
+            </models>
+            <group>
+                <translate time=40 >
+                    <point X=0 Y=0 Z=15 />
+                </translate>
+                <models>
+                    <model file="sphere3.3d" />
+                </models>
+            </group>
+        </group>
+        <group>
+            <rotate axisX=0 axisY=1 axisZ=0 angle=185 />
+            <translate time=45 >
+                <point X=0 Y=0 Z=350 />
+            </translate>
+            <scale X=0.7 Y=0.7 Z=0.7 />
+            <models>
+                <model file="sphere2.3d" />
+            </models>
+            <group>
+                <translate time=45 >
+                    <point X=0 Y=0 Z=15 />
+                </translate>
+                <models>
+                    <model file="sphere3.3d" />
+                </models>
+            </group>
+        </group>
+    </group>
+</scene>

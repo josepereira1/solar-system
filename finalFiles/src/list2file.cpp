@@ -1,6 +1,6 @@
 #include "list2file.h"
 
-void list2file(TAD_ARRAY_LIST points, int positions[], int tam, const char* path) {
+void list2file(vector<TAD_POINT> points, int positions[], int tam, const char* path) {
 	FILE *file = fopen(path,"ab");
 	if (file != NULL) {
 		char* str = malloc(1024*1024*10);//alloc memory to final string
@@ -21,7 +21,7 @@ void list2file(TAD_ARRAY_LIST points, int positions[], int tam, const char* path
 			deslocamento+=len;
 			free(tmp2);
 		}
-		int size = getArraySize(points);
+		int size = points.size();
 		//put number of points
 		char* tmp3 = malloc(256);
 		sprintf(tmp3,"%d\n",size);
@@ -31,7 +31,7 @@ void list2file(TAD_ARRAY_LIST points, int positions[], int tam, const char* path
 		free(tmp3);
 		//put the points (x,y,z)
 		for(int i=0 ; i<size ; i++) {
-			TAD_POINT point = getElem(points,i);
+			TAD_POINT point = points[i];
 			char* tmp4 = malloc(256);
 			sprintf(tmp4,"%.5f, %.5f, %.5f\n",getX(point),getY(point),getZ(point));
 			len = strlen(tmp4);
