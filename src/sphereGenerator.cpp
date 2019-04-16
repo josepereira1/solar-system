@@ -10,79 +10,30 @@
 #include <math.h>
 
 TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks) {
-	float r = radius;
-    float r1 = radius;
-    float r2 = radius;
-    float alfa = (2*M_PI)/slices;
-    float betaYoX = (2*radius)/stacks;
-	float height = radius;
-    float y1,y2;
-    int max = slices*(stacks-1)+2;
-    TAD_ARRAY_LIST l1 = ARRAY_LIST(max);
-    TAD_ARRAY_LIST l2 = ARRAY_LIST(max);
-    int m1,m2;
-    //cria ponto superior
-    TAD_POINT p;
-    p = POINT(0.0,radius,0.0);
-    addElem(l1,p);
-    //cria pontos intermédios
-    for(m1=1;m1<stacks;m1++){ // itera circulos (muda o raio, alfaXoZ volta ao inicio)
-    	height -= betaYoX; // calcula altura do circulo
-        r = sqrt((radius*radius)-(height*height)); // muda o raio para o circulo correspondente
-    	for(m2=0;m2<slices;m2++){ // itera vertices(muda o alfaXoZ)
-            p = POINT(r*cos(m2*alfa),height,r*sin(m2*alfa));
-            addElem(l1,p);
-    	}
-    }
-    //cria ultimo ponto
-    p = POINT(0.0,-radius,0.0);
-    addElem(l1,p);
-    height = radius;
-    // tenho stack + 1 camadas para ligar, a 1ª e a ultima têm 1 vertice
-    for(m1=0;m1<stacks;m1++){ // vertices nas pontas = nº de slices
-        y2= height;
-        height -= betaYoX;
-        y1 = height;
-        r2 = sqrt((radius*radius)-(y2*y2));
-        r1 = sqrt((radius*radius)-(y1*y1));
-        for(m2=0;m2<slices;m2++){ //  vertices interiores = nº de slices * 2
-            if(m1==0){
-                p = POINT(0.0,y2,0.0);
-                addElem(l2,p);
-                p = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
-                addElem(l2,p);
-                p = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
-                addElem(l2,p);
+    float alpha1;
+    float alpha2;
+    float beta1;
+    float beta2;
+    TAD_ARRAY_LIST l = ARRAY_LIST(max);
+    //std::vector<Point> vertices; //Vector que guarda os vertices
+    for (int slice = 0; slice < slices; slice++) {
+        for (int stack = 0; stack <= stacks; stack++) {
+            float alpha1 = (2 * M_PI / slices) * slice;
+            float alpha2 = (2 * M_PI / slices) * (slice + 1);
+            float beta1 = (2 * M_PI / stacks) * stack;
+            float beta2 = (2 * M_PI / stacks) * (stack + 1);
 
-            } else if(m1 == (stacks-1)){
-                p = POINT(0.0,y1,0.0);
-                addElem(l2,p);
-                p = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
-                addElem(l2,p);
-                p = POINT(r2*cos((m2+1)*alfa),y2,r2*sin((m2+1)*alfa));
-                addElem(l2,p);
+            addElem(l,Point(r*cos(beta2)*sin(alpha1), r*sin(beta2), r*cos(beta2)*cos(alpha1)));
+            addElem(l,Point(r*cos(beta1)*sin(alpha1), r*sin(beta1), r*cos(beta1)*cos(alpha1)));
+            addElem(l,Point(r*cos(beta2)*sin(alpha2), r*sin(beta2), r*cos(beta2)*cos(alpha2)));
 
-
-            } else{
-                p = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
-                addElem(l2,p);
-                p = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
-                addElem(l2,p);
-                p = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
-                addElem(l2,p);
-
-                // triangulo inverso
-                p = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));// <
-                addElem(l2,p);
-                p = POINT(r2*cos((m2+1)*alfa),y2,r2*sin((m2+1)*alfa));// ^<
-                addElem(l2,p);
-                p = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));// ^>
-                addElem(l2,p);
-            }
+            addElem(l,Point(r*cos(beta2)*sin(alpha2), r*sin(beta2), r*cos(beta2)*cos(alpha2)));
+            addElem(l,Point(r*cos(beta1)*sin(alpha1), r*sin(beta1), r*cos(beta1)*cos(alpha1)));
+            addElem(l,Point(r*cos(beta1)*sin(alpha2), r*sin(beta1), r*cos(beta1)*cos(alpha2)));
         }
     }
-    //filter(l2);
-    return l2;
+    printer(l);
+    return l;
 }
 
 
