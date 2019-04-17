@@ -16,32 +16,16 @@ vector<TAD_POINT> getPointsOfSphere(float radius, int slices, int stacks) {
     float r1 = radius;
     float r2 = radius;
     float alfa = (2*M_PI)/slices;
-    float betaYoX = (2*radius)/stacks;
+    float betaYoX = (2*M_PI)/stacks;
 	float height = radius;
     float y1,y2;
     int max = slices*(stacks-1)+2;
     vector<TAD_POINT> l1, l2;
     int m1,m2;
-    //cria ponto superior
-    TAD_POINT p = POINT(0.0,radius,0.0);
-    l1.push_back(p);
-    //cria pontos intermédios
-    for(m1=1;m1<stacks;m1++){ // itera circulos (muda o raio, alfaXoZ volta ao inicio)
-    	height -= betaYoX; // calcula altura do circulo
-        r = sqrt((radius*radius)-(height*height)); // muda o raio para o circulo correspondente
-    	for(m2=0;m2<slices;m2++){ // itera vertices(muda o alfaXoZ)
-            p = POINT(r*cos(m2*alfa),height,r*sin(m2*alfa));
-            l1.push_back(l1);
-    	}
-    }
-    //cria ultimo ponto
-    p = POINT(0.0,-radius,0.0);
-    l1.push_back(p);
-    height = radius;
     // tenho stack + 1 camadas para ligar, a 1ª e a ultima têm 1 vertice
     for(m1=0;m1<stacks;m1++){ // vertices nas pontas = nº de slices
         y2= height;
-        height -= betaYoX;
+        height = cos(betaYoX*(m1+1))*radius;
         y1 = height;
         r2 = sqrt((radius*radius)-(y2*y2));
         r1 = sqrt((radius*radius)-(y1*y1));
