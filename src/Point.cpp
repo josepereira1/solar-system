@@ -5,11 +5,13 @@
 
 #include <Point.h>
 
+
 typedef struct TCD_Point{
 	float x;
 	float y;
 	float z;	
 } TCD_Point;
+
 
 // CONSTRUTOR
 TAD_POINT POINT(float x, float y, float z) {
@@ -20,7 +22,8 @@ TAD_POINT POINT(float x, float y, float z) {
 	return point;
 }
 
-//GETERS
+
+// GETERS
 float getX(TAD_POINT point) {
 	return point->x;
 }
@@ -33,17 +36,27 @@ float getZ(TAD_POINT point) {
 	return point->z;
 }
 
-void getXYZ(TAD_POINT point, float* x, float* y, float* z) {
-	*x = point->x;
-	*y = point->y;
-	*z = point->z;
+
+// SETTERS
+void setX(TAD_POINT point, float x) {
+	point->x = x;
 }
+
+void setY(TAD_POINT point, float y) {
+	point->y = y;
+}
+
+void setZ(TAD_POINT point, float z) {
+	point->z = z;
+}
+
 
 int equalsPoint(TAD_POINT point1, TAD_POINT point2){
 	return getX(point1) == getX(point2)
 		&& getY(point1) == getY(point2)
 		&& getZ(point1) == getZ(point2);
 }
+
 
 void point2string(TAD_POINT point) {
 	printf("TAD_POINT{x=%.5f, y=%.5f, z=%.5f}\n", point->x, point->y, point->z);

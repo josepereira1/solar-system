@@ -10,7 +10,12 @@ TAD_POINT POINT(float x, float y, float z);
 float getX(TAD_POINT point);
 float getY(TAD_POINT point);
 float getZ(TAD_POINT point);
-void getXYZ(TAD_POINT point, float* x, float* y, float* z);
+
+// SETTERS
+void setX(TAD_POINT point, float x);
+void setY(TAD_POINT point, float y);
+void setZ(TAD_POINT point, float z);
+
 
 //equals
 int equalsPoint(TAD_POINT point1, TAD_POINT point2);

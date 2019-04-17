@@ -5,11 +5,14 @@
 #include <Point.h>
 #include <toFile.h>
 
-//	generators:
+//	generators
 #include <coneGenerator.h>
 #include <boxGenerator.h>
 #include <sphereGenerator.h>
 #include <planeGenerator.h>
+
+// bezier
+#include <toFile.h>
 
 
 void write_on_file(const char* data, const char* path) {
@@ -85,13 +88,26 @@ int main(int argc, char** argv) {
 			exit(1);
 		}
 		design_cone(atof(argv[2]),atof(argv[3]),atoi(argv[4]),atoi(argv[5]),argv[6]);
-	}else if(strcmp(argv[1],"help")==0) {
+	}
+	else if(strcmp(argv[1],"help")==0) {
 		if(argc != 2) {
 			perror("Invalid parameters to help!\n");
 			exit(1);
 		}
 		printInstructions();
-	}else {
+	}
+	else if(strcmp(argv[1],"bezier")==0) {
+
+		//   0     1       2    3    4
+		// argv0 bezier .patch .3d tLevel
+
+		if(argc != 5) { 
+ 			perror("Invalid parameters to bezier!\n");
+			exit(1);
+		}
+		bezier2file(argv[2], argv[3], atoi(argv[4]));
+	}
+	else {
 		perror("Invalid geometric figure!\n");
 		exit(2);
 	}

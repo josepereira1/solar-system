@@ -9,7 +9,7 @@ include_directories (
 ../include  
 )
 
-add_executable(${PROJECT_NAME} ../src/generator.cpp ../src/ArrayList.cpp ../src/Point.cpp ../src/boxGenerator.cpp ../src/coneGenerator.cpp ../src/list2file.cpp ../src/planeGenerator.cpp ../src/sphereGenerator.cpp )
+add_executable(${PROJECT_NAME} ../src/generator.cpp ../src/ArrayList.cpp ../src/Point.cpp ../src/boxGenerator.cpp ../src/coneGenerator.cpp ../src/toFile.cpp ../src/planeGenerator.cpp ../src/sphereGenerator.cpp )
 
 if  (WIN32)
 

@@ -11,12 +11,16 @@ CPP_FILES_TESTE=$(filter-out $(CPP_FILES_EXCLUDE), $(wildcard src/*.cpp))
 get_generator: src/generator.cpp
 	g++ $(CFLAGS) $(CPP_FILES_GENERATOR) -o generator
 
+get_bezier: tests/testeBezier.cpp
+	g++ $(CFLAGS) $(CPP_FILES_TESTE) tests/testeBezier.cpp -o bezier
+
 generate: file.xml install
 	generator sphere 50 100 100 sphere1.3d
 	generator sphere 10 30 30 sphere2.3d
 	generator sphere 2 10 10 sphere3.3d
-	cp sphere1.3d sphere2.3d sphere3.3d file.xml bin/
-	cp sphere1.3d sphere2.3d sphere3.3d file.xml bin_windows_engine/
+	generator bezier teapot.patch teapot.3d 10
+	cp sphere1.3d sphere2.3d sphere3.3d file.xml teapot.xml teapot.3d bin/
+	cp sphere1.3d sphere2.3d sphere3.3d file.xml teapot.xml teapot.3d bin_windows_engine/
 
 install: get_generator
 	cp generator /usr/local/bin/
