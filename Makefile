@@ -26,14 +26,9 @@ uninstall: clean
 clean:
 	rm -f generator
 	rm -f /usr/local/bin/generator
-	rm -f xml
 	rm -f *.3d
-	rm -f *.3D
 	rm -f bin/*.3d
 	rm -f bin/*.xml
 	rm -f bin_windows_engine/*.3d
 	rm -f bin_windows_engine/*.xml
 	rm -f *.out
-	rm -f teste
-	rm -f test
-	rm -f f2l

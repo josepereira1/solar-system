@@ -7,7 +7,7 @@
 #include <vector>
 #include <Figura.h>
 #include <map>
-#include <file2list.h>
+#include <fromFile.h>
 
 using namespace std;
 

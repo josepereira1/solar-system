@@ -1,5 +1,5 @@
-#ifndef FILE2LIST
-#define FILE2LIST
+#ifndef FROMFILE_H
+#define FROMFILE_H
 
 #include <vector>
 

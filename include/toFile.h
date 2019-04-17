@@ -1,5 +1,5 @@
-#ifndef LIST2FILE_H
-#define LIST2FILE_H
+#ifndef TOFILE_H
+#define TOFILE_H
 
 #include <Point.h>
 #include <ArrayList.h>

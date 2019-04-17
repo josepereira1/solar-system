@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <vector>
 
-#include <file2list.h>
+#include <fromFile.h>
 
 static void openError(const char* path) {
 	char* errorMsg = (char*) malloc(sizeof(char)*(strlen(path)+21));
