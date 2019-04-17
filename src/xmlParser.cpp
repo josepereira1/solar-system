@@ -14,20 +14,34 @@ using namespace std;
 static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
     bool t = false, r = false, s = false, m = false;
     pRoot = pRoot->FirstChildElement();
+    TiXmlElement *pChild;
     Group group = Group();
     while(pRoot) {
         string name = (string)pRoot->Value();
         float x=0.0f,y=0.0f,z=0.0f,angle=0.0f;
-        const char *sx,*sy,*sz,*sangle;
+        int time=0;
+        const char *sx,*sy,*sz,*sangle,*stime;
         if(name.compare("translate")==0) {
             if(!t) {
-                sx = pRoot->Attribute("X");
-                if(sx) x = atof(sx);
-                sy = pRoot->Attribute("Y");
-                if(sy) y = atof(sy);
-                sz = pRoot->Attribute("Z");
-                if(sz) z = atof(sz);
-                Operation op = Operation('t',x,y,z,angle);
+                stime = pRoot->Attribute("time");
+                if(stime) time = atoi(stime);
+                pChild = pRoot->FirstChildElement("point");
+                name = (string)pChild->Value();
+                vector<TAD_POINT> coords;
+                while(pChild) {
+                    if(name.compare("point")==0) {
+                        sx = pChild->Attribute("X");
+                        if(sx) x = atof(sx);
+                        sy = pChild->Attribute("Y");
+                        if(sy) y = atof(sy);
+                        sz = pChild->Attribute("Z");
+                        if(sz) z = atof(sz);
+                        TAD_POINT coord = POINT(x,y,z);
+                        coords.push_back(coord); //vector de coordenadas (3 floats cada coordenada) necessario class coordinate
+                    }
+                    pChild = pChild->NextSiblingElement("point");
+                }
+                Operation op = Operation('t',coords,angle,time);
                 t = true;
                 group.operacoes.push_back(op);
             }
@@ -46,7 +60,12 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
                 if(sy) y = atof(sy);
                 sz = pRoot->Attribute("axisZ");
                 if(sz) z = atof(sz);
-                Operation op = Operation('r',x,y,z,angle);
+                stime = pRoot->Attribute("time");
+                if(stime) time = atoi(stime);
+                TAD_POINT coord = POINT(x,y,z);
+                vector<TAD_POINT> coords;
+                coords.push_back(coord);
+                Operation op = Operation('r',coords,angle,time);
                 r = true;
                 group.operacoes.push_back(op);
             }
@@ -63,7 +82,10 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
                 if(sy) y = atof(sy);
                 sz = pRoot->Attribute("Z");
                 if(sz) z = atof(sz);
-                Operation op = Operation('s',x,y,z,angle);
+                TAD_POINT coord = POINT(x,y,z);
+                vector<TAD_POINT> coords;
+                coords.push_back(coord);
+                Operation op = Operation('s',coords,angle,time);
                 s = true;
                 group.operacoes.push_back(op);
             }
@@ -74,16 +96,20 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
         }
         else if(name.compare("models")==0) {
             if(!m) {
-                TiXmlElement *pChild = pRoot->FirstChildElement("model");
+                pChild = pRoot->FirstChildElement("model");
                 while(pChild) {
                     name = (string)pChild->Attribute("file");
                     if(figuras.find(name) == figuras.end()) { // se não  existir
-                        // printf("name: %s\n", name.c_str());
                         Figura f;
                         f.pontos = file2list(name.c_str());
                         figuras[name] = f; 
                     }
-
+                    //Descomentar proximas linhas apenas na Fase 4
+                  /*texture = (string)pChild->Attribute("texture"); //Fase 4
+                    if(texturas.find(texture) == texture.end()) { //se não existir
+                        
+                    }
+                  */
                     group.ficheiros.push_back(name);
                     pChild = pChild->NextSiblingElement("model");
                 }
@@ -105,13 +131,18 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
 void parse(Group &group, map<string,Figura> &figuras, const char* path){
     TiXmlDocument doc(path);
     if(doc.LoadFile()) {
-        TiXmlElement *pRoot;
+        TiXmlElement *pRoot,*pChild;
         pRoot = doc.FirstChildElement("scene");
         if(pRoot) {
-            pRoot = pRoot->FirstChildElement("group");
-            if(pRoot) {
+            pChild = pRoot->FirstChildElement("group");
+            if(pChild) {
                 group = searchRec(figuras,pRoot);
             }
+          /*pChild = pRoot->FirstChildElement("ligths"); //Fase 4
+            if(pChild) {
+               ligths = searchLigths();
+            }
+          */
         }
     }
     else {
