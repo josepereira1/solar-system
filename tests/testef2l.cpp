@@ -7,7 +7,7 @@ int main()
 	unsigned int* indices;
 	int indicesTAM;  
 	float* vertexB;   
-	int vertexBTAM;  
+	int vertexBTAM;   
 
 	file2list("teste.3d", &indices, &indicesTAM, &vertexB, &vertexBTAM);
 

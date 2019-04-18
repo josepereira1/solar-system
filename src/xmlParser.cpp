@@ -27,7 +27,7 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
                 if(stime) time = atoi(stime);
                 pChild = pRoot->FirstChildElement("point");
                 name = (string)pChild->Value();
-                vector<TAD_POINT> coords;
+                TAD_POINT coords;
                 while(pChild) {
                     if(name.compare("point")==0) {
                         sx = pChild->Attribute("X");
@@ -36,8 +36,7 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
                         if(sy) y = atof(sy);
                         sz = pChild->Attribute("Z");
                         if(sz) z = atof(sz);
-                        TAD_POINT coord = POINT(x,y,z);
-                        coords.push_back(coord); //vector de coordenadas (3 floats cada coordenada) necessario class coordinate
+                        coords = POINT(x,y,z); //vector de coordenadas (3 floats cada coordenada) necessario class coordinate
                     }
                     pChild = pChild->NextSiblingElement("point");
                 }
@@ -62,9 +61,7 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
                 if(sz) z = atof(sz);
                 stime = pRoot->Attribute("time");
                 if(stime) time = atoi(stime);
-                TAD_POINT coord = POINT(x,y,z);
-                vector<TAD_POINT> coords;
-                coords.push_back(coord);
+                TAD_POINT coords = POINT(x,y,z);
                 Operation op = Operation('r',coords,angle,time);
                 r = true;
                 group.operacoes.push_back(op);
@@ -82,9 +79,7 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
                 if(sy) y = atof(sy);
                 sz = pRoot->Attribute("Z");
                 if(sz) z = atof(sz);
-                TAD_POINT coord = POINT(x,y,z);
-                vector<TAD_POINT> coords;
-                coords.push_back(coord);
+                TAD_POINT coords = POINT(x,y,z);
                 Operation op = Operation('s',coords,angle,time);
                 s = true;
                 group.operacoes.push_back(op);
