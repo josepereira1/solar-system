@@ -6,7 +6,11 @@ using namespace std;
 
 class Figura{
 public:
-	std::vector<float> pontos;
+	unsigned int* indices;
+	int indicesTAM;
+
+	float* vertexB;
+	int vertexBTAM;
 	
 	Figura();
 	~Figura();

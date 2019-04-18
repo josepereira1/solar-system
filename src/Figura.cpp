@@ -4,9 +4,14 @@
 using namespace std;
 
 Figura:: Figura(){
-	vector<float> pontos;
+	this->indices = NULL;
+	this->indicesTAM = 0;
+
+	this->vertexB = NULL;
+	this->vertexBTAM = 0;
 }
 
 Figura:: ~Figura(){
-	pontos.clear();
+	free(indices);
+	free(vertexB);
 }

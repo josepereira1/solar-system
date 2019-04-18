@@ -7,6 +7,6 @@
 using namespace std;
 
 void readPatchFile(string path, int*** arrayPatchs, vector<TAD_POINT> &pontos);
-vector<float> file2list(const char*);
+void file2list(string path, unsigned int** indices, int* indicesTAM, float** vertexB, int* vertexBTAM);
 
 #endif

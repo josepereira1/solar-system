@@ -99,9 +99,21 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
                 pChild = pRoot->FirstChildElement("model");
                 while(pChild) {
                     name = (string)pChild->Attribute("file");
-                    if(figuras.find(name) == figuras.end()) { // se não  existir
+                    if(figuras.find(name) == figuras.end()) { // se não  existir 
+                        
+                        unsigned int* indices;
+                        int indicesTAM;  
+                        float* vertexB;   
+                        int vertexBTAM;  
+
+                        file2list(name, &indices, &indicesTAM, &vertexB, &vertexBTAM);
+                        
                         Figura f;
-                        f.pontos = file2list(name.c_str());
+                        f.indices = indices;
+                        f.indicesTAM = indicesTAM;
+                        f.vertexB = vertexB;
+                        f.vertexBTAM = vertexBTAM;
+
                         figuras[name] = f; 
                     }
                     //Descomentar proximas linhas apenas na Fase 4

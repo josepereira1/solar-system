@@ -21,12 +21,12 @@ static void openError(const char* path) {
 
 
 void readPatchFile(string path, int*** arrayPatchs, vector<TAD_POINT> &pontos){
-	ifstream infile(path);	//	abre o ficheiro
 
 	string line;
 	int numeroPatchs = 0, size = 0, i = 0, j = 0, numeroControlPoints = 0;
 	char* ptr;
 
+	ifstream infile(path);	//	abre o ficheiro
 	getline(infile, line);	//	vais buscar a primeira linha
 
 	numeroPatchs = atoi(line.c_str());
@@ -35,8 +35,6 @@ void readPatchFile(string path, int*** arrayPatchs, vector<TAD_POINT> &pontos){
 	*arrayPatchs = (int**)malloc((numeroPatchs+1)*sizeof(int*));	//	alocação da memória para o array que guarda os patchs
 
 	(*arrayPatchs)[numeroPatchs] = (int*) NULL;	//	fim do array, para saber quando acaba
-
-	//cout << "número de patchs = " << numeroPatchs << "\n";
 
 	for(i = 0; i < numeroPatchs; i++){
 		getline(infile,line);
@@ -57,15 +55,6 @@ void readPatchFile(string path, int*** arrayPatchs, vector<TAD_POINT> &pontos){
 
 		(*arrayPatchs)[i][j] = atoi(init);	//	para o último indice, pq não tem vírgula
 	}
-
-	/*for(int i = 0; (*arrayPatchs)[i] != (int*) NULL; i++){	//	DEBUG
-		for (int j = 0; (*arrayPatchs)[i][j] != -1; j++)
-		{
-			cout << (*arrayPatchs)[i][j] << " ";
-		}
-
-		cout << "\n";
-	}*/
 
 	getline(infile,line);
 
@@ -94,23 +83,51 @@ void readPatchFile(string path, int*** arrayPatchs, vector<TAD_POINT> &pontos){
 }
 
 
-vector<float> file2list(const char* path) {
+void file2list(string path, unsigned int** indices, int* indicesTAM, float** vertexB, int* vertexBTAM) {
 
-	FILE* fd;
-	if((fd = fopen(path,"r")) == NULL) { // abre o ficheiro para leitura apenas 
-		openError(path);
-	}
-	int n_pontos;
-	fscanf(fd,"%d\n",&n_pontos);
-
-	vector<float> pontos;
+	string line;
 	float x, y, z;
-	for(int i=0; i < n_pontos; i++) { 
-		fscanf(fd, "%f, %f, %f\n", &x, &y, &z);
-		pontos.push_back(x);
-		pontos.push_back(y);
-		pontos.push_back(z);
+	char* ptr;
+	int i;
+
+	
+	ifstream infile(path);	//	abre o ficheiro
+	
+	getline(infile, line);	//	vai buscar a primeira linha
+	*indicesTAM = atoi(line.c_str()); 
+	printf("indicesTAM=%d\n", *indicesTAM);
+
+	getline(infile, line);	//	vai buscar a segunda linha
+	char* init = (char*) line.c_str();	
+
+	*indices = (unsigned int*) malloc(sizeof(unsigned int) * (*indicesTAM));
+	for(i = 0; (ptr = strstr(init, ",")) != NULL ; i++){	//	encontra o apontador da ","
+		char* tmp = ptr + sizeof(char);		//	guarda temporariamente a posição a seguir à vírgula, isto é, o apontador para o próximo número
+		*ptr = '\0';	//	fim da número, para o atoi saber onde termina a string
+		(*indices)[i] = atoi(init);//	converte o char* num int
+		init = tmp;	//	atribuí-se a init o ínicio do próximo número
+	}
+	(*indices)[i] = atoi(init); // por causa do último número não ter ','
+
+	getline(infile, line);	
+	*vertexBTAM = atoi(line.c_str()); 
+	printf("vertexBTAM=%d\n", *vertexBTAM);
+
+	*vertexB = (float*) malloc(sizeof(float) * (*vertexBTAM));
+/*
+	for(int k=0; k < *vertexBTAM; k++) {
+
+		getline(infile, line);	//	vai buscar a segunda linha
+		init = (char*) line.c_str();	
+
+		for(i = 0; (ptr = strstr(init, ",")) != NULL ; i++){	//	encontra o apontador da ","
+			char* tmp = ptr + sizeof(char);		//	guarda temporariamente a posição a seguir à vírgula, isto é, o apontador para o próximo número
+			*ptr = '\0';	//	fim da número, para o atoi saber onde termina a string
+			(*vertexB)[i] = atof(init);//	converte o char* num int
+			init = tmp;	//	atribuí-se a init o ínicio do próximo número
+		}
+		(*vertexB)[i] = atoi(init); // por causa do último número não ter ','
 	}
 
-	return pontos;
+*/
 }
