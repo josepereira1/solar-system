@@ -29,17 +29,23 @@ float py = 0.0;
 float pz = 0.0;
 int mode = GL_FILL;
 int face = GL_FRONT;
-GLuint buffers[4];
-float* vertexB1 = (float*) malloc(59400*3*sizeof(float));
-float* vertexB2 = (float*) malloc(5220*3*sizeof(float));
-float* vertexB3 = (float*) malloc(540*3*sizeof(float));
+GLuint buffers[3];
+GLuint indexes[3];
+float* vertexB1;
+float* vertexB2;
+float* vertexB3;
+unsigned int *indices1;
+unsigned int *indices2;
+unsigned int *indices3;
+int tam1;
+int tam2[3];
 
 Group group;
 map<string,Figura> figuras;
 
 void design(Group g){
     int sphere;
-    int vertices;
+    int count;
     glPushMatrix();
 
     for(unsigned i = 0; i<g.operacoes.size() ;i++) {
@@ -47,13 +53,13 @@ void design(Group g){
 
         switch(op.flag){
             case 't':
-                glTranslatef(op.x,op.y,op.z);
+                glTranslatef( getX(op.point), getY(op.point), getZ(op.point));
                 break;
             case 'r':
-                glRotatef(op.ang, op.x,op.y,op.z);
+                glRotatef(op.ang, getX(op.point), getY(op.point), getZ(op.point));
                 break;
             case 's':
-                glScalef(op.x,op.y,op.z);
+                glScalef( getX(op.point), getY(op.point), getZ(op.point));
                 break;
             default:
                 perror("Modificação inexistente!\n");
@@ -64,15 +70,20 @@ void design(Group g){
 
     for(unsigned i = 0; i<g.ficheiros.size() ;i++) {
         string nome_ficheiro = g.ficheiros[i];
-        if(nome_ficheiro.compare("sphere1.3d")) {sphere = 0; vertices=59400;}
-        else if(nome_ficheiro.compare("sphere2.3d")) {sphere = 1; vertices=5220;}
-        else {sphere=2; vertices=540;}
+        if(nome_ficheiro.compare("sphere1.3d")) {sphere = 0; count=tam2[0];}
+        else if(nome_ficheiro.compare("sphere2.3d")) {sphere = 1; count=tam2[1];}
+        else {sphere=2; count=tam2[2];}
 
         glBindBuffer(GL_ARRAY_BUFFER,buffers[sphere]); // paga no buffer sphere
         // nº de pontos para formar 1 vertice/ tipo da coordenada/ distancia entre indices dos vertices consecutivos / onde começa o array
         glVertexPointer(3,GL_FLOAT,0,0);
-         // ultima variavel -> número de vertices não de triangulos
-        glDrawArrays(GL_TRIANGLES,0,vertices);
+        // usa array de indices
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[sphere]);
+        glDrawElements(GL_TRIANGLES, count ,GL_UNSIGNED_INT, NULL);
+        
+        // ultima variavel -> número de vertices não de triangulos
+        //glDrawArrays(GL_TRIANGLES,0,vertices);
+
         //glEnable(GL_CULL_FACE);
     }
 
@@ -197,7 +208,7 @@ static void printGroup(Group g) {
     printf("GROUP:-----------------------------------------------\n");
     for(unsigned i = 0; i<g.operacoes.size() ;i++) {
         Operation op = g.operacoes[i];
-        printf("Operacao: Flag=%c ,X=%f ,Y=%f ,Z=%f ,Angle=%f\n",op.flag,op.x,op.y,op.z,op.ang);
+        //printf("Operacao: Flag=%c ,X=%f ,Y=%f ,Z=%f ,Angle=%f\n",op.flag,op.x,op.y,op.z,op.ang);
     }
     for(unsigned i = 0; i<g.ficheiros.size() ;i++) {
         string str = g.ficheiros[i];
@@ -247,12 +258,12 @@ void getPointsOfSphere(float radius, int slices, int stacks) {
                 thisVector[i] = 0.0;
                 thisVector[i+1] = y2;
                 thisVector[i+2] = 0.0;
-                thisVector[i+3] = r1*cos((m2+1)*alfa;
+                thisVector[i+3] = r1*cos((m2+1)*alfa);
                 thisVector[i+4] = y1;
                 thisVector[i+5] = r1*sin((m2+1)*alfa);
                 thisVector[i+6] = r1*cos(m2*alfa);
                 thisVector[i+7] = y1;
-                thisVector[i+8] = r1*sin(m2*alfa));
+                thisVector[i+8] = r1*sin(m2*alfa);
 
             } else if(m1 == (stacks-1)){
                 thisVector[i] = 0.0;
@@ -319,16 +330,34 @@ int main(int argc, char** argv) {
 	glEnable(GL_CULL_FACE);
     glEnableClientState(GL_VERTEX_ARRAY);
     
-    glGenBuffers(3, buffers);                 // gera-me 3 buffers
-    glBindBuffer(GL_ARRAY_BUFFER,buffers[0]); // pega no buffer 0
-    getPointsOfSphere(50,100,100);            // preeche array a copiar para buffer 0
-    glBufferData(GL_ARRAY_BUFFER,sizeof(float)*3*59400, vertexB1, GL_STATIC_DRAW); // preenche buffer 0
-    glBindBuffer(GL_ARRAY_BUFFER,buffers[1]); // pega no buffer 1
-    getPointsOfSphere(10,30,30);              // preeche array a copiar para buffer 1
-    glBufferData(GL_ARRAY_BUFFER,sizeof(float)*3*5220, vertexB2, GL_STATIC_DRAW); // preenche buffer 1
-    glBindBuffer(GL_ARRAY_BUFFER,buffers[2]); // pega no buffer 2
-    getPointsOfSphere(2,10,10);               // preeche array a copiar para buffer 2
-    glBufferData(GL_ARRAY_BUFFER,sizeof(float)*3*540, vertexB3, GL_STATIC_DRAW); // preenche buffer 2
+    glGenBuffers(3, buffers);                                                      // gera 3 buffers de coordenadas
+    glGenBuffers(n, indexes);                                                      // gera 3 buffers de indices
+
+    readPatchFile("sphere1.3d",indices1,vertexB1,&tam1,&tam2);                        // preeche arrays a copiar para buffer[0] e idexes[0]
+
+    glBindBuffer(GL_ARRAY_BUFFER,buffers[0]);                                      // pega no buffer 0
+    glBufferData(GL_ARRAY_BUFFER,sizeof(float)*tam1, vertexB1, GL_STATIC_DRAW); // preenche buffer 0
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[0]);                             // pega  indexes[2]
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(unsigned int)*tam2[0], indices1, GL_STATIC_DRAW); // preenche indexes[0]
+
+
+    readPatchFile("sphere2.3d",indices2,vertexB2,&tam1,&(tam2[1]));                       // preeche arrays a copiar para buffer[1] e idexes[1]
+
+    glBindBuffer(GL_ARRAY_BUFFER,buffers[1]);                                     // pega no buffer 1
+    glBufferData(GL_ARRAY_BUFFER,sizeof(float)*tam1, vertexB2, GL_STATIC_DRAW); // preenche buffer 1
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[1]);                            // pega  indexes[2]
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(unsigned int)*tam2[1], indices2, GL_STATIC_DRAW); // preenche indexes[1]
+
+
+    readPatchFile("sphere3.3d",indices3,vertexB3,&tam1,&(tam2[2]));                      // preeche arrays a copiar para buffer[2] e idexes[2]
+
+    glBindBuffer(GL_ARRAY_BUFFER,buffers[2]);                                    // pega no buffer[2]
+    glBufferData(GL_ARRAY_BUFFER,sizeof(float)*tam1, vertexB3, GL_STATIC_DRAW); // preenche buffer[2]
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[2]);                           // pega  indexes[2]
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(unsigned int)*tam2[2], indices3, GL_STATIC_DRAW); // preenche indexes[2]
 
     spherical2Cartesian();
 	

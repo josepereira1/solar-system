@@ -63,7 +63,6 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks) {
             }
         }
     }
-    //filter(l2);
     return l2;
 }
 
