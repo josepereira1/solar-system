@@ -33,10 +33,15 @@ void printInstructions(){
 
 void write_points_to_file_index(TAD_ARRAY_LIST points, const char* path){
 	TAD_ARRAY_LIST withoutRepeated;
+	printf("a escrever\n");
 	int size = getArraySize(points);
+	printf("a escrever\n");
 	int* positions;
+	printf("a escrever\n");
 	filter(points,&withoutRepeated,&positions);
+	printf("a escrever\n");
 	list2fileWindex(withoutRepeated,&positions,size,path);
+	printf("a escrever\n");
 }
 
 void design_sphere(float radius, int slices, int stacks, const char* patch) {
