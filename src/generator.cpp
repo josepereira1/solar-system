@@ -17,31 +17,17 @@
 #include <toFile.h>
 
 
-void write_on_file(const char* data, const char* path) {
-	FILE *fp = fopen(path, "w");
-    if (fp != NULL)
-    {
-        fputs(data, fp);
-        fclose(fp);
-    }
-}
-
-void printInstructions(){
+static void printInstructions(){
 	const char* str = "\nType the following commands on terminal to generate points to:\nplane -> generator plane side name_file.3d\nbox -> generator box x y z divisions name_file.3d\nsphere -> generator sphere radius slices stacks name_file.3d\ncone -> generator cone radius height slices stacks name_file.3d\n";
 	puts(str);
 }
 
-void write_points_to_file_index(TAD_ARRAY_LIST points, const char* path){
+static void write_points_to_file_index(TAD_ARRAY_LIST points, const char* path){
 	TAD_ARRAY_LIST withoutRepeated;
-	printf("a escrever\n");
 	int size = getArraySize(points);
-	printf("a escrever\n");
 	int* positions;
-	printf("a escrever\n");
-	filter(points,&withoutRepeated,&positions);
-	printf("a escrever\n");
-	list2fileWindex(withoutRepeated,&positions,size,path);
-	printf("a escrever\n");
+	filter(points, &withoutRepeated, &positions);
+	list2fileWindex(withoutRepeated, positions,size,path);
 }
 
 void design_sphere(float radius, int slices, int stacks, const char* patch) {
