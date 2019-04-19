@@ -14,6 +14,9 @@ get_generator: src/generator.cpp
 get_f2l: tests/testef2l.cpp
 	g++ $(CFLAGS) $(CPP_FILES_TESTE) tests/testef2l.cpp -o f2l
 
+testeFilterPoints: tests/TesteFilterPoints.cpp
+	g++ tests/TesteFilterPoints.cpp src/ArrayList.cpp src/Point.cpp src/filterPoints.cpp -I $(IDIR) -o filterPoints
+
 generate: file.xml install
 	generator sphere 50 100 100 sphere1.3d
 	generator sphere 10 30 30 sphere2.3d
