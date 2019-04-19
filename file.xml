@@ -4,7 +4,7 @@
                 <model file="sphere1.3d" />
           </models>
           <group>
-                <rotate axisX=0 axisY=1 axisZ=0 angle=35 />
+                <rotate axisX=0 axisY=1 axisZ=0 time=10.2 />
                 <translate time=20 X=0 Y=0 Z=90 />
                 <scale X=0.1 Y=-0.1 Z=0.1 />
                 <models>
@@ -18,7 +18,7 @@
                 </group>
           </group>
           <group>
-                <rotate axisX=0 axisY=1 axisZ=0 angle=120 />
+                <rotate axisX=0 axisY=1 axisZ=0 time=18 />
                 <translate time=30 X=0 Y=0 Z=120 />
                 <scale X=0.4 Y=0.4 Z=0.4 />
                 <models>
@@ -33,7 +33,7 @@
                 </group>
           </group>
           <group>
-                <rotate axisX=0 axisY=1 axisZ=0 angle=25 />
+                <rotate axisX=0 axisY=1 axisZ=0 time=16 />
                 <translate time=35 X=0 Y=0 Z=150 />
                 <scale X=0.5 Y=0.5 Z=0.5 />
                 <models>
@@ -47,7 +47,7 @@
                 </group>
           </group>
           <group>
-                <rotate axisX=0 axisY=1 axisZ=0 angle=300 />
+                <rotate axisX=0 axisY=1 axisZ=0 time=10 />
                 <translate time=45 X=0 Y=0 Z=180 />
                 <scale X=0.2 Y=0.2 Z=0.2 />
                 <models>
@@ -61,6 +61,7 @@
                 </group>
           </group>
           <group>
+                <rotate axisX=0 axisY=1 axisZ=0 time=24 />
                 <translate time=70 X=0 Y=0 Z=220 />
                 <scale X=1.5 Y=1.5 Z=1.5 />
                 <models>
@@ -74,7 +75,7 @@
                      </models>
                 </group>
                 <group>
-                     <rotate axisX=1 axisY=1 axisZ=0 angle=72 />
+                     <rotate axisX=1 axisY=1 axisZ=0 time=11 />
                      <translate time=20 X=0 Y=0 Z=15 />
                      <scale X=0.5 Y=0.5 Z=0.5 />
                      <models>
@@ -82,7 +83,7 @@
                      </models>
                 </group>
                 <group>
-                     <rotate axisX=0 axisY=1 axisZ=1 angle=144 />
+                     <rotate axisX=0 axisY=1 axisZ=1 time=11 />
                      <translate time=20 X=0 Y=0 Z=15 />
                      <scale X=0.5 Y=0.5 Z=0.5 />
                      <models>
@@ -90,7 +91,7 @@
                      </models>
                 </group>
                 <group>
-                     <rotate axisX=0 axisY=0 axisZ=1 angle=216 />
+                     <rotate axisX=0 axisY=0 axisZ=1 time=11 />
                      <translate time=20 X=0 Y=0 Z=15 />
                      <scale X=0.5 Y=0.5 Z=0.5 />
                      <models>
@@ -98,7 +99,7 @@
                      </models>
                 </group>
                 <group>
-                     <rotate axisX=1 axisY=0 axisZ=1 angle=288 />
+                     <rotate axisX=1 axisY=0 axisZ=1 time=11 />
                      <translate time=20 X=0 Y=0 Z=15 />
                      <scale X=0.5 Y=0.5 Z=0.5 />
                      <models>
@@ -106,7 +107,7 @@
                      </models>
                 </group>
                 <group>
-                     <rotate axisX=-1 axisY=0 axisZ=1 angle=100 />
+                     <rotate axisX=-1 axisY=0 axisZ=1 time=11 />
                      <translate time=20 X=0 Y=0 Z=15 />
                      <scale X=0.5 Y=0.5 Z=0.5 />
                      <models>
@@ -114,7 +115,7 @@
                      </models>
                 </group>
                 <group>
-                     <rotate axisX=-1 axisY=-1 axisZ= angle=72 />
+                     <rotate axisX=-1 axisY=-1 axisZ=0 time=11 />
                      <translate time=20 X=0 Y=0 Z=15 />
                      <scale X=0.5 Y=0.5 Z=0.5 />
                      <models>
@@ -123,7 +124,7 @@
                 </group>
           </group>
           <group>
-                <rotate axisX=0 axisY=1 axisZ=0 angle=265 />
+                <rotate axisX=0 axisY=1 axisZ=0 time=11 />
                 <translate time=80 X=0 Y=0 Z=270 />
                 <scale X=1.2 Y=1.2 Z=1.2 />
                 <models>
@@ -137,7 +138,7 @@
                 </group>
           </group>
           <group>
-                <rotate axisX=0 axisY=1 axisZ=0 angle=335 />
+                <rotate axisX=0 axisY=1 axisZ=0 time=14 />
                 <translate time=85 X=0 Y=0 Z=310 />
                 <scale X=0.9 Y=0.9 Z=0.9 />
                 <models>
@@ -151,7 +152,7 @@
                 </group>
           </group>
           <group>
-                <rotate axisX=0 axisY=1 axisZ=0 angle=185 />
+                <rotate axisX=0 axisY=1 axisZ=0 time=25 />
                 <translate time=90 X=0 Y=0 Z=350 />
                 <scale X=0.7 Y=0.7 Z=0.7 />
                 <models>
