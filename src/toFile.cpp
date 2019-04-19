@@ -33,13 +33,14 @@ void list2fileWindex(TAD_ARRAY_LIST points,int** indices, int tam, const char* p
 		int deslocamento = 0;//displacement
 		//put number of indices
 		char* tmp = (char*) malloc(5);
-		sprintf(tmp,"1\n";
+		sprintf(tmp,"1\n");
 		int len = strlen(tmp);
 		sprintf(str,"%s",tmp);
 		deslocamento += len;
 		free(tmp);
+		int i;
 		//put the indices
-		for(int i=0 ; i<tam-1 ; i++) {
+		for(i=0 ; i<tam-1 ; i++) {
 			deslocamento = save_indices(indices[i],str,deslocamento);
 		}
 		//put last indice
