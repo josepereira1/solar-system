@@ -1,169 +1,405 @@
 <scene>
-     <group>
-          <models>
-                <model file="sphere1.3d" />
-          </models>
-          <group>
-                <rotate axisX=0 axisY=1 axisZ=0 time=10.2 />
-                <translate time=20 X=0 Y=0 Z=90 />
-                <scale X=0.1 Y=-0.1 Z=0.1 />
+    <group>
+        <models>
+            <model file="sphere1.3d" /> <!-- Sol -->
+        </models>
+        <group>
+            <rotate axisX=0 axisY=1 axisZ=0 time=10/>
+            <translate time=5 >
+                <point X=90.00000 Y=0 Z=0.00000 />
+                <point X=82.21909 Y=0 Z=36.60630 />
+                <point X=60.22175 Y=0 Z=66.88303 />
+                <point X=27.81153 Y=0 Z=85.59509 />
+                <point X=-9.40757 Y=0 Z=89.50697 />
+                <point X=-45.00000 Y=0 Z=77.94228 />
+                <point X=-72.81153 Y=0 Z=52.90067 />
+                <point X=-88.03329 Y=0 Z=18.71205 />
+                <point X=-88.03328 Y=0 Z=-18.71206 />
+                <point X=-72.81152 Y=0 Z=-52.90068 />
+                <point X=-44.99999 Y=0 Z=-77.94229 />
+                <point X=-9.40755 Y=0 Z=-89.50697 />
+                <point X=27.81154 Y=0 Z=-85.59509 />
+                <point X=60.22176 Y=0 Z=-66.88303 />
+                <point X=82.21910 Y=0 Z=-36.60629 />
+            </translate>
+            <scale X=0.1 Y=-0.1 Z=0.1 />
+            <models>
+                <model file="sphere2.3d" /> <!-- Mercurio -->
+            </models>
+        </group>
+        <group>
+            <rotate axisX=0 axisY=1 axisZ=0 time=18 />
+            <translate time=8 >
+                <point X=120.00000 Y=0 Z=0.00000 />
+                <point X=109.62546 Y=0 Z=48.80840 />
+                <point X=80.29567 Y=0 Z=89.17738 />
+                <point X=37.08204 Y=0 Z=114.12679 />
+                <point X=-12.54342 Y=0 Z=119.34263 />
+                <point X=-60.00001 Y=0 Z=103.92304 />
+                <point X=-97.08205 Y=0 Z=70.53423 />
+                <point X=-117.37772 Y=0 Z=24.94939 />
+                <point X=-117.37771 Y=0 Z=-24.94941 />
+                <point X=-97.08203 Y=0 Z=-70.53424 />
+                <point X=-59.99999 Y=0 Z=-103.92306 />
+                <point X=-12.54340 Y=0 Z=-119.34263 />
+                <point X=37.08205 Y=0 Z=-114.12678 />
+                <point X=80.29568 Y=0 Z=-89.17737 />
+                <point X=109.62547 Y=0 Z=-48.80838 />
+            </translate>
+            <scale X=0.4 Y=0.4 Z=0.4 />
+            <models>
+                <model file="sphere2.3d" /> <!-- Venus -->
+            </models>
+        </group>
+        <group>
+            <rotate axisX=0 axisY=1 axisZ=0 time=10 />
+            <translate time=12 >
+                <point X=150.00000 Y=0 Z=0.00000 />
+                <point X=137.03181 Y=0 Z=61.01050 />
+                <point X=100.36959 Y=0 Z=111.47173 />
+                <point X=46.35254 Y=0 Z=142.65848 />
+                <point X=-15.67928 Y=0 Z=149.17828 />
+                <point X=-75.00001 Y=0 Z=129.90381 />
+                <point X=-121.35255 Y=0 Z=88.16778 />
+                <point X=-146.72214 Y=0 Z=31.18674 />
+                <point X=-146.72214 Y=0 Z=-31.18677 />
+                <point X=-121.35254 Y=0 Z=-88.16780 />
+                <point X=-74.99998 Y=0 Z=-129.90382 />
+                <point X=-15.67925 Y=0 Z=-149.17828 />
+                <point X=46.35257 Y=0 Z=-142.65848 />
+                <point X=100.36961 Y=0 Z=-111.47171 />
+                <point X=137.03183 Y=0 Z=-61.01048 />
+            </translate>
+            <scale X=0.5 Y=0.5 Z=0.5 />
+            <models>
+                <model file="sphere2.3d" /> <!-- Terra -->
+            </models>
+            <group>
+                <rotate axisX=0 axisY=1 axisZ=0 time=3 />
+                <translate time=3 >
+                    <point X=15.00000 Y=0 Z=0.00000 />
+                    <point X=13.70318 Y=0 Z=6.10105 />
+                    <point X=10.03696 Y=0 Z=11.14717 />
+                    <point X=4.63525 Y=0 Z=14.26585 />
+                    <point X=-1.56793 Y=0 Z=14.91783 />
+                    <point X=-7.50000 Y=0 Z=12.99038 />
+                    <point X=-12.13526 Y=0 Z=8.81678 />
+                    <point X=-14.67221 Y=0 Z=3.11867 />
+                    <point X=-14.67221 Y=0 Z=-3.11868 />
+                    <point X=-12.13525 Y=0 Z=-8.81678 />
+                    <point X=-7.50000 Y=0 Z=-12.99038 />
+                    <point X=-1.56793 Y=0 Z=-14.91783 />
+                    <point X=4.63526 Y=0 Z=-14.26585 />
+                    <point X=10.03696 Y=0 Z=-11.14717 />
+                    <point X=13.70318 Y=0 Z=-6.10105 />
+                </translate>
                 <models>
-                     <model file="sphere2.3d" />
+                    <model file="sphere3.3d" /> <!-- Lua -->
                 </models>
-                <group>
-                     <translate time=20 X=0 Y=0 Z=15 />
-                     <models>
-                          <model file="sphere3.3d" />
-                     </models>
-                </group>
-          </group>
-          <group>
-                <rotate axisX=0 axisY=1 axisZ=0 time=18 />
-                <translate time=30 X=0 Y=0 Z=120 />
-                <scale X=0.4 Y=0.4 Z=0.4 />
+            </group>
+        </group>
+        <group>
+            <rotate axisX=0 axisY=1 axisZ=0 time=10 />
+            <translate time=20 >
+                <point X=180.00000 Y=0 Z=0.00000 />
+                <point X=164.43819 Y=0 Z=73.21260 />
+                <point X=120.44350 Y=0 Z=133.76607 />
+                <point X=55.62305 Y=0 Z=171.19017 />
+                <point X=-18.81513 Y=0 Z=179.01395 />
+                <point X=-90.00001 Y=0 Z=155.88457 />
+                <point X=-145.62306 Y=0 Z=105.80134 />
+                <point X=-176.06657 Y=0 Z=37.42409 />
+                <point X=-176.06656 Y=0 Z=-37.42412 />
+                <point X=-145.62305 Y=0 Z=-105.80136 />
+                <point X=-89.99998 Y=0 Z=-155.88458 />
+                <point X=-18.81510 Y=0 Z=-179.01395 />
+                <point X=55.62308 Y=0 Z=-171.19017 />
+                <point X=120.44353 Y=0 Z=-133.76605 />
+                <point X=164.43820 Y=0 Z=-73.21257 />
+            </translate>
+            <scale X=0.2 Y=0.2 Z=0.2 />
+            <models>
+                <model file="sphere2.3d" /> <!-- Marte -->
+            </models>
+            <group>
+                <translate time=6 >
+                    <point X=15.00000 Y=0 Z=0.00000 />
+                    <point X=13.70318 Y=0 Z=6.10105 />
+                    <point X=10.03696 Y=0 Z=11.14717 />
+                    <point X=4.63525 Y=0 Z=14.26585 />
+                    <point X=-1.56793 Y=0 Z=14.91783 />
+                    <point X=-7.50000 Y=0 Z=12.99038 />
+                    <point X=-12.13526 Y=0 Z=8.81678 />
+                    <point X=-14.67221 Y=0 Z=3.11867 />
+                    <point X=-14.67221 Y=0 Z=-3.11868 />
+                    <point X=-12.13525 Y=0 Z=-8.81678 />
+                    <point X=-7.50000 Y=0 Z=-12.99038 />
+                    <point X=-1.56793 Y=0 Z=-14.91783 />
+                    <point X=4.63526 Y=0 Z=-14.26585 />
+                    <point X=10.03696 Y=0 Z=-11.14717 />
+                    <point X=13.70318 Y=0 Z=-6.10105 />
+                </translate>
                 <models>
-                     <model file="sphere2.3d" />
+                    <model file="sphere3.3d" /> <!-- Lua Marte -->
                 </models>
-                <group>
-                     <translate time=20 X=0 Y=0 Z=15 />
-                     <scale X=-1 Y=-1 Z=-1 />
-                     <models>
-                          <model file="sphere3.3d" />
-                     </models>
-                </group>
-          </group>
-          <group>
-                <rotate axisX=0 axisY=1 axisZ=0 time=16 />
-                <translate time=35 X=0 Y=0 Z=150 />
+            </group>
+       </group>
+        <group>
+            <rotate axisX=0 axisY=1 axisZ=0 time=24 />
+            <translate time=30 >
+                <point X=220.00000 Y=0 Z=0.00000 />
+                <point X=200.98000 Y=0 Z=89.48206 />
+                <point X=147.20872 Y=0 Z=163.49187 />
+                <point X=67.98373 Y=0 Z=209.23244 />
+                <point X=-22.99627 Y=0 Z=218.79482 />
+                <point X=-110.00001 Y=0 Z=190.52559 />
+                <point X=-177.98375 Y=0 Z=129.31274 />
+                <point X=-215.19247 Y=0 Z=45.74055 />
+                <point X=-215.19247 Y=0 Z=-45.74059 />
+                <point X=-177.98372 Y=0 Z=-129.31277 />
+                <point X=-109.99998 Y=0 Z=-190.52560 />
+                <point X=-22.99623 Y=0 Z=-218.79482 />
+                <point X=67.98376 Y=0 Z=-209.23242 />
+                <point X=147.20876 Y=0 Z=-163.49184 />
+                <point X=200.98001 Y=0 Z=-89.48203 />
+            </translate>
+            <scale X=1.5 Y=1.5 Z=1.5 />
+            <models>
+                <model file="sphere2.3d" /> <!-- Jupiter -->
+            </models>
+            <group>
+                <translate time=4 >
+                    <point X=15.00000 Y=0 Z=0.00000 />
+                    <point X=13.70318 Y=0 Z=6.10105 />
+                    <point X=10.03696 Y=0 Z=11.14717 />
+                    <point X=4.63525 Y=0 Z=14.26585 />
+                    <point X=-1.56793 Y=0 Z=14.91783 />
+                    <point X=-7.50000 Y=0 Z=12.99038 />
+                    <point X=-12.13526 Y=0 Z=8.81678 />
+                    <point X=-14.67221 Y=0 Z=3.11867 />
+                    <point X=-14.67221 Y=0 Z=-3.11868 />
+                    <point X=-12.13525 Y=0 Z=-8.81678 />
+                    <point X=-7.50000 Y=0 Z=-12.99038 />
+                    <point X=-1.56793 Y=0 Z=-14.91783 />
+                    <point X=4.63526 Y=0 Z=-14.26585 />
+                    <point X=10.03696 Y=0 Z=-11.14717 />
+                    <point X=13.70318 Y=0 Z=-6.10105 />
+                </translate>
                 <scale X=0.5 Y=0.5 Z=0.5 />
                 <models>
-                     <model file="sphere2.3d" />
+                    <model file="sphere3.3d" /> <!-- Lua Jupiter -->
                 </models>
-                <group>
-                     <translate time=20 X=0 Y=0 Z=15 />
-                     <models>
-                          <model file="sphere3.3d" />
-                     </models>
-                </group>
-          </group>
-          <group>
-                <rotate axisX=0 axisY=1 axisZ=0 time=10 />
-                <translate time=45 X=0 Y=0 Z=180 />
-                <scale X=0.2 Y=0.2 Z=0.2 />
+            </group>
+            <group>
+                <rotate axisX=1 axisY=1 axisZ=0 time=11 />
+                <translate time=11 >
+                    <point X=20.00000 Y=0 Z=0.00000 />
+                    <point X=18.27091 Y=0 Z=8.13473 />
+                    <point X=13.38261 Y=0 Z=14.86290 />
+                    <point X=6.18034 Y=0 Z=19.02113 />
+                    <point X=-2.09057 Y=0 Z=19.89044 />
+                    <point X=-10.00000 Y=0 Z=17.32051 />
+                    <point X=-16.18034 Y=0 Z=11.75570 />
+                    <point X=-19.56295 Y=0 Z=4.15823 />
+                    <point X=-19.56295 Y=0 Z=-4.15824 />
+                    <point X=-16.18034 Y=0 Z=-11.75571 />
+                    <point X=-10.00000 Y=0 Z=-17.32051 />
+                    <point X=-2.09057 Y=0 Z=-19.89044 />
+                    <point X=6.18034 Y=0 Z=-19.02113 />
+                    <point X=13.38261 Y=0 Z=-14.86289 />
+                    <point X=18.27091 Y=0 Z=-8.13473 />
+                </translate>
+                <scale X=0.5 Y=0.5 Z=0.5 />
                 <models>
-                     <model file="sphere2.3d" />
+                    <model file="sphere3.3d" /> <!-- Lua Jupiter -->
                 </models>
-                <group>
-                     <translate time=20 X=0 Y=0 Z=15 />
-                     <models>
-                          <model file="sphere3.3d" />
-                     </models>
-                </group>
-          </group>
-          <group>
-                <rotate axisX=0 axisY=1 axisZ=0 time=24 />
-                <translate time=70 X=0 Y=0 Z=220 />
-                <scale X=1.5 Y=1.5 Z=1.5 />
+            </group>
+            <group>
+                <rotate axisX=0 axisY=1 axisZ=1 time=11 />
+                <translate time=15 >
+                    <point X=25.00000 Y=0 Z=0.00000 />
+                    <point X=22.83864 Y=0 Z=10.16842 />
+                    <point X=16.72826 Y=0 Z=18.57862 />
+                    <point X=7.72542 Y=0 Z=23.77641 />
+                    <point X=-2.61321 Y=0 Z=24.86305 />
+                    <point X=-12.50000 Y=0 Z=21.65063 />
+                    <point X=-20.22543 Y=0 Z=14.69463 />
+                    <point X=-24.45369 Y=0 Z=5.19779 />
+                    <point X=-24.45369 Y=0 Z=-5.19779 />
+                    <point X=-20.22542 Y=0 Z=-14.69463 />
+                    <point X=-12.50000 Y=0 Z=-21.65064 />
+                    <point X=-2.61321 Y=0 Z=-24.86305 />
+                    <point X=7.72543 Y=0 Z=-23.77641 />
+                    <point X=16.72827 Y=0 Z=-18.57862 />
+                    <point X=22.83864 Y=0 Z=-10.16841 />
+                </translate>
+                <scale X=0.5 Y=0.5 Z=0.5 />
                 <models>
-                     <model file="sphere2.3d" />
+                    <model file="sphere3.3d" /> <!-- Lua Jupiter -->
                 </models>
-                <group>
-                     <translate time=20 X=0 Y=0 Z=15 />
-                     <scale X=0.5 Y=0.5 Z=0.5 />
-                     <models>
-                          <model file="sphere3.3d" />
-                     </models>
-                </group>
-                <group>
-                     <rotate axisX=1 axisY=1 axisZ=0 time=11 />
-                     <translate time=20 X=0 Y=0 Z=15 />
-                     <scale X=0.5 Y=0.5 Z=0.5 />
-                     <models>
-                          <model file="sphere3.3d" />
-                     </models>
-                </group>
-                <group>
-                     <rotate axisX=0 axisY=1 axisZ=1 time=11 />
-                     <translate time=20 X=0 Y=0 Z=15 />
-                     <scale X=0.5 Y=0.5 Z=0.5 />
-                     <models>
-                          <model file="sphere3.3d" />
-                     </models>
-                </group>
-                <group>
-                     <rotate axisX=0 axisY=0 axisZ=1 time=11 />
-                     <translate time=20 X=0 Y=0 Z=15 />
-                     <scale X=0.5 Y=0.5 Z=0.5 />
-                     <models>
-                          <model file="sphere3.3d" />
-                     </models>
-                </group>
-                <group>
-                     <rotate axisX=1 axisY=0 axisZ=1 time=11 />
-                     <translate time=20 X=0 Y=0 Z=15 />
-                     <scale X=0.5 Y=0.5 Z=0.5 />
-                     <models>
-                          <model file="sphere3.3d" />
-                     </models>
-                </group>
-                <group>
-                     <rotate axisX=-1 axisY=0 axisZ=1 time=11 />
-                     <translate time=20 X=0 Y=0 Z=15 />
-                     <scale X=0.5 Y=0.5 Z=0.5 />
-                     <models>
-                          <model file="sphere3.3d" />
-                     </models>
-                </group>
-                <group>
-                     <rotate axisX=-1 axisY=-1 axisZ=0 time=11 />
-                     <translate time=20 X=0 Y=0 Z=15 />
-                     <scale X=0.5 Y=0.5 Z=0.5 />
-                     <models>
-                          <model file="sphere3.3d" />
-                     </models>
-                </group>
-          </group>
-          <group>
-                <rotate axisX=0 axisY=1 axisZ=0 time=11 />
-                <translate time=80 X=0 Y=0 Z=270 />
-                <scale X=1.2 Y=1.2 Z=1.2 />
+            </group>
+            <group>
+                <rotate axisX=0 axisY=0 axisZ=1 time=11 />
+                <translate time=19 >
+                    <point X=30.00000 Y=0 Z=0.00000 />
+                    <point X=27.40636 Y=0 Z=12.20210 />
+                    <point X=20.07392 Y=0 Z=22.29435 />
+                    <point X=9.27051 Y=0 Z=28.53170 />
+                    <point X=-3.13586 Y=0 Z=29.83566 />
+                    <point X=-15.00000 Y=0 Z=25.98076 />
+                    <point X=-24.27051 Y=0 Z=17.63356 />
+                    <point X=-29.34443 Y=0 Z=6.23735 />
+                    <point X=-29.34443 Y=0 Z=-6.23735 />
+                    <point X=-24.27051 Y=0 Z=-17.63356 />
+                    <point X=-15.00000 Y=0 Z=-25.98076 />
+                    <point X=-3.13585 Y=0 Z=-29.83566 />
+                    <point X=9.27051 Y=0 Z=-28.53169 />
+                    <point X=20.07392 Y=0 Z=-22.29434 />
+                    <point X=27.40637 Y=0 Z=-12.20210 />
+                </translate>
+                <scale X=0.5 Y=0.5 Z=0.5 />
                 <models>
-                     <model file="sphere2.3d" />
+                    <model file="sphere3.3d" /> <!-- Lua Jupiter -->
                 </models>
-                <group>
-                     <translate time=20 X=0 Y=0 Z=15 />
-                     <models>
-                          <model file="sphere3.3d" />
-                     </models>
-                </group>
-          </group>
-          <group>
-                <rotate axisX=0 axisY=1 axisZ=0 time=14 />
-                <translate time=85 X=0 Y=0 Z=310 />
-                <scale X=0.9 Y=0.9 Z=0.9 />
+            </group>
+        </group>
+        <group>
+            <rotate axisX=0 axisY=1 axisZ=0 time=11 />
+            <translate time=45 >
+                <point X=270.00000 Y=0 Z=0.00000 />
+                <point X=246.65727 Y=0 Z=109.81889 />
+                <point X=180.66525 Y=0 Z=200.64911 />
+                <point X=83.43458 Y=0 Z=256.78525 />
+                <point X=-28.22270 Y=0 Z=268.52090 />
+                <point X=-135.00002 Y=0 Z=233.82686 />
+                <point X=-218.43460 Y=0 Z=158.70200 />
+                <point X=-264.09985 Y=0 Z=56.13614 />
+                <point X=-264.09985 Y=0 Z=-56.13618 />
+                <point X=-218.43457 Y=0 Z=-158.70204 />
+                <point X=-134.99997 Y=0 Z=-233.82687 />
+                <point X=-28.22265 Y=0 Z=-268.52090 />
+                <point X=83.43462 Y=0 Z=-256.78525 />
+                <point X=180.66530 Y=0 Z=-200.64908 />
+                <point X=246.65729 Y=0 Z=-109.81886 />
+            </translate>
+            <scale X=1.2 Y=1.2 Z=1.2 />
+            <models>
+                <model file="sphere2.3d" /> <!-- Saturno -->
+            </models>
+            <group>
+                <translate time=9 >
+                    <point X=15.00000 Y=0 Z=0.00000 />
+                    <point X=13.70318 Y=0 Z=6.10105 />
+                    <point X=10.03696 Y=0 Z=11.14717 />
+                    <point X=4.63525 Y=0 Z=14.26585 />
+                    <point X=-1.56793 Y=0 Z=14.91783 />
+                    <point X=-7.50000 Y=0 Z=12.99038 />
+                    <point X=-12.13526 Y=0 Z=8.81678 />
+                    <point X=-14.67221 Y=0 Z=3.11867 />
+                    <point X=-14.67221 Y=0 Z=-3.11868 />
+                    <point X=-12.13525 Y=0 Z=-8.81678 />
+                    <point X=-7.50000 Y=0 Z=-12.99038 />
+                    <point X=-1.56793 Y=0 Z=-14.91783 />
+                    <point X=4.63526 Y=0 Z=-14.26585 />
+                    <point X=10.03696 Y=0 Z=-11.14717 />
+                    <point X=13.70318 Y=0 Z=-6.10105 />
+                </translate>
                 <models>
-                     <model file="sphere2.3d" />
+                    <model file="sphere3.3d" /> <!-- Lua Saturno -->
                 </models>
-                <group>
-                     <translate time=20 X=0 Y=0 Z=15 />
-                     <models>
-                          <model file="sphere3.3d" />
-                     </models>
-                </group>
-          </group>
-          <group>
-                <rotate axisX=0 axisY=1 axisZ=0 time=25 />
-                <translate time=90 X=0 Y=0 Z=350 />
-                <scale X=0.7 Y=0.7 Z=0.7 />
+            </group>
+        </group>
+        <group>
+            <rotate axisX=0 axisY=1 axisZ=0 time=14 />
+            <translate time=60 >
+                <point X=310.00000 Y=0 Z=0.00000 />
+                <point X=283.19910 Y=0 Z=126.08836 />
+                <point X=207.43048 Y=0 Z=230.37489 />
+                <point X=95.79526 Y=0 Z=294.82751 />
+                <point X=-32.40384 Y=0 Z=308.30179 />
+                <point X=-155.00002 Y=0 Z=268.46786 />
+                <point X=-250.79529 Y=0 Z=182.21341 />
+                <point X=-303.22577 Y=0 Z=64.45260 />
+                <point X=-303.22574 Y=0 Z=-64.45265 />
+                <point X=-250.79524 Y=0 Z=-182.21346 />
+                <point X=-154.99997 Y=0 Z=-268.46790 />
+                <point X=-32.40379 Y=0 Z=-308.30179 />
+                <point X=95.79531 Y=0 Z=-294.82751 />
+                <point X=207.43053 Y=0 Z=-230.37486 />
+                <point X=283.19913 Y=0 Z=-126.08831 />
+            </translate>
+            <scale X=0.9 Y=0.9 Z=0.9 />
+            <models>
+                <model file="sphere2.3d" /> <!-- Urano -->
+            </models>
+            <group>
+                <translate time=8 >
+                    <point X=15.00000 Y=0 Z=0.00000 />
+                    <point X=13.70318 Y=0 Z=6.10105 />
+                    <point X=10.03696 Y=0 Z=11.14717 />
+                    <point X=4.63525 Y=0 Z=14.26585 />
+                    <point X=-1.56793 Y=0 Z=14.91783 />
+                    <point X=-7.50000 Y=0 Z=12.99038 />
+                    <point X=-12.13526 Y=0 Z=8.81678 />
+                    <point X=-14.67221 Y=0 Z=3.11867 />
+                    <point X=-14.67221 Y=0 Z=-3.11868 />
+                    <point X=-12.13525 Y=0 Z=-8.81678 />
+                    <point X=-7.50000 Y=0 Z=-12.99038 />
+                    <point X=-1.56793 Y=0 Z=-14.91783 />
+                    <point X=4.63526 Y=0 Z=-14.26585 />
+                    <point X=10.03696 Y=0 Z=-11.14717 />
+                    <point X=13.70318 Y=0 Z=-6.10105 />
+                </translate>
                 <models>
-                     <model file="sphere2.3d" />
+                    <model file="sphere3.3d" /> <!-- Lua Urano -->
                 </models>
-                <group>
-                     <translate time=20 X=0 Y=0 Z=15 />
-                     <models>
-                          <model file="sphere3.3d" />
-                     </models>
-                </group>
-          </group>
-     </group>
+            </group>
+        </group>
+        <group>
+            <rotate axisX=0 axisY=1 axisZ=0 time=25 />
+            <translate time=80 >
+                <point X=350.00000 Y=0 Z=0.00000 />
+                <point X=319.74091 Y=0 Z=142.35783 />
+                <point X=234.19571 Y=0 Z=260.10071 />
+                <point X=108.15594 Y=0 Z=332.86978 />
+                <point X=-36.58498 Y=0 Z=348.08267 />
+                <point X=-175.00002 Y=0 Z=303.10889 />
+                <point X=-283.15598 Y=0 Z=205.72482 />
+                <point X=-342.35165 Y=0 Z=72.76907 />
+                <point X=-342.35165 Y=0 Z=-72.76913 />
+                <point X=-283.15591 Y=0 Z=-205.72487 />
+                <point X=-174.99997 Y=0 Z=-303.10892 />
+                <point X=-36.58492 Y=0 Z=-348.08267 />
+                <point X=108.15600 Y=0 Z=-332.86975 />
+                <point X=234.19576 Y=0 Z=-260.10065 />
+                <point X=319.74094 Y=0 Z=-142.35777 />
+            </translate>
+            <scale X=0.7 Y=0.7 Z=0.7 />
+            <models>
+                <model file="sphere2.3d" /> <!-- Neptuno -->
+            </models>
+            <group>
+                <translate time=10 >
+                    <point X=15.00000 Y=0 Z=0.00000 />
+                    <point X=13.70318 Y=0 Z=6.10105 />
+                    <point X=10.03696 Y=0 Z=11.14717 />
+                    <point X=4.63525 Y=0 Z=14.26585 />
+                    <point X=-1.56793 Y=0 Z=14.91783 />
+                    <point X=-7.50000 Y=0 Z=12.99038 />
+                    <point X=-12.13526 Y=0 Z=8.81678 />
+                    <point X=-14.67221 Y=0 Z=3.11867 />
+                    <point X=-14.67221 Y=0 Z=-3.11868 />
+                    <point X=-12.13525 Y=0 Z=-8.81678 />
+                    <point X=-7.50000 Y=0 Z=-12.99038 />
+                    <point X=-1.56793 Y=0 Z=-14.91783 />
+                    <point X=4.63526 Y=0 Z=-14.26585 />
+                    <point X=10.03696 Y=0 Z=-11.14717 />
+                    <point X=13.70318 Y=0 Z=-6.10105 />
+                </translate>
+                <models>
+                    <model file="sphere3.3d" /> <!-- Lua Neptuno -->
+                </models>
+            </group>
+        </group>
+    </group>
 </scene>

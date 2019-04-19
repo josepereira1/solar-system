@@ -2,15 +2,16 @@
 #define OPERATION_H
 
 #include <Point.h>
+#include <vector>
 
 using namespace std;
 
 class Operation
  {
  public:
- 	Operation(char , TAD_POINT, float, int);
+ 	Operation(char , vector<TAD_POINT>, float, int);
  	char flag;
-    TAD_POINT point;
+    vector<TAD_POINT> points;
     float ang;
     int time;
  };

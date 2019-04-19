@@ -5,9 +5,9 @@
 
 using namespace std;
 
-Operation::Operation(char flag, TAD_POINT point, float angulo, int time){
+Operation::Operation(char flag, vector<TAD_POINT> points, float angulo, int time){
 	this->flag = flag;
-	this->point = point;
+	this->points = points;
 	this->ang = angulo;
 	this->time = time;
 }

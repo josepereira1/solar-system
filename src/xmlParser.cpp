@@ -27,7 +27,7 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
                 if(stime) time = atoi(stime);
                 pChild = pRoot->FirstChildElement("point");
                 name = (string)pChild->Value();
-                TAD_POINT coords;
+                vector<TAD_POINT> points;
                 while(pChild) {
                     if(name.compare("point")==0) {
                         sx = pChild->Attribute("X");
@@ -36,11 +36,12 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
                         if(sy) y = atof(sy);
                         sz = pChild->Attribute("Z");
                         if(sz) z = atof(sz);
-                        coords = POINT(x,y,z); //vector de coordenadas (3 floats cada coordenada) necessario class coordinate
+                        TAD_POINT coords = POINT(x,y,z); //vector de coordenadas (3 floats cada coordenada) necessario class coordinate
+                        points.push_back(coords);
                     }
                     pChild = pChild->NextSiblingElement("point");
                 }
-                Operation op = Operation('t',coords,angle,time);
+                Operation op = Operation('t',points,angle,time);
                 t = true;
                 group.operacoes.push_back(op);
             }
@@ -61,8 +62,9 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
                 if(sz) z = atof(sz);
                 stime = pRoot->Attribute("time");
                 if(stime) time = atoi(stime);
-                TAD_POINT coords = POINT(x,y,z);
-                Operation op = Operation('r',coords,angle,time);
+                vector<TAD_POINT> points;
+                points.push_back(POINT(x,y,z));
+                Operation op = Operation('r',points,angle,time);
                 r = true;
                 group.operacoes.push_back(op);
             }
@@ -79,8 +81,9 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
                 if(sy) y = atof(sy);
                 sz = pRoot->Attribute("Z");
                 if(sz) z = atof(sz);
-                TAD_POINT coords = POINT(x,y,z);
-                Operation op = Operation('s',coords,angle,time);
+                vector<TAD_POINT> points;
+                points.push_back(POINT(x,y,z));
+                Operation op = Operation('s',points,angle,time);
                 s = true;
                 group.operacoes.push_back(op);
             }

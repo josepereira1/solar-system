@@ -22,8 +22,7 @@ generate: file.xml install
 	generator sphere 10 30 30 sphere2.3d
 	generator sphere 2 10 10 sphere3.3d
 	generator bezier teapot.patch teapot.3d 10
-	cp sphere1.3d sphere2.3d sphere3.3d file.xml teapot.xml teapot.3d bin/
-	cp sphere1.3d sphere2.3d sphere3.3d file.xml teapot.xml teapot.3d bin_windows_engine/
+	cp sphere1.3d sphere2.3d sphere3.3d file.xml teapot.xml teapot.3d engine_CMake/
 
 install: get_generator
 	cp generator /usr/local/bin/
