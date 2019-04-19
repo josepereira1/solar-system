@@ -5,6 +5,7 @@
 #include <ArrayList.h>
 #include <Point.h>
 #include <toFile.h>
+#include <fromFile.h>
 #include <filterPoints.h>
 
 //	generators
