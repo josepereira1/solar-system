@@ -103,9 +103,9 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
                         int indicesTAM;  
                         float* vertexB;   
                         int vertexBTAM;  
-
+                        printf("antes da figura\n");
                         file2list(name, &indices, &indicesTAM, &vertexB, &vertexBTAM);
-                        
+                        printf("depois da figura\n");
                         Figura f;
                         f.indices = indices;
                         f.indicesTAM = indicesTAM;

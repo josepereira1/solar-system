@@ -188,18 +188,19 @@ void design(Group g){
 
     }
 
-    for(unsigned i = 0; i<g.ficheiros.size() ;i++,count=0) {
+    for(unsigned i = 0,count=0; i<g.ficheiros.size() ;i++,count=0) {
         string nome_ficheiro = g.ficheiros[i];
-         for(it=figuras.begin();it!=figuras.end();++it,count++){
+        for(it=figuras.begin();it!=figuras.end();++it,count++){
             if(it->first.compare(nome_ficheiro) == 0) break; 
-         }
+        }
         // count indica a posição no map que representa a posição no buffer e no index
-        glBindBuffer(GL_ARRAY_BUFFER,buffers[count]); // paga no buffer sphere
+        glBindBuffer(GL_ARRAY_BUFFER,buffers[2]); // paga no buffer sphere
         // nº de pontos para formar 1 vertice/ tipo da coordenada/ distancia entre indices dos vertices consecutivos / onde começa o array
         glVertexPointer(3,GL_FLOAT,0,0); // digo que 3 pontos formam 1 vertice
         // usa array de indices
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[count]);
-        glDrawElements(GL_TRIANGLES, (it->second.indicesTAM) ,GL_UNSIGNED_INT, 0); // nº de vertices a desenhar
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[2]);
+        printf("rebenta aqui\n"); // (it->second.indicesTAM)
+        glDrawElements(GL_TRIANGLES, 540 ,GL_UNSIGNED_INT, 0); // nº de vertices a desenhar
         //glEnable(GL_CULL_FACE);
     }
 
@@ -299,7 +300,6 @@ static void printFiguras(map<string,Figura> figuras) {
 
 int main(int argc, char** argv) {
     parse(group,figuras,"file.xml");
-    printf("acabei\n");
     // parse(group,figuras,"file.xml");
     // printGroup(group);    //  DEBUG
     // printFiguras(figuras); //  DEBUG
@@ -332,16 +332,21 @@ int main(int argc, char** argv) {
     indexes = ind2;
     glGenBuffers(nFiguras, buffers);                                      // gera 3 buffers de coordenadas
     glGenBuffers(nFiguras, indexes);                                      // gera 3 buffers de indices
-
     for(it=figuras.begin(),nFiguras=0;it!=figuras.end();++it,nFiguras++){
-        printf("%d\n",it->second.vertexBTAM );
+        printf("nFig:%d\n",nFiguras );
+        printf("(it->second.indicesTAM):%d\n",(it->second.indicesTAM) );
+        printf("(it->second.vertexBTAM):%d\n",(it->second.vertexBTAM) );
         glBindBuffer(GL_ARRAY_BUFFER,buffers[nFiguras]);                                                          // pega no buffer[nFiguras]
         glBufferData(GL_ARRAY_BUFFER,sizeof(float)*(it->second.vertexBTAM), it->second.vertexB, GL_STATIC_DRAW);  // preenche buffer[nFiguras] 
-        printf("%d\n",it->second.indicesTAM );
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[nFiguras]);                                                                 // pega  indexes[nFiguras]
         glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indices), GL_STATIC_DRAW); // preenche indexes[nFiguras] 
-    }
+        if(it->first.compare("sphere3.3d") == 0){
+            for(int i=0;i<it->second.indicesTAM;i++){
+                printf("%d\n",it->second.indices[i]);
+            }
 
+        }
+    }
     spherical2Cartesian();
 	
     // enter GLUT's main cycle
