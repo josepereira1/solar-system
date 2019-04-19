@@ -6,8 +6,8 @@
 
 using namespace std;
 
-void list2fileWindex(TAD_ARRAY_LIST points, int** positions, int tam, const char* path);
-void list2file(TAD_ARRAY_LIST points, const char* path);
+void list2fileWindex(TAD_ARRAY_LIST points, int* indices, int tam, const char* path);
+// void list2file(TAD_ARRAY_LIST points, const char* path);
 void bezier2file(string patchFile, string outputFile, int tLevel);
 
 #endif
