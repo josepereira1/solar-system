@@ -19,10 +19,7 @@ int getPosition(TAD_ARRAY_LIST points, TAD_POINT point);
 void filter(TAD_ARRAY_LIST points, TAD_ARRAY_LIST* withoutRepeated, int** positions){
 	int size = getArraySize(points);
 	*withoutRepeated = ARRAY_LIST(size);
-	//printf("Chega aqui\n");
-	//morre no malloc..
-	//*positions = (int* )malloc(size*sizeof(int));
-	//printf("Chega aqui\n");
+	*positions = (int* )malloc(size*sizeof(int));
 	*withoutRepeated = removeRepeated(points);
 	*positions = getPositions(points, *withoutRepeated);
 }
