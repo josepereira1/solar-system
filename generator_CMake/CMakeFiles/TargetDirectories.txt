@@ -1,0 +1,3 @@
+/home/joao/Desktop/MIEI/CG/projeto-cg/generator_CMake/CMakeFiles/rebuild_cache.dir
+/home/joao/Desktop/MIEI/CG/projeto-cg/generator_CMake/CMakeFiles/generator.dir
+/home/joao/Desktop/MIEI/CG/projeto-cg/generator_CMake/CMakeFiles/edit_cache.dir
