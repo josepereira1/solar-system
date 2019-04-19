@@ -102,8 +102,7 @@ void file2list(string path, unsigned int** indices, int* indicesTAM, float** ver
 	for(i = 0; (ptr = strstr(init, ",")) != NULL ; i++){	//	encontra o apontador da ","
 		char* tmp = ptr + sizeof(char);		//	guarda temporariamente a posição a seguir à vírgula, isto é, o apontador para o próximo número
 		*ptr = '\0';	//	fim da número, para o atoi saber onde termina a string
-		printf("%s\n",init );
-		(*indices)[i] = (atoi(init)-1);//	converte o char* num int
+		(*indices)[i] = atoi(init);//	converte o char* num int
 		init = tmp;	//	atribuí-se a init o ínicio do próximo número
 	}
 	(*indices)[i] = atoi(init); // por causa do último número não ter ','
