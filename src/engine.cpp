@@ -193,14 +193,18 @@ void design(Group g){
          for(it=figuras.begin();it!=figuras.end();++it,count++){
             if(it->first.compare(nome_ficheiro) == 0) break; 
          }
-         // count indica a posição no map que representa a posição no buffer e no index
-
+        // count indica a posição no map que representa a posição no buffer e no index
+        printf("aqui\n");
         glBindBuffer(GL_ARRAY_BUFFER,buffers[count]); // paga no buffer sphere
+        printf("até aqui\n");
         // nº de pontos para formar 1 vertice/ tipo da coordenada/ distancia entre indices dos vertices consecutivos / onde começa o array
-        glVertexPointer(3,GL_FLOAT,0,0);
+        glVertexPointer(3,GL_FLOAT,0,0); // digo que 3 pontos formam 1 vertice
+        printf("até aqui\n");
         // usa array de indices
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[count]);
-        glDrawElements(GL_TRIANGLES, ((it->second.vertexBTAM)/3) ,GL_UNSIGNED_INT, NULL);
+        printf("aqui morre\n");
+        glDrawElements(GL_TRIANGLES, (it->second.indicesTAM) ,GL_UNSIGNED_INT, NULL); // nº de vertices a desenhar
+        printf("aqui não morre\n");
         //glEnable(GL_CULL_FACE);
     }
 
@@ -299,7 +303,7 @@ static void printFiguras(map<string,Figura> figuras) {
 }
 
 int main(int argc, char** argv) {
-    parse(group,figuras,"teapot.xml");
+    parse(group,figuras,"file.xml");
     // parse(group,figuras,"file.xml");
     // printGroup(group);    //  DEBUG
     // printFiguras(figuras); //  DEBUG
@@ -324,17 +328,21 @@ int main(int argc, char** argv) {
 	glEnable(GL_CULL_FACE);
     glEnableClientState(GL_VERTEX_ARRAY);
 
-
+    
     int nFiguras = figuras.size();
-
-    glGenBuffers(nFiguras, buffers);                                                      // gera 3 buffers de coordenadas
-    glGenBuffers(nFiguras, indexes);                                                      // gera 3 buffers de indices
+    GLuint buf2[nFiguras];
+    GLuint ind2[nFiguras];
+    buffers = buf2;
+    indexes = ind2;
+    glGenBuffers(nFiguras, buffers);                                      // gera 3 buffers de coordenadas
+    glGenBuffers(nFiguras, indexes);                                      // gera 3 buffers de indices
 
     for(it=figuras.begin(),nFiguras=0;it!=figuras.end();++it,nFiguras++){
-        glBindBuffer(GL_ARRAY_BUFFER,buffers[nFiguras]);                                                            // pega no buffer[nFiguras]
-        glBufferData(GL_ARRAY_BUFFER,sizeof(float)*(it->second.vertexBTAM), it->second.vertexB, GL_STATIC_DRAW);  // preenche buffer[nFiguras] 
 
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[nFiguras]);                                                                   // pega  indexes[nFiguras]
+        glBindBuffer(GL_ARRAY_BUFFER,buffers[nFiguras]);                                                          // pega no buffer[nFiguras]
+        glBufferData(GL_ARRAY_BUFFER,sizeof(float)*(it->second.vertexBTAM), it->second.vertexB, GL_STATIC_DRAW);  // preenche buffer[nFiguras] 
+        
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[nFiguras]);                                                                 // pega  indexes[nFiguras]
         glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indices), GL_STATIC_DRAW); // preenche indexes[nFiguras] 
     }
 
