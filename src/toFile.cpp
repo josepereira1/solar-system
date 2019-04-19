@@ -5,6 +5,15 @@
 #include <stdio.h>
 #include <string.h>
 
+static int save_indices(int* indices, char* str, int deslocamento) {
+	char* tmp = (char*) malloc(256);
+	sprintf(tmp,"%d, %d, %d\n",indices[0],indices[1],indices[2]);
+	int len = strlen(tmp);
+	sprintf(str+deslocamento,"%s",tmp);
+	deslocamento += len;
+	free(tmp);
+	return deslocamento;
+}
 
 static int save_coordinates(TAD_POINT point, char* str, int deslocamento) {
 	char* tmp = (char*) malloc(256);
@@ -16,7 +25,49 @@ static int save_coordinates(TAD_POINT point, char* str, int deslocamento) {
 	return deslocamento;
 }
 
-
+void list2fileWindex(TAD_ARRAY_LIST points,int** indices, int tam, const char* path) {
+	FILE *file = fopen(path,"w");
+	if (file != NULL) {
+		int size = getArraySize(points);
+		char* str = (char*) malloc(140 * size + 100 * tam);//alloc memory to final string
+		int deslocamento = 0;//displacement
+		//put number of indices
+		char* tmp = (char*) malloc(256);
+		sprintf(tmp,"%d\n",(tam/3));
+		int len = strlen(tmp);
+		sprintf(str,"%s",tmp);
+		deslocamento += len;
+		free(tmp);
+		//put the indices
+		for(int i=0 ; i<tam ; i+=3) {
+			int* ind = (int*) malloc(sizeof(int)*3);
+			ind[0] = indices[0][i];
+			ind[1] = indices[0][i+1];
+			ind[2] = indices[0][i+2];
+			deslocamento = save_indices(ind,str,deslocamento);
+		}
+		//put number of points
+		tmp = (char*) malloc(256);
+		sprintf(tmp,"%d\n",size);
+		len = strlen(tmp);
+		sprintf(str+deslocamento,"%s",tmp);
+		deslocamento += len;
+		free(tmp);
+		//put the points (x,y,z)
+		for(int i=0 ; i<size ; i++) {
+			TAD_POINT point = (TAD_POINT) getElem(points,i);
+			deslocamento = save_coordinates(point,str,deslocamento);
+		}
+		deslocamento--;
+		sprintf(str+deslocamento,"%s","\0");
+		//save on file
+        fputs(str,file);
+        //close the file
+        fclose(file);
+        //free the final string
+		free(str);
+	}
+}
 
 void list2file(TAD_ARRAY_LIST points, const char* path) {
 	FILE *file = fopen(path,"w");

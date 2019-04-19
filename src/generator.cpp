@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include <ArrayList.h>
 #include <Point.h>
 #include <toFile.h>
+#include <filterPoints.h>
 
 //	generators
 #include <coneGenerator.h>
@@ -29,28 +31,32 @@ void printInstructions(){
 	puts(str);
 }
 
-void write_points_to_file(TAD_ARRAY_LIST points, const char* path){
-	list2file(points, path);
+void write_points_to_file_index(TAD_ARRAY_LIST points, const char* path){
+	TAD_ARRAY_LIST withoutRepeated;
+	int size = getArraySize(points);
+	int** positions = (int** )malloc(size*sizeof(int));
+	filter(points,&withoutRepeated,positions);
+	list2fileWindex(withoutRepeated,positions,size,path);
 }
 
 void design_sphere(float radius, int slices, int stacks, const char* patch) {
 	TAD_ARRAY_LIST points = getPointsOfSphere(radius,slices,stacks);
-	write_points_to_file(points,patch);
+	write_points_to_file_index(points,patch);
 }
 
 void design_plane(float side, const char* patch) {
 	TAD_ARRAY_LIST points = getPointsOfPlane(side);
-	write_points_to_file(points,patch);	
+	write_points_to_file_index(points,patch);	
 }
 
 void design_box(float x, float y, float z, int divisions, const char* patch) {
 	TAD_ARRAY_LIST points = getPointsOfBox(x, y, z, divisions);
-	write_points_to_file(points,patch);
+	write_points_to_file_index(points,patch);
 }
 
 void design_cone(float radius, float height, int slices, int stacks, const char* patch) {
 	TAD_ARRAY_LIST points = getPointsOfCone(radius, height, slices, stacks);
-	write_points_to_file(points,patch);
+	write_points_to_file_index(points,patch);
 }
 
 int main(int argc, char** argv) {
@@ -77,13 +83,13 @@ int main(int argc, char** argv) {
 			perror("Invalid parameters to generate box!\n");
 			exit(1);
 		}
-		if(argc < 6)
+		if(argc != 6)
 			design_box(atof(argv[2]),atof(argv[3]),atof(argv[4]),0,argv[5]);
 		else 
 			design_box(atof(argv[2]),atof(argv[3]),atof(argv[4]),atoi(argv[5]),argv[6]);
 	}
 	else if(strcmp(argv[1],"cone")==0) {
-		if(argc < 7) {
+		if(argc != 7) {
 			perror("Invalid parameters to generate cone!\n");
 			exit(1);
 		}
