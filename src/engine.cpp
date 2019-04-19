@@ -190,7 +190,7 @@ void design(Group g){
 
     for(unsigned i = 0; i<g.ficheiros.size() ;i++,count=0) {
         string nome_ficheiro = g.ficheiros[i];
-         for(it=figuras.begin();it!=mymap.end();++it,count++){
+         for(it=figuras.begin();it!=figuras.end();++it,count++){
             if(it->first.compare(nome_ficheiro) == 0) break; 
          }
          // count indica a posição no map que representa a posição no buffer e no index
@@ -200,7 +200,7 @@ void design(Group g){
         glVertexPointer(3,GL_FLOAT,0,0);
         // usa array de indices
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[count]);
-        glDrawElements(GL_TRIANGLES, (it->secound->vertexBTAM/3) ,GL_UNSIGNED_INT, NULL);
+        glDrawElements(GL_TRIANGLES, ((it->second.vertexBTAM)/3) ,GL_UNSIGNED_INT, NULL);
         //glEnable(GL_CULL_FACE);
     }
 
@@ -330,12 +330,12 @@ int main(int argc, char** argv) {
     glGenBuffers(nFiguras, buffers);                                                      // gera 3 buffers de coordenadas
     glGenBuffers(nFiguras, indexes);                                                      // gera 3 buffers de indices
 
-    for(it=figuras.begin(),nFiguras=0;it!=mymap.end();++it,nFiguras++){
+    for(it=figuras.begin(),nFiguras=0;it!=figuras.end();++it,nFiguras++){
         glBindBuffer(GL_ARRAY_BUFFER,buffers[nFiguras]);                                                            // pega no buffer[nFiguras]
-        glBufferData(GL_ARRAY_BUFFER,sizeof(float)*(it->second->vertexBTAM), it->second->vertexB, GL_STATIC_DRAW);  // preenche buffer[nFiguras] 
+        glBufferData(GL_ARRAY_BUFFER,sizeof(float)*(it->second.vertexBTAM), it->second.vertexB, GL_STATIC_DRAW);  // preenche buffer[nFiguras] 
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[nFiguras]);                                                                   // pega  indexes[nFiguras]
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(unsigned int)*(it->second->indicesTAM), (it->second->indices), GL_STATIC_DRAW); // preenche indexes[nFiguras] 
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indices), GL_STATIC_DRAW); // preenche indexes[nFiguras] 
     }
 
     spherical2Cartesian();
