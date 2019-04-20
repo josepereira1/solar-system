@@ -5,6 +5,6 @@
 #include <map>
 #include <Figura.h>
 
-void parse(Group &group, map<string,Figura> &figuras, const char* path);
+void parse(Group &group, map<string,Figura> &figuras,int* nGrupos, const char* path);
 
 #endif

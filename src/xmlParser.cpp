@@ -11,7 +11,7 @@
 
 using namespace std;
 
-static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
+static Group searchRec(map<string,Figura> &figuras, int *nGrupos, TiXmlElement *pRoot) {
     
     bool t = false, r = false, s = false, m = false;
     pRoot = pRoot->FirstChildElement();
@@ -30,6 +30,7 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
             if(!t) {
                 
                 stime = pRoot->Attribute("time");
+
                 if(stime) time = atoi(stime);
 
                 vector<TAD_POINT> points;
@@ -139,6 +140,7 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
                     
                     if (name.compare("") != 0) {
 
+                        (*nGrupos) += 1;
                         if(figuras.find(name) == figuras.end()) { // se não  existir 
                             
                             unsigned int* indices;
@@ -174,7 +176,7 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
         }
 
         else if(name.compare("group")==0) {
-            group.filhos.push_back( searchRec(figuras, pRoot));
+            group.filhos.push_back( searchRec(figuras, nGrupos, pRoot));
         }
 
         pRoot = pRoot->NextSiblingElement(); // grupos encadeados
@@ -183,7 +185,7 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
     return group;
 }
 
-void parse(Group &group, map<string,Figura> &figuras, const char* path){
+void parse(Group &group, map<string,Figura> &figuras, int *nGrupos, const char* path){
     TiXmlDocument doc(path);
     if(doc.LoadFile()) {
         TiXmlElement *pRoot,*pChild;
@@ -191,7 +193,7 @@ void parse(Group &group, map<string,Figura> &figuras, const char* path){
         if(pRoot) {
             pChild = pRoot->FirstChildElement("group");
             if(pChild) {
-                group = searchRec(figuras, pRoot);
+                group = searchRec(figuras, nGrupos, pRoot);
             }
 
             /*
