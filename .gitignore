@@ -1,8 +1,6 @@
 .DS_Store
-*.3d
 generator
 parser
-xml
 bin/
 *.out
 teste
