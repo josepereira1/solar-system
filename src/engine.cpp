@@ -356,10 +356,10 @@ int main(int argc, char** argv) {
     glEnableClientState(GL_VERTEX_ARRAY);
 
     int nFiguras = figuras.size();
-    GLuint buf2[nFiguras];
-    GLuint ind2[nFiguras];
-    buffers = buf2;
-    indexes = ind2;
+    //GLuint buf2[nFiguras];
+    //GLuint ind2[nFiguras];
+    buffers = new GLuint[nFiguras];
+    indexes = new GLuint[nFiguras];
     glGenBuffers(nFiguras, buffers);                                      // gera 3 buffers de coordenadas
     glGenBuffers(nFiguras, indexes);                                      // gera 3 buffers de indices
     for(it=figuras.begin(),nFiguras=0;it!=figuras.end();++it,nFiguras++){
