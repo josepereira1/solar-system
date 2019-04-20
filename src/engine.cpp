@@ -38,10 +38,13 @@ GLuint *indexes;
 
 vector<TAD_POINT> p;
 int POINT_COUNT = 0;
+float *mygtArray;
+int nextGt = 0;
 
 Group group;
 map<string,Figura> figuras;
 map<string,Figura>::iterator it;
+
 
 void spherical2Cartesian() {
 
@@ -155,18 +158,22 @@ void design(Group g){
     static float t = 0;
     float pos[3];
     float deriv[3];
+    float time;
     glPushMatrix();
-
     for(unsigned i = 0; i<g.operacoes.size() ;i++) {
-        Operation op = g.operacoes[i];
-
+        Operation op = g.operacoes.at(i);
+        time = op.time;
         switch(op.flag){
             case 't':
 				POINT_COUNT = op.points.size();
 				p = op.points;
                 renderCatmullRomCurve();
-				mygt+=0.0001;
-                if(mygt >= 1) mygt = 0.0f;
+				mygtArray[nextGt] += (float) (1.0f/time)*0.001;
+                mygt = mygtArray[nextGt];
+                if(mygt >= 1){
+                    mygt = 0.0;
+                    mygtArray[nextGt] = 0.0;
+                } 
                 getGlobalCatmullRomPoint(mygt,pos,deriv);
 				glTranslatef(pos[0], pos[1] ,pos[2] );
                 break;
@@ -201,7 +208,7 @@ void design(Group g){
         glDrawElements(GL_TRIANGLES, tam ,GL_UNSIGNED_INT, 0); // nº de vertices a desenhar
 		//glEnable(GL_CULL_FACE);
     }
-
+    nextGt += 1;
     for(unsigned i = 0; i < g.filhos.size();i++)
         design(g.filhos[i]);
 
@@ -218,6 +225,8 @@ void renderScene(void) {
 			  0.0f,1.0f,0.0f);
 	glColor3f(0,255,255);
 	design(group);
+    nextGt = 0;
+    printf("\n\n\n\n");
 	// End of frame
 	glutSwapBuffers();
 }
@@ -308,11 +317,16 @@ static void printFiguras(map<string,Figura> figuras) {
 }
 
 int main(int argc, char** argv) {
-    
-    parse(group, figuras, "file.xml");    
+    int nGrupos = 0;
+    parse(group, figuras,&nGrupos, "file.xml");  
+    mygtArray = (float*)malloc(sizeof(float)*nGrupos); 
+    for(int i=0;i<nGrupos;i++){
+        mygtArray[i] = 0;
+    } 
+
     // printGroup(group);    //  DEBUG
     // printFiguras(figuras); //  DEBUG
-
+    
     // init GLUT and the window
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DEPTH|GLUT_DOUBLE|GLUT_RGBA);
@@ -355,6 +369,6 @@ int main(int argc, char** argv) {
 	
     // enter GLUT's main cycle
 	glutMainLoop();
-	
+    
 	return 1;
 }
