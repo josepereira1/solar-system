@@ -4,7 +4,6 @@
 
 #include <ArrayList.h>
 #include <Point.h>
-#include <toFile.h>
 #include <fromFile.h>
 #include <filterPoints.h>
 
@@ -49,6 +48,11 @@ void design_box(float x, float y, float z, int divisions, const char* patch) {
 void design_cone(float radius, float height, int slices, int stacks, const char* patch) {
 	TAD_ARRAY_LIST points = getPointsOfCone(radius, height, slices, stacks);
 	write_points_to_file_index(points,patch);
+}
+
+void create_teapot(const char* patch, const char* path, int tesselation) {
+	TAD_ARRAY_LIST points = bezier2file(patch,tesselation);
+	write_points_to_file_index(points,path);
 }
 
 int main(int argc, char** argv) {
@@ -103,7 +107,8 @@ int main(int argc, char** argv) {
  			perror("Invalid parameters to bezier!\n");
 			exit(1);
 		}
-		bezier2file(argv[2], argv[3], atoi(argv[4]));
+		//bexier2file(argv[2],argv[3],atoi(argv[4]));
+		create_teapot(argv[2],argv[3],atoi(argv[4]));
 	}
 	else {
 		perror("Invalid geometric figure!\n");

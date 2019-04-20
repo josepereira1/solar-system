@@ -22,7 +22,7 @@ static void openError(const char* path) {
 }
 
 
-void readPatchFile(string path, int*** arrayPatchs, vector<TAD_POINT> &pontos){
+void readPatchFile(string path, int*** arrayPatchs, TAD_ARRAY_LIST * pontos){
 
 	string line;
 	int numeroPatchs = 0, size = 0, i = 0, j = 0, numeroControlPoints = 0;
@@ -80,7 +80,7 @@ void readPatchFile(string path, int*** arrayPatchs, vector<TAD_POINT> &pontos){
 
 		TAD_POINT ponto = POINT(arr[0],arr[1],arr[2]);
 
-		pontos.push_back(ponto);
+		addElem(*pontos,ponto);
 	}
 }
 
