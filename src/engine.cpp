@@ -164,14 +164,14 @@ void design(Group g){
 
         switch(op.flag){
             case 't':
-                initCatmullRom(op.points);
+                /*initCatmullRom(op.points);
                 renderCatmullRomCurve();
                 mygt+=0.0001;
                 if(mygt >= 1) mygt = 0.0f;
                 getGlobalCatmullRomPoint(mygt,pos,deriv);
                 glTranslatef(pos[0], pos[1] ,pos[2] );
-                t+=0.00001;
-                //glTranslatef( getX(op.point), getY(op.point), getZ(op.point));
+                t+=0.00001;*/
+                glTranslatef( getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
                 break;
             case 'r':
                 glRotatef(0.0f, getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
@@ -188,18 +188,21 @@ void design(Group g){
 
     for(unsigned i = 0,count=0; i<g.ficheiros.size() ;i++,count=0) {
         string nome_ficheiro = g.ficheiros[i];
+		int tam = 0;
         for(it=figuras.begin();it!=figuras.end();++it,count++){
-            if(it->first.compare(nome_ficheiro) == 0) break; 
+			if (it->first.compare(nome_ficheiro) == 0) {
+				tam = it->second.indicesTAM;
+				break;
+			}
         }
         // count indica a posição no map que representa a posição no buffer e no index
-        glBindBuffer(GL_ARRAY_BUFFER,buffers[2]); // paga no buffer sphere
+        glBindBuffer(GL_ARRAY_BUFFER,buffers[count]); // paga no buffer sphere
         // nº de pontos para formar 1 vertice/ tipo da coordenada/ distancia entre indices dos vertices consecutivos / onde começa o array
         glVertexPointer(3,GL_FLOAT,0,0); // digo que 3 pontos formam 1 vertice
         // usa array de indices
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[2]);
-        printf("rebenta aqui\n"); // (it->second.indicesTAM)
-        glDrawElements(GL_TRIANGLES, 540 ,GL_UNSIGNED_INT, 0); // nº de vertices a desenhar
-        //glEnable(GL_CULL_FACE);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[count]);
+        glDrawElements(GL_TRIANGLES, tam ,GL_UNSIGNED_INT, 0); // nº de vertices a desenhar
+		//glEnable(GL_CULL_FACE);
     }
 
     for(unsigned i = 0; i < g.filhos.size();i++)
@@ -309,12 +312,10 @@ static void printFiguras(map<string,Figura> figuras) {
 
 int main(int argc, char** argv) {
     
-    parse(group, figuras, "file.xml");
-    
+    parse(group, figuras, "file.xml");    
     // printGroup(group);    //  DEBUG
     // printFiguras(figuras); //  DEBUG
 
-    /*
     // init GLUT and the window
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DEPTH|GLUT_DOUBLE|GLUT_RGBA);
@@ -330,19 +331,23 @@ int main(int argc, char** argv) {
     glutKeyboardFunc(processKeys);
     glutSpecialFunc(processSpecialKeys);
 
+	#ifndef __APPLE__
+	glewInit();
+	#endif
+
     //  OpenGL settings
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
     glEnableClientState(GL_VERTEX_ARRAY);
 
-    
     int nFiguras = figuras.size();
-    GLuint buf2[nFiguras];
-    GLuint ind2[nFiguras];
+	const int nFiguras2 = (const int) figuras.size();
+    GLuint buf2[4];
+    GLuint ind2[4];
     buffers = buf2;
     indexes = ind2;
-    glGenBuffers(nFiguras, buffers);                                      // gera 3 buffers de coordenadas
-    glGenBuffers(nFiguras, indexes);                                      // gera 3 buffers de indices
+    glGenBuffers((const int)nFiguras, buffers);                                      // gera 3 buffers de coordenadas
+    glGenBuffers((const int)nFiguras, indexes);                                      // gera 3 buffers de indices
     for(it=figuras.begin(),nFiguras=0;it!=figuras.end();++it,nFiguras++){
         printf("nFig:%d\n",nFiguras );
         printf("(it->second.indicesTAM):%d\n",(it->second.indicesTAM) );
@@ -351,7 +356,7 @@ int main(int argc, char** argv) {
         glBufferData(GL_ARRAY_BUFFER,sizeof(float)*(it->second.vertexBTAM), it->second.vertexB, GL_STATIC_DRAW);  // preenche buffer[nFiguras] 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[nFiguras]);                                                                 // pega  indexes[nFiguras]
         glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indices), GL_STATIC_DRAW); // preenche indexes[nFiguras] 
-        if(it->first.compare("sphere3.3d") == 0){
+        /*if(it->first.compare("sphere3.3d") == 0){
             int i;
             for(i=0;i<it->second.indicesTAM;i++){
                 printf("%d\n",it->second.indices[i]);
@@ -360,14 +365,12 @@ int main(int argc, char** argv) {
             for(i=0;i<it->second.vertexBTAM;i++){
                 printf("%d\n",it->second.vertexB[i]);
             }
-        }
+        }*/
     }
     spherical2Cartesian();
 	
     // enter GLUT's main cycle
 	glutMainLoop();
-
-    */
 	
 	return 1;
 }
