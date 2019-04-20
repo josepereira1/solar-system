@@ -164,13 +164,13 @@ void design(Group g){
 
         switch(op.flag){
             case 't':
-                /*initCatmullRom(op.points);
+                initCatmullRom(op.points);
                 renderCatmullRomCurve();
                 mygt+=0.0001;
                 if(mygt >= 1) mygt = 0.0f;
                 getGlobalCatmullRomPoint(mygt,pos,deriv);
                 glTranslatef(pos[0], pos[1] ,pos[2] );
-                t+=0.00001;*/
+                t+=0.00001;
                 glTranslatef( getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
                 break;
             case 'r':
@@ -341,31 +341,17 @@ int main(int argc, char** argv) {
     glEnableClientState(GL_VERTEX_ARRAY);
 
     int nFiguras = figuras.size();
-	const int nFiguras2 = (const int) figuras.size();
-    GLuint buf2[4];
-    GLuint ind2[4];
+    GLuint buf2[nFiguras];
+    GLuint ind2[nFiguras];
     buffers = buf2;
     indexes = ind2;
-    glGenBuffers((const int)nFiguras, buffers);                                      // gera 3 buffers de coordenadas
-    glGenBuffers((const int)nFiguras, indexes);                                      // gera 3 buffers de indices
+    glGenBuffers(nFiguras, buffers);                                      // gera 3 buffers de coordenadas
+    glGenBuffers(nFiguras, indexes);                                      // gera 3 buffers de indices
     for(it=figuras.begin(),nFiguras=0;it!=figuras.end();++it,nFiguras++){
-        printf("nFig:%d\n",nFiguras );
-        printf("(it->second.indicesTAM):%d\n",(it->second.indicesTAM) );
-        printf("(it->second.vertexBTAM):%d\n",(it->second.vertexBTAM) );
         glBindBuffer(GL_ARRAY_BUFFER,buffers[nFiguras]);                                                          // pega no buffer[nFiguras]
         glBufferData(GL_ARRAY_BUFFER,sizeof(float)*(it->second.vertexBTAM), it->second.vertexB, GL_STATIC_DRAW);  // preenche buffer[nFiguras] 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[nFiguras]);                                                                 // pega  indexes[nFiguras]
         glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indices), GL_STATIC_DRAW); // preenche indexes[nFiguras] 
-        /*if(it->first.compare("sphere3.3d") == 0){
-            int i;
-            for(i=0;i<it->second.indicesTAM;i++){
-                printf("%d\n",it->second.indices[i]);
-            }
-            printf("(it->second.vertexBTAM):%d\n",(it->second.vertexBTAM) );
-            for(i=0;i<it->second.vertexBTAM;i++){
-                printf("%d\n",it->second.vertexB[i]);
-            }
-        }*/
     }
     spherical2Cartesian();
 	
