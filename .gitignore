@@ -14,6 +14,7 @@ generator_CMake/*
 
 bin_windows_generator/*
 !bin_windows_generator/*.txt
+!bin_windows_generator/*.patch
 
 bin_windows_engine/*
 !bin_windows_engine/*.txt
