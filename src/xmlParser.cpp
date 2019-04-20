@@ -12,78 +12,112 @@
 using namespace std;
 
 static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
+    
     bool t = false, r = false, s = false, m = false;
     pRoot = pRoot->FirstChildElement();
     TiXmlElement *pChild;
+    
     Group group = Group();
+    
     while(pRoot) {
         string name = (string)pRoot->Value();
         float x=0.0f,y=0.0f,z=0.0f,angle=0.0f;
         int time=0;
-        const char *sx,*sy,*sz,*sangle,*stime;
+        const char *sx, *sy, *sz, *sangle, *stime;
+        
         if(name.compare("translate")==0) {
+            
             if(!t) {
+                
                 stime = pRoot->Attribute("time");
                 if(stime) time = atoi(stime);
-                pChild = pRoot->FirstChildElement("point");
-                name = (string)pChild->Value();
+
                 vector<TAD_POINT> points;
-                while(pChild) {
-                    if(name.compare("point")==0) {
-                        sx = pChild->Attribute("X");
-                        if(sx) x = atof(sx);
-                        sy = pChild->Attribute("Y");
-                        if(sy) y = atof(sy);
-                        sz = pChild->Attribute("Z");
-                        if(sz) z = atof(sz);
-                        TAD_POINT coords = POINT(x,y,z); //vector de coordenadas (3 floats cada coordenada) necessario class coordinate
-                        points.push_back(coords);
+                pChild = pRoot->FirstChildElement("point");
+                if (pChild) {
+                    
+                    name = (string)pChild->Value();
+                    
+                    if (name.compare("") != 0) {
+                        while(pChild) {
+                            if(name.compare("point")==0) {
+                                sx = pChild->Attribute("X");
+                                if(sx) x = atof(sx);
+                                
+                                sy = pChild->Attribute("Y");
+                                if(sy) y = atof(sy);
+                                
+                                sz = pChild->Attribute("Z");
+                                if(sz) z = atof(sz);
+                                
+                                TAD_POINT coords = POINT(x,y,z); //vector de coordenadas (3 floats cada coordenada) necessario class coordinate
+                                points.push_back(coords);
+                            }
+                            pChild = pChild->NextSiblingElement("point");
+                        }
                     }
-                    pChild = pChild->NextSiblingElement("point");
                 }
-                Operation op = Operation('t',points,angle,time);
+
+                Operation op = Operation('t', points, time);
                 t = true;
                 group.operacoes.push_back(op);
             }
+
             else {
                 perror("2 or more translation in same GROUP!\n");
                 exit(1);
             }
         }
+        
         else if(name.compare("rotate")==0) {
+            
             if(!r) {
+                
+                /*
                 sangle = pRoot->Attribute("angle");
                 if(sangle) angle = atof(sangle);
+                */
+                
                 sx = pRoot->Attribute("axisX");
                 if(sx) x = atof(sx);
+                
                 sy = pRoot->Attribute("axisY");
                 if(sy) y = atof(sy);
+                
                 sz = pRoot->Attribute("axisZ");
                 if(sz) z = atof(sz);
+                
                 stime = pRoot->Attribute("time");
                 if(stime) time = atoi(stime);
+                
                 vector<TAD_POINT> points;
                 points.push_back(POINT(x,y,z));
-                Operation op = Operation('r',points,angle,time);
+                Operation op = Operation('r', points, time);
                 r = true;
                 group.operacoes.push_back(op);
             }
+
             else {
                 perror("2 or more rotate in same GROUP!\n");
                 exit(2);
             }
         }
+
         else if(name.compare("scale")==0) {
+            
             if(!s) {
                 sx = pRoot->Attribute("X");
                 if(sx) x = atof(sx);
+                
                 sy = pRoot->Attribute("Y");
                 if(sy) y = atof(sy);
+                
                 sz = pRoot->Attribute("Z");
                 if(sz) z = atof(sz);
+                
                 vector<TAD_POINT> points;
                 points.push_back(POINT(x,y,z));
-                Operation op = Operation('s',points,angle,time);
+                Operation op = Operation('s', points, time);
                 s = true;
                 group.operacoes.push_back(op);
             }
@@ -92,37 +126,45 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
                 exit(3);
             }
         }
-        else if(name.compare("models")==0) {
-            if(!m) {
-                pChild = pRoot->FirstChildElement("model");
-                while(pChild) {
-                    name = (string)pChild->Attribute("file");
-                    if(figuras.find(name) == figuras.end()) { // se não  existir 
-                        
-                        unsigned int* indices;
-                        int indicesTAM;  
-                        float* vertexB;   
-                        int vertexBTAM;  
-                        printf("antes da figura\n");
-                        file2list(name, &indices, &indicesTAM, &vertexB, &vertexBTAM);
-                        printf("depois da figura\n");
-                        Figura f;
-                        f.indices = indices;
-                        f.indicesTAM = indicesTAM;
-                        f.vertexB = vertexB;
-                        f.vertexBTAM = vertexBTAM;
 
-                        figuras[name] = f;
-                    }
-                    //Descomentar proximas linhas apenas na Fase 4
-                  /*texture = (string)pChild->Attribute("texture"); //Fase 4
-                    if(texturas.find(texture) == texture.end()) { //se não existir
+        else if(name.compare("models")==0) {
+            
+            if(!m) {
+               
+                pChild = pRoot->FirstChildElement("model");
+                
+                while(pChild) {
+                    
+                    name = (string)pChild->Attribute("file");
+                    
+                    if (name.compare("") != 0) {
+
+                        if(figuras.find(name) == figuras.end()) { // se não  existir 
+                            
+                            unsigned int* indices;
+                            int indicesTAM;  
+                            float* vertexB;   
+                            int vertexBTAM;  
+                            
+                            file2list(name, &indices, &indicesTAM, &vertexB, &vertexBTAM);
+                            
+                            Figura f = Figura(indices, indicesTAM, vertexB, vertexBTAM);
+                            figuras.insert( std::pair<string,Figura>(name, f) );
+                        }
                         
+                        /*
+                        Descomentar proximas linhas apenas na Fase 4
+                        texture = (string)pChild->Attribute("texture"); //Fase 4
+                        if(texturas.find(texture) == texture.end()) { //se não existir
+                        }
+                        */
+
+                        group.ficheiros.push_back(name);
                     }
-                  */
-                    group.ficheiros.push_back(name);
+
                     pChild = pChild->NextSiblingElement("model");
                 }
+
                 m = true;
             }
             else {
@@ -130,11 +172,14 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
                 exit(4);
             }
         }
+
         else if(name.compare("group")==0) {
-            group.filhos.push_back(searchRec(figuras, pRoot));
+            group.filhos.push_back( searchRec(figuras, pRoot));
         }
-        pRoot = pRoot->NextSiblingElement();
+
+        pRoot = pRoot->NextSiblingElement(); // grupos encadeados
     }
+
     return group;
 }
 
@@ -146,13 +191,15 @@ void parse(Group &group, map<string,Figura> &figuras, const char* path){
         if(pRoot) {
             pChild = pRoot->FirstChildElement("group");
             if(pChild) {
-                group = searchRec(figuras,pRoot);
+                group = searchRec(figuras, pRoot);
             }
-          /*pChild = pRoot->FirstChildElement("ligths"); //Fase 4
+
+            /*
+            pChild = pRoot->FirstChildElement("ligths"); //Fase 4
             if(pChild) {
-               ligths = searchLigths();
+                ligths = searchLigths();
             }
-          */
+            */
         }
     }
     else {

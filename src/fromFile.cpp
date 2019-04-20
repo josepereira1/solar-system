@@ -95,21 +95,21 @@ void file2list(string path, unsigned int** indices, int* indicesTAM, float** ver
 	
 	getline(infile, line);	//	vai buscar a primeira linha
 	*indicesTAM = atoi(line.c_str()); 
-    printf("indicesTAM=%d\n",*indicesTAM );
+    //printf("indicesTAM=%d\n",*indicesTAM );
 	getline(infile, line);	//	vai buscar a segunda linha
 	char* init = (char*) line.c_str();
 	*indices = (unsigned int*) malloc(sizeof(unsigned int) * (*indicesTAM));
 	for(i = 0; (ptr = strstr(init, ",")) != NULL ; i++){	//	encontra o apontador da ","
 		char* tmp = ptr + sizeof(char);		//	guarda temporariamente a posição a seguir à vírgula, isto é, o apontador para o próximo número
 		*ptr = '\0';	//	fim da número, para o atoi saber onde termina a string
-		printf("%s\n",init );
+		//printf("%s\n",init );
 		(*indices)[i] = (atoi(init)-1);//	converte o char* num int
 		init = tmp;	//	atribuí-se a init o ínicio do próximo número
 	}
 	(*indices)[i] = atoi(init); // por causa do último número não ter ','
 	getline(infile, line);	
 	*vertexBTAM = atoi(line.c_str()); 
-	printf("vertexBTAM=%d\n",*vertexBTAM);
+	//printf("vertexBTAM=%d\n",*vertexBTAM);
 	*vertexB = (float*) malloc(sizeof(float) * (3*(*vertexBTAM)));
 	for(int k=0; k < *vertexBTAM; k++) {
 		getline(infile, line);	//	vai buscar a segunda linha

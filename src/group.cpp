@@ -10,8 +10,3 @@ Group:: Group(){
 	vector<string> ficheiros;
 	vector<Group> filhos;
 }
-
-Group:: ~Group(){
-	operacoes.clear();
-	filhos.clear();
-}

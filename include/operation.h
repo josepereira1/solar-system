@@ -6,14 +6,12 @@
 
 using namespace std;
 
-class Operation
- {
- public:
- 	Operation(char , vector<TAD_POINT>, float, int);
- 	char flag;
-    vector<TAD_POINT> points;
-    float ang;
-    int time;
+class Operation{
+public:
+	Operation(char , vector<TAD_POINT>, int);
+	char flag;
+	vector<TAD_POINT> points;
+	int time;
  };
 
 #endif

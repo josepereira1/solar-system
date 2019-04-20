@@ -1,17 +1,8 @@
-#include <vector>
 #include <Figura.h>
 
-using namespace std;
-
-Figura:: Figura(){
-	this->indices = NULL;
-	this->indicesTAM = 0;
-
-	this->vertexB = NULL;
-	this->vertexBTAM = 0;
-}
-
-Figura:: ~Figura(){
-	free(indices);
-	free(vertexB);
+Figura :: Figura(unsigned int* indices, int indicesTAM, float* vertexB, int vertexBTAM){
+	this->indices = indices;
+	this->indicesTAM = indicesTAM;
+	this->vertexB = vertexB;
+	this->vertexBTAM = vertexBTAM;
 }

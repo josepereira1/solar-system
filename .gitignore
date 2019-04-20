@@ -1,7 +1,6 @@
 .DS_Store
 generator
 parser
-bin/
 *.out
 teste
 test
@@ -18,3 +17,8 @@ bin_windows_generator/*
 
 bin_windows_engine/*
 !bin_windows_engine/*.txt
+
+bin/*
+!bin/*.3d
+!bin/*.patch
+!bin/*.xml

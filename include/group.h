@@ -10,7 +10,6 @@ using namespace std;
 class Group{
 public:
 	Group();
-	~Group();
 	vector<Operation> operacoes;
 	vector<string> ficheiros;
 	vector<Group> filhos;

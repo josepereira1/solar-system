@@ -1,7 +1,5 @@
 #include <stdlib.h>
 
-#define GL_GLEXT_PROTOTYPES
-
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
@@ -44,7 +42,6 @@ int POINT_COUNT = 0;
 Group group;
 map<string,Figura> figuras;
 map<string,Figura>::iterator it;
-Figura f;
 
 void spherical2Cartesian() {
 
@@ -177,7 +174,7 @@ void design(Group g){
                 //glTranslatef( getX(op.point), getY(op.point), getZ(op.point));
                 break;
             case 'r':
-                glRotatef(op.ang, getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
+                glRotatef(0.0f, getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
                 break;
             case 's':
                 glScalef( getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
@@ -273,38 +270,51 @@ void processSpecialKeys(int key, int xx, int yy) {
 
 // DEBUG
 static void printGroup(Group g) {
-    printf("GROUP:-----------------------------------------------\n");
-    for(unsigned i = 0; i<g.operacoes.size() ;i++) {
-        Operation op = g.operacoes[i];
-        //printf("Operacao: Flag=%c ,X=%f ,Y=%f ,Z=%f ,Angle=%f\n",op.flag,op.x,op.y,op.z,op.ang);
+    for(int i=0; i<g.operacoes.size(); i++) {
+        Operation op = g.operacoes.at(i);
+        printf("Operacao: flag=%c, time=%d\n", op.flag, op.time);
     }
-    for(unsigned i = 0; i<g.ficheiros.size() ;i++) {
-        string str = g.ficheiros[i];
-        cout << "Ficheiro=" + str +"\n";
+    for(int i = 0; i<g.ficheiros.size() ;i++) {
+        string str = g.ficheiros.at(i);
+        cout << "Ficheiro=" + str + "\n";
     }
-    for(unsigned i = 0; i<g.filhos.size() ;i++) {
-        Group a = g.filhos[i];
+    for(int i = 0; i<g.filhos.size() ;i++) {
+        Group a = g.filhos.at(i);
+        printf("GROUP:-----------------------------------------------\n");
         printGroup(a);
     }
 }
 
 // DEBUG
 static void printFiguras(map<string,Figura> figuras) {
-    map<string, Figura>::iterator it;
-    for (it = figuras.begin(); it != figuras.end(); it++) {
-        float* pontos = it->second.vertexB;
-        for(int k=0; k<it->second.vertexBTAM; k+=3) {
-            printf("file:%s => X=%f, Y=%f, Z=%f\n", it->first.c_str(), pontos[k], pontos[k+1], pontos[k+2]);
+
+    map<string, Figura> :: iterator it;
+    int dim=0;
+
+    for (it = figuras.begin(); it != figuras.end(); it++, dim++) {
+        Figura f = it->second;
+        printf("indicesTAM=%d\n", f.indicesTAM);
+        for(int i=0; i<f.indicesTAM; i++) {
+            printf("%d, ", f.indices[i]);
         }
+        printf("\nvertexBTAM=%d\n", f.vertexBTAM);
+        for(int i=0; i<f.vertexBTAM; i++) {
+            printf("%.5f, ", f.vertexB[i]);
+        }
+        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"); // para separar as figuras de modo legível
     }
+
+    printf("DIM=%d\n", dim); // para saber quantas figuras existem
 }
 
 int main(int argc, char** argv) {
-    parse(group,figuras,"file.xml");
-    // parse(group,figuras,"file.xml");
+    
+    parse(group, figuras, "file.xml");
+    
     // printGroup(group);    //  DEBUG
     // printFiguras(figuras); //  DEBUG
 
+    /*
     // init GLUT and the window
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DEPTH|GLUT_DOUBLE|GLUT_RGBA);
@@ -356,6 +366,8 @@ int main(int argc, char** argv) {
 	
     // enter GLUT's main cycle
 	glutMainLoop();
+
+    */
 	
 	return 1;
 }
