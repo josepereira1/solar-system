@@ -4,7 +4,7 @@
 
 #include <ArrayList.h>
 #include <Point.h>
-#include <fromFile.h>
+#include <toFile.h>
 #include <filterPoints.h>
 
 //	generators
@@ -14,7 +14,7 @@
 #include <planeGenerator.h>
 
 // bezier
-#include <toFile.h>
+#include <bezierCreater.h>
 
 
 static void printInstructions(){
@@ -50,8 +50,8 @@ void design_cone(float radius, float height, int slices, int stacks, const char*
 	write_points_to_file_index(points,patch);
 }
 
-void create_teapot(const char* patch, const char* path, int tesselation) {
-	TAD_ARRAY_LIST points = bezier2file(patch,tesselation);
+void create_bezier(const char* patch, const char* path, int tesselation) {
+	TAD_ARRAY_LIST points = getPointsOfBezier(patch,tesselation);
 	write_points_to_file_index(points,path);
 }
 
@@ -108,7 +108,7 @@ int main(int argc, char** argv) {
 			exit(1);
 		}
 		//bexier2file(argv[2],argv[3],atoi(argv[4]));
-		create_teapot(argv[2],argv[3],atoi(argv[4]));
+		create_bezier(argv[2],argv[3],atoi(argv[4]));
 	}
 	else {
 		perror("Invalid geometric figure!\n");
