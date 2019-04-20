@@ -341,10 +341,14 @@ int main(int argc, char** argv) {
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[nFiguras]);                                                                 // pega  indexes[nFiguras]
         glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indices), GL_STATIC_DRAW); // preenche indexes[nFiguras] 
         if(it->first.compare("sphere3.3d") == 0){
-            for(int i=0;i<it->second.indicesTAM;i++){
+            int i;
+            for(i=0;i<it->second.indicesTAM;i++){
                 printf("%d\n",it->second.indices[i]);
             }
-
+            printf("(it->second.vertexBTAM):%d\n",(it->second.vertexBTAM) );
+            for(i=0;i<it->second.vertexBTAM;i++){
+                printf("%d\n",it->second.vertexB[i]);
+            }
         }
     }
     spherical2Cartesian();

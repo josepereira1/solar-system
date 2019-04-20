@@ -112,7 +112,7 @@ static Group searchRec(map<string,Figura> &figuras, TiXmlElement *pRoot) {
                         f.vertexB = vertexB;
                         f.vertexBTAM = vertexBTAM;
 
-                        figuras[name] = f; 
+                        figuras[name] = f;
                     }
                     //Descomentar proximas linhas apenas na Fase 4
                   /*texture = (string)pChild->Attribute("texture"); //Fase 4
