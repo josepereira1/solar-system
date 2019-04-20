@@ -71,11 +71,11 @@ int main(int argc, char** argv) {
 		design_plane(atof(argv[2]),argv[3]);
 	}
 	else if(strcmp(argv[1],"box")==0) {
-		if(argc < 7 || argc > 8) {
+		if(argc < 6 || argc > 8) {
 			perror("Invalid parameters to generate box!\n");
 			exit(1);
 		}
-		if(argc != 6)
+		if(argc == 6)
 			design_box(atof(argv[2]),atof(argv[3]),atof(argv[4]),0,argv[5]);
 		else 
 			design_box(atof(argv[2]),atof(argv[3]),atof(argv[4]),atoi(argv[5]),argv[6]);
