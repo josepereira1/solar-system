@@ -52,7 +52,7 @@
             </models>
         </group>
         <group>
-            <rotate axisX=0 axisY=1 axisZ=0 time=10 />
+            <rotate axisX=0 axisY=1 axisZ=0 time=8 />
             <translate time=12 >
                 <point X=150.00000 Y=0 Z=0.00000 />
                 <point X=137.03181 Y=0 Z=61.01050 />
@@ -75,8 +75,8 @@
                 <model file="sphere2.3d" /> <!-- Terra -->
             </models>
             <group>
-                <rotate axisX=0 axisY=1 axisZ=0 time=3 />
-                <translate time=3 >
+                <rotate axisX=0 axisY=1 axisZ=0 time=10 />
+                <translate time=10 >
                     <point X=15.00000 Y=0 Z=0.00000 />
                     <point X=13.70318 Y=0 Z=6.10105 />
                     <point X=10.03696 Y=0 Z=11.14717 />
@@ -122,6 +122,7 @@
                 <model file="sphere2.3d" /> <!-- Marte -->
             </models>
             <group>
+                <rotate axisX=0 axisY=1 axisZ=0 time=15 />
                 <translate time=6 >
                     <point X=15.00000 Y=0 Z=0.00000 />
                     <point X=13.70318 Y=0 Z=6.10105 />
@@ -168,6 +169,7 @@
                 <model file="sphere2.3d" /> <!-- Jupiter -->
             </models>
             <group>
+                <rotate axisX=0 axisY=1 axisZ=0 time=17 />
                 <translate time=4 >
                     <point X=15.00000 Y=0 Z=0.00000 />
                     <point X=13.70318 Y=0 Z=6.10105 />
@@ -191,7 +193,7 @@
                 </models>
             </group>
             <group>
-                <rotate axisX=1 axisY=1 axisZ=0 time=11 />
+                <rotate axisX=0 axisY=1 axisZ=0 time=11 />
                 <translate time=11 >
                     <point X=20.00000 Y=0 Z=0.00000 />
                     <point X=18.27091 Y=0 Z=8.13473 />
@@ -215,7 +217,7 @@
                 </models>
             </group>
             <group>
-                <rotate axisX=0 axisY=1 axisZ=1 time=11 />
+                <rotate axisX=0 axisY=1 axisZ=0 time=11 />
                 <translate time=15 >
                     <point X=25.00000 Y=0 Z=0.00000 />
                     <point X=22.83864 Y=0 Z=10.16842 />
@@ -263,6 +265,7 @@
                 <model file="sphere2.3d" /> <!-- Saturno -->
             </models>
             <group>
+                <rotate axisX=0 axisY=1 axisZ=0 time=12 />
                 <translate time=9 >
                     <point X=15.00000 Y=0 Z=0.00000 />
                     <point X=13.70318 Y=0 Z=6.10105 />
@@ -309,6 +312,7 @@
                 <model file="sphere2.3d" /> <!-- Urano -->
             </models>
             <group>
+                <rotate axisX=0 axisY=1 axisZ=0 time=15 />
                 <translate time=8 >
                     <point X=15.00000 Y=0 Z=0.00000 />
                     <point X=13.70318 Y=0 Z=6.10105 />
@@ -355,6 +359,7 @@
                 <model file="sphere2.3d" /> <!-- Neptuno -->
             </models>
             <group>
+                <rotate axisX=0 axisY=1 axisZ=0 time=10 />
                 <translate time=10 >
                     <point X=15.00000 Y=0 Z=0.00000 />
                     <point X=13.70318 Y=0 Z=6.10105 />
@@ -378,6 +383,7 @@
             </group>
         </group>
         <group>
+            <rotate axisX=0 axisY=1 axisZ=0 time=20 />
             <translate time=120 >
                 <point X=500.00000 Y=0.00000 Z=0 />
                 <point X=493.44427 Y=15.59338 Z=0 />

@@ -39,6 +39,7 @@ GLuint *indexes;
 vector<TAD_POINT> p;
 int POINT_COUNT = 0;
 float *mygtArray;
+float *myangArray;
 int nextGt = 0;
 
 Group group;
@@ -178,7 +179,8 @@ void design(Group g){
 				glTranslatef(pos[0], pos[1] ,pos[2] );
                 break;
             case 'r':
-                glRotatef(0.0f, getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
+				myangArray[nextGt] += (float)(2 * M_PI / time) * 0.001;
+                glRotatef(myangArray[nextGt], getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
                 break;
             case 's':
                 glScalef( getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
@@ -317,12 +319,13 @@ static void printFiguras(map<string,Figura> figuras) {
 
 int main(int argc, char** argv) {
     int nGrupos = 0;
-    parse(group, figuras,&nGrupos, "file.xml");  
+    parse(group, figuras,&nGrupos, "file.xml");
+	myangArray = (float*)malloc(sizeof(float)*nGrupos);
     mygtArray = (float*)malloc(sizeof(float)*nGrupos); 
     for(int i=0;i<nGrupos;i++){
+		myangArray[i] = 0;
         mygtArray[i] = 0;
     } 
-    printf("acabei : %d\n",nGrupos);
 
     // printGroup(group);    //  DEBUG
     // printFiguras(figuras); //  DEBUG
@@ -353,8 +356,8 @@ int main(int argc, char** argv) {
     glEnableClientState(GL_VERTEX_ARRAY);
 
     int nFiguras = figuras.size();
-    GLuint buf2[nFiguras];
-    GLuint ind2[nFiguras];
+    GLuint buf2[4];
+    GLuint ind2[4];
     buffers = buf2;
     indexes = ind2;
     glGenBuffers(nFiguras, buffers);                                      // gera 3 buffers de coordenadas
