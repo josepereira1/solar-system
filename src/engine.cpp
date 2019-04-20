@@ -36,7 +36,7 @@ int face = GL_FRONT;
 GLuint *buffers;
 GLuint *indexes;
 
-float** p;
+vector<TAD_POINT> p;
 int POINT_COUNT = 0;
 
 Group group;
@@ -51,7 +51,7 @@ void spherical2Cartesian() {
 }
 
 void multMatrixVector(float *m, float *v, float *res) {
-    for (int j = 0; j < 4; ++j) {
+	for (int j = 0; j < 4; ++j) {
         res[j] = 0;
         for (int k = 0; k < 4; ++k) {
             res[j] += v[k] * m[j * 4 + k];
@@ -60,7 +60,7 @@ void multMatrixVector(float *m, float *v, float *res) {
 }
 
 // calcular *pos && *deriv
-void getCatmullRomPoint(float t, float *p0, float *p1, float *p2, float *p3, float *pos, float *deriv) {
+void getCatmullRomPoint(float t, TAD_POINT p0, TAD_POINT p1, TAD_POINT p2, TAD_POINT p3, float *pos, float *deriv) {
     // catmull-rom matrix
     float m[4][4] = {   {-0.5f,  1.5f, -1.5f,  0.5f},
                         { 1.0f, -2.5f,  2.0f, -0.5f},
@@ -73,13 +73,21 @@ void getCatmullRomPoint(float t, float *p0, float *p1, float *p2, float *p3, flo
     float mt[4] = {t*t*t,t*t,t,1};
     float tl[4] = {t*t,t,1,0};
     float s[4];
-    for(int i=0;i<3;i++){
-        s[0] = p0[i];
-        s[1] = p1[i];
-        s[2] = p2[i];
-        s[3] = p3[i];
-        multMatrixVector((float*)m,s,a[i]);
-    }
+	s[0] = getX(p0);
+	s[1] = getX(p1);
+	s[2] = getX(p2);
+	s[3] = getX(p3);
+	multMatrixVector((float*)m, s, a[0]);
+	s[0] = getY(p0);
+	s[1] = getY(p1);
+	s[2] = getY(p2);
+	s[3] = getY(p3);
+	multMatrixVector((float*)m, s, a[1]);
+	s[0] = getZ(p0);
+	s[1] = getZ(p1);
+	s[2] = getZ(p2);
+	s[3] = getZ(p3);
+	multMatrixVector((float*)m, s, a[2]);
     // Compute pos = T * A
     for (int j = 0; j < 3; ++j) {
         pos[j] = 0;
@@ -141,16 +149,6 @@ void changeSize(int w, int h) {
 	glMatrixMode(GL_MODELVIEW);
 }
 
-void initCatmullRom(vector<TAD_POINT> points) {
-    POINT_COUNT = points.size();
-    p = (float**) malloc(sizeof(float)*POINT_COUNT*3);
-    for(unsigned i = 0 ; i<POINT_COUNT ; i++) {
-        p[i][0] = getX(points[i]);
-        p[i][1] = getY(points[i]);
-        p[i][2] = getZ(points[i]);
-    }
-}
-
 void design(Group g){
     int sphere;
     int count;
@@ -164,14 +162,13 @@ void design(Group g){
 
         switch(op.flag){
             case 't':
-                initCatmullRom(op.points);
+				POINT_COUNT = op.points.size();
+				p = op.points;
                 renderCatmullRomCurve();
-                mygt+=0.0001;
+				mygt+=0.0001;
                 if(mygt >= 1) mygt = 0.0f;
                 getGlobalCatmullRomPoint(mygt,pos,deriv);
-                glTranslatef(pos[0], pos[1] ,pos[2] );
-                t+=0.00001;
-                glTranslatef( getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
+				glTranslatef(pos[0], pos[1] ,pos[2] );
                 break;
             case 'r':
                 glRotatef(0.0f, getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
@@ -325,6 +322,7 @@ int main(int argc, char** argv) {
 
     // Required callback registry 
 	glutDisplayFunc(renderScene);
+	glutIdleFunc(renderScene);
 	glutReshapeFunc(changeSize);
 	
     // put here the registration of the keyboard callbacks
@@ -341,8 +339,8 @@ int main(int argc, char** argv) {
     glEnableClientState(GL_VERTEX_ARRAY);
 
     int nFiguras = figuras.size();
-    GLuint buf2[nFiguras];
-    GLuint ind2[nFiguras];
+    GLuint buf2[4];
+    GLuint ind2[4];
     buffers = buf2;
     indexes = ind2;
     glGenBuffers(nFiguras, buffers);                                      // gera 3 buffers de coordenadas
