@@ -7,12 +7,12 @@
 #include <vector>
 #include <Figura.h>
 #include <map>
+#include <vector>
 #include <fromFile.h>
 
 using namespace std;
 
-//static Group searchRec(map<string,Figura> &figuras, map<string,float*> &texturas, int *nGrupos, TiXmlElement *pRoot) {
-static Group searchRec(map<string,Figura> &figuras, int *nGrupos, TiXmlElement *pRoot) {
+static Group searchRec(map<string,Figura> &figuras, vector<string> &texturas, int *nGrupos, TiXmlElement *pRoot) {
     
     bool t = false, r = false, s = false, m = false;
     pRoot = pRoot->FirstChildElement();
@@ -166,12 +166,10 @@ static Group searchRec(map<string,Figura> &figuras, int *nGrupos, TiXmlElement *
                     }
                     name = (string)pChild->Attribute("texture");
                     if (name.compare("") != 0) {
-                        /*if(texturas.find(name) == texture.end()) {
-                            //TODO carregar as texturas para memória
+                        if(texturas.find(name) == texturas.end()) {
                             //texturas.insert( std::pair<string,float*>);
                         }
                         group.texturas.push_back(name);
-                        */
                     }
 
                     pChild = pChild->NextSiblingElement("model");
@@ -199,7 +197,7 @@ static Group searchRec(map<string,Figura> &figuras, int *nGrupos, TiXmlElement *
 
 }*/
 
-void parse(Group &group, map<string,Figura> &figuras, int *nGrupos, const char* path){
+void parse(Group &group, map<string,Figura> &figuras, vector<string> textures, int *nGrupos, const char* path){
     TiXmlDocument doc(path);
     if(doc.LoadFile()) {
         TiXmlElement *pRoot,*pChild;
@@ -212,8 +210,7 @@ void parse(Group &group, map<string,Figura> &figuras, int *nGrupos, const char* 
 
             pChild = pRoot->FirstChildElement("group");
             if(pChild) {
-                //group = searchRec(figuras,texturas,nGrupos,pRoot);
-                group = searchRec(figuras, nGrupos, pRoot);
+                group = searchRec(figuras, textures, nGrupos, pRoot);
             }
         }
     }
