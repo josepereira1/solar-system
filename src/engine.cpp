@@ -45,6 +45,7 @@ int nextGt = 0;
 int timebase = 0, frame = 0;
 
 Group group;
+map<string, GLuint> textures;
 map<string, Figura> figuras;
 map<string, Figura>::iterator it;
 
@@ -333,7 +334,7 @@ static void printFiguras(map<string, Figura> figuras) {
 
 void initGL() {
 
-// alguns settings para OpenGL
+    // alguns settings para OpenGL
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 
@@ -348,7 +349,14 @@ void initGL() {
 	glEnable(GL_LIGHT0);
 
 	glEnable(GL_TEXTURE_2D);
-	prepareCylinder(2,1,lados);
+}
+
+void getTextures(){
+	iterator it;
+    it = textures.begin(); // aponta para 1º elemento
+	for(it = textures.begin();it != textures.end();it++){
+		int x = loadTexture(tex);
+	}
 }
 
 int loadTexture(std::string s) {
@@ -389,7 +397,7 @@ int loadTexture(std::string s) {
 
 int main(int argc, char** argv) {
 	int nGrupos = 0;
-	parse(group, figuras, &nGrupos, "file.xml");
+	parse(group, figuras, textures, &nGrupos, "file.xml");
 	myangArray = (float*)malloc(sizeof(float)*nGrupos);
 	mygtArray = (float*)malloc(sizeof(float)*nGrupos);
 	for (int i = 0; i < nGrupos; i++) {
@@ -412,7 +420,6 @@ int main(int argc, char** argv) {
 	glutIdleFunc(renderScene);
 	glutReshapeFunc(changeSize);
 
-	initGL();
 	// put here the registration of the keyboard callbacks
 	glutKeyboardFunc(processKeys);
 	glutSpecialFunc(processSpecialKeys);
@@ -422,9 +429,7 @@ int main(int argc, char** argv) {
 #endif
 
 	//  OpenGL settings
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_CULL_FACE);
-	glEnableClientState(GL_VERTEX_ARRAY);
+	initGL();
 
 	int nFiguras = figuras.size();
 	GLuint buf2[4];
@@ -441,6 +446,7 @@ int main(int argc, char** argv) {
 	}
 	spherical2Cartesian();
 
+	getTextures();
 	// enter GLUT's main cycle
 	glutMainLoop();
 
