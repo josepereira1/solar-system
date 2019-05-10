@@ -16,6 +16,8 @@ void setX(TAD_POINT point, float x);
 void setY(TAD_POINT point, float y);
 void setZ(TAD_POINT point, float z);
 
+//normalize
+TAD_POINT normalize(TAD_POINT point);
 
 //equals
 int equalsPoint(TAD_POINT point1, TAD_POINT point2);

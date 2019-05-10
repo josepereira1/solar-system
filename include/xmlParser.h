@@ -7,6 +7,6 @@
 #include <string>
 #include <Figura.h>
 
-void parse(Group &group, map<string,Figura> &figuras, vector<string> textures, int* nGrupos, const char* path);
+void parse(Group &group, map<string,Figura> &figuras, map<string,GLuint> textures, int* nGrupos, const char* path);
 
 #endif

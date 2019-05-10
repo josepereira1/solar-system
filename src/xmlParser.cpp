@@ -195,23 +195,23 @@ static Group searchRec(map<string,Figura> &figuras, map<string,GLuint> &texturas
                             int pointsTAM;
 
                             //normals
-                            unsigned int* indexNormals;
                             float* normals;
                             int normalsTAM;
 
                             //texCoords
-                            unsigned int* texCoords; 
+                            float* texCoords; 
                             int texCoordsTAM;
                             
-                            file2list(name, &indicesTAM, &indexPoints, &points, &pointsTAM, &indexNormals, &normals, &normalsTAM, &texCoords, &texCoordsTAM);
+                            file2list(name, &indicesTAM, &indexPoints, &points, &pointsTAM, &normals, &normalsTAM, &texCoords, &texCoordsTAM);
                             
-                            Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, indexNormals, normals, normalsTAM, texCoords, texCoordsTAM);
-                            figuras.insert( std::pair<string,Figura>(name, f) );
-                            texturas.insert( std::pair<string,GLuint> (name,loadTexture(textura)));
+                            Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, normals, normalsTAM, texCoords, texCoordsTAM);
+                            figuras.insert( std::pair<string,Figura>(name,f));
+							if(textura.compare("") != 0)
+								texturas.insert( std::pair<string,GLuint> (textura,loadTexture(textura)));
                         }
                         
                         group.ficheiros.push_back(name);
-                        group.texturas.push_back(textura);
+						group.texturas.push_back(textura);
                     }
 
                     pChild = pChild->NextSiblingElement("model");

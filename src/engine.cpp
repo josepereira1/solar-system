@@ -46,10 +46,10 @@ int nextGt = 0;
 int timebase = 0, frame = 0;
 
 Group group;
-map<string, Textura> textures;
+map<string, GLuint> textures;
 map<string, Figura> figuras;
 map<string, Figura>::iterator it;
-map<string, Textura>::iterator aux;
+map<string, GLuint>::iterator aux;
 
 void spherical2Cartesian() {
 	camX = radius * cos(beta) * sin(alfa);
@@ -205,9 +205,9 @@ void design(Group g) {
 				break;
 			}
 		}
-		for (it = textures.begin(); it != textures.end(); ++it) {
-			if (it->first.compare(nome_textura) == 0) {
-				t = it->second;
+		for (aux = textures.begin(); aux != textures.end(); ++it) {
+			if (aux->first.compare(nome_textura) == 0) {
+				t = aux->second;
 				break;
 			}
 		}
@@ -360,7 +360,7 @@ void initGL() {
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 
-	converte();
+	spherical2Cartesian();
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_NORMAL_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -423,7 +423,7 @@ int main(int argc, char** argv) {
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[nFiguras]);                                                                 // pega  indexes[nFiguras]
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indexPoints), GL_STATIC_DRAW); // preenche indexes[nFiguras] 
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, texturas[nFiguras]);                                                                 // pega  indexes[nFiguras]
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Gluint)*(it->second.texCoordsTAM), (it->second.texCoords), GL_STATIC_DRAW); // preenche indexes[nFiguras] 
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint)*(it->second.texCoordsTAM), (it->second.texCoords), GL_STATIC_DRAW); // preenche indexes[nFiguras] 
 	}
 
 	spherical2Cartesian();

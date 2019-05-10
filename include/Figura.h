@@ -3,15 +3,14 @@
 
 class Figura{
 public:
-	Figura(int, unsigned int*, float*, int, unsigned int*, float*, int, unsigned int*, int);
+	Figura(int, unsigned int*, float*, int, float*, int, float*, int);
 	int indicesTAM;
 	unsigned int* indexPoints;
 	float* points;
 	int pointsTAM;
-	unsigned int* indexNormals;
 	float* normals;
 	int normalsTAM;
-	unsigned int* texCoords; // GLuint*
+	float* texCoords; // GLuint*
 	int texCoordsTAM;
 };
 
