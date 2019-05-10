@@ -6,9 +6,18 @@
 #include <operation.h>
 #include <vector>
 #include <Figura.h>
+#include <Textura.h>
 #include <map>
 #include <vector>
 #include <fromFile.h>
+#include "../devil/IL/il.h"
+
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <GL/glew.h>
+#include <GL/glut.h>
+#endif
 
 using namespace std;
 
@@ -191,15 +200,14 @@ static Group searchRec(map<string,Figura> &figuras, map<string,GLuint> &texturas
                             int normalsTAM;
 
                             //texCoords
-                            unsigned int* indexTexCoords;
-                            float* texCoords; 
+                            unsigned int* texCoords; 
                             int texCoordsTAM;
                             
                             file2list(name, &indicesTAM, &indexPoints, &points, &pointsTAM, &indexNormals, &normals, &normalsTAM, &texCoords, &texCoordsTAM);
                             
-                            Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, indexNormals, normals, normalsTAM,texCoords,texCoordsTAM);
+                            Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, indexNormals, normals, normalsTAM, texCoords, texCoordsTAM);
                             figuras.insert( std::pair<string,Figura>(name, f) );
-                            texturas.insert( std::pair<string,GLuint> (name,loadTexture(std::string s)));
+                            texturas.insert( std::pair<string,GLuint> (name,loadTexture(textura)));
                         }
                         
                         group.ficheiros.push_back(name);
@@ -218,7 +226,7 @@ static Group searchRec(map<string,Figura> &figuras, map<string,GLuint> &texturas
         }
 
         else if(name.compare("group")==0) {
-            group.filhos.push_back( searchRec(figuras, nGrupos, pRoot));
+            group.filhos.push_back( searchRec(figuras,texturas, nGrupos, pRoot));
         }
 
         pRoot = pRoot->NextSiblingElement(); // grupos encadeados

@@ -3,8 +3,8 @@
 
 class Textura{
 public:
-	Textura(GLuint tex);
-	GLuint tex;
+	Textura(unsigned int );
+	unsigned int tex;
 };
 
 #endif
