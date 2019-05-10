@@ -42,13 +42,13 @@ float *mygtArray;
 float *myangArray;
 int nextGt = 0;
 
+int timebase = 0, frame = 0;
+
 Group group;
 map<string, Figura> figuras;
 map<string, Figura>::iterator it;
 
-
 void spherical2Cartesian() {
-
 	camX = radius * cos(beta) * sin(alfa);
 	camY = radius * sin(beta);
 	camZ = radius * cos(beta) * cos(alfa);
@@ -70,7 +70,6 @@ void getCatmullRomPoint(float t, TAD_POINT p0, TAD_POINT p1, TAD_POINT p2, TAD_P
 						{ 1.0f, -2.5f,  2.0f, -0.5f},
 						{-0.5f,  0.0f,  0.5f,  0.0f},
 						{ 0.0f,  1.0f,  0.0f,  0.0f} };
-
 	// Compute A = M * P
 	// for component x P is the vector (p0[0], p1[0], p2[0],p3[0]
 	float a[3][4];
@@ -218,6 +217,9 @@ void design(Group g) {
 }
 
 void renderScene(void) {
+	float fps;
+	int time;
+	char s[64];
 	// clear buffers
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	// set the camera
@@ -228,6 +230,18 @@ void renderScene(void) {
 	glColor3f(0, 255, 255);
 	design(group);
 	nextGt = 0;
+
+	//Print FPS
+	frame++;
+	time = glutGet(GLUT_ELAPSED_TIME);
+	if (time - timebase > 1000) {
+		fps = frame * 1000.0 / (time - timebase);
+		timebase = time;
+		frame = 0;
+		sprintf(s, "FPS: %f6.2", fps);
+		glutSetWindowTitle(s);
+	}
+
 	// End of frame
 	glutSwapBuffers();
 }
