@@ -22,37 +22,53 @@ static void printInstructions(){
 	puts(str);
 }
 
-static void write_points_to_file_index(TAD_ARRAY_LIST points, const char* path){
-	TAD_ARRAY_LIST withoutRepeated;
-	int size = getArraySize(points);
-	int* positions;
-	filter(points, &withoutRepeated, &positions);
-	list2fileWindex(withoutRepeated, positions,size,path);
+static void write_points_to_file_index(TAD_ARRAY_LIST points, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST texCoords, const char* path) {
+	TAD_ARRAY_LIST withoutRepeatedPoints;
+	TAD_ARRAY_LIST withoutRepeatedNormals;
+	TAD_ARRAY_LIST withoutRepeatedTexCoords;
+	int size = getArraySize(points); //tamanho igual para os 3 arrays
+	int* indexPositions;
+	int* indexNormals;
+	int* indexTexCoords;
+	filter(points, &withoutRepeatedPoints, &indexPositions);
+	filter(normals, &withoutRepeatedNormals, &indexNormals);
+	filter(texCoords, &withoutRepeatedTexCoords, &indexTexCoords);
+	list2fileWindex(withoutRepeatedPoints,indexPositions,withoutRepeatedNormals,indexNormals,withoutRepeatedTexCoords,indexTexCoords,size,path)
 }
 
 void design_sphere(float radius, int slices, int stacks, const char* patch) {
-	TAD_ARRAY_LIST points = getPointsOfSphere(radius,slices,stacks);
-	write_points_to_file_index(points,patch);
+	TAD_ARRAY_LIST normals;
+	TAD_ARRAY_LIST texCoords;
+	TAD_ARRAY_LIST points = getPointsOfSphere(radius,slices,stacks,&normals, &texCoords);
+	write_points_to_file_index(points,normals,texCoords,patch);
 }
 
 void design_plane(float side, const char* patch) {
-	TAD_ARRAY_LIST points = getPointsOfPlane(side);
-	write_points_to_file_index(points,patch);	
+	TAD_ARRAY_LIST normals;
+	TAD_ARRAY_LIST texCoords;
+	TAD_ARRAY_LIST points = getPointsOfPlane(side, &normals, &texCoords);
+	write_points_to_file_index(points,normals,texCoords,patch);	
 }
 
 void design_box(float x, float y, float z, int divisions, const char* patch) {
-	TAD_ARRAY_LIST points = getPointsOfBox(x, y, z, divisions);
-	write_points_to_file_index(points,patch);
+	TAD_ARRAY_LIST normals;
+	TAD_ARRAY_LIST texCoords;
+	TAD_ARRAY_LIST points = getPointsOfBox(x, y, z, divisions, &normals, &texCoords);
+	write_points_to_file_index(points,normals,texCoords,patch);
 }
 
 void design_cone(float radius, float height, int slices, int stacks, const char* patch) {
-	TAD_ARRAY_LIST points = getPointsOfCone(radius, height, slices, stacks);
-	write_points_to_file_index(points,patch);
+	TAD_ARRAY_LIST normals;
+	TAD_ARRAY_LIST texCoords;
+	TAD_ARRAY_LIST points = getPointsOfCone(radius, height, slices, stacks,&normals,&texCoords);
+	write_points_to_file_index(points,normals,texCoords,patch);
 }
 
 void create_bezier(const char* patch, const char* path, int tesselation) {
-	TAD_ARRAY_LIST points = getPointsOfBezier(patch,tesselation);
-	write_points_to_file_index(points,path);
+	TAD_ARRAY_LIST normals;
+	TAD_ARRAY_LIST texCoords;
+	TAD_ARRAY_LIST points = getPointsOfBezier(patch,tesselation,&normals, &texCoords);
+	write_points_to_file_index(points,normals,texCoords,path);
 }
 
 int main(int argc, char** argv) {

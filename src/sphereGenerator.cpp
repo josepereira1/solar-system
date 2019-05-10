@@ -9,7 +9,7 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks) {
+TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY_LIST *normals, TAD_ARRAY_LIST *texCoords) {
     float r1 = radius;
     float r2 = radius;
     float alfa = (2*M_PI)/slices;

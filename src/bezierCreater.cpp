@@ -43,7 +43,7 @@ static TAD_POINT getBezierPoint(int** arrayPatchs, TAD_ARRAY_LIST cps, int numer
     return POINT(x, y, z);
 }
 
-TAD_ARRAY_LIST getPointsOfBezier(string patchFile, int tLevel) {
+TAD_ARRAY_LIST getPointsOfBezier(string patchFile, int tLevel, TAD_ARRAY_LIST *normals, TAD_ARRAY_LIST *texCoords) {
 
 	int** arrayPatchs = NULL;
 	TAD_ARRAY_LIST cps = ARRAY_LIST(25);

@@ -2,7 +2,7 @@
 #include <Point.h>
 
 
-TAD_ARRAY_LIST getPointsOfPlane(int side){
+TAD_ARRAY_LIST getPointsOfPlane(int side, TAD_ARRAY_LIST *normals, TAD_ARRAY_LIST *texCoords){
     float c = side / 2.0;
     TAD_ARRAY_LIST l = ARRAY_LIST(50);
     

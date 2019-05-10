@@ -4,7 +4,7 @@
 #include <Point.h>
 #include <ArrayList.h>
 
-TAD_ARRAY_LIST getPointsOfCone(float radius, float height, int slices, int stacks) {
+TAD_ARRAY_LIST getPointsOfCone(float radius, float height, int slices, int stacks, TAD_ARRAY_LIST *normals, TAD_ARRAY_LIST *texCoords) {
   
     float angle = (2*M_PI)/slices;
     TAD_POINT p1, p2, p3, p4, p5, p6, p7, p8, p9;
