@@ -24,7 +24,7 @@ void list2fileWindex(TAD_ARRAY_LIST points, int* indexPoints, TAD_ARRAY_LIST nor
 			fprintf(file, "%d, ", indexPoints[i]);
 		}
 
-		fprintf(file, "%d", indices[i]); // último índice (para não ter vírgula)
+		fprintf(file, "%d", indexPoints[i]); // último índice (para não ter vírgula)
 
 		int dim = getArraySize(points);
 

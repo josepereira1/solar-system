@@ -17,20 +17,20 @@ TAD_ARRAY_LIST getPointsOfPlane(int side, TAD_ARRAY_LIST *normals, TAD_ARRAY_LIS
     addElem(l,POINT(c,0.0,-c));
 
     //normals
-    addElem(normals,POINT(0,1.0f,0));
-    addElem(normals,POINT(0,1.0f,0));
-    addElem(normals,POINT(0,1.0f,0));
-    addElem(normals,POINT(0,1.0f,0));
-    addElem(normals,POINT(0,1.0f,0));
-    addElem(normals,POINT(0,1.0f,0));
+    addElem(*normals,POINT(0,1.0f,0));
+    addElem(*normals,POINT(0,1.0f,0));
+    addElem(*normals,POINT(0,1.0f,0));
+    addElem(*normals,POINT(0,1.0f,0));
+    addElem(*normals,POINT(0,1.0f,0));
+    addElem(*normals,POINT(0,1.0f,0));
 
     //texCoords
-    addElem(texCoords,POINT(1.0f,1.0f,0));
-    addElem(texCoords,POINT(0,1.0f,0));
-    addElem(texCoords,POINT(0,0,0));
-    addElem(texCoords,POINT(0,0,0));
-    addElem(texCoords,POINT(1.0f,0,0));
-    addElem(texCoords,POINT(1.0f,1.0f,0));
+    addElem(*texCoords,POINT(1.0f,1.0f,0));
+    addElem(*texCoords,POINT(0,1.0f,0));
+    addElem(*texCoords,POINT(0,0,0));
+    addElem(*texCoords,POINT(0,0,0));
+    addElem(*texCoords,POINT(1.0f,0,0));
+    addElem(*texCoords,POINT(1.0f,1.0f,0));
 
     return l;
 }

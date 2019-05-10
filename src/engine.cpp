@@ -319,11 +319,11 @@ static void printFiguras(map<string, Figura> figuras) {
 		Figura f = it->second;
 		printf("indicesTAM=%d\n", f.indicesTAM);
 		for (int i = 0; i < f.indicesTAM; i++) {
-			printf("%d, ", f.indices[i]);
+			printf("%d, ", f.indexPoints[i]);
 		}
-		printf("\nvertexBTAM=%d\n", f.vertexBTAM);
-		for (int i = 0; i < f.vertexBTAM; i++) {
-			printf("%.5f, ", f.vertexB[i]);
+		printf("\nvertexBTAM=%d\n", f.pointsTAM);
+		for (int i = 0; i < f.pointsTAM; i++) {
+			printf("%.5f, ", f.points[i]);
 		}
 		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"); // para separar as figuras de modo legível
 	}
@@ -378,9 +378,9 @@ int main(int argc, char** argv) {
 	glGenBuffers(nFiguras, indexes);                                      // gera 3 buffers de indices
 	for (it = figuras.begin(), nFiguras = 0; it != figuras.end(); ++it, nFiguras++) {
 		glBindBuffer(GL_ARRAY_BUFFER, buffers[nFiguras]);                                                          // pega no buffer[nFiguras]
-		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.vertexBTAM), it->second.vertexB, GL_STATIC_DRAW);  // preenche buffer[nFiguras] 
+		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.pointsTAM), it->second.points, GL_STATIC_DRAW);  // preenche buffer[nFiguras] 
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[nFiguras]);                                                                 // pega  indexes[nFiguras]
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indices), GL_STATIC_DRAW); // preenche indexes[nFiguras] 
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indexPoints), GL_STATIC_DRAW); // preenche indexes[nFiguras] 
 	}
 	spherical2Cartesian();
 
