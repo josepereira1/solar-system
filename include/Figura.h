@@ -3,11 +3,17 @@
 
 class Figura{
 public:
-	Figura(unsigned int*, int, float*, int);
-	unsigned int* indices;
+	Figura(int, unsigned int*, float*, int, unsigned int*, float*, int, unsigned int*, float*, int);
 	int indicesTAM;
-	float* vertexB;
-	int vertexBTAM;
+	unsigned int* indexPoints;
+	float* points;
+	int pointsTAM;
+	unsigned int* indexNormals;
+	float* normals;
+	int normalsTAM;
+	unsigned int* indexTexCoords;
+	float* texCoords;
+	int texCoordsTAM;
 };
 
 #endif

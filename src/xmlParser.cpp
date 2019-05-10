@@ -11,6 +11,7 @@
 
 using namespace std;
 
+//static Group searchRec(map<string,Figura> &figuras, map<string,float*> &texturas, int *nGrupos, TiXmlElement *pRoot) {
 static Group searchRec(map<string,Figura> &figuras, int *nGrupos, TiXmlElement *pRoot) {
     
     bool t = false, r = false, s = false, m = false;
@@ -51,7 +52,7 @@ static Group searchRec(map<string,Figura> &figuras, int *nGrupos, TiXmlElement *
                                 sz = pChild->Attribute("Z");
                                 if(sz) z = atof(sz);
                                 
-                                TAD_POINT coords = POINT(x,y,z); //vector de coordenadas (3 floats cada coordenada) necessario class coordinate
+                                TAD_POINT coords = POINT(x,y,z); //vector de coordenadas
                                 points.push_back(coords);
                             }
                             pChild = pChild->NextSiblingElement("point");
@@ -73,11 +74,6 @@ static Group searchRec(map<string,Figura> &figuras, int *nGrupos, TiXmlElement *
         else if(name.compare("rotate")==0) {
             
             if(!r) {
-                
-                /*
-                sangle = pRoot->Attribute("angle");
-                if(sangle) angle = atof(sangle);
-                */
                 
                 sx = pRoot->Attribute("axisX");
                 if(sx) x = atof(sx);
@@ -142,26 +138,40 @@ static Group searchRec(map<string,Figura> &figuras, int *nGrupos, TiXmlElement *
 
                         (*nGrupos) += 1;
                         if(figuras.find(name) == figuras.end()) { // se não  existir 
+                            //Tamanho dos indices iguais para todos
+                            int indicesTAM; 
+
+                            //points
+                            unsigned int* indexPoints; 
+                            float* points;   
+                            int pointsTAM;
+
+                            //normals
+                            unsigned int* indexNormals;
+                            float* normals;
+                            int normalsTAM;
+
+                            //texCoords
+                            unsigned int* indexTexCoords;
+                            float* texCoords; 
+                            int texCoordsTAM;
                             
-                            unsigned int* indices;
-                            int indicesTAM;  
-                            float* vertexB;   
-                            int vertexBTAM;  
+                            file2list(name, &indicesTAM, &indexPoints, &points, &pointsTAM, &indexNormals, &normals, &normalsTAM, &indexTexCoords, &texCoords, &texCoordsTAM);
                             
-                            file2list(name, &indices, &indicesTAM, &vertexB, &vertexBTAM);
-                            
-                            Figura f = Figura(indices, indicesTAM, vertexB, vertexBTAM);
+                            Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, indexNormals, normals, normalsTAM, indexTexCoords, texCoords, texCoordsTAM);
                             figuras.insert( std::pair<string,Figura>(name, f) );
                         }
                         
-                        /*
-                        Descomentar proximas linhas apenas na Fase 4
-                        texture = (string)pChild->Attribute("texture"); //Fase 4
-                        if(texturas.find(texture) == texture.end()) { //se não existir
-                        }
-                        */
-
                         group.ficheiros.push_back(name);
+                    }
+                    name = (string)pChild->Attribute("texture");
+                    if (name.compare("") != 0) {
+                        /*if(texturas.find(name) == texture.end()) {
+                            //TODO carregar as texturas para memória
+                            //texturas.insert( std::pair<string,float*>);
+                        }
+                        group.texturas.push_back(name);
+                        */
                     }
 
                     pChild = pChild->NextSiblingElement("model");
@@ -185,23 +195,26 @@ static Group searchRec(map<string,Figura> &figuras, int *nGrupos, TiXmlElement *
     return group;
 }
 
+/*static Ligths searchLigths() {
+
+}*/
+
 void parse(Group &group, map<string,Figura> &figuras, int *nGrupos, const char* path){
     TiXmlDocument doc(path);
     if(doc.LoadFile()) {
         TiXmlElement *pRoot,*pChild;
         pRoot = doc.FirstChildElement("scene");
         if(pRoot) {
-            pChild = pRoot->FirstChildElement("group");
+            pChild = pRoot->FirstChildElement("ligths");
             if(pChild) {
-                group = searchRec(figuras, nGrupos, pRoot);
+                //ligths = searchLigths();
             }
 
-            /*
-            pChild = pRoot->FirstChildElement("ligths"); //Fase 4
+            pChild = pRoot->FirstChildElement("group");
             if(pChild) {
-                ligths = searchLigths();
+                //group = searchRec(figuras,texturas,nGrupos,pRoot);
+                group = searchRec(figuras, nGrupos, pRoot);
             }
-            */
         }
     }
     else {

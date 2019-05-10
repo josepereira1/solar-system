@@ -12,6 +12,7 @@ public:
 	Group();
 	vector<Operation> operacoes;
 	vector<string> ficheiros;
+	vector<string> texturas;
 	vector<Group> filhos;
 };
 
