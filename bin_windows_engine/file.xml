@@ -1,7 +1,7 @@
 <scene>
     <group>
         <models>
-            <model file="sphere1.3d" /> <!-- Sol -->
+            <model file="sphere1.3d" texture="sun.jpg"/> <!-- Sol -->
         </models>
         <group>
             <rotate axisX=0 axisY=1 axisZ=0 time=10/>
@@ -24,7 +24,7 @@
             </translate>
             <scale X=0.1 Y=-0.1 Z=0.1 />
             <models>
-                <model file="sphere2.3d" /> <!-- Mercurio -->
+                <model file="sphere2.3d" texture="mercury.jpg"/> <!-- Mercurio -->
             </models>
         </group>
         <group>
@@ -48,7 +48,7 @@
             </translate>
             <scale X=0.4 Y=0.4 Z=0.4 />
             <models>
-                <model file="sphere2.3d" /> <!-- Venus -->
+                <model file="sphere2.3d" texture="venus.jpg"/> <!-- Venus -->
             </models>
         </group>
         <group>
@@ -72,7 +72,7 @@
             </translate>
             <scale X=0.5 Y=0.5 Z=0.5 />
             <models>
-                <model file="sphere2.3d" /> <!-- Terra -->
+                <model file="sphere2.3d" texture="earth.jpg"/> <!-- Terra -->
             </models>
             <group>
                 <rotate axisX=0 axisY=1 axisZ=0 time=10 />
@@ -94,7 +94,7 @@
                     <point X=13.70318 Y=0 Z=-6.10105 />
                 </translate>
                 <models>
-                    <model file="sphere3.3d" /> <!-- Lua -->
+                    <model file="sphere3.3d" texture=""/> <!-- Lua -->
                 </models>
             </group>
         </group>
@@ -119,7 +119,7 @@
             </translate>
             <scale X=0.2 Y=0.2 Z=0.2 />
             <models>
-                <model file="sphere2.3d" /> <!-- Marte -->
+                <model file="sphere2.3d" texture="mars.jpg"/> <!-- Marte -->
             </models>
             <group>
                 <rotate axisX=0 axisY=1 axisZ=0 time=15 />
@@ -141,7 +141,7 @@
                     <point X=13.70318 Y=0 Z=-6.10105 />
                 </translate>
                 <models>
-                    <model file="sphere3.3d" /> <!-- Lua Marte -->
+                    <model file="sphere3.3d" texture=""/> <!-- Lua Marte -->
                 </models>
             </group>
        </group>
@@ -166,7 +166,7 @@
             </translate>
             <scale X=1.5 Y=1.5 Z=1.5 />
             <models>
-                <model file="sphere2.3d" /> <!-- Jupiter -->
+                <model file="sphere2.3d" texture="jupiter.jpg"/> <!-- Jupiter -->
             </models>
             <group>
                 <rotate axisX=0 axisY=1 axisZ=0 time=17 />
@@ -189,7 +189,7 @@
                 </translate>
                 <scale X=0.5 Y=0.5 Z=0.5 />
                 <models>
-                    <model file="sphere3.3d" /> <!-- Lua Jupiter -->
+                    <model file="sphere3.3d" texture=""/> <!-- Lua Jupiter -->
                 </models>
             </group>
             <group>
@@ -213,7 +213,7 @@
                 </translate>
                 <scale X=0.5 Y=0.5 Z=0.5 />
                 <models>
-                    <model file="sphere3.3d" /> <!-- Lua Jupiter -->
+                    <model file="sphere3.3d" texture=""/> <!-- Lua Jupiter -->
                 </models>
             </group>
             <group>
@@ -237,7 +237,7 @@
                 </translate>
                 <scale X=0.5 Y=0.5 Z=0.5 />
                 <models>
-                    <model file="sphere3.3d" /> <!-- Lua Jupiter -->
+                    <model file="sphere3.3d" texture=""/> <!-- Lua Jupiter -->
                 </models>
             </group>
         </group>
@@ -262,7 +262,7 @@
             </translate>
             <scale X=1.2 Y=1.2 Z=1.2 />
             <models>
-                <model file="sphere2.3d" /> <!-- Saturno -->
+                <model file="sphere2.3d" texture="saturn.jpg"/> <!-- Saturno -->
             </models>
             <group>
                 <rotate axisX=0 axisY=1 axisZ=0 time=12 />
@@ -284,7 +284,7 @@
                     <point X=13.70318 Y=0 Z=-6.10105 />
                 </translate>
                 <models>
-                    <model file="sphere3.3d" /> <!-- Lua Saturno -->
+                    <model file="sphere3.3d" texture=""/> <!-- Lua Saturno -->
                 </models>
             </group>
         </group>
@@ -309,7 +309,7 @@
             </translate>
             <scale X=0.9 Y=0.9 Z=0.9 />
             <models>
-                <model file="sphere2.3d" /> <!-- Urano -->
+                <model file="sphere2.3d" texture="uranus.jpg"/> <!-- Urano -->
             </models>
             <group>
                 <rotate axisX=0 axisY=1 axisZ=0 time=15 />
@@ -331,7 +331,7 @@
                     <point X=13.70318 Y=0 Z=-6.10105 />
                 </translate>
                 <models>
-                    <model file="sphere3.3d" /> <!-- Lua Urano -->
+                    <model file="sphere3.3d" texture=""/> <!-- Lua Urano -->
                 </models>
             </group>
         </group>
@@ -356,7 +356,7 @@
             </translate>
             <scale X=0.7 Y=0.7 Z=0.7 />
             <models>
-                <model file="sphere2.3d" /> <!-- Neptuno -->
+                <model file="sphere2.3d" texture="neptune.jpg"/> <!-- Neptuno -->
             </models>
             <group>
                 <rotate axisX=0 axisY=1 axisZ=0 time=10 />
@@ -378,7 +378,7 @@
                     <point X=13.70318 Y=0 Z=-6.10105 />
                 </translate>
                 <models>
-                    <model file="sphere3.3d" /> <!-- Lua Neptuno -->
+                    <model file="sphere3.3d" texture=""/> <!-- Lua Neptuno -->
                 </models>
             </group>
         </group>
@@ -417,7 +417,7 @@
                 <point X=493.44415 Y=-15.59352 Z=0 />
             </translate>
             <models>
-                <model file="teapot.3d"/>
+                <model file="teapot.3d"/> <!-- Cometa -->
             </models>
         </group>
     </group>

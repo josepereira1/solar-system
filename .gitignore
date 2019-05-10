@@ -20,8 +20,11 @@ bin_windows_engine/*
 !bin_windows_engine/*.txt
 !bin_windows_engine/*.xml
 !bin_windows_engine/*.3d
+!bin_windows_engine/*.jpg
 
 bin/*
 !bin/*.3d
 !bin/*.patch
 !bin/*.xml
+!bin/*.jpg
+!bin/*.patch
