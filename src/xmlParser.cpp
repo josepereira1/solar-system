@@ -247,7 +247,7 @@ void parse(Group &group, map<string,Figura> &figuras, map<string,GLuint> texture
         if(pRoot) {
             pChild = pRoot->FirstChildElement("ligths");
             if(pChild) {
-                //ligths = searchLigths();
+                //ligths = searchLigths(pRoot);
             }
 
             pChild = pRoot->FirstChildElement("group");
