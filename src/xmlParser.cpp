@@ -12,7 +12,43 @@
 
 using namespace std;
 
-static Group searchRec(map<string,Figura> &figuras, vector<string> &texturas, int *nGrupos, TiXmlElement *pRoot) {
+
+int loadTexture(std::string s) {
+
+    unsigned int t,tw,th;
+    unsigned char *texData;
+    unsigned int texID;
+
+    ilInit();
+    ilEnable(IL_ORIGIN_SET);
+    ilOriginFunc(IL_ORIGIN_LOWER_LEFT);
+    ilGenImages(1,&t);
+    ilBindImage(t);
+    ilLoadImage((ILstring)s.c_str());
+    tw = ilGetInteger(IL_IMAGE_WIDTH);
+    th = ilGetInteger(IL_IMAGE_HEIGHT);
+    ilConvertImage(IL_RGBA, IL_UNSIGNED_BYTE);
+    texData = ilGetData();
+
+    glGenTextures(1,&texID);
+    
+    glBindTexture(GL_TEXTURE_2D,texID);
+    glTexParameteri(GL_TEXTURE_2D,  GL_TEXTURE_WRAP_S,      GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D,  GL_TEXTURE_WRAP_T,      GL_REPEAT);
+
+    glTexParameteri(GL_TEXTURE_2D,  GL_TEXTURE_MAG_FILTER,      GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D,  GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+        
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, tw, th, 0, GL_RGBA, GL_UNSIGNED_BYTE, texData);
+    glGenerateMipmap(GL_TEXTURE_2D);
+
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    return texID;
+
+}
+
+static Group searchRec(map<string,Figura> &figuras, map<string,GLuint> &texturas, int *nGrupos, TiXmlElement *pRoot) {
     
     bool t = false, r = false, s = false, m = false;
     pRoot = pRoot->FirstChildElement();
@@ -22,6 +58,8 @@ static Group searchRec(map<string,Figura> &figuras, vector<string> &texturas, in
     
     while(pRoot) {
         string name = (string)pRoot->Value();
+        string textura = (string)pRoot->Value();
+
         float x=0.0f,y=0.0f,z=0.0f,angle=0.0f;
         int time=0;
         const char *sx, *sy, *sz, *sangle, *stime;
@@ -133,7 +171,8 @@ static Group searchRec(map<string,Figura> &figuras, vector<string> &texturas, in
                 while(pChild) {
                     
                     name = (string)pChild->Attribute("file");
-                    
+                    textura = (string)pChild->Attribute("texture");
+
                     if (name.compare("") != 0) {
 
                         (*nGrupos) += 1;
@@ -156,20 +195,15 @@ static Group searchRec(map<string,Figura> &figuras, vector<string> &texturas, in
                             float* texCoords; 
                             int texCoordsTAM;
                             
-                            file2list(name, &indicesTAM, &indexPoints, &points, &pointsTAM, &indexNormals, &normals, &normalsTAM, &indexTexCoords, &texCoords, &texCoordsTAM);
+                            file2list(name, &indicesTAM, &indexPoints, &points, &pointsTAM, &indexNormals, &normals, &normalsTAM, &texCoords, &texCoordsTAM);
                             
-                            Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, indexNormals, normals, normalsTAM, indexTexCoords, texCoords, texCoordsTAM);
+                            Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, indexNormals, normals, normalsTAM,texCoords,texCoordsTAM);
                             figuras.insert( std::pair<string,Figura>(name, f) );
+                            texturas.insert( std::pair<string,GLuint> (name,loadTexture(std::string s)));
                         }
                         
                         group.ficheiros.push_back(name);
-                    }
-                    name = (string)pChild->Attribute("texture");
-                    if (name.compare("") != 0) {
-                        if(texturas.find(name) == texturas.end()) {
-                            //texturas.insert( std::pair<string,float*>);
-                        }
-                        group.texturas.push_back(name);
+                        group.texturas.push_back(textura);
                     }
 
                     pChild = pChild->NextSiblingElement("model");
@@ -197,7 +231,7 @@ static Group searchRec(map<string,Figura> &figuras, vector<string> &texturas, in
 
 }*/
 
-void parse(Group &group, map<string,Figura> &figuras, vector<string> textures, int *nGrupos, const char* path){
+void parse(Group &group, map<string,Figura> &figuras, map<string,GLuint> textures, int *nGrupos, const char* path){
     TiXmlDocument doc(path);
     if(doc.LoadFile()) {
         TiXmlElement *pRoot,*pChild;

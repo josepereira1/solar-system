@@ -35,6 +35,7 @@ int mode = GL_FILL;
 int face = GL_FRONT;
 GLuint *buffers;
 GLuint *indexes;
+GLuint *texturas;
 
 vector<TAD_POINT> p;
 int POINT_COUNT = 0;
@@ -45,9 +46,10 @@ int nextGt = 0;
 int timebase = 0, frame = 0;
 
 Group group;
-map<string, GLuint> textures;
+map<string, Textura> textures;
 map<string, Figura> figuras;
 map<string, Figura>::iterator it;
+map<string, Textura>::iterator aux;
 
 void spherical2Cartesian() {
 	camX = radius * cos(beta) * sin(alfa);
@@ -194,20 +196,40 @@ void design(Group g) {
 
 	for (unsigned i = 0, count = 0; i < g.ficheiros.size(); i++, count = 0) {
 		string nome_ficheiro = g.ficheiros[i];
+		string nome_textura = g.texturas[i];
 		int tam = 0;
+		GLuint t;
 		for (it = figuras.begin(); it != figuras.end(); ++it, count++) {
 			if (it->first.compare(nome_ficheiro) == 0) {
 				tam = it->second.indicesTAM;
 				break;
 			}
 		}
+		for (it = textures.begin(); it != textures.end(); ++it) {
+			if (it->first.compare(nome_textura) == 0) {
+				t = it->second;
+				break;
+			}
+		}
+		// guardar a textura a ser usada neste desenho
+		glBindTexture(GL_TEXTURE_2D, t);
+
 		// count indica a posição no map que representa a posição no buffer e no index
 		glBindBuffer(GL_ARRAY_BUFFER, buffers[count]); // paga no buffer sphere
 		// nº de pontos para formar 1 vertice/ tipo da coordenada/ distancia entre indices dos vertices consecutivos / onde começa o array
 		glVertexPointer(3, GL_FLOAT, 0, 0); // digo que 3 pontos formam 1 vertice
+
 		// usa array de indices
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[count]);
+
+		// usa array de coordenadas de imagem para aplicar textura
+		glBindBuffer(GL_ARRAY_BUFFER , texturas[count]);
+		glTexCoordPointer(2,GL_FLOAT,0,0);
+
 		glDrawElements(GL_TRIANGLES, tam, GL_UNSIGNED_INT, 0); // nº de vertices a desenhar
+
+		// limpar textura usada
+		glBindTexture(GL_TEXTURE_2D, 0);
 		//glEnable(GL_CULL_FACE);
 	}
 	nextGt += 1;
@@ -351,50 +373,6 @@ void initGL() {
 	glEnable(GL_TEXTURE_2D);
 }
 
-void getTextures(){
-	iterator it;
-    it = textures.begin(); // aponta para 1º elemento
-	for(it = textures.begin();it != textures.end();it++){
-		int x = loadTexture(tex);
-	}
-}
-
-int loadTexture(std::string s) {
-
-	unsigned int t,tw,th;
-	unsigned char *texData;
-	unsigned int texID;
-
-	ilInit();
-	ilEnable(IL_ORIGIN_SET);
-	ilOriginFunc(IL_ORIGIN_LOWER_LEFT);
-	ilGenImages(1,&t);
-	ilBindImage(t);
-	ilLoadImage((ILstring)s.c_str());
-	tw = ilGetInteger(IL_IMAGE_WIDTH);
-	th = ilGetInteger(IL_IMAGE_HEIGHT);
-	ilConvertImage(IL_RGBA, IL_UNSIGNED_BYTE);
-	texData = ilGetData();
-
-	glGenTextures(1,&texID);
-	
-	glBindTexture(GL_TEXTURE_2D,texID);
-	glTexParameteri(GL_TEXTURE_2D,	GL_TEXTURE_WRAP_S,		GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D,	GL_TEXTURE_WRAP_T,		GL_REPEAT);
-
-	glTexParameteri(GL_TEXTURE_2D,	GL_TEXTURE_MAG_FILTER,   	GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D,	GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-		
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, tw, th, 0, GL_RGBA, GL_UNSIGNED_BYTE, texData);
-	glGenerateMipmap(GL_TEXTURE_2D);
-
-	glBindTexture(GL_TEXTURE_2D, 0);
-
-	return texID;
-
-}
-
-
 int main(int argc, char** argv) {
 	int nGrupos = 0;
 	parse(group, figuras, textures, &nGrupos, "file.xml");
@@ -438,15 +416,18 @@ int main(int argc, char** argv) {
 	indexes = ind2;
 	glGenBuffers(nFiguras, buffers);                                      // gera 3 buffers de coordenadas
 	glGenBuffers(nFiguras, indexes);                                      // gera 3 buffers de indices
+	glGenBuffers(nFiguras, texturas);
 	for (it = figuras.begin(), nFiguras = 0; it != figuras.end(); ++it, nFiguras++) {
 		glBindBuffer(GL_ARRAY_BUFFER, buffers[nFiguras]);                                                          // pega no buffer[nFiguras]
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.pointsTAM), it->second.points, GL_STATIC_DRAW);  // preenche buffer[nFiguras] 
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[nFiguras]);                                                                 // pega  indexes[nFiguras]
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indexPoints), GL_STATIC_DRAW); // preenche indexes[nFiguras] 
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, texturas[nFiguras]);                                                                 // pega  indexes[nFiguras]
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Gluint)*(it->second.texCoordsTAM), (it->second.texCoords), GL_STATIC_DRAW); // preenche indexes[nFiguras] 
 	}
+
 	spherical2Cartesian();
 
-	getTextures();
 	// enter GLUT's main cycle
 	glutMainLoop();
 

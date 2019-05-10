@@ -58,6 +58,14 @@ int equalsPoint(TAD_POINT point1, TAD_POINT point2){
 }
 
 
+void normalize(TAD_POINT point) {
+
+	float l = sqrt((point->x)*(point->x) + (point->y)*(point->y) + (point->z)*(point->z));
+	point->x = (point->x)/l;
+	point->y = (point->y)/l;
+	point->z = (point->z)/l;
+}
+
 void point2string(TAD_POINT point) {
 	printf("TAD_POINT{x=%.5f, y=%.5f, z=%.5f}\n", point->x, point->y, point->z);
 }
