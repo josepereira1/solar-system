@@ -85,7 +85,7 @@ void readPatchFile(string path, int*** arrayPatchs, TAD_ARRAY_LIST * pontos){
 }
 
 
-void file2list(string path, int* indicesTAM, unsigned int** indices, float** vertexB, int* vertexBTAM) {
+void file2list(string path, int* indicesTAM, unsigned int** indexPoints, float** points, int* pointsTAM, unsigned int** indexNormals, float** normals, int* normalsTAM, unsigned int** indexNormals, float** normals, int* normalsTAM) {
 	string line;
 	float x, y, z;
 	char* ptr;
@@ -93,36 +93,103 @@ void file2list(string path, int* indicesTAM, unsigned int** indices, float** ver
 	
 	ifstream infile(path);	//	abre o ficheiro
 	
+	//points
 	getline(infile, line);	//	vai buscar a primeira linha
 	*indicesTAM = atoi(line.c_str()); 
     //printf("indicesTAM=%d\n",*indicesTAM );
 	getline(infile, line);	//	vai buscar a segunda linha
 	char* init = (char*) line.c_str();
-	*indices = (unsigned int*) malloc(sizeof(unsigned int) * (*indicesTAM));
+	*indexPoints = (unsigned int*) malloc(sizeof(unsigned int) * (*indicesTAM));
 	for(i = 0; (ptr = strstr(init, ",")) != NULL ; i++){	//	encontra o apontador da ","
 		char* tmp = ptr + sizeof(char);		//	guarda temporariamente a posição a seguir à vírgula, isto é, o apontador para o próximo número
 		*ptr = '\0';	//	fim da número, para o atoi saber onde termina a string
 		//printf("%s\n",init );
-		(*indices)[i] = atoi(init);//	converte o char* num int
+		(*indexPoints)[i] = atoi(init);//	converte o char* num int
 		init = tmp;	//	atribuí-se a init o ínicio do próximo número
 	}
-	(*indices)[i] = atoi(init); // por causa do último número não ter ','
+	(*indexPoints)[i] = atoi(init); // por causa do último número não ter ','
 	getline(infile, line);	
-	*vertexBTAM = atoi(line.c_str()); 
+	*pointsTAM = atoi(line.c_str()); 
 	//printf("vertexBTAM=%d\n",*vertexBTAM);
-	*vertexB = (float*) malloc(sizeof(float) * (3*(*vertexBTAM)));
-	for(int k=0; k < *vertexBTAM; k++) {
+	*points = (float*) malloc(sizeof(float) * (3*(*pointsTAM)));
+	for(int k=0; k < *pointsTAM; k++) {
 		getline(infile, line);	//	vai buscar a segunda linha
 		init = (char*) line.c_str();
 		for(i = 0; (ptr = strstr(init, ",")) != NULL ; i++){	//	encontra o apontador da ","
 			char* tmp=init;		//	guarda temporariamente a posição a seguir à vírgula, isto é, o apontador para o próximo número
 			(*ptr) = '\0';	        //	fim da número, para o atoi saber onde termina a string
-			(*vertexB)[index++] = atof(tmp);//	converte o char* num int
+			(*points)[index++] = atof(tmp);//	converte o char* num int
 			init = ptr+1;	//	atribuí-se a init o ínicio do próximo número
 		}
-		(*vertexB)[index++] = atof(init); // por causa do último número não ter ','
+		(*points)[index++] = atof(init); // por causa do último número não ter ','
 	}
-	(*vertexBTAM) = index;
+	(*pointsTAM) = index;
+
+	//normals
+	index = 0;
+	getline(infile, line);	//	vai buscar a primeira linha
+	*indicesTAM = atoi(line.c_str()); 
+    //printf("indicesTAM=%d\n",*indicesTAM );
+	getline(infile, line);	//	vai buscar a segunda linha
+	init = (char*) line.c_str();
+	*indexNormals = (unsigned int*) malloc(sizeof(unsigned int) * (*indicesTAM));
+	for(i = 0; (ptr = strstr(init, ",")) != NULL ; i++){	//	encontra o apontador da ","
+		char* tmp = ptr + sizeof(char);		//	guarda temporariamente a posição a seguir à vírgula, isto é, o apontador para o próximo número
+		*ptr = '\0';	//	fim da número, para o atoi saber onde termina a string
+		//printf("%s\n",init );
+		(*indexNormals)[i] = atoi(init);//	converte o char* num int
+		init = tmp;	//	atribuí-se a init o ínicio do próximo número
+	}
+	(*indexNormals)[i] = atoi(init); // por causa do último número não ter ','
+	getline(infile, line);	
+	*normalsTAM = atoi(line.c_str()); 
+	//printf("vertexBTAM=%d\n",*vertexBTAM);
+	*normals = (float*) malloc(sizeof(float) * (3*(*normalsTAM)));
+	for(int k=0; k < *normalsTAM; k++) {
+		getline(infile, line);	//	vai buscar a segunda linha
+		init = (char*) line.c_str();
+		for(i = 0; (ptr = strstr(init, ",")) != NULL ; i++){	//	encontra o apontador da ","
+			char* tmp=init;		//	guarda temporariamente a posição a seguir à vírgula, isto é, o apontador para o próximo número
+			(*ptr) = '\0';	        //	fim da número, para o atoi saber onde termina a string
+			(*normals)[index++] = atof(tmp);//	converte o char* num int
+			init = ptr+1;	//	atribuí-se a init o ínicio do próximo número
+		}
+		(*normals)[index++] = atof(init); // por causa do último número não ter ','
+	}
+	(*normalsTAM) = index;
+
+	//texCoords
+	index = 0;
+	getline(infile, line);	//	vai buscar a primeira linha
+	*indicesTAM = atoi(line.c_str()); 
+    //printf("indicesTAM=%d\n",*indicesTAM );
+	getline(infile, line);	//	vai buscar a segunda linha
+	init = (char*) line.c_str();
+	*indexTexCoords = (unsigned int*) malloc(sizeof(unsigned int) * (*indicesTAM));
+	for(i = 0; (ptr = strstr(init, ",")) != NULL ; i++){	//	encontra o apontador da ","
+		char* tmp = ptr + sizeof(char);		//	guarda temporariamente a posição a seguir à vírgula, isto é, o apontador para o próximo número
+		*ptr = '\0';	//	fim da número, para o atoi saber onde termina a string
+		//printf("%s\n",init );
+		(*indexTexCoords)[i] = atoi(init);//	converte o char* num int
+		init = tmp;	//	atribuí-se a init o ínicio do próximo número
+	}
+	(*indexTexCoords)[i] = atoi(init); // por causa do último número não ter ','
+	getline(infile, line);	
+	*texCoordsTAM = atoi(line.c_str()); 
+	//printf("vertexBTAM=%d\n",*vertexBTAM);
+	*texCoords = (float*) malloc(sizeof(float) * (3*(*texCoordsTAM)));
+	for(int k=0; k < *texCoordsTAM; k++) {
+		getline(infile, line);	//	vai buscar a segunda linha
+		init = (char*) line.c_str();
+		for(i = 0; (ptr = strstr(init, ",")) != NULL ; i++){	//	encontra o apontador da ","
+			char* tmp=init;		//	guarda temporariamente a posição a seguir à vírgula, isto é, o apontador para o próximo número
+			(*ptr) = '\0';	        //	fim da número, para o atoi saber onde termina a string
+			(*texCoords)[index++] = atof(tmp);//	converte o char* num int
+			init = ptr+1;	//	atribuí-se a init o ínicio do próximo número
+		}
+		(*texCoords)[index++] = atof(init); // por causa do último número não ter ','
+	}
+	(*texCoordsTAM) = index;
 }
 
 
