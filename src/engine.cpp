@@ -331,6 +331,10 @@ static void printGroup(Group g) {
 		string str = g.ficheiros.at(i);
 		cout << "Ficheiro=" + str + "\n";
 	}
+	for (int i = 0; i < g.texturas.size(); i++) {
+		string str = g.texturas.at(i);
+		cout << "Textura=" + str + "\n";
+	}
 	for (int i = 0; i < g.filhos.size(); i++) {
 		Group a = g.filhos.at(i);
 		printf("GROUP:-----------------------------------------------\n");
@@ -350,9 +354,17 @@ static void printFiguras(map<string, Figura> figuras) {
 		for (int i = 0; i < f.indicesTAM; i++) {
 			printf("%d, ", f.indexPoints[i]);
 		}
-		printf("\nvertexBTAM=%d\n", f.pointsTAM);
+		printf("\npointsTAM=%d\n", f.pointsTAM);
 		for (int i = 0; i < f.pointsTAM; i++) {
 			printf("%.5f, ", f.points[i]);
+		}
+		printf("\nnormalsTAM=%d\n", f.normalsTAM);
+		for (int i = 0; i < f.normalsTAM; i++) {
+			printf("%.5f, ", f.normals[i]);
+		}
+		printf("\ntexCoordsTAM=%d\n", f.texCoordsTAM);
+		for (int i = 0; i < f.texCoordsTAM; i++) {
+			printf("%.5f, ", f.texCoords[i]);
 		}
 		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"); // para separar as figuras de modo legível
 	}
@@ -403,8 +415,7 @@ int main(int argc, char** argv) {
 
 	//  OpenGL settings
 	initGL();
-
-	parse(group, figuras, textures, &nGrupos, "file.xml");
+	parse(group, figuras, textures, &nGrupos, "file_test.xml");
 	myangArray = (float*)malloc(sizeof(float)*nGrupos);
 	mygtArray = (float*)malloc(sizeof(float)*nGrupos);
 	for (int i = 0; i < nGrupos; i++) {

@@ -13,20 +13,9 @@
 #include <math.h>
 #include "../toolkits/devil/IL/il.h"
 
-#ifdef __APPLE__
-#define GL_SILENCE_DEPRECATION
-#include <GLUT/glut.h>
-#else
-#include <GL/glew.h>
-#include <GL/glut.h>
-#endif
-
-
-
 using namespace std;
 
-
-int loadTexture(std::string s) {
+int loadTexture(string s) {
 
     unsigned int t,tw,th;
     unsigned char *texData;
@@ -58,7 +47,32 @@ int loadTexture(std::string s) {
     glBindTexture(GL_TEXTURE_2D, 0);
 
     return texID;
+}
 
+// DEBUG
+static void printFigura(Figura f) {
+	printf("indicesTAM=%d\n", f.indicesTAM);
+	int i;
+	for (i = 0; i < f.indicesTAM-1; i++) {
+		printf("%d, ", f.indexPoints[i]);
+	}
+	printf("%d", f.indexPoints[i]);
+	printf("\npointsTAM=%d\n", f.pointsTAM);
+	for (i = 0; i < f.pointsTAM-1; i++) {
+		printf("%.5f, ", f.points[i]);
+	}
+	printf("%.5f", f.points[i]);
+	printf("\nnormalsTAM=%d\n", f.normalsTAM);
+	for (i = 0; i < f.normalsTAM-1; i++) {
+		printf("%.5f, ", f.normals[i]);
+	}
+	printf("%.5f", f.normals[i]);
+	printf("\ntexCoordsTAM=%d\n", f.texCoordsTAM);
+	for (i = 0; i < f.texCoordsTAM-1; i++) {
+		printf("%.5f, ", f.texCoords[i]);
+	}
+	printf("%.5f", f.texCoords[i]);
+	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"); // para separar as figuras de modo legível
 }
 
 static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &texturas, int *nGrupos, TiXmlElement *pRoot) {
@@ -187,8 +201,7 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
                     textura = (string)pChild->Attribute("texture");
 
                     if (name.compare("") != 0) {
-
-                        (*nGrupos) += 1;
+						(*nGrupos) += 1;
                         if(figuras.find(name) == figuras.end()) { // se não  existir 
                             //Tamanho dos indices iguais para todos
                             int indicesTAM; 
@@ -209,9 +222,10 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
                             file2list(name, &indicesTAM, &indexPoints, &points, &pointsTAM, &normals, &normalsTAM, &texCoords, &texCoordsTAM);
                             
                             Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, normals, normalsTAM, texCoords, texCoordsTAM);
-                            figuras.insert( std::pair<string,Figura>(name,f));
+							printFigura(f);
+							figuras.insert(pair<string,Figura>(name,f));
 							if (textura.compare("") != 0) {
-								texturas.insert(std::pair<string, Textura>(textura, loadTexture(textura)));
+								texturas.insert(pair<string, Textura>(textura, loadTexture(textura)));
 							}
                         }
                         
@@ -236,7 +250,7 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
 
         pRoot = pRoot->NextSiblingElement(); // grupos encadeados
     }
-
+	//printf("Chega aqui 2?\n");
     return group;
 }
 
@@ -244,17 +258,17 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
 
 }*/
 
-void parse(Group &group, map<string,Figura> &figuras, map<string,Textura> textures, int *nGrupos, const char* path){
+void parse(Group &group, map<string,Figura> &figuras, map<string,Textura> &textures, int *nGrupos, const char* path){
     TiXmlDocument doc(path);
     if(doc.LoadFile()) {
         TiXmlElement *pRoot,*pChild;
         pRoot = doc.FirstChildElement("scene");
         if(pRoot) {
-            pChild = pRoot->FirstChildElement("ligths");
+            /*pChild = pRoot->FirstChildElement("ligths");
             if(pChild) {
                 //ligths = searchLigths(pRoot);
-            }
-
+            }*/
+			//printf("Chega aqui 1?\n");
             pChild = pRoot->FirstChildElement("group");
             if(pChild) {
                 group = searchRec(figuras, textures, nGrupos, pRoot);
