@@ -16,6 +16,7 @@
 #include <operation.h>
 #include <vector>
 #include <Figura.h>
+#include <Textura.h>
 #include <map>
 
 #define _USE_MATH_DEFINES
@@ -35,6 +36,7 @@ int mode = GL_FILL;
 int face = GL_FRONT;
 GLuint *buffers;
 GLuint *indexes;
+GLuint *normals;
 GLuint *texturas;
 
 vector<TAD_POINT> p;
@@ -46,10 +48,10 @@ int nextGt = 0;
 int timebase = 0, frame = 0;
 
 Group group;
-map<string, GLuint> textures;
+map<string, Textura> textures;
 map<string, Figura> figuras;
 map<string, Figura>::iterator it;
-map<string, GLuint>::iterator aux;
+map<string, Textura>::iterator aux;
 
 void spherical2Cartesian() {
 	camX = radius * cos(beta) * sin(alfa);
@@ -207,7 +209,7 @@ void design(Group g) {
 		}
 		for (aux = textures.begin(); aux != textures.end(); ++it) {
 			if (aux->first.compare(nome_textura) == 0) {
-				t = aux->second;
+				t = aux->second.tex;
 				break;
 			}
 		}
@@ -221,6 +223,10 @@ void design(Group g) {
 
 		// usa array de indices
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[count]);
+
+		// usa array de normais 
+		glBindBuffer(GL_ARRAY_BUFFER, normals[count]);
+		glNormalPointer(GL_FLOAT, 0, 0);
 
 		// usa array de coordenadas de imagem para aplicar textura
 		glBindBuffer(GL_ARRAY_BUFFER , texturas[count]);
@@ -410,20 +416,28 @@ int main(int argc, char** argv) {
 	initGL();
 
 	int nFiguras = figuras.size();
+	int nTexturas = textures.size();
 	GLuint buf2[4];
 	GLuint ind2[4];
+	GLuint nor2[4];
+	GLuint tex2[4];
 	buffers = buf2;
 	indexes = ind2;
+	normals = nor2;
+	texturas = tex2;
 	glGenBuffers(nFiguras, buffers);                                      // gera 3 buffers de coordenadas
 	glGenBuffers(nFiguras, indexes);                                      // gera 3 buffers de indices
+	glGenBuffers(nFiguras, normals);
 	glGenBuffers(nFiguras, texturas);
 	for (it = figuras.begin(), nFiguras = 0; it != figuras.end(); ++it, nFiguras++) {
 		glBindBuffer(GL_ARRAY_BUFFER, buffers[nFiguras]);                                                          // pega no buffer[nFiguras]
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.pointsTAM), it->second.points, GL_STATIC_DRAW);  // preenche buffer[nFiguras] 
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[nFiguras]);                                                                 // pega  indexes[nFiguras]
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indexPoints), GL_STATIC_DRAW); // preenche indexes[nFiguras] 
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, texturas[nFiguras]);                                                                 // pega  indexes[nFiguras]
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint)*(it->second.texCoordsTAM), (it->second.texCoords), GL_STATIC_DRAW); // preenche indexes[nFiguras] 
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indexPoints), GL_STATIC_DRAW); // preenche indexes[nFiguras]
+		glBindBuffer(GL_ARRAY_BUFFER, texturas[nFiguras]);                                                                 // pega  indexes[nFiguras]
+		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.normalsTAM), it->second.normals, GL_STATIC_DRAW); // preenche indexes[nFiguras] 
+		glBindBuffer(GL_ARRAY_BUFFER, texturas[nFiguras]);                                                                 // pega  indexes[nFiguras]
+		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.texCoordsTAM), it->second.texCoords, GL_STATIC_DRAW); // preenche indexes[nFiguras] 
 	}
 
 	spherical2Cartesian();

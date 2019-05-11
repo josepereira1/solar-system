@@ -110,7 +110,7 @@ void file2list(string path, int* indicesTAM, unsigned int** indexPoints, float**
 	(*indexPoints)[i] = atoi(init); // por causa do último número não ter ','
 	getline(infile, line);	
 	*pointsTAM = atoi(line.c_str()); 
-	//printf("vertexBTAM=%d\n",*vertexBTAM);
+	//printf("pointsTAM=%d\n",*pointsTAM);
 	*points = (float*) malloc(sizeof(float) * (3*(*pointsTAM)));
 	for(int k=0; k < *pointsTAM; k++) {
 		getline(infile, line);	//	vai buscar a segunda linha
@@ -129,7 +129,7 @@ void file2list(string path, int* indicesTAM, unsigned int** indexPoints, float**
 	index = 0;
 	getline(infile, line);	
 	*normalsTAM = atoi(line.c_str()); 
-	//printf("vertexBTAM=%d\n",*vertexBTAM);
+	//printf("normalsTAM=%d\n",*normalsTAM);
 	*normals = (float*) malloc(sizeof(float) * (3*(*normalsTAM)));
 	for(int k=0; k < *normalsTAM; k++) {
 		getline(infile, line);	//	vai buscar a segunda linha
@@ -148,8 +148,8 @@ void file2list(string path, int* indicesTAM, unsigned int** indexPoints, float**
 	index = 0;
 	getline(infile, line);	
 	*texCoordsTAM = atoi(line.c_str()); 
-	//printf("vertexBTAM=%d\n",*vertexBTAM);
-	*texCoords = (float*) malloc(sizeof(float) * (3*(*texCoordsTAM)));
+	//printf("texCoordsTAM=%d\n",*texCoordsTAM);
+	*texCoords = (float*) malloc(sizeof(float) * (2*(*texCoordsTAM)));
 	for(int k=0; k < *texCoordsTAM; k++) {
 		getline(infile, line);	//	vai buscar a segunda linha
 		init = (char*) line.c_str();

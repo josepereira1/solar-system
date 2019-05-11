@@ -57,7 +57,7 @@ int loadTexture(std::string s) {
 
 }
 
-static Group searchRec(map<string,Figura> &figuras, map<string,GLuint> &texturas, int *nGrupos, TiXmlElement *pRoot) {
+static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &texturas, int *nGrupos, TiXmlElement *pRoot) {
     
     bool t = false, r = false, s = false, m = false;
     pRoot = pRoot->FirstChildElement();
@@ -206,8 +206,9 @@ static Group searchRec(map<string,Figura> &figuras, map<string,GLuint> &texturas
                             
                             Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, normals, normalsTAM, texCoords, texCoordsTAM);
                             figuras.insert( std::pair<string,Figura>(name,f));
-							if(textura.compare("") != 0)
-								texturas.insert( std::pair<string,GLuint> (textura,loadTexture(textura)));
+							if (textura.compare("") != 0) {
+								texturas.insert(std::pair<string, Textura>(textura, loadTexture(textura)));
+							}
                         }
                         
                         group.ficheiros.push_back(name);
@@ -239,7 +240,7 @@ static Group searchRec(map<string,Figura> &figuras, map<string,GLuint> &texturas
 
 }*/
 
-void parse(Group &group, map<string,Figura> &figuras, map<string,GLuint> textures, int *nGrupos, const char* path){
+void parse(Group &group, map<string,Figura> &figuras, map<string,Textura> textures, int *nGrupos, const char* path){
     TiXmlDocument doc(path);
     if(doc.LoadFile()) {
         TiXmlElement *pRoot,*pChild;

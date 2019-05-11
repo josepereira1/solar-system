@@ -10,7 +10,7 @@ public:
 	int pointsTAM;
 	float* normals;
 	int normalsTAM;
-	float* texCoords; // GLuint*
+	float* texCoords;
 	int texCoordsTAM;
 };
 
