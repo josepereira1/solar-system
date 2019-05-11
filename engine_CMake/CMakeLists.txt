@@ -10,7 +10,7 @@ include_directories (
 ../tinyxml
 )
 
-add_executable(${PROJECT_NAME} ../src/engine.cpp ../tinyxml/tinystr.cpp ../tinyxml/tinyxml.cpp ../tinyxml/tinyxmlerror.cpp ../tinyxml/tinyxmlparser.cpp  ../src/ArrayList.cpp ../src/Figura.cpp ../src/Point.cpp ../src/boxGenerator.cpp ../src/coneGenerator.cpp ../src/fromFile.cpp ../src/group.cpp ../src/toFile.cpp ../src/operation.cpp ../src/planeGenerator.cpp ../src/sphereGenerator.cpp ../src/xmlParser.cpp ../src/Textura.cpp)
+add_executable(${PROJECT_NAME} ../src/engine.cpp ../tinyxml/tinystr.cpp ../tinyxml/tinyxml.cpp ../tinyxml/tinyxmlerror.cpp ../tinyxml/tinyxmlparser.cpp  ../src/ArrayList.cpp ../src/Figura.cpp ../src/Point.cpp ../src/fromFile.cpp ../src/group.cpp ../src/toFile.cpp ../src/operation.cpp ../src/xmlParser.cpp ../src/Textura.cpp)
 
 find_package(OpenGL REQUIRED)
 include_directories(${OpenGL_INCLUDE_DIRS})
@@ -26,6 +26,7 @@ if  (WIN32)
 
 	message(STATUS "Toolkits_DIR set to: " ${TOOLKITS_FOLDER})
 	set(TOOLKITS_FOLDER "" CACHE PATH "Path to Toolkits folder")
+	
 	if (NOT EXISTS "${TOOLKITS_FOLDER}/glut/GL/glut.h" OR NOT EXISTS "${TOOLKITS_FOLDER}/glut/glut32.lib")
 		message(ERROR ": GLUT not found")
 	endif (NOT EXISTS "${TOOLKITS_FOLDER}/glut/GL/glut.h" OR NOT EXISTS "${TOOLKITS_FOLDER}/glut/glut32.lib")	
