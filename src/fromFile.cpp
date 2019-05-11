@@ -87,7 +87,6 @@ void readPatchFile(string path, int*** arrayPatchs, TAD_ARRAY_LIST * pontos){
 
 void file2list(string path, int* indicesTAM, unsigned int** indexPoints, float** points, int* pointsTAM, float** normals, int* normalsTAM, float** texCoords, int* texCoordsTAM) {
 	string line;
-	float x, y, z;
 	char* ptr;
 	int i, index=0;
 	

@@ -366,7 +366,6 @@ void initGL() {
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 
-	spherical2Cartesian();
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_NORMAL_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -381,16 +380,6 @@ void initGL() {
 
 int main(int argc, char** argv) {
 	int nGrupos = 0;
-	parse(group, figuras, textures, &nGrupos, "file.xml");
-	myangArray = (float*)malloc(sizeof(float)*nGrupos);
-	mygtArray = (float*)malloc(sizeof(float)*nGrupos);
-	for (int i = 0; i < nGrupos; i++) {
-		myangArray[i] = 0;
-		mygtArray[i] = 0;
-	}
-
-	// printGroup(group);    //  DEBUG
-	// printFiguras(figuras); //  DEBUG
 
 	// init GLUT and the window
 	glutInit(&argc, argv);
@@ -414,6 +403,16 @@ int main(int argc, char** argv) {
 
 	//  OpenGL settings
 	initGL();
+
+	parse(group, figuras, textures, &nGrupos, "file.xml");
+	myangArray = (float*)malloc(sizeof(float)*nGrupos);
+	mygtArray = (float*)malloc(sizeof(float)*nGrupos);
+	for (int i = 0; i < nGrupos; i++) {
+		myangArray[i] = 0;
+		mygtArray[i] = 0;
+	}
+	// printGroup(group);    //  DEBUG
+	// printFiguras(figuras); //  DEBUG
 
 	int nFiguras = figuras.size();
 	int nTexturas = textures.size();

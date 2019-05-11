@@ -1,6 +1,5 @@
 #include <tinyxml.h>
 #include <stdio.h>
-#include <string>
 #include <iostream>
 #include <group.h>
 #include <operation.h>
@@ -8,16 +7,21 @@
 #include <Figura.h>
 #include <Textura.h>
 #include <map>
-#include <vector>
 #include <fromFile.h>
-#include "../devil/IL/il.h"
+#include <stdlib.h>
+#include <string>
+#include <math.h>
+#include "../toolkits/devil/IL/il.h"
 
 #ifdef __APPLE__
+#define GL_SILENCE_DEPRECATION
 #include <GLUT/glut.h>
 #else
 #include <GL/glew.h>
 #include <GL/glut.h>
 #endif
+
+
 
 using namespace std;
 
@@ -69,9 +73,9 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
         string name = (string)pRoot->Value();
         string textura = (string)pRoot->Value();
 
-        float x=0.0f,y=0.0f,z=0.0f,angle=0.0f;
+        float x=0.0f,y=0.0f,z=0.0f;
         int time=0;
-        const char *sx, *sy, *sz, *sangle, *stime;
+        const char *sx, *sy, *sz, *stime;
         
         if(name.compare("translate")==0) {
             

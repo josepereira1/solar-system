@@ -6,6 +6,7 @@
 #include <Point.h>
 #include <toFile.h>
 #include <filterPoints.h>
+#include "../toolkits/devil/IL/il.h"
 
 //	generators
 #include <coneGenerator.h>
