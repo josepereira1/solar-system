@@ -222,7 +222,7 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
                             file2list(name, &indicesTAM, &indexPoints, &points, &pointsTAM, &normals, &normalsTAM, &texCoords, &texCoordsTAM);
                             
                             Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, normals, normalsTAM, texCoords, texCoordsTAM);
-							printFigura(f);
+							//printFigura(f);
 							figuras.insert(pair<string,Figura>(name,f));
 							if (textura.compare("") != 0) {
 								texturas.insert(pair<string, Textura>(textura, loadTexture(textura)));
@@ -250,7 +250,7 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
 
         pRoot = pRoot->NextSiblingElement(); // grupos encadeados
     }
-	//printf("Chega aqui 2?\n");
+	//printf("Chega aqui ?\n");
     return group;
 }
 
@@ -264,15 +264,17 @@ void parse(Group &group, map<string,Figura> &figuras, map<string,Textura> &textu
         TiXmlElement *pRoot,*pChild;
         pRoot = doc.FirstChildElement("scene");
         if(pRoot) {
-            /*pChild = pRoot->FirstChildElement("ligths");
-            if(pChild) {
-                //ligths = searchLigths(pRoot);
-            }*/
-			//printf("Chega aqui 1?\n");
             pChild = pRoot->FirstChildElement("group");
             if(pChild) {
-                group = searchRec(figuras, textures, nGrupos, pRoot);
+                group = searchRec(figuras,textures, nGrupos, pRoot);
             }
+
+            /*
+            pChild = pRoot->FirstChildElement("ligths"); //Fase 4
+            if(pChild) {
+                ligths = searchLigths();
+            }
+            */
         }
     }
     else {

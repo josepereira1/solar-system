@@ -392,6 +392,7 @@ void initGL() {
 
 int main(int argc, char** argv) {
 	int nGrupos = 0;
+	//group = Group();
 
 	// init GLUT and the window
 	glutInit(&argc, argv);
@@ -416,14 +417,15 @@ int main(int argc, char** argv) {
 	//  OpenGL settings
 	initGL();
 	parse(group, figuras, textures, &nGrupos, "file_test.xml");
+	printf("Parse feito com sucesso");
 	myangArray = (float*)malloc(sizeof(float)*nGrupos);
 	mygtArray = (float*)malloc(sizeof(float)*nGrupos);
 	for (int i = 0; i < nGrupos; i++) {
 		myangArray[i] = 0;
 		mygtArray[i] = 0;
 	}
-	// printGroup(group);    //  DEBUG
-	// printFiguras(figuras); //  DEBUG
+	//printGroup(group);    //  DEBUG
+	//printFiguras(figuras); //  DEBUG
 
 	int nFiguras = figuras.size();
 	int nTexturas = textures.size();
@@ -444,9 +446,9 @@ int main(int argc, char** argv) {
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.pointsTAM), it->second.points, GL_STATIC_DRAW);  // preenche buffer[nFiguras] 
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[nFiguras]);                                                                 // pega  indexes[nFiguras]
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indexPoints), GL_STATIC_DRAW); // preenche indexes[nFiguras]
-		glBindBuffer(GL_ARRAY_BUFFER, texturas[nFiguras]);                                                                 // pega  indexes[nFiguras]
+		glBindBuffer(GL_ARRAY_BUFFER, normals[nFiguras]);                                                        // pega  indexes[nFiguras]
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.normalsTAM), it->second.normals, GL_STATIC_DRAW); // preenche indexes[nFiguras] 
-		glBindBuffer(GL_ARRAY_BUFFER, texturas[nFiguras]);                                                                 // pega  indexes[nFiguras]
+		glBindBuffer(GL_ARRAY_BUFFER, texturas[nFiguras]);                                                             // pega  indexes[nFiguras]
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.texCoordsTAM), it->second.texCoords, GL_STATIC_DRAW); // preenche indexes[nFiguras] 
 	}
 
