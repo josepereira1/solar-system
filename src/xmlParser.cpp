@@ -275,7 +275,6 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
 
         pRoot = pRoot->NextSiblingElement(); // grupos encadeados
     }
-    printf("a retornar\n");
     return group;
 }
 
@@ -337,14 +336,14 @@ void parse(Group &group, vector<Light> &lights, map<string,Figura> &figuras, map
     TiXmlDocument doc(path);
     if(doc.LoadFile()) {
         TiXmlElement *pRoot,*pChild,*pChild2;
-        pRoot = doc.FirstChildElement("scene");
+        pRoot = doc.FirstChildElement()->FirstChildElement();
         if (pRoot) {
-			pChild = pRoot->FirstChildElement("lights");
-			pChild2 = pRoot->FirstChildElement("group");
-			string name = (string)pRoot->Value();
-			cout << name + '\n';
-			name = (string)pChild->Value();
-			cout << name + '\n';
+			pChild = pRoot->FirstChildElement();
+			pChild2 = pRoot->NextSiblingElement();
+            string name = (string)pChild->Value();
+            cout << "pChild = " + name + '\n';
+			name = (string)pChild2->Value();
+			cout << "pChild2 = " + name + '\n';
 			name = (string)pChild2->Value();
 			cout << name + '\n';
 			if (pChild) {
