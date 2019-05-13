@@ -1,5 +1,4 @@
-#include <tinyxml.h>
-#include <stdio.h>
+#include <tinyxml.h>	
 #include <iostream>
 #include <group.h>
 #include <operation.h>
@@ -199,59 +198,64 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
                 while(pChild) {
                     
                     name = (string)pChild->Attribute("file");
-                    textura = (string)pChild->Attribute("texture");
 
                     if (name.compare("") != 0) {
 						(*nGrupos) += 1;
-                        if(figuras.find(name) == figuras.end()) { // se não  existir 
-                            //Tamanho dos indices iguais para todos
-                            int indicesTAM; 
+						if (figuras.find(name) == figuras.end()) { // se não  existir 
+							//Tamanho dos indices iguais para todos
+							int indicesTAM;
 
-                            //points
-                            unsigned int* indexPoints; 
-                            float* points;   
-                            int pointsTAM;
+							//points
+							unsigned int* indexPoints;
+							float* points;
+							int pointsTAM;
 
-                            //normals
-                            float* normals;
-                            int normalsTAM;
+							//normals
+							unsigned int* indexNormals;
+							float* normals;
+							int normalsTAM;
 
-                            //texCoords
-                            float* texCoords; 
-                            int texCoordsTAM;
-                            
-                            file2list(name, &indicesTAM, &indexPoints, &points, &pointsTAM, &normals, &normalsTAM, &texCoords, &texCoordsTAM);
-                            
-                            Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, normals, normalsTAM, texCoords, texCoordsTAM);
-							
-							figuras.insert(pair<string,Figura>(name,f));
-							if (textura.compare("") != 0) {
+							//texCoords
+							unsigned int* indexTexCoords;
+							float* texCoords;
+							int texCoordsTAM;
+
+							file2list(name, &indicesTAM, &indexPoints, &points, &pointsTAM, &indexNormals, &normals, &normalsTAM, &indexTexCoords, &texCoords, &texCoordsTAM);
+
+							Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, indexNormals, normals, normalsTAM, indexTexCoords, texCoords, texCoordsTAM);
+
+							figuras.insert(pair<string, Figura>(name, f));
+						}
+
+						textura = (string)pChild->Attribute("texture");
+						
+						if (textura.compare("") != 0) {
+							if(texturas.find(textura) == texturas.end()) 
 								texturas.insert(pair<string, Textura>(textura, loadTexture(textura)));
+						}
+						else {
+							const char* diff = pChild->Attribute("diffX");
+							const char* amb = pChild->Attribute("ambX");
+							const char* emi = pChild->Attribute("emiX");
+							const char* spec = pChild->Attribute("specX");
+							TAD_POINT p = POINT(1.0f, 1.0f, 1.0f);
+							if (diff) {
+								p = POINT(atof(diff), atof(pChild->Attribute("diffY")), atof(pChild->Attribute("diffZ")));
+								textura = "DIFF";
 							}
-							else {
-								const char* diff = pChild->Attribute("diffX");
-								const char* amb = pChild->Attribute("ambX");
-								const char* emi = pChild->Attribute("emiX");
-								const char* spec = pChild->Attribute("specX");
-								TAD_POINT p = POINT(1.0f, 1.0f, 1.0f);
-								if (diff) {
-									p = POINT(atof(diff), atof(pChild->Attribute("diffY")), atof(pChild->Attribute("diffZ")));
-									textura = "DIFF";
-								}
-								else if (amb) {
-									p = POINT(atof(amb), atof(pChild->Attribute("ambY")), atof(pChild->Attribute("ambZ")));
-									textura = "AMB";
-								}
-								else if (emi) {
-									p = POINT(atof(emi), atof(pChild->Attribute("emitY")), atof(pChild->Attribute("emiZ")));
-									textura = "EMI";
-								}
-								else if (spec) {
-									p = POINT(atof(spec), atof(pChild->Attribute("specY")), atof(pChild->Attribute("specZ")));
-									textura = "SPEC";
-								}
-								group.materials.push_back(p);
+							else if (amb) {
+								p = POINT(atof(amb), atof(pChild->Attribute("ambY")), atof(pChild->Attribute("ambZ")));
+								textura = "AMB";
 							}
+							else if (emi) {
+								p = POINT(atof(emi), atof(pChild->Attribute("emitY")), atof(pChild->Attribute("emiZ")));
+								textura = "EMI";
+							}
+							else if (spec) {
+								p = POINT(atof(spec), atof(pChild->Attribute("specY")), atof(pChild->Attribute("specZ")));
+								textura = "SPEC";
+							}
+							group.materials.push_back(p);
 						}
 						group.ficheiros.push_back(name);
 						if (textura.compare("") != 0)
@@ -275,7 +279,6 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
 
         pRoot = pRoot->NextSiblingElement(); // grupos encadeados
     }
-    printf("a retornar\n");
     return group;
 }
 
@@ -311,11 +314,11 @@ static vector<Light> searchLights(TiXmlElement *pRoot) {
 
 			if (tipo.compare("POINT") == 0) {
 				pos[3] = 1.0f;
-				lights.push_back(Light('p', pos, diff, amb, spot));
+				lights.push_back(Light('p', pos[0],pos[1],pos[2],pos[3], diff[0],diff[1],diff[2],diff[3], amb[0],amb[1],amb[2],amb[3], spot[0],spot[1],spot[2]));
 			}
 			else if (tipo.compare("DIRECTIONAL") == 0) {
 				pos[3] = 0;
-				lights.push_back(Light('d', pos, diff, amb, spot));
+				lights.push_back(Light('d', pos[0], pos[1], pos[2], pos[3], diff[0], diff[1], diff[2], diff[3], amb[0], amb[1], amb[2], amb[3], spot[0], spot[1], spot[2]));
 			}
 			else if (tipo.compare("SPOT") == 0) {
 				pos[3] = 1.0f;
@@ -325,9 +328,14 @@ static vector<Light> searchLights(TiXmlElement *pRoot) {
 				if (spotY) spot[1] = atof(spotY);
 				spotZ = pRoot->Attribute("spotZ");
 				if (spotZ) spot[2] = atof(spotZ);
-				lights.push_back(Light('s', pos, diff, amb, spot));
+				lights.push_back(Light('s', pos[0], pos[1], pos[2], pos[3], diff[0], diff[1], diff[2], diff[3], amb[0], amb[1], amb[2], amb[3], spot[0], spot[1], spot[2]));
 			}
 		}
+		
+		//printf("pos= %f , %f , %f , %f\n", pos[0], pos[1], pos[2], pos[3]);
+		//printf("diff= %f , %f , %f , %f\n", diff[0], diff[1], diff[2], diff[3]);
+		//printf("amb= %f , %f , %f , %f\n", amb[0], amb[1], amb[2], amb[3]);
+		//printf("spot= %f , %f , %f\n", spot[0], spot[1], spot[2], spot[3]);
 		pRoot = pRoot->NextSiblingElement(); //próximas luzes
 	}
 	return lights;
@@ -341,12 +349,6 @@ void parse(Group &group, vector<Light> &lights, map<string,Figura> &figuras, map
         if (pRoot) {
 			pChild = pRoot->FirstChildElement("lights");
 			pChild2 = pRoot->FirstChildElement("group");
-			string name = (string)pRoot->Value();
-			cout << name + '\n';
-			name = (string)pChild->Value();
-			cout << name + '\n';
-			name = (string)pChild2->Value();
-			cout << name + '\n';
 			if (pChild) {
 				lights = searchLights(pChild);
 			}

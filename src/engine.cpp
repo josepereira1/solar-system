@@ -36,9 +36,11 @@ float pz = 0.0;
 int mode = GL_FILL;
 int face = GL_FRONT;
 GLuint *buffers;
-GLuint *indexes;
+GLuint *indexesPoints;
 GLuint *normals;
+GLuint *indexesNormals;
 GLuint *texturas;
+GLuint *indexesTexCoords;
 
 vector<TAD_POINT> p;
 int POINT_COUNT = 0;
@@ -236,16 +238,18 @@ void design(Group g) {
 		glVertexPointer(3, GL_FLOAT, 0, 0); // digo que 3 pontos formam 1 vertice
 
 		// usa array de indices
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[count]);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesPoints[count]);
 
 		// usa array de normais 
 		glBindBuffer(GL_ARRAY_BUFFER, normals[count]);
 		glNormalPointer(GL_FLOAT, 0, 0);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesNormals[count]);
 
 		if (nome_textura.compare("SPEC") != 0 && nome_textura.compare("EMI") != 0 && nome_textura.compare("DIFF") != 0 && nome_textura.compare("AMB") != 0) {
 			// usa array de coordenadas de imagem para aplicar textura
 			glBindBuffer(GL_ARRAY_BUFFER, texturas[count]);
 			glTexCoordPointer(2, GL_FLOAT, 0, 0);
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesTexCoords[count]);
 		}
 
 		glDrawElements(GL_TRIANGLES, tam, GL_UNSIGNED_INT, 0); // nº de vertices a desenhar
@@ -273,8 +277,10 @@ void renderScene(void) {
 	gluLookAt(camX, camY, camZ,
 		px, py, pz,
 		0.0f, 1.0f, 0.0f);
-	for(int i = 0 ; i < luzes.size() ; i++)
-		glLightfv(GL_LIGHT0 + 1, GL_POSITION, luzes.at(i).pos);
+	for (int i = 0; i < luzes.size(); i++) {
+		float pos[4] = { luzes.at(i).posX,luzes.at(i).posY,luzes.at(i).posZ,luzes.at(i).posD };
+		glLightfv(GL_LIGHT0 + 1, GL_POSITION, pos);
+	}
 	design(group);
 	nextGt = 0;
 
@@ -285,7 +291,7 @@ void renderScene(void) {
 		fps = frame * 1000.0 / (time - timebase);
 		timebase = time;
 		frame = 0;
-		sprintf(s, "FPS: %f6.2", fps);
+		sprintf(s, "FPS: %6.2f", fps);
 		glutSetWindowTitle(s);
 	}
 
@@ -395,45 +401,56 @@ static void printLights(vector<Light> lights) {
 	int i = 0;
 	for (; i < lights.size(); i++) {
 		printf("tipo=%c\n", lights.at(i).tipo);
-		printf("pos= %f , %f , %f , %f\n", lights.at(i).pos[0], lights.at(i).pos[1], lights.at(i).pos[2], lights.at(i).pos[3]);
-		printf("diff= %f , %f , %f , %f\n", lights.at(i).diff[0], lights.at(i).diff[1], lights.at(i).diff[2], lights.at(i).diff[3]);
-		printf("amb= %f , %f , %f , %f\n", lights.at(i).amb[0], lights.at(i).amb[1], lights.at(i).amb[2], lights.at(i).amb[3]);
-		printf("spot= %f , %f , %f\n", lights.at(i).spot[0], lights.at(i).spot[1], lights.at(i).spot[2], lights.at(i).spot[3]);
+		printf("pos= %f , %f , %f , %f\n", lights.at(i).posX, lights.at(i).posY, lights.at(i).posZ, lights.at(i).posD);
+		printf("diff= %f , %f , %f , %f\n", lights.at(i).diffX, lights.at(i).diffY, lights.at(i).diffZ, lights.at(i).diffD);
+		printf("amb= %f , %f , %f , %f\n", lights.at(i).ambX, lights.at(i).ambY, lights.at(i).ambZ, lights.at(i).ambZ);
+		printf("spot= %f , %f , %f\n", lights.at(i).spotX, lights.at(i).spotY, lights.at(i).spotZ, lights.at(i).spotZ);
 	}
 	printf("\nNumero de luzes=%d\n", i);
 }
 
 void initGL() {
+	int nGrupos = 0;
+	parse(group, luzes, figuras, textures, &nGrupos, "file.xml");
+
+	myangArray = (float*)malloc(sizeof(float)*nGrupos);
+	mygtArray = (float*)malloc(sizeof(float)*nGrupos);
+	for (int i = 0; i < nGrupos; i++) {
+		myangArray[i] = 0;
+		mygtArray[i] = 0;
+	}
 
     // alguns settings para OpenGL
 	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_CULL_FACE);
 
 	spherical2Cartesian();
+
+	glEnable(GL_LIGHTING);
+	for (int i = 0; i < luzes.size(); i++) {
+		glEnable(GL_LIGHT0 + i);
+		Light light = luzes.at(i);
+		float diff[4] = { light.diffX,light.diffY,light.diffZ,light.diffD};
+		glLightfv(GL_LIGHT0 + i, GL_DIFFUSE, diff);
+		if (light.tipo == 's') {
+			float spot[3] = { light.spotX ,light.spotY,light.spotZ };
+			glLightfv(GL_LIGHT0 + i, GL_SPOT_DIRECTION, spot);
+			glLightf(GL_LIGHT0 + i, GL_SPOT_CUTOFF, 45.0);
+			glLightf(GL_LIGHT0 + i, GL_SPOT_EXPONENT, 0.0);
+		}
+		else {
+			float amb[4] = { light.ambX,light.ambY,light.ambZ,light.ambD };
+			glLightfv(GL_LIGHT0 + i, GL_AMBIENT, amb);
+		}
+	}
 
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_NORMAL_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
-	glClearColor(0, 0, 0, 0);
-	glEnable(GL_LIGHTING);
-	for (int i = 0; i < luzes.size(); i++) {
-		glEnable(GL_LIGHT0 + i);
-		Light light = luzes.at(i);
-		glLightfv(GL_LIGHT0 + i, GL_DIFFUSE, light.diff);
-		if (light.tipo == 's') {
-			glLightfv(GL_LIGHT0 + i, GL_SPOT_DIRECTION, light.spot);
-			glLightf(GL_LIGHT0 + i, GL_SPOT_CUTOFF, 45.0);
-			glLightf(GL_LIGHT0 + i, GL_SPOT_EXPONENT, 0.0);
-		}
-		else glLightfv(GL_LIGHT0 + i, GL_AMBIENT, light.amb);
-	}
-
 	glEnable(GL_TEXTURE_2D);
 }
 
 int main(int argc, char** argv) {
-	int nGrupos = 0;
 
 	// init GLUT and the window
 	glutInit(&argc, argv);
@@ -451,51 +468,59 @@ int main(int argc, char** argv) {
 	glutKeyboardFunc(processKeys);
 	glutSpecialFunc(processSpecialKeys);
 
+
 #ifndef __APPLE__
 	glewInit();
 #endif
-
+	
 	//  OpenGL settings
+	
 	initGL();
-	parse(group, luzes, figuras, textures, &nGrupos, "file.xml");
-	printf("Parse feito com sucesso");
-	myangArray = (float*)malloc(sizeof(float)*nGrupos);
-	mygtArray = (float*)malloc(sizeof(float)*nGrupos);
-	for (int i = 0; i < nGrupos; i++) {
-		myangArray[i] = 0;
-		mygtArray[i] = 0;
-	}
-	printGroup(group);    //  DEBUG
-	printFiguras(figuras); //  DEBUG
-	printLights(luzes); // DEBUG
+	printf("Numero de texturas=%d\n", textures.size());
+	
+	//printGroup(group);    //  DEBUG
+	//printFiguras(figuras); //  DEBUG
+	//printLights(luzes); // DEBUG
 
 	int nFiguras = figuras.size();
-	GLuint buf2[4];
-	GLuint ind2[4];
-	GLuint nor2[4];
-	GLuint tex2[4];
+	GLuint buf2[3];
+	GLuint indp[3];
+	GLuint nor2[3];
+	GLuint indn[3];
+	GLuint tex2[3];
+	GLuint indt[3];
 	buffers = buf2;
-	indexes = ind2;
+	indexesPoints = indp;
 	normals = nor2;
+	indexesNormals = indn;
 	texturas = tex2;
+	indexesTexCoords = indt;
 	glGenBuffers(nFiguras, buffers);                                      // gera 3 buffers de coordenadas
-	glGenBuffers(nFiguras, indexes);                                      // gera 3 buffers de indices
+	glGenBuffers(nFiguras, indexesPoints);                                      // gera 3 buffers de indices
 	glGenBuffers(nFiguras, normals);
+	glGenBuffers(nFiguras, indexesNormals);
 	glGenBuffers(nFiguras, texturas);
+	glGenBuffers(nFiguras, indexesTexCoords);
 	for (it = figuras.begin(), nFiguras = 0; it != figuras.end(); ++it, nFiguras++) {
+		//points
 		glBindBuffer(GL_ARRAY_BUFFER, buffers[nFiguras]);                                                          // pega no buffer[nFiguras]
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.pointsTAM), it->second.points, GL_STATIC_DRAW);  // preenche buffer[nFiguras] 
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes[nFiguras]);                                                                 // pega  indexes[nFiguras]
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indexPoints), GL_STATIC_DRAW); // preenche indexes[nFiguras]
-		glBindBuffer(GL_ARRAY_BUFFER, normals[nFiguras]);                                                        // pega  indexes[nFiguras]
-		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.normalsTAM), it->second.normals, GL_STATIC_DRAW); // preenche indexes[nFiguras] 
-		glBindBuffer(GL_ARRAY_BUFFER, texturas[nFiguras]);                                                             // pega  indexes[nFiguras]
-		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.texCoordsTAM), it->second.texCoords, GL_STATIC_DRAW); // preenche indexes[nFiguras] 
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesPoints[nFiguras]);                                                                 // pega  indexesPoints[nFiguras]
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indexPoints), GL_STATIC_DRAW); // preenche indexesPoints[nFiguras]
+		//normals
+		glBindBuffer(GL_ARRAY_BUFFER, normals[nFiguras]);                                                        // pega  normals[nFiguras]
+		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.normalsTAM), it->second.normals, GL_STATIC_DRAW); // preenche normals[nFiguras] 
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesNormals[nFiguras]);                                                                 // pega  indexesNormals[nFiguras]
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indexNormals), GL_STATIC_DRAW); // preenche indexesNormals[nFiguras]
+		//texture
+		glBindBuffer(GL_ARRAY_BUFFER, texturas[nFiguras]);                                                             // pega  texCoords[nFiguras]
+		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.texCoordsTAM), it->second.texCoords, GL_STATIC_DRAW); // preenche texCoords[nFiguras] 
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesTexCoords[nFiguras]);                                                                 // pega  indexesTexCoords[nFiguras]
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indexTexCoords), GL_STATIC_DRAW); // preenche indexesTexCoords[nFiguras]
 	}
-	printf("Chega aqui?");
 
 	// enter GLUT's main cycle
 	glutMainLoop();
 
-	return 1;
+	return 0;
 }

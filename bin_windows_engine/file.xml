@@ -99,7 +99,7 @@
                     <point X=13.70318 Y=0 Z=-6.10105 />
                 </translate>
                 <models>
-                    <model file="sphere3.3d" texture=""/> <!-- Lua -->
+                    <model file="sphere3.3d" texture="sun.jpg"/> <!-- Lua -->
                 </models>
             </group>
         </group>
@@ -146,7 +146,7 @@
                     <point X=13.70318 Y=0 Z=-6.10105 />
                 </translate>
                 <models>
-                    <model file="sphere3.3d" texture=""/> <!-- Lua Marte -->
+                    <model file="sphere3.3d" texture="sun.jpg"/> <!-- Lua Marte -->
                 </models>
             </group>
        </group>
@@ -194,7 +194,7 @@
                 </translate>
                 <scale X=0.5 Y=0.5 Z=0.5 />
                 <models>
-                    <model file="sphere3.3d" texture=""/> <!-- Lua Jupiter -->
+                    <model file="sphere3.3d" texture="sun.jpg"/> <!-- Lua Jupiter -->
                 </models>
             </group>
             <group>
@@ -218,7 +218,7 @@
                 </translate>
                 <scale X=0.5 Y=0.5 Z=0.5 />
                 <models>
-                    <model file="sphere3.3d" texture=""/> <!-- Lua Jupiter -->
+                    <model file="sphere3.3d" texture="sun.jpg"/> <!-- Lua Jupiter -->
                 </models>
             </group>
             <group>
@@ -242,7 +242,7 @@
                 </translate>
                 <scale X=0.5 Y=0.5 Z=0.5 />
                 <models>
-                    <model file="sphere3.3d" texture=""/> <!-- Lua Jupiter -->
+                    <model file="sphere3.3d" texture="sun.jpg"/> <!-- Lua Jupiter -->
                 </models>
             </group>
         </group>
@@ -289,7 +289,7 @@
                     <point X=13.70318 Y=0 Z=-6.10105 />
                 </translate>
                 <models>
-                    <model file="sphere3.3d" texture=""/> <!-- Lua Saturno -->
+                    <model file="sphere3.3d" texture="sun.jpg"/> <!-- Lua Saturno -->
                 </models>
             </group>
         </group>
@@ -336,7 +336,7 @@
                     <point X=13.70318 Y=0 Z=-6.10105 />
                 </translate>
                 <models>
-                    <model file="sphere3.3d" texture=""/> <!-- Lua Urano -->
+                    <model file="sphere3.3d" texture="sun.jpg"/> <!-- Lua Urano -->
                 </models>
             </group>
         </group>
@@ -383,7 +383,7 @@
                     <point X=13.70318 Y=0 Z=-6.10105 />
                 </translate>
                 <models>
-                    <model file="sphere3.3d" texture=""/> <!-- Lua Neptuno -->
+                    <model file="sphere3.3d" texture="sun.jpg"/> <!-- Lua Neptuno -->
                 </models>
             </group>
         </group>
