@@ -5,12 +5,13 @@
 #include <operation.h>
 #include <vector>
 #include <Figura.h>
+#include <Textura.h>
+#include <Light.h>
 #include <map>
 #include <fromFile.h>
 #include <stdlib.h>
 #include <string>
 #include <math.h>
-#include <Textura.h>
 
 using namespace std;
 
@@ -85,7 +86,7 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
     
     while(pRoot) {
         string name = (string)pRoot->Value();
-        string textura = (string)pRoot->Value();
+        string textura;
 
         float x=0.0f,y=0.0f,z=0.0f;
         int time=0;
@@ -250,31 +251,77 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
 
         pRoot = pRoot->NextSiblingElement(); // grupos encadeados
     }
-	printf("Chega aqui ?\n");
     return group;
 }
 
-/*static Ligths searchLigths() {
+static vector<Light> searchLights(TiXmlElement *pRoot) {
+	vector<Light> lights = vector<Light>();
 
-}*/
+	pRoot = pRoot->FirstChildElement();
 
-void parse(Group &group, map<string,Figura> &figuras, map<string,Textura> &textures, int *nGrupos, const char* path){
+	string tipo = "";
+
+	while (pRoot) {
+		const char *posX, *posY, *posZ, *spotX, *spotY, *spotZ;
+		float pos[4];
+		float diff[4];
+		float amb[4];
+		float spot[3];
+		pos[0] = pos[1] = pos[2] = pos[3] = 0;
+		diff[0] = diff[1] = diff[2] = diff[3] = 1.0f;
+		amb[0] = amb[1] = amb[2] = 0.2f; amb[3] = 1.0f;
+		spot[0] = spot[1] = spot[2] = 0;
+
+		string name = (string) pRoot->Value();
+
+		if (name.compare("light") == 0) {
+			tipo = (string) pRoot->Attribute("type");
+
+			posX = pRoot->Attribute("posX");
+			if (posX) pos[0] = atof(posX);
+			posY = pRoot->Attribute("posY");
+			if (posY) pos[1] = atof(posY);
+			posZ = pRoot->Attribute("posZ");
+			if (posZ) pos[2] = atof(posZ);
+
+			if (tipo.compare("POINT") == 0) {
+				pos[3] = 1.0f;
+				lights.push_back(Light('p', pos, diff, amb, spot));
+			}
+			else if (tipo.compare("DIRECTIONAL") == 0) {
+				pos[3] = 0;
+				lights.push_back(Light('d', pos, diff, amb, spot));
+			}
+			else if (tipo.compare("SPOT") == 0) {
+				pos[3] = 1.0f;
+				spotX = pRoot->Attribute("spotX");
+				if (spotX) spot[0] = atof(spotX);
+				spotY = pRoot->Attribute("spotY");
+				if (spotY) spot[1] = atof(spotY);
+				spotZ = pRoot->Attribute("spotZ");
+				if (spotZ) spot[2] = atof(spotZ);
+				lights.push_back(Light('s', pos, diff, amb, spot));
+			}
+		}
+		pRoot = pRoot->NextSiblingElement(); //próximas luzes
+	}
+}
+
+void parse(Group &group, vector<Light> &lights, map<string,Figura> &figuras, map<string,Textura> &textures, int *nGrupos, const char* path){
     TiXmlDocument doc(path);
     if(doc.LoadFile()) {
         TiXmlElement *pRoot,*pChild;
         pRoot = doc.FirstChildElement("scene");
         if(pRoot) {
-            pChild = pRoot->FirstChildElement("group");
-            if(pChild) {
-                group = searchRec(figuras,textures, nGrupos, pRoot);
-            }
+			pChild = pRoot->FirstChildElement("lights");
+			if (pChild) {
+				lights = searchLights(pChild);
+			}
 
-            /*
-            pChild = pRoot->FirstChildElement("ligths"); //Fase 4
+			pChild = pRoot->FirstChildElement("group");
             if(pChild) {
-                ligths = searchLigths();
+                group = searchRec(figuras,textures, nGrupos, pChild);
             }
-            */
         }
     }
     else {

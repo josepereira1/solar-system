@@ -49,6 +49,7 @@ int nextGt = 0;
 int timebase = 0, frame = 0;
 
 Group group;
+vector<Light> luzes;
 map<string, Textura> textures;
 map<string, Figura> figuras;
 map<string, Figura>::iterator it;
@@ -249,6 +250,7 @@ void design(Group g) {
 
 void renderScene(void) {
 	float fps;
+	//float pos[4] = { 1.0, 1.0, 1.0, 0.0 };
 	int time;
 	char s[64];
 	// clear buffers
@@ -259,6 +261,10 @@ void renderScene(void) {
 		px, py, pz,
 		0.0f, 1.0f, 0.0f);
 	glColor3f(0, 255, 255);
+	for(int i = 0 ; i < luzes.size() ; i++)
+		glLightfv(GL_LIGHT0 + 1, GL_POSITION, luzes.at(i).pos);
+	//float white[4] = { 1,1,1,1 };
+	//glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, white);
 	design(group);
 	nextGt = 0;
 
@@ -380,14 +386,27 @@ void initGL() {
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 
+	spherical2Cartesian();
+
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_NORMAL_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
 	glClearColor(0, 0, 0, 0);
 
+	for (int i = 0; i < luzes.size(); i++) {
+		Light light = luzes.at(i);
+		glLightfv(GL_LIGHT0 + i, GL_DIFFUSE, light.diff);
+		if (light.tipo == 's') {
+			glLightfv(GL_LIGHT0 + i, GL_SPOT_DIRECTION, light.spot);
+			glLightf(GL_LIGHT0 + i, GL_SPOT_CUTOFF, 45.0);
+			glLightf(GL_LIGHT0 + i, GL_SPOT_EXPONENT, 0.0);
+		}
+		else glLightfv(GL_LIGHT0 + i, GL_AMBIENT, light.amb);
+		glEnable(GL_LIGHT0 + i);
+	}
+
 	glEnable(GL_LIGHTING);
-	glEnable(GL_LIGHT0);
 
 	glEnable(GL_TEXTURE_2D);
 }
@@ -418,7 +437,7 @@ int main(int argc, char** argv) {
 
 	//  OpenGL settings
 	initGL();
-	parse(group, figuras, textures, &nGrupos, "file_test.xml");
+	parse(group, luzes, figuras, textures, &nGrupos, "file.xml");
 	printf("Parse feito com sucesso");
 	myangArray = (float*)malloc(sizeof(float)*nGrupos);
 	mygtArray = (float*)malloc(sizeof(float)*nGrupos);
@@ -453,8 +472,7 @@ int main(int argc, char** argv) {
 		glBindBuffer(GL_ARRAY_BUFFER, texturas[nFiguras]);                                                             // pega  indexes[nFiguras]
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.texCoordsTAM), it->second.texCoords, GL_STATIC_DRAW); // preenche indexes[nFiguras] 
 	}
-
-	spherical2Cartesian();
+	printf("Chega aqui?");
 
 	// enter GLUT's main cycle
 	glutMainLoop();

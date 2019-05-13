@@ -10,6 +10,7 @@
 #include <Figura.h>
 #include <Textura.h>
 #include <OpenGL/gl.h>
+#include <Light.h>
 
 int loadTexture(string s);
 void parse(Group &group, map<string,Figura> &figuras, map<string,Textura> &textures, int* nGrupos, const char* path);
