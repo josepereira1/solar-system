@@ -265,7 +265,6 @@ void design(Group g) {
 
 void renderScene(void) {
 	float fps;
-	//float pos[4] = { 1.0, 1.0, 1.0, 0.0 };
 	int time;
 	char s[64];
 	// clear buffers
@@ -278,8 +277,6 @@ void renderScene(void) {
 	glColor3f(0, 255, 255);
 	for(int i = 0 ; i < luzes.size() ; i++)
 		glLightfv(GL_LIGHT0 + 1, GL_POSITION, luzes.at(i).pos);
-	//float white[4] = { 1,1,1,1 };
-	//glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, white);
 	design(group);
 	nextGt = 0;
 
