@@ -162,8 +162,6 @@ void changeSize(int w, int h) {
 }
 
 void design(Group g) {
-	int sphere;
-	int count;
 	static float t = 0;
 	float pos[3];
 	float deriv[3];
@@ -404,7 +402,7 @@ static void printLights(vector<Light> lights) {
 		printf("pos= %f , %f , %f , %f\n", lights.at(i).posX, lights.at(i).posY, lights.at(i).posZ, lights.at(i).posD);
 		printf("diff= %f , %f , %f , %f\n", lights.at(i).diffX, lights.at(i).diffY, lights.at(i).diffZ, lights.at(i).diffD);
 		printf("amb= %f , %f , %f , %f\n", lights.at(i).ambX, lights.at(i).ambY, lights.at(i).ambZ, lights.at(i).ambZ);
-		printf("spot= %f , %f , %f\n", lights.at(i).spotX, lights.at(i).spotY, lights.at(i).spotZ, lights.at(i).spotZ);
+		printf("spot= %f , %f , %f\n", lights.at(i).spotX, lights.at(i).spotY, lights.at(i).spotZ);
 	}
 	printf("\nNumero de luzes=%d\n", i);
 }
@@ -476,7 +474,6 @@ int main(int argc, char** argv) {
 	//  OpenGL settings
 	
 	initGL();
-	printf("Numero de texturas=%d\n", textures.size());
 	
 	//printGroup(group);    //  DEBUG
 	//printFiguras(figuras); //  DEBUG

@@ -1,14 +1,8 @@
+#include <xmlParser.h>
 #include <tinyxml.h>	
 #include <iostream>
-#include <group.h>
 #include <operation.h>
-#include <vector>
-#include <Figura.h>
-#include <Textura.h>
-#include <Light.h>
-#include <map>
 #include <fromFile.h>
-#include <string>
 #include <math.h>
 #include <../toolkits/devil/IL/il.h>
 
@@ -72,7 +66,7 @@ static void printFigura(Figura f) {
 		printf("%.5f, ", f.texCoords[i]);
 	}
 	printf("%.5f", f.texCoords[i]);
-	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"); // para separar as figuras de modo legível
+	printf("\n\n\n\n\n\n\n"); // para separar as figuras de modo legível
 }
 
 static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &texturas, int *nGrupos, TiXmlElement *pRoot) {
@@ -349,12 +343,6 @@ void parse(Group &group, vector<Light> &lights, map<string,Figura> &figuras, map
         if (pRoot) {
 			pChild = pRoot->FirstChildElement();
 			pChild2 = pRoot->NextSiblingElement();
-            string name = (string)pChild->Value();
-            cout << "pChild = " + name + '\n';
-			name = (string)pChild2->Value();
-			cout << "pChild2 = " + name + '\n';
-			name = (string)pChild2->Value();
-			cout << name + '\n';
 			if (pChild) {
 				lights = searchLights(pChild);
 			}

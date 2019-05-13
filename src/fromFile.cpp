@@ -1,7 +1,4 @@
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <vector>
+#include <fromFile.h>
 #include <string>
 #include <fstream>	//	para ler os ficheiros patch
 #include <iostream>
@@ -10,9 +7,6 @@
 
 using namespace std;
 
-#include <fromFile.h>
-#include <Point.h>
-
 static void openError(const char* path) {
 	char* errorMsg = (char*) malloc(sizeof(char)*(strlen(path)+21));
 	sprintf(errorMsg, "ERROR => could not open file %s", path);
@@ -20,7 +14,6 @@ static void openError(const char* path) {
 	free(errorMsg);
 	exit(EXIT_FAILURE);
 }
-
 
 void readPatchFile(string path, int*** arrayPatchs, TAD_ARRAY_LIST * pontos){
 
