@@ -277,7 +277,7 @@ void renderScene(void) {
 		0.0f, 1.0f, 0.0f);
 	for (int i = 0; i < luzes.size(); i++) {
 		float pos[4] = { luzes.at(i).posX,luzes.at(i).posY,luzes.at(i).posZ,luzes.at(i).posD };
-		glLightfv(GL_LIGHT0 + 1, GL_POSITION, pos);
+		glLightfv(GL_LIGHT0 + i, GL_POSITION, pos);
 	}
 	design(group);
 	nextGt = 0;
@@ -391,7 +391,7 @@ static void printFiguras(map<string, Figura> figuras) {
 		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"); // para separar as figuras de modo legível
 	}
 
-	printf("DIM=%d\n", dim); // para saber quantas figuras existem
+	printf("Numero de Figuras diferentes=%d\n", dim); // para saber quantas figuras existem
 }
 
 //DEBUG
