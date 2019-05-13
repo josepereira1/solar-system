@@ -12,7 +12,6 @@
 #include <boxGenerator.h>
 #include <sphereGenerator.h>
 #include <planeGenerator.h>
-#include <Textura.h>
 
 // bezier
 #include <bezierCreater.h>

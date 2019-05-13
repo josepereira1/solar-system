@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <operation.h>
+#include <Point.h>
 
 using namespace std;
 
@@ -13,6 +14,7 @@ public:
 	vector<Operation> operacoes;
 	vector<string> ficheiros;
 	vector<string> texturas;
+	vector<TAD_POINT> materials;
 	vector<Group> filhos;
 };
 

@@ -203,6 +203,7 @@ void design(Group g) {
 		string nome_ficheiro = g.ficheiros[i];
 		string nome_textura = g.texturas[i];
 		int tam = 0;
+		int j = 0;
 		GLuint t;
 		for (it = figuras.begin(); it != figuras.end(); ++it, count++) {
 			if (it->first.compare(nome_ficheiro) == 0) {
@@ -210,14 +211,25 @@ void design(Group g) {
 				break;
 			}
 		}
-		for (aux = textures.begin(); aux != textures.end(); ++it) {
-			if (aux->first.compare(nome_textura) == 0) {
-				figTex = aux->second.tex;
-				break;
+		if (nome_textura.compare("SPEC") != 0 && nome_textura.compare("EMI") != 0 && nome_textura.compare("DIFF") != 0 && nome_textura.compare("AMB") != 0) {
+			for (aux = textures.begin(); aux != textures.end(); ++it) {
+				if (aux->first.compare(nome_textura) == 0) {
+					figTex = aux->second.tex;
+					break;
+				}
 			}
+			// guardar a textura a ser usada neste desenho
+			glBindTexture(GL_TEXTURE_2D, figTex);
 		}
-		// guardar a textura a ser usada neste desenho
-		glBindTexture(GL_TEXTURE_2D, figTex);
+		else {
+			TAD_POINT p = g.materials.at(j);
+			float arr[4] = {getX(p) ,getY(p),getZ(p),1.0f };
+			if (nome_textura.compare("SPEC") == 0) glMaterialfv(GL_FRONT, GL_SPECULAR, arr);
+			else if (nome_textura.compare("EMI") == 0) glMaterialfv(GL_FRONT, GL_EMISSION, arr);
+			else if (nome_textura.compare("DIFF") == 0) glMaterialfv(GL_FRONT, GL_DIFFUSE, arr);
+			else glMaterialfv(GL_FRONT, GL_AMBIENT, arr);
+			j += 1;
+		}
 
 		// count indica a posição no map que representa a posição no buffer e no index
 		glBindBuffer(GL_ARRAY_BUFFER, buffers[count]); // paga no buffer sphere
@@ -231,15 +243,18 @@ void design(Group g) {
 		glBindBuffer(GL_ARRAY_BUFFER, normals[count]);
 		glNormalPointer(GL_FLOAT, 0, 0);
 
-		// usa array de coordenadas de imagem para aplicar textura
-		glBindBuffer(GL_ARRAY_BUFFER , texturas[count]);
-		glTexCoordPointer(2,GL_FLOAT,0,0);
+		if (nome_textura.compare("SPEC") != 0 && nome_textura.compare("EMI") != 0 && nome_textura.compare("DIFF") != 0 && nome_textura.compare("AMB") != 0) {
+			// usa array de coordenadas de imagem para aplicar textura
+			glBindBuffer(GL_ARRAY_BUFFER, texturas[count]);
+			glTexCoordPointer(2, GL_FLOAT, 0, 0);
+		}
 
 		glDrawElements(GL_TRIANGLES, tam, GL_UNSIGNED_INT, 0); // nº de vertices a desenhar
 
-		// limpar textura usada
-		glBindTexture(GL_TEXTURE_2D, 0);
-		//glEnable(GL_CULL_FACE);
+		if (nome_textura.compare("SPEC") != 0 && nome_textura.compare("EMI") != 0 && nome_textura.compare("DIFF") != 0 && nome_textura.compare("AMB") != 0) {
+			// limpar textura usada
+			glBindTexture(GL_TEXTURE_2D, 0);
+		}
 	}
 	nextGt += 1;
 	for (unsigned i = 0; i < g.filhos.size(); i++)

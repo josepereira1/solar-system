@@ -9,9 +9,10 @@
 #include <Light.h>
 #include <map>
 #include <fromFile.h>
-#include <stdlib.h>
+//#include <stdlib.h>
 #include <string>
 #include <math.h>
+#include <../toolkits/devil/IL/il.h>
 
 using namespace std;
 
@@ -223,15 +224,39 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
                             file2list(name, &indicesTAM, &indexPoints, &points, &pointsTAM, &normals, &normalsTAM, &texCoords, &texCoordsTAM);
                             
                             Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, normals, normalsTAM, texCoords, texCoordsTAM);
-							//printFigura(f);
+							
 							figuras.insert(pair<string,Figura>(name,f));
 							if (textura.compare("") != 0) {
 								texturas.insert(pair<string, Textura>(textura, loadTexture(textura)));
 							}
-                        }
-                        
-                        group.ficheiros.push_back(name);
-						group.texturas.push_back(textura);
+							else {
+								const char* diff = pChild->Attribute("diffX");
+								const char* amb = pChild->Attribute("ambX");
+								const char* emi = pChild->Attribute("emiX");
+								const char* spec = pChild->Attribute("specX");
+								TAD_POINT p = POINT(1.0f, 1.0f, 1.0f);
+								if (diff) {
+									p = POINT(atof(diff), atof(pChild->Attribute("diffY")), atof(pChild->Attribute("diffZ")));
+									textura = "DIFF";
+								}
+								else if (amb) {
+									p = POINT(atof(amb), atof(pChild->Attribute("ambY")), atof(pChild->Attribute("ambZ")));
+									textura = "AMB";
+								}
+								else if (emi) {
+									p = POINT(atof(emi), atof(pChild->Attribute("emitY")), atof(pChild->Attribute("emiZ")));
+									textura = "EMI";
+								}
+								else if (spec) {
+									p = POINT(atof(spec), atof(pChild->Attribute("specY")), atof(pChild->Attribute("specZ")));
+									textura = "SPEC";
+								}
+								group.materials.push_back(p);
+							}
+						}
+						group.ficheiros.push_back(name);
+						if (textura.compare("") != 0)
+							group.texturas.push_back(textura);
                     }
 
                     pChild = pChild->NextSiblingElement("model");
@@ -267,13 +292,12 @@ static vector<Light> searchLights(TiXmlElement *pRoot) {
 		float diff[4];
 		float amb[4];
 		float spot[3];
-		pos[0] = pos[1] = pos[2] = pos[3] = 0;
-		diff[0] = diff[1] = diff[2] = diff[3] = 1.0f;
-		amb[0] = amb[1] = amb[2] = 0.2f; amb[3] = 1.0f;
-		spot[0] = spot[1] = spot[2] = 0;
+		pos[0] = 0; pos[1] = 0; pos[2] = 0; pos[3] = 0;
+		diff[0] = 1.0f; diff[1] = 1.0f; diff[2] = 1.0f; diff[3] = 1.0f;
+		amb[0] = 0.2f; amb[1] = 0.2f; amb[2] = 0.2f; amb[3] = 1.0f;
+		spot[0] = 0; spot[1] = 0; spot[2] = 0;
 
 		string name = (string) pRoot->Value();
-
 		if (name.compare("light") == 0) {
 			tipo = (string) pRoot->Attribute("type");
 
@@ -305,6 +329,7 @@ static vector<Light> searchLights(TiXmlElement *pRoot) {
 		}
 		pRoot = pRoot->NextSiblingElement(); //próximas luzes
 	}
+	return lights;
 }
 
 void parse(Group &group, vector<Light> &lights, map<string,Figura> &figuras, map<string,Textura> &textures, int *nGrupos, const char* path){
