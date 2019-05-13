@@ -275,6 +275,7 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
 
         pRoot = pRoot->NextSiblingElement(); // grupos encadeados
     }
+    printf("a retornar\n");
     return group;
 }
 
