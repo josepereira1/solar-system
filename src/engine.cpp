@@ -274,7 +274,6 @@ void renderScene(void) {
 	gluLookAt(camX, camY, camZ,
 		px, py, pz,
 		0.0f, 1.0f, 0.0f);
-	glColor3f(0, 255, 255);
 	for(int i = 0 ; i < luzes.size() ; i++)
 		glLightfv(GL_LIGHT0 + 1, GL_POSITION, luzes.at(i).pos);
 	design(group);
@@ -371,25 +370,38 @@ static void printFiguras(map<string, Figura> figuras) {
 	for (it = figuras.begin(); it != figuras.end(); it++, dim++) {
 		Figura f = it->second;
 		printf("indicesTAM=%d\n", f.indicesTAM);
-		for (int i = 0; i < f.indicesTAM; i++) {
+		/*for (int i = 0; i < f.indicesTAM; i++) {
 			printf("%d, ", f.indexPoints[i]);
-		}
+		}*/
 		printf("\npointsTAM=%d\n", f.pointsTAM);
-		for (int i = 0; i < f.pointsTAM; i++) {
+		/*for (int i = 0; i < f.pointsTAM; i++) {
 			printf("%.5f, ", f.points[i]);
-		}
+		}*/
 		printf("\nnormalsTAM=%d\n", f.normalsTAM);
-		for (int i = 0; i < f.normalsTAM; i++) {
+		/*for (int i = 0; i < f.normalsTAM; i++) {
 			printf("%.5f, ", f.normals[i]);
-		}
+		}*/
 		printf("\ntexCoordsTAM=%d\n", f.texCoordsTAM);
-		for (int i = 0; i < f.texCoordsTAM; i++) {
+		/*for (int i = 0; i < f.texCoordsTAM; i++) {
 			printf("%.5f, ", f.texCoords[i]);
-		}
+		}*/
 		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"); // para separar as figuras de modo legível
 	}
 
 	printf("DIM=%d\n", dim); // para saber quantas figuras existem
+}
+
+//DEBUG
+static void printLights(vector<Light> lights) {
+	int i = 0;
+	for (; i < lights.size(); i++) {
+		printf("tipo=%c\n", lights.at(i).tipo);
+		printf("pos= %f , %f , %f , %f\n", lights.at(i).pos[0], lights.at(i).pos[1], lights.at(i).pos[2], lights.at(i).pos[3]);
+		printf("diff= %f , %f , %f , %f\n", lights.at(i).diff[0], lights.at(i).diff[1], lights.at(i).diff[2], lights.at(i).diff[3]);
+		printf("amb= %f , %f , %f , %f\n", lights.at(i).amb[0], lights.at(i).amb[1], lights.at(i).amb[2], lights.at(i).amb[3]);
+		printf("spot= %f , %f , %f\n", lights.at(i).spot[0], lights.at(i).spot[1], lights.at(i).spot[2], lights.at(i).spot[3]);
+	}
+	printf("\nNumero de luzes=%d\n", i);
 }
 
 void initGL() {
@@ -405,8 +417,9 @@ void initGL() {
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
 	glClearColor(0, 0, 0, 0);
-
+	glEnable(GL_LIGHTING);
 	for (int i = 0; i < luzes.size(); i++) {
+		glEnable(GL_LIGHT0 + i);
 		Light light = luzes.at(i);
 		glLightfv(GL_LIGHT0 + i, GL_DIFFUSE, light.diff);
 		if (light.tipo == 's') {
@@ -415,17 +428,13 @@ void initGL() {
 			glLightf(GL_LIGHT0 + i, GL_SPOT_EXPONENT, 0.0);
 		}
 		else glLightfv(GL_LIGHT0 + i, GL_AMBIENT, light.amb);
-		glEnable(GL_LIGHT0 + i);
 	}
-
-	glEnable(GL_LIGHTING);
 
 	glEnable(GL_TEXTURE_2D);
 }
 
 int main(int argc, char** argv) {
 	int nGrupos = 0;
-	//group = Group();
 
 	// init GLUT and the window
 	glutInit(&argc, argv);
@@ -457,11 +466,11 @@ int main(int argc, char** argv) {
 		myangArray[i] = 0;
 		mygtArray[i] = 0;
 	}
-	//printGroup(group);    //  DEBUG
-	//printFiguras(figuras); //  DEBUG
+	printGroup(group);    //  DEBUG
+	printFiguras(figuras); //  DEBUG
+	printLights(luzes); // DEBUG
 
 	int nFiguras = figuras.size();
-	int nTexturas = textures.size();
 	GLuint buf2[4];
 	GLuint ind2[4];
 	GLuint nor2[4];

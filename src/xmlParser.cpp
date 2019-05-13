@@ -9,7 +9,6 @@
 #include <Light.h>
 #include <map>
 #include <fromFile.h>
-//#include <stdlib.h>
 #include <string>
 #include <math.h>
 #include <../toolkits/devil/IL/il.h>
@@ -282,7 +281,7 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
 static vector<Light> searchLights(TiXmlElement *pRoot) {
 	vector<Light> lights = vector<Light>();
 
-	pRoot = pRoot->FirstChildElement();
+	pRoot = pRoot->FirstChildElement("light");
 
 	string tipo = "";
 
@@ -299,6 +298,7 @@ static vector<Light> searchLights(TiXmlElement *pRoot) {
 
 		string name = (string) pRoot->Value();
 		if (name.compare("light") == 0) {
+			cout << name + '\n';
 			tipo = (string) pRoot->Attribute("type");
 
 			posX = pRoot->Attribute("posX");
@@ -335,18 +335,23 @@ static vector<Light> searchLights(TiXmlElement *pRoot) {
 void parse(Group &group, vector<Light> &lights, map<string,Figura> &figuras, map<string,Textura> &textures, int *nGrupos, const char* path){
     TiXmlDocument doc(path);
     if(doc.LoadFile()) {
-        TiXmlElement *pRoot,*pChild;
+        TiXmlElement *pRoot,*pChild,*pChild2;
         pRoot = doc.FirstChildElement("scene");
-        if(pRoot) {
+        if (pRoot) {
 			pChild = pRoot->FirstChildElement("lights");
+			pChild2 = pRoot->FirstChildElement("group");
+			string name = (string)pRoot->Value();
+			cout << name + '\n';
+			name = (string)pChild->Value();
+			cout << name + '\n';
+			name = (string)pChild2->Value();
+			cout << name + '\n';
 			if (pChild) {
 				lights = searchLights(pChild);
 			}
-
-			pChild = pRoot->FirstChildElement("group");
-            if(pChild) {
-                group = searchRec(figuras,textures, nGrupos, pChild);
-            }
+			if (pChild2) {
+				group = searchRec(figuras, textures, nGrupos, pChild2);
+			}
         }
     }
     else {
