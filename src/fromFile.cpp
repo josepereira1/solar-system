@@ -77,8 +77,9 @@ void readPatchFile(string path, int*** arrayPatchs, TAD_ARRAY_LIST * pontos){
 	}
 }
 
+// guardar os tamanhos dos indices
 
-void file2list(string path, int* indicesTAM, unsigned int** indexPoints, float** points, int* pointsTAM, unsigned int** indexNormals, float** normals, int* normalsTAM, unsigned int** indexTexCoords, float** texCoords, int* texCoordsTAM) {
+void file2list(string path, int* indicesTAM, unsigned int** indexPoints, float** points, int* pointsTAM, int* indexNormalsTAM, unsigned int** indexNormals, float** normals, int* normalsTAM, int* indexTexCoordsTAM, unsigned int** indexTexCoords, float** texCoords, int* texCoordsTAM) {
 	string line;
 	char* ptr;
 	int i, index=0;
@@ -120,7 +121,7 @@ void file2list(string path, int* indicesTAM, unsigned int** indexPoints, float**
 	//normals
 	index = 0;
 	getline(infile, line);	//	vai buscar a primeira linha
-	*indicesTAM = atoi(line.c_str()); 
+	*indexNormalsTAM = atoi(line.c_str()); 
     //printf("indicesTAM=%d\n",*indicesTAM );
 	getline(infile, line);	//	vai buscar a segunda linha
 	init = (char*) line.c_str();
@@ -153,7 +154,7 @@ void file2list(string path, int* indicesTAM, unsigned int** indexPoints, float**
 	//texCoords
 	index = 0;
 	getline(infile, line);	//	vai buscar a primeira linha
-	*indicesTAM = atoi(line.c_str()); 
+	*indexTexCoordsTAM = atoi(line.c_str()); 
     //printf("indicesTAM=%d\n",*indicesTAM );
 	getline(infile, line);	//	vai buscar a segunda linha
 	init = (char*) line.c_str();

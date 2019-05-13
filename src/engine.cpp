@@ -380,14 +380,22 @@ static void printFiguras(map<string, Figura> figuras) {
 		/*for (int i = 0; i < f.pointsTAM; i++) {
 			printf("%.5f, ", f.points[i]);
 		}*/
+		printf("indicesNormaisTAM=%d\n", f.indicesTAM);
+		for (int i = 0; i < f.indicesTAM; i++) {
+			printf("%d, ", f.indexNormals[i]);
+		}
 		printf("\nnormalsTAM=%d\n", f.normalsTAM);
-		/*for (int i = 0; i < f.normalsTAM; i++) {
+		for (int i = 0; i < f.normalsTAM; i++) {
 			printf("%.5f, ", f.normals[i]);
-		}*/
+		}
+		printf("indicesTexturasTAM=%d\n", f.indicesTAM);
+		for (int i = 0; i < f.indicesTAM; i++) {
+			printf("%d, ", f.indexTexCoords[i]);
+		}
 		printf("\ntexCoordsTAM=%d\n", f.texCoordsTAM);
-		/*for (int i = 0; i < f.texCoordsTAM; i++) {
+		for (int i = 0; i < f.texCoordsTAM; i++) {
 			printf("%.5f, ", f.texCoords[i]);
-		}*/
+		}
 		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"); // para separar as figuras de modo legível
 	}
 
@@ -476,8 +484,8 @@ int main(int argc, char** argv) {
 	initGL();
 	
 	//printGroup(group);    //  DEBUG
-	//printFiguras(figuras); //  DEBUG
-	//printLights(luzes); // DEBUG
+	printFiguras(figuras); //  DEBUG
+	printLights(luzes); // DEBUG
 
 	int nFiguras = figuras.size();
 	GLuint buf2[3];
@@ -493,11 +501,15 @@ int main(int argc, char** argv) {
 	texturas = tex2;
 	indexesTexCoords = indt;
 	glGenBuffers(nFiguras, buffers);                                      // gera 3 buffers de coordenadas
-	glGenBuffers(nFiguras, indexesPoints);                                      // gera 3 buffers de indices
+	glGenBuffers(nFiguras, indexesPoints);                                // gera 3 buffers de indices
 	glGenBuffers(nFiguras, normals);
 	glGenBuffers(nFiguras, indexesNormals);
 	glGenBuffers(nFiguras, texturas);
 	glGenBuffers(nFiguras, indexesTexCoords);
+
+	//corrigir amanhã
+
+
 	for (it = figuras.begin(), nFiguras = 0; it != figuras.end(); ++it, nFiguras++) {
 		//points
 		glBindBuffer(GL_ARRAY_BUFFER, buffers[nFiguras]);                                                          // pega no buffer[nFiguras]
@@ -515,7 +527,7 @@ int main(int argc, char** argv) {
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesTexCoords[nFiguras]);                                                                 // pega  indexesTexCoords[nFiguras]
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indexTexCoords), GL_STATIC_DRAW); // preenche indexesTexCoords[nFiguras]
 	}
-
+	printf("acabou de fazer os buffers\n");
 	// enter GLUT's main cycle
 	glutMainLoop();
 

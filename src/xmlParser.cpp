@@ -205,18 +205,20 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
 							int pointsTAM;
 
 							//normals
+                            int indexNormalsTAM;
 							unsigned int* indexNormals;
 							float* normals;
 							int normalsTAM;
 
 							//texCoords
+                            int indexTexCoordsTAM;
 							unsigned int* indexTexCoords;
 							float* texCoords;
 							int texCoordsTAM;
 
-							file2list(name, &indicesTAM, &indexPoints, &points, &pointsTAM, &indexNormals, &normals, &normalsTAM, &indexTexCoords, &texCoords, &texCoordsTAM);
+							file2list(name, &indicesTAM, &indexPoints, &points, &pointsTAM, &indexNormalsTAM, &indexNormals, &normals, &normalsTAM, &indexNormalsTAM, &indexTexCoordsTAM, &indexTexCoords, &texCoords, &texCoordsTAM);
 
-							Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, indexNormals, normals, normalsTAM, indexTexCoords, texCoords, texCoordsTAM);
+							Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, indexNormalsTAM, indexNormals, normals, normalsTAM, indexTexCoordsTAM, indexTexCoords, texCoords, texCoordsTAM);
 
 							figuras.insert(pair<string, Figura>(name, f));
 						}
@@ -349,6 +351,7 @@ void parse(Group &group, vector<Light> &lights, map<string,Figura> &figuras, map
 			if (pChild2) {
 				group = searchRec(figuras, textures, nGrupos, pChild2);
 			}
+
         }
     }
     else {
