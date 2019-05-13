@@ -8,6 +8,7 @@
 #endif
 
 #include <stdio.h>
+#include "../toolkits/devil/IL/il.h"
 #include <xmlParser.h>
 #include <fromFile.h>
 #include <string>
@@ -164,6 +165,7 @@ void design(Group g) {
 	float pos[3];
 	float deriv[3];
 	float time;
+	GLuint figTex;
 	glPushMatrix();
 	for (unsigned i = 0; i < g.operacoes.size(); i++) {
 		Operation op = g.operacoes.at(i);
@@ -209,12 +211,12 @@ void design(Group g) {
 		}
 		for (aux = textures.begin(); aux != textures.end(); ++it) {
 			if (aux->first.compare(nome_textura) == 0) {
-				t = aux->second.tex;
+				figTex = aux->second.tex;
 				break;
 			}
 		}
 		// guardar a textura a ser usada neste desenho
-		glBindTexture(GL_TEXTURE_2D, t);
+		glBindTexture(GL_TEXTURE_2D, figTex);
 
 		// count indica a posição no map que representa a posição no buffer e no index
 		glBindBuffer(GL_ARRAY_BUFFER, buffers[count]); // paga no buffer sphere

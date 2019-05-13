@@ -10,7 +10,7 @@ include_directories (
 ../tinyxml
 )
 
-add_executable(${PROJECT_NAME} ../src/engine.cpp ../tinyxml/tinystr.cpp ../tinyxml/tinyxml.cpp ../tinyxml/tinyxmlerror.cpp ../tinyxml/tinyxmlparser.cpp  ../src/ArrayList.cpp ../src/Figura.cpp ../src/Point.cpp ../src/fromFile.cpp ../src/group.cpp ../src/toFile.cpp ../src/operation.cpp ../src/xmlParser.cpp ../src/Textura.cpp)
+add_executable(${PROJECT_NAME} ../src/engine.cpp ../tinyxml/tinystr.cpp ../tinyxml/tinyxml.cpp ../tinyxml/tinyxmlerror.cpp ../tinyxml/tinyxmlparser.cpp  ../src/ArrayList.cpp ../src/Figura.cpp ../src/Textura.cpp ../src/Point.cpp ../src/fromFile.cpp ../src/group.cpp ../src/toFile.cpp ../src/operation.cpp ../src/xmlParser.cpp )
 
 find_package(OpenGL REQUIRED)
 include_directories(${OpenGL_INCLUDE_DIRS})
@@ -23,6 +23,15 @@ if(NOT OPENGL_FOUND)
 endif(NOT OPENGL_FOUND)
 
 if  (WIN32)
+	set(TOOLKITS_FOLDER "" CACHE PATH "Path to toolkits folder")
+	include_directories(
+			${TOOLKITS_FOLDER}/glew
+			${TOOLKITS_FOLDER}/glut
+			${TOOLKITS_FOLDER}/devil)
+	link_directories(
+			${TOOLKITS_FOLDER}/glew
+			${TOOLKITS_FOLDER}/glut
+			${TOOLKITS_FOLDER}/devil)
 
 	message(STATUS "Toolkits_DIR set to: " ${TOOLKITS_FOLDER})
 	set(TOOLKITS_FOLDER "" CACHE PATH "Path to Toolkits folder")

@@ -5,18 +5,17 @@
 #include <operation.h>
 #include <vector>
 #include <Figura.h>
-#include <Textura.h>
 #include <map>
 #include <fromFile.h>
 #include <stdlib.h>
 #include <string>
 #include <math.h>
-#include "../toolkits/devil/IL/il.h"
+#include <Textura.h>
 
 using namespace std;
 
-int loadTexture(string s) {
-
+Textura loadTexture(string s) {
+    printf("%s\n",s.c_str() );
     unsigned int t,tw,th;
     unsigned char *texData;
     unsigned int texID;
@@ -33,6 +32,7 @@ int loadTexture(string s) {
     texData = ilGetData();
 
     glGenTextures(1,&texID);
+    Textura tex = Textura(texID); 
     
     glBindTexture(GL_TEXTURE_2D,texID);
     glTexParameteri(GL_TEXTURE_2D,  GL_TEXTURE_WRAP_S,      GL_REPEAT);
@@ -46,7 +46,7 @@ int loadTexture(string s) {
 
     glBindTexture(GL_TEXTURE_2D, 0);
 
-    return texID;
+    return tex;
 }
 
 // DEBUG
@@ -250,7 +250,7 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
 
         pRoot = pRoot->NextSiblingElement(); // grupos encadeados
     }
-	//printf("Chega aqui ?\n");
+	printf("Chega aqui ?\n");
     return group;
 }
 
