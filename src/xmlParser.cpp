@@ -276,6 +276,7 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
 
         pRoot = pRoot->NextSiblingElement(); // grupos encadeados
     }
+    printf("a retornar\n");
     return group;
 }
 
@@ -342,11 +343,11 @@ void parse(Group &group, vector<Light> &lights, map<string,Figura> &figuras, map
 			if (pChild) {
 				lights = searchLights(pChild);
 			}
-
 			pChild = pRoot->FirstChildElement("group");
             if(pChild) {
                 group = searchRec(figuras,textures, nGrupos, pChild);
             }
+            printf("retornou\n");
         }
     }
     else {

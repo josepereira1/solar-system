@@ -204,7 +204,6 @@ void design(Group g) {
 		string nome_textura = g.texturas[i];
 		int tam = 0;
 		int j = 0;
-		GLuint t;
 		for (it = figuras.begin(); it != figuras.end(); ++it, count++) {
 			if (it->first.compare(nome_ficheiro) == 0) {
 				tam = it->second.indicesTAM;
