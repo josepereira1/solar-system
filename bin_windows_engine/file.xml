@@ -1,4 +1,9 @@
 <scene>
+    <lights>
+        <light type="POINT" posX=0 posY=10 posZ=0 />
+        <light type="DIRECTIONAL" posX=0 posY=-10 posZ=0/>
+        <light type="SPOT" posX=0 posY=0 posZ=0 spotX=1 spotY=1 spotZ=1 />
+    </lights>
     <group>
         <models>
             <model file="sphere1.3d" texture="sun.jpg"/> <!-- Sol -->
@@ -381,44 +386,6 @@
                     <model file="sphere3.3d" texture=""/> <!-- Lua Neptuno -->
                 </models>
             </group>
-        </group>
-        <group>
-            <rotate axisX=0 axisY=1 axisZ=0 time=20 />
-            <translate time=120 >
-                <point X=500.00000 Y=0.00000 Z=0 />
-                <point X=493.44427 Y=15.59338 Z=0 />
-                <point X=474.06363 Y=30.50525 Z=0 />
-                <point X=442.70511 Y=44.08390 Z=0 />
-                <point X=400.73917 Y=55.73586 Z=0 />
-                <point X=350.00000 Y=64.95190 Z=0 />
-                <point X=292.70508 Y=71.32924 Z=0 />
-                <point X=231.35852 Y=74.58914 Z=0 />
-                <point X=168.64145 Y=74.58914 Z=0 />
-                <point X=107.29488 Y=71.32924 Z=0 />
-                <point X=49.99998 Y=64.95190 Z=0 />
-                <point X=-0.73920 Y=55.73586 Z=0 />
-                <point X=-42.70511 Y=44.08389 Z=0 />
-                <point X=-74.06364 Y=30.50524 Z=0 />
-                <point X=-93.44428 Y=15.59337 Z=0 />
-                <point X=-100.00000 Y=-0.00001 Z=0 />
-                <point X=-93.44427 Y=-15.59338 Z=0 />
-                <point X=-74.06362 Y=-30.50525 Z=0 />
-                <point X=-42.70508 Y=-44.08390 Z=0 />
-                <point X=-0.73916 Y=-55.73587 Z=0 />
-                <point X=50.00003 Y=-64.95191 Z=0 />
-                <point X=107.29487 Y=-71.32924 Z=0 />
-                <point X=168.64136 Y=-74.58914 Z=0 />
-                <point X=231.35837 Y=-74.58915 Z=0 />
-                <point X=292.70486 Y=-71.32925 Z=0 />
-                <point X=349.99973 Y=-64.95194 Z=0 />
-                <point X=400.73889 Y=-55.73593 Z=0 />
-                <point X=442.70483 Y=-44.08398 Z=0 />
-                <point X=474.06342 Y=-30.50537 Z=0 />
-                <point X=493.44415 Y=-15.59352 Z=0 />
-            </translate>
-            <models>
-                <model file="teapot.3d"/> <!-- Cometa -->
-            </models>
         </group>
     </group>
 </scene>

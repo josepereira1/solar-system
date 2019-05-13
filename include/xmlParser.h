@@ -7,7 +7,8 @@
 #include <string>
 #include <Figura.h>
 #include <Textura.h>
+#include <Light.h>
 
-void parse(Group &group, map<string,Figura> &figuras, map<string,Textura> &textures, int* nGrupos, const char* path);
+void parse(Group &group, vector<Light> &light, map<string,Figura> &figuras, map<string,Textura> &textures, int* nGrupos, const char* path);
 
 #endif
