@@ -16,6 +16,7 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
     float betaYoX = (M_PI)/stacks;
     float height = radius;
     float y1,y2;
+    float mapDivision = ;
     int max = slices*(stacks-1)+2;
     TAD_ARRAY_LIST l2 = ARRAY_LIST(max);
     (* normals) = ARRAY_LIST(max);
@@ -36,19 +37,19 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
                 p1 = POINT(0.0,y2,0.0);
                 addElem(l2,p);
                 addElem((*normals),normalize(p1));
-                addElem((*texCoords),POINT(0.0,1.0,0.0));
+                addElem((*texCoords),POINT(0.5,1.0,0.0));
 
                 p = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
                 p1 = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
                 addElem(l2,p);
                 addElem((*normals),normalize(p1));
-                addElem((*texCoords),POINT(0.5,1.0,0.0));
+                addElem((*texCoords),POINT(m2/slices,(betaYoX*(m1+1))/M_PI,0.0));
 
                 p = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
                 p1 = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
                 addElem(l2,p);
                 addElem((*normals),normalize(p1));
-                addElem((*texCoords),POINT(1.0,1.0,0.0));
+                addElem((*texCoords),POINT(m2/slices,(betaYoX*(m1+1))/M_PI,0.0));
 
 
             } else if(m1 == (stacks-1)){
@@ -62,12 +63,12 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
                 p1 = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
                 addElem(l2,p);
                 addElem((*normals),normalize(p1));
-                addElem((*texCoords),POINT(0.5,0.0,0.0));
+                addElem((*texCoords),POINT(m2/slices,(betaYoX*(m1+1))/M_PI,0.0));
                 p = POINT(r2*cos((m2+1)*alfa),y2,r2*sin((m2+1)*alfa));
                 p1 = POINT(r2*cos((m2+1)*alfa),y2,r2*sin((m2+1)*alfa));
                 addElem(l2,p);
                 addElem((*normals),normalize(p1));
-                addElem((*texCoords),POINT(1.0,0.0,0.0));
+                addElem((*texCoords),POINT(m2/slices,(betaYoX*(m1+1))/M_PI,0.0));
 
 
             } else{

@@ -292,6 +292,7 @@ void design(Group g) {
 		if (nome_textura.compare("SPEC") != 0 && nome_textura.compare("EMI") != 0 && nome_textura.compare("DIFF") != 0 && nome_textura.compare("AMB") != 0) {
 			for (aux = textures.begin(); aux != textures.end(); ++aux) {
 				if (aux->first.compare(nome_textura) == 0) {
+					//printf("%s\n",nome_textura.c_str());
 					figTex = aux->second.tex;
 					glBindTexture(GL_TEXTURE_2D, figTex);
 					break;
@@ -309,18 +310,17 @@ void design(Group g) {
 		}
 		// count indica a posição no map que representa a posição no buffer e no index
 		glBindBuffer(GL_ARRAY_BUFFER, buffers[count]); // paga no buffer sphere
-		printf("%d\n",count );
 		// nº de pontos para formar 1 vertice/ tipo da coordenada/ distancia entre indices dos vertices consecutivos / onde começa o array
 		glVertexPointer(3, GL_FLOAT, 0, 0); // digo que 3 pontos formam 1 vertice
 		// usa array de normais 
 		glBindBuffer(GL_ARRAY_BUFFER, normals[count]);
 		glNormalPointer(GL_FLOAT, 0, 0);
-		//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesNormals[count]);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesNormals[count]);
 		if (nome_textura.compare("SPEC") != 0 && nome_textura.compare("EMI") != 0 && nome_textura.compare("DIFF") != 0 && nome_textura.compare("AMB") != 0) {
 			// usa array de coordenadas de imagem para aplicar textura
 			glBindBuffer(GL_ARRAY_BUFFER, texturas[count]);
 			glTexCoordPointer(2, GL_FLOAT, 0, 0);
-			//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesTexCoords[count]);
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesTexCoords[count]);
 		}
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesPoints[count]);
 		glDrawElements(GL_TRIANGLES, tam, GL_UNSIGNED_INT, 0); // nº de vertices a desenhar
@@ -521,7 +521,6 @@ int main(int argc, char** argv) {
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesTexCoords[nFiguras]);                                                                 // pega  indexesTexCoords[nFiguras]
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indexTexCoordsTAM), (it->second.indexTexCoords), GL_STATIC_DRAW); // preenche indexesTexCoords[nFiguras]
 	}
-	//printFiguras(figuras);
 	// enter GLUT's main cycle
 	glutMainLoop();
 
