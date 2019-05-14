@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void list2fileWindex(TAD_ARRAY_LIST points, int* indexPoints, TAD_ARRAY_LIST normals, int* indexNormals, TAD_ARRAY_LIST texCoords, int* indexTexCoords, int tam1, int tam2, int tam3, const char* path) {
+void list2fileWindex(TAD_ARRAY_LIST points, int* indexPoints, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST texCoords,int tam, const char* path) {
 	FILE *file = fopen(path, "w");
 	
 	if (file == NULL) {
@@ -18,9 +18,9 @@ void list2fileWindex(TAD_ARRAY_LIST points, int* indexPoints, TAD_ARRAY_LIST nor
 
 		//pontos
 
-		fprintf(file, "%d\n", tam1); // imprime número de triangulos
+		fprintf(file, "%d\n", tam); // imprime número de triangulos
 
-		for(i=0; i<tam1-1; i++) { // imprime indíces
+		for(i=0; i<tam-1; i++) { // imprime indíces
 			fprintf(file, "%d, ", indexPoints[i]);
 		}
 
@@ -36,14 +36,6 @@ void list2fileWindex(TAD_ARRAY_LIST points, int* indexPoints, TAD_ARRAY_LIST nor
 		}
 
 		//normais
-		fprintf(file, "\n%d\n", tam2); // imprime número de triangulos
-
-		for(i=0; i<tam2-1; i++) { // imprime indíces
-			fprintf(file, "%d, ", indexNormals[i]);
-		}
-
-		fprintf(file, "%d", indexNormals[i]); // último índice (para não ter vírgula)
-
 		dim = getArraySize(normals);
 
 		fprintf(file, "\n%d", dim); // imprime número de normais
@@ -54,14 +46,6 @@ void list2fileWindex(TAD_ARRAY_LIST points, int* indexPoints, TAD_ARRAY_LIST nor
 		}
 
 		//Coordenadas de textura
-		fprintf(file, "\n%d\n", tam3); // imprime número de triangulos
-
-		for(i=0; i<tam3-1; i++) { // imprime indíces
-			fprintf(file, "%d, ", indexTexCoords[i]);
-		}
-
-		fprintf(file, "%d", indexTexCoords[i]); // último índice (para não ter vírgula)
-
 		dim = getArraySize(texCoords);
 
 		fprintf(file, "\n%d", dim); // imprime número de coordenadas de textura

@@ -204,19 +204,15 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
 							int pointsTAM;
 
 							//normals
-                            int indexNormalsTAM;
-							unsigned int* indexNormals;
 							float* normals;
 							int normalsTAM;
 
 							//texCoords
-                            int indexTexCoordsTAM;
-							unsigned int* indexTexCoords;
 							float* texCoords;
 							int texCoordsTAM;
 
-							file2list(name, &indicesTAM, &indexPoints, &points, &pointsTAM, &indexNormalsTAM, &indexNormals, &normals, &normalsTAM, &indexTexCoordsTAM, &indexTexCoords, &texCoords, &texCoordsTAM);
-							Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, indexNormalsTAM, indexNormals, normals, normalsTAM, indexTexCoordsTAM, indexTexCoords, texCoords, texCoordsTAM);
+							file2list(name, &indicesTAM, &indexPoints, &points, &pointsTAM, &normals, &normalsTAM, &texCoords, &texCoordsTAM);
+							Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, normals, normalsTAM, texCoords, texCoordsTAM);
 
 							figuras.insert(pair<string, Figura>(name, f));
 						}
