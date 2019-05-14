@@ -284,6 +284,7 @@ void design(Group g) {
 		int j = 0;
 		for (it = figuras.begin(); it != figuras.end(); ++it, count++) {
 			if (it->first.compare(nome_ficheiro) == 0) {
+				//printf("%s,%d\n",nome_ficheiro.c_str(),count );
 				tam = it->second.indicesTAM;
 				break;
 			}
@@ -292,11 +293,10 @@ void design(Group g) {
 			for (aux = textures.begin(); aux != textures.end(); ++aux) {
 				if (aux->first.compare(nome_textura) == 0) {
 					figTex = aux->second.tex;
+					glBindTexture(GL_TEXTURE_2D, figTex);
 					break;
 				}
 			}
-			// guardar a textura a ser usada neste desenho
-			if(aux != textures.end()) glBindTexture(GL_TEXTURE_2D, figTex);
 		}
 		else {
 			TAD_POINT p = g.materials.at(0);
@@ -309,23 +309,22 @@ void design(Group g) {
 		}
 		// count indica a posição no map que representa a posição no buffer e no index
 		glBindBuffer(GL_ARRAY_BUFFER, buffers[count]); // paga no buffer sphere
+		printf("%d\n",count );
 		// nº de pontos para formar 1 vertice/ tipo da coordenada/ distancia entre indices dos vertices consecutivos / onde começa o array
 		glVertexPointer(3, GL_FLOAT, 0, 0); // digo que 3 pontos formam 1 vertice
-
-		// usa array de indices
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesPoints[count]);
-
 		// usa array de normais 
 		glBindBuffer(GL_ARRAY_BUFFER, normals[count]);
 		glNormalPointer(GL_FLOAT, 0, 0);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesNormals[count]);
+		printf("%d\n",count );
+		//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesNormals[count]);
 		if (nome_textura.compare("SPEC") != 0 && nome_textura.compare("EMI") != 0 && nome_textura.compare("DIFF") != 0 && nome_textura.compare("AMB") != 0) {
 			// usa array de coordenadas de imagem para aplicar textura
 			glBindBuffer(GL_ARRAY_BUFFER, texturas[count]);
 			glTexCoordPointer(2, GL_FLOAT, 0, 0);
-			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesTexCoords[count]);
+			//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesTexCoords[count]);
 		}
-
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesPoints[count]);
+		printf("%d\n",count );
 		glDrawElements(GL_TRIANGLES, tam, GL_UNSIGNED_INT, 0); // nº de vertices a desenhar
 		glBindTexture(GL_TEXTURE_2D, 0);
 		
