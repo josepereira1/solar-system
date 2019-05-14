@@ -1,13 +1,10 @@
 <scene>
     <lights>
-        <light type="POINT" posX=0 posY=10 posZ=0 />
-        <light type="DIRECTIONAL" posX=0 posY=-10 posZ=0/>
-        <light type="DIRECTIONAL" posX=0 posY=10 posZ=0/>
-        <light type="DIRECTIONAL" posX=-10 posY=0 posZ=0/>
-        <light type="DIRECTIONAL" posX=10 posY=0 posZ=0/>
-        <light type="DIRECTIONAL" posX=0 posY=0 posZ=10/>
-        <light type="DIRECTIONAL" posX=0 posY=0 posZ=-10/>
-        <light type="SPOT" posX=0 posY=0 posZ=0 spotX=1 spotY=1 spotZ=1 />
+        <light type="POINT" posX=0 posY=0 posZ=0 />
+        <!--<light type="DIRECTIONAL" posX=55 posY=0 posZ=0/>
+        <light type="DIRECTIONAL" posX=-55 posY=0 posZ=0/>
+        <light type="SPOT" posX=0 posY=0 posZ=55 spotX=0 spotY=0 spotZ=-1 />
+        <light type="SPOT" posX=0 posY=0 posZ=-55 spotX=0 spotY=0 spotZ=1 />-->
     </lights>
     <group>
         <models>
@@ -253,7 +250,7 @@
         </group>
         <group>
             <rotate axisX=0 axisY=1 axisZ=0 time=11 />
-            <translate time=45 >
+            <translate time=40 >
                 <point X=330.00000 Y=0 Z=0.00000/>
                 <point X=301.47000 Y=0 Z=134.22310/>
                 <point X=220.81310 Y=0 Z=245.23779/>
@@ -300,7 +297,7 @@
         </group>
         <group>
             <rotate axisX=0 axisY=1 axisZ=0 time=14 />
-            <translate time=60 >
+            <translate time=50 >
                 <point X=370.00000 Y=0 Z=0.00000/>
                 <point X=338.01181 Y=0 Z=150.49257/>
                 <point X=247.57832 Y=0 Z=274.96359/>
@@ -347,7 +344,7 @@
         </group>
         <group>
             <rotate axisX=0 axisY=1 axisZ=0 time=25 />
-            <translate time=80 >
+            <translate time=60 >
                 <point X=400.00000 Y=0 Z=0.00000/>
                 <point X=365.41818 Y=0 Z=162.69466/>
                 <point X=267.65222 Y=0 Z=297.25793/>
@@ -393,8 +390,7 @@
             </group>
         </group>
         <group>
-            <rotate axisX=0 axisY=1 axisZ=0 time=20 />
-            <translate time=120 >
+            <translate time=90 >
                 <point X=500.00000 Y=0.00000 Z=0 />
                 <point X=493.44427 Y=15.59338 Z=0 />
                 <point X=474.06363 Y=30.50525 Z=0 />

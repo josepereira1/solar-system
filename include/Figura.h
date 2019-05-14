@@ -3,9 +3,7 @@
 
 class Figura{
 public:
-	Figura(int, unsigned int*, float*, int, float*, int, float*, int);
-	int indicesTAM;
-	unsigned int* indexPoints;
+	Figura(float*, int, float*, int, float*, int);
 	float* points;
 	int pointsTAM;
 	float* normals;

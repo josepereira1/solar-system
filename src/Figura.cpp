@@ -1,8 +1,6 @@
 #include <Figura.h>
 
-Figura :: Figura(int indicesTAM, unsigned int* indexPoints, float* points, int pointsTAM, float* normals, int normalsTAM, float* texCoords, int texCoordsTAM){
-	this->indicesTAM = indicesTAM;
-	this->indexPoints = indexPoints;
+Figura :: Figura (float* points, int pointsTAM, float* normals, int normalsTAM, float* texCoords, int texCoordsTAM){
 	this->points = points;
 	this->pointsTAM = pointsTAM;
 	this->normals = normals;

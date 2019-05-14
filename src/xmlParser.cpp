@@ -42,32 +42,6 @@ Textura loadTexture(string s) {
     return tex;
 }
 
-// DEBUG
-static void printFigura(Figura f) {
-	printf("indicesTAM=%d\n", f.indicesTAM);
-	int i;
-	for (i = 0; i < f.indicesTAM-1; i++) {
-		printf("%d, ", f.indexPoints[i]);
-	}
-	printf("%d", f.indexPoints[i]);
-	printf("\npointsTAM=%d\n", f.pointsTAM);
-	for (i = 0; i < f.pointsTAM-1; i++) {
-		printf("%.5f, ", f.points[i]);
-	}
-	printf("%.5f", f.points[i]);
-	printf("\nnormalsTAM=%d\n", f.normalsTAM);
-	for (i = 0; i < f.normalsTAM-1; i++) {
-		printf("%.5f, ", f.normals[i]);
-	}
-	printf("%.5f", f.normals[i]);
-	printf("\ntexCoordsTAM=%d\n", f.texCoordsTAM);
-	for (i = 0; i < f.texCoordsTAM-1; i++) {
-		printf("%.5f, ", f.texCoords[i]);
-	}
-	printf("%.5f", f.texCoords[i]);
-	printf("\n\n\n\n\n\n\n"); // para separar as figuras de modo legível
-}
-
 static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &texturas, int *nGrupos, TiXmlElement *pRoot) {
     
     bool t = false, r = false, s = false, m = false;
@@ -196,10 +170,10 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
 						(*nGrupos) += 1;
 						if (figuras.find(name) == figuras.end()) { // se não  existir 
 							//Tamanho dos indices iguais para todos
-							int indicesTAM;
+							//int indicesTAM;
 
 							//points
-							unsigned int* indexPoints;
+							//unsigned int* indexPoints;
 							float* points;
 							int pointsTAM;
 
@@ -211,8 +185,8 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
 							float* texCoords;
 							int texCoordsTAM;
 
-							file2list(name, &indicesTAM, &indexPoints, &points, &pointsTAM, &normals, &normalsTAM, &texCoords, &texCoordsTAM);
-							Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, normals, normalsTAM, texCoords, texCoordsTAM);
+							file2list(name, &points, &pointsTAM, &normals, &normalsTAM, &texCoords, &texCoordsTAM);
+							Figura f = Figura(points, pointsTAM, normals, normalsTAM, texCoords, texCoordsTAM);
 
 							figuras.insert(pair<string, Figura>(name, f));
 						}
@@ -225,15 +199,14 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
 						else {
                             TAD_POINT p = POINT(1.0f, 1.0f, 1.0f);
                             string diff,amb,emi,spec;
-                            if(textura.compare("DIFF") == 0){
-							    p = POINT(atof(pChild->Attribute("diffX")), atof(pChild->Attribute("diffY")), atof(pChild->Attribute("diffZ")));
-                            }
+							if (textura.compare("DIFF") == 0)
+								p = POINT(atof(pChild->Attribute("diffX")), atof(pChild->Attribute("diffY")), atof(pChild->Attribute("diffZ")));
                              else if(textura.compare("AMB") == 0)
                                 p = POINT(atof(pChild->Attribute("ambX")), atof(pChild->Attribute("ambY")), atof(pChild->Attribute("ambZ")));
                              else if(textura.compare("EMI") == 0)
                                 p = POINT(atof(pChild->Attribute("emiX")), atof(pChild->Attribute("emitY")), atof(pChild->Attribute("emiZ")));
                             else if(textura.compare("SPEC")) p = POINT(atof(pChild->Attribute("specX")), atof(pChild->Attribute("specY")), atof(pChild->Attribute("specZ")));
-                            else{}
+                          
 							group.materials.push_back(p);
 						}
 						group.ficheiros.push_back(name);

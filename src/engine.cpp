@@ -29,6 +29,7 @@ float camY = 0.0f;
 float camZ = 150.0f;
 
 float mygt = 0.0;
+float mygtr = 0.0;
 
 float px = 0.0;
 float py = 0.0;
@@ -36,7 +37,6 @@ float pz = 0.0;
 int mode = GL_FILL;
 int face = GL_FRONT;
 GLuint *buffers;
-GLuint *indexesPoints;
 GLuint *normals;
 GLuint *texturas;
 
@@ -90,30 +90,18 @@ static void printFiguras(map<string, Figura> figuras) {
 
 	for (it = figuras.begin(); it != figuras.end(); it++, dim++) {
 		Figura f = it->second;
-		printf("indicesTAM=%d\n", f.indicesTAM);
-		for (int i = 0; i < f.indicesTAM; i++) {
-			printf("%d, ", f.indexPoints[i]);
-		}
 		printf("\npointsTAM=%d\n", f.pointsTAM);
 		for (int i = 0; i < f.pointsTAM; i++) {
 			printf("%.5f, ", f.points[i]);
-		}/*
-		printf("indicesNormaisTAM=%d\n", f.indicesTAM);
-		for (int i = 0; i < f.indicesTAM; i++) {
-			printf("%d, ", f.indexNormals[i]);
 		}
 		printf("\nnormalsTAM=%d\n", f.normalsTAM);
 		for (int i = 0; i < f.normalsTAM; i++) {
 			printf("%.5f, ", f.normals[i]);
 		}
-		printf("indicesTexturasTAM=%d\n", f.indicesTAM);
-		for (int i = 0; i < f.indicesTAM; i++) {
-			printf("%d, ", f.indexTexCoords[i]);
-		}
 		printf("\ntexCoordsTAM=%d\n", f.texCoordsTAM);
 		for (int i = 0; i < f.texCoordsTAM; i++) {
 			printf("%.5f, ", f.texCoords[i]);
-		}*/
+		}
 		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"); // para separar as figuras de modo legível
 	}
 
@@ -253,7 +241,7 @@ void design(Group g) {
 			POINT_COUNT = op.points.size();
 			p = op.points;
 			renderCatmullRomCurve();
-			mygtArray[nextGt] += (float)(1.0f / time)*0.001;
+			mygtArray[nextGt] += (float)(0.001f / time);
 			mygt = mygtArray[nextGt];
 			if (mygt >= 1) {
 				mygt = 0.0;
@@ -263,8 +251,13 @@ void design(Group g) {
 			glTranslatef(pos[0], pos[1], pos[2]);
 			break;
 		case 'r':
-			myangArray[nextGt] += (float)(2 * M_PI / time) * 0.001;
-			glRotatef(myangArray[nextGt], getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
+			myangArray[nextGt] += (float)(2 * M_PI / time) * 0.005;
+			mygtr = myangArray[nextGt];
+			if (mygtr >= 360) {
+				mygtr = 0.0;
+				mygtArray[nextGt] = 0.0;
+			}
+			glRotatef(mygtr, getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
 			break;
 		case 's':
 			glScalef(getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
@@ -282,16 +275,15 @@ void design(Group g) {
 		int j = 0;
 		for (it = figuras.begin(); it != figuras.end(); ++it, count++) {
 			if (it->first.compare(nome_ficheiro) == 0) {
-				//printf("%s,%d\n",nome_ficheiro.c_str(),count );
-				tam = it->second.indicesTAM;
+				tam = it->second.pointsTAM;
 				break;
 			}
 		}
 		if (nome_textura.compare("SPEC") != 0 && nome_textura.compare("EMI") != 0 && nome_textura.compare("DIFF") != 0 && nome_textura.compare("AMB") != 0) {
 			for (aux = textures.begin(); aux != textures.end(); ++aux) {
 				if (aux->first.compare(nome_textura) == 0) {
-					//printf("%s\n",nome_textura.c_str());
 					figTex = aux->second.tex;
+					glEnable(GL_TEXTURE_2D);
 					glBindTexture(GL_TEXTURE_2D, figTex);
 					break;
 				}
@@ -300,6 +292,7 @@ void design(Group g) {
 		else {
 			TAD_POINT p = g.materials.at(0);
 			float arr[4] = {getX(p) ,getY(p),getZ(p),1.0f };
+			glPushAttrib(GL_LIGHTING);
 			if (nome_textura.compare("SPEC") == 0) glMaterialfv(GL_FRONT, GL_SPECULAR, arr);
 			else if (nome_textura.compare("EMI") == 0) glMaterialfv(GL_FRONT, GL_EMISSION, arr);
 			else if (nome_textura.compare("DIFF") == 0) glMaterialfv(GL_FRONT, GL_DIFFUSE, arr);
@@ -313,16 +306,17 @@ void design(Group g) {
 		// usa array de normais 
 		glBindBuffer(GL_ARRAY_BUFFER, normals[count]);
 		glNormalPointer(GL_FLOAT, 0, 0);
-		//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesNormals[count]);
 		if (nome_textura.compare("SPEC") != 0 && nome_textura.compare("EMI") != 0 && nome_textura.compare("DIFF") != 0 && nome_textura.compare("AMB") != 0) {
 			// usa array de coordenadas de imagem para aplicar textura
 			glBindBuffer(GL_ARRAY_BUFFER, texturas[count]);
 			glTexCoordPointer(2, GL_FLOAT, 0, 0);
-			//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesTexCoords[count]);
 		}
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesPoints[count]);
-		glDrawElements(GL_TRIANGLES, tam, GL_UNSIGNED_INT, 0); // nº de vertices a desenhar
-		glBindTexture(GL_TEXTURE_2D, 0);
+		glDrawArrays(GL_TRIANGLES, 0, tam);
+		if (nome_textura.compare("SPEC") != 0 && nome_textura.compare("EMI") != 0 && nome_textura.compare("DIFF") != 0 && nome_textura.compare("AMB") != 0) {
+			glBindTexture(GL_TEXTURE_2D, 0);
+			glDisable(GL_TEXTURE_2D);
+		}
+		else glPopAttrib();
 		
 	}
 	nextGt += 1;
@@ -414,7 +408,7 @@ void processSpecialKeys(int key, int xx, int yy) {
 void initGL() {
 	int nGrupos = 0;
 	parse(group, luzes, figuras, textures, &nGrupos, "file.xml");
-
+	
 	myangArray = (float*)malloc(sizeof(float)*nGrupos);
 	mygtArray = (float*)malloc(sizeof(float)*nGrupos);
 	for (int i = 0; i < nGrupos; i++) {
@@ -484,26 +478,19 @@ int main(int argc, char** argv) {
 	//printLights(luzes); // DEBUG
 
 	int nFiguras = figuras.size();
-	GLuint buf2[3];
-	GLuint indp[3];
-	GLuint nor2[3];
-	GLuint indn[3];
-	GLuint tex2[3];
-	GLuint indt[3];
+	GLuint buf2[4];
+	GLuint nor2[4];
+	GLuint tex2[4];
 	buffers = buf2;
-	indexesPoints = indp;
 	normals = nor2;
 	texturas = tex2;
 	glGenBuffers(nFiguras, buffers);                                      // gera 3 buffers de coordenadas
-	glGenBuffers(nFiguras, indexesPoints);                                // gera 3 buffers de indices
 	glGenBuffers(nFiguras, normals);
 	glGenBuffers(nFiguras, texturas);
 	for (it = figuras.begin(), nFiguras = 0; it != figuras.end(); ++it, nFiguras++) {
 		//points
 		glBindBuffer(GL_ARRAY_BUFFER, buffers[nFiguras]);                                                          // pega no buffer[nFiguras]
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.pointsTAM), it->second.points, GL_STATIC_DRAW);  // preenche buffer[nFiguras] 
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesPoints[nFiguras]);                                                                 // pega  indexesPoints[nFiguras]
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indexPoints), GL_STATIC_DRAW); // preenche indexesPoints[nFiguras]
 		//normals
 		glBindBuffer(GL_ARRAY_BUFFER, normals[nFiguras]);                                                        // pega  normals[nFiguras]
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.normalsTAM), it->second.normals, GL_STATIC_DRAW); // preenche normals[nFiguras] 

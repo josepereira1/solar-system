@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void list2fileWindex(TAD_ARRAY_LIST points, int* indexPoints, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST texCoords,int tam, const char* path) {
+void list2fileWindex(TAD_ARRAY_LIST points, /*int* indexPoints,*/ TAD_ARRAY_LIST normals, TAD_ARRAY_LIST texCoords,/*int tam,*/ const char* path) {
 	FILE *file = fopen(path, "w");
 	
 	if (file == NULL) {
@@ -17,18 +17,9 @@ void list2fileWindex(TAD_ARRAY_LIST points, int* indexPoints, TAD_ARRAY_LIST nor
 		int i;
 
 		//pontos
-
-		fprintf(file, "%d\n", tam); // imprime número de triangulos
-
-		for(i=0; i<tam-1; i++) { // imprime indíces
-			fprintf(file, "%d, ", indexPoints[i]);
-		}
-
-		fprintf(file, "%d", indexPoints[i]); // último índice (para não ter vírgula)
-
 		int dim = getArraySize(points);
 
-		fprintf(file, "\n%d", dim); // imprime número de pontos
+		fprintf(file, "%d", dim); // imprime número de pontos
 
 		for(i=0; i<dim; i++) { // imprime pontos
 			TAD_POINT point = (TAD_POINT) getElem(points, i);

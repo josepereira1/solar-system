@@ -79,7 +79,7 @@ void readPatchFile(string path, int*** arrayPatchs, TAD_ARRAY_LIST * pontos){
 
 // guardar os tamanhos dos indices
 
-void file2list(string path, int* indicesTAM, unsigned int** indexPoints, float** points, int* pointsTAM, float** normals, int* normalsTAM, float** texCoords, int* texCoordsTAM) {
+void file2list(string path, /*int* indicesTAM, unsigned int** indexPoints, */float** points, int* pointsTAM, float** normals, int* normalsTAM, float** texCoords, int* texCoordsTAM) {
 	string line;
 	char* ptr;
 	int i, index=0;
@@ -87,27 +87,12 @@ void file2list(string path, int* indicesTAM, unsigned int** indexPoints, float**
 	ifstream infile(path);	//	abre o ficheiro
 	
 	//points
-	getline(infile, line);	//	vai buscar a primeira linha
-	*indicesTAM = atoi(line.c_str()); 
-    //printf("indicesTAM=%d\n",*indicesTAM );
-	getline(infile, line);	//	vai buscar a segunda linha
-	char* init = (char*) line.c_str();
-	*indexPoints = (unsigned int*) malloc(sizeof(unsigned int) * (*indicesTAM));
-	for(i = 0; (ptr = strstr(init, ",")) != NULL ; i++){	//	encontra o apontador da ","
-		char* tmp = ptr + sizeof(char);		//	guarda temporariamente a posição a seguir à vírgula, isto é, o apontador para o próximo número
-		*ptr = '\0';	//	fim da número, para o atoi saber onde termina a string
-		//printf("%s\n",init );
-		(*indexPoints)[i] = atoi(init);//	converte o char* num int
-		init = tmp;	//	atribuí-se a init o ínicio do próximo número
-	}
-	(*indexPoints)[i] = atoi(init); // por causa do último número não ter ','
 	getline(infile, line);	
-	*pointsTAM = atoi(line.c_str()); 
-	//printf("pointsTAM=%d\n",*pointsTAM);
+	*pointsTAM = atoi(line.c_str());
 	*points = (float*) malloc(sizeof(float) * (3*(*pointsTAM)));
 	for(int k=0; k < *pointsTAM; k++) {
 		getline(infile, line);	//	vai buscar a segunda linha
-		init = (char*) line.c_str();
+		char* init = (char*) line.c_str();
 		for(i = 0; (ptr = strstr(init, ",")) != NULL ; i++){	//	encontra o apontador da ","
 			char* tmp=init;		//	guarda temporariamente a posição a seguir à vírgula, isto é, o apontador para o próximo número
 			(*ptr) = '\0';	        //	fim da número, para o atoi saber onde termina a string
@@ -121,17 +106,16 @@ void file2list(string path, int* indicesTAM, unsigned int** indexPoints, float**
 	//normals
 	index = 0;
 	getline(infile, line);	
-	*normalsTAM = atoi(line.c_str()); 
-	//printf("normalsTAM=%d\n",*normalsTAM);
+	*normalsTAM = atoi(line.c_str());
 	*normals = (float*) malloc(sizeof(float) * (3*(*normalsTAM)));
-	for(int k=0; k < *normalsTAM; k++) {
+	for (int k = 0; k < *normalsTAM; k++) {
 		getline(infile, line);	//	vai buscar a segunda linha
-		init = (char*) line.c_str();
-		for(i = 0; (ptr = strstr(init, ",")) != NULL ; i++){	//	encontra o apontador da ","
-			char* tmp=init;		//	guarda temporariamente a posição a seguir à vírgula, isto é, o apontador para o próximo número
+		char* init = (char*)line.c_str();
+		for (i = 0; (ptr = strstr(init, ",")) != NULL; i++) {	//	encontra o apontador da ","
+			char* tmp = init;		//	guarda temporariamente a posição a seguir à vírgula, isto é, o apontador para o próximo número
 			(*ptr) = '\0';	        //	fim da número, para o atoi saber onde termina a string
 			(*normals)[index++] = atof(tmp);//	converte o char* num int
-			init = ptr+1;	//	atribuí-se a init o ínicio do próximo número
+			init = ptr + 1;	//	atribuí-se a init o ínicio do próximo número
 		}
 		(*normals)[index++] = atof(init); // por causa do último número não ter ','
 	}
@@ -141,11 +125,10 @@ void file2list(string path, int* indicesTAM, unsigned int** indexPoints, float**
 	index = 0;
 	getline(infile, line);	
 	*texCoordsTAM = atoi(line.c_str()); 
-	//printf("texCoordsTAM=%d\n",*texCoordsTAM);
 	*texCoords = (float*) malloc(sizeof(float) * (2*(*texCoordsTAM)));
 	for(int k=0; k < *texCoordsTAM; k++) {
 		getline(infile, line);	//	vai buscar a segunda linha
-		init = (char*) line.c_str();
+		char* init = (char*) line.c_str();
 		for(i = 0; (ptr = strstr(init, ",")) != NULL ; i++){	//	encontra o apontador da ","
 			char* tmp=init;		//	guarda temporariamente a posição a seguir à vírgula, isto é, o apontador para o próximo número
 			(*ptr) = '\0';	        //	fim da número, para o atoi saber onde termina a string

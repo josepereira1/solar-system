@@ -23,11 +23,12 @@ static void printInstructions(){
 }
 
 static void write_points_to_file_index(TAD_ARRAY_LIST points, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST texCoords, const char* path) {
-	TAD_ARRAY_LIST withoutRepeatedPoints;
-	int size = getArraySize(points);
-	int* indexPositions;
-	filter(points, &withoutRepeatedPoints, &indexPositions);
-	list2fileWindex(withoutRepeatedPoints,indexPositions,normals,texCoords,size,path);
+	//TAD_ARRAY_LIST withoutRepeatedPoints;
+	//int size = getArraySize(points);
+	//int* indexPositions;
+	//filter(points, &withoutRepeatedPoints, &indexPositions);
+	//list2fileWindex(withoutRepeatedPoints,indexPositions,normals,texCoords,size,path);
+	list2fileWindex(points,normals,texCoords,path);
 }
 
 void design_sphere(float radius, int slices, int stacks, const char* patch) {
