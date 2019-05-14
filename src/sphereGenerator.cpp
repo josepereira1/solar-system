@@ -38,20 +38,17 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
                 p1 = POINT(0.0,y2,0.0);
                 addElem(l2,p);
                 addElem((*normals),normalize(p1));
-                addElem((*texCoords),POINT((float)(m2+0.5)/slices,1.0,0.0));
 
                 p = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
                 p1 = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
                 addElem(l2,p);
                 addElem((*normals),normalize(p1));
-                addElem((*texCoords),POINT((float)(m2+1)/slices,(float)1-(betaYoX*(m1+1))/M_PI,0.0));
 
 
                 p = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
                 p1 = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
                 addElem(l2,p);
                 addElem((*normals),normalize(p1));
-                addElem((*texCoords),POINT((float)m2/slices,(float)1-(betaYoX*(m1+1))/M_PI,0.0));
 
 
             } else if(m1 == (stacks-1)){
@@ -60,19 +57,16 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
                 p1 = POINT(0.0,y1,0.0);
                 addElem(l2,p);
                 addElem((*normals),normalize(p1));
-                addElem((*texCoords),POINT(0.0,0.0,0.0));
 
                 p = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
                 p1 = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
                 addElem(l2,p);
                 addElem((*normals),normalize(p1));
-                addElem((*texCoords),POINT((float)m2/slices,(float)1-(betaYoX*m1)/M_PI,0.0));
 
                 p = POINT(r2*cos((m2+1)*alfa),y2,r2*sin((m2+1)*alfa));
                 p1 = POINT(r2*cos((m2+1)*alfa),y2,r2*sin((m2+1)*alfa));
                 addElem(l2,p);
                 addElem((*normals),normalize(p1));
-                addElem((*texCoords),POINT((float)(m2+1)/slices,(float)1-((betaYoX*m1)/M_PI),0.0));
 
 
             } else{
@@ -109,32 +103,7 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
                 addElem((*normals),normalize(p1));
             }
         }
-    }/*
-    for (int i = 0; i <= stacks; beta += angle_y, i++) {
-        for (int slice = 0; slice < slices; slice++) {
-            if (i == 0) {
-                all_texture.push_back(TexturePoint((slice * slice_size_texture) + (slice_size_texture / 2), 0));
-                continue;
-            }
-            if (i == stacks) {
-                all_texture.push_back(TexturePoint((slice * slice_size_texture) + (slice_size_texture / 2), incStacks));
-                continue;
-            }
-
-            alpha = ((2 * M_PI) / (slices)) * slice;
-            float x = radius * cos(beta) * sin(alpha);
-            float z = radius * cos(beta) * cos(alpha);
-            float y = radius * sin(beta);
-            all_coordinate.push_back(Point(x, y, z));
-            all_normal.push_back(Point(x / radius, y / radius, z / radius));
-            all_texture.push_back(TexturePoint((slice * slice_size_texture), incStacks));
-        }
-
-        if (i != 0 && i != stacks) {
-            all_texture.push_back(TexturePoint(1, incStacks));
-            incStacks += stack_size_texture;
-        }
-    }*/
+    }
     for(m1=0;m1<stacks;m1++){
         for(m2=0;m2<slices;m2++){
             if(m1 == 0){
