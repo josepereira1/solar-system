@@ -21,7 +21,7 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
     (* normals) = ARRAY_LIST(max);
     (*texCoords) = ARRAY_LIST(max);
     int m1,m2;
-    TAD_POINT p;
+    TAD_POINT p,p1;
     // tenho stack + 1 camadas para ligar, a 1ª e a ultima têm 1 vertice
     for(m1=0;m1<stacks;m1++){ // vertices nas pontas = nº de slices
         y2 = height;
@@ -33,69 +33,81 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
             if(m1==0){
                 // pontos topo
                 p = POINT(0.0,y2,0.0);
+                p1 = POINT(0.0,y2,0.0);
                 addElem(l2,p);
-                addElem((*normals),normalize(p));
+                addElem((*normals),normalize(p1));
                 addElem((*texCoords),POINT(0.0,1.0,0.0));
 
                 p = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
+                p1 = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
                 addElem(l2,p);
-                addElem((*normals),normalize(p));
+                addElem((*normals),normalize(p1));
                 addElem((*texCoords),POINT(0.5,1.0,0.0));
 
                 p = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
+                p1 = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
                 addElem(l2,p);
-                addElem((*normals),normalize(p));
+                addElem((*normals),normalize(p1));
                 addElem((*texCoords),POINT(1.0,1.0,0.0));
 
 
             } else if(m1 == (stacks-1)){
                 // pontos base
                 p = POINT(0.0,y1,0.0);
+                p1 = POINT(0.0,y1,0.0);
                 addElem(l2,p);
-                addElem((*normals),normalize(p));
+                addElem((*normals),normalize(p1));
                 addElem((*texCoords),POINT(0.0,0.0,0.0));
                 p = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
+                p1 = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
                 addElem(l2,p);
-                addElem((*normals),normalize(p));
+                addElem((*normals),normalize(p1));
                 addElem((*texCoords),POINT(0.5,0.0,0.0));
                 p = POINT(r2*cos((m2+1)*alfa),y2,r2*sin((m2+1)*alfa));
+                p1 = POINT(r2*cos((m2+1)*alfa),y2,r2*sin((m2+1)*alfa));
                 addElem(l2,p);
-                addElem((*normals),normalize(p));
+                addElem((*normals),normalize(p1));
                 addElem((*texCoords),POINT(1.0,0.0,0.0));
 
 
             } else{
                 //triangulo
                 p = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
+                p1 = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
                 addElem(l2,p);
-                addElem((*normals),normalize(p));
+                addElem((*normals),normalize(p1));
                 addElem((*texCoords),POINT(m2/slices,(betaYoX*m1)/M_PI,0.0));
 
                 p = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
+                p1 = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
                 addElem(l2,p);
-                addElem((*normals),normalize(p));
+                addElem((*normals),normalize(p1));
                 addElem((*texCoords),POINT(m2/slices,(betaYoX*(m1+1))/M_PI,0.0));
 
                 p = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
+                p1 = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
                 addElem(l2,p);
-                addElem((*normals),normalize(p));
+                addElem((*normals),normalize(p1));
                 addElem((*texCoords),POINT(m2/slices,(betaYoX*(m1+1))/M_PI,0.0));
                 
 
                 // triangulo inverso
                 p = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));// <
+                p1 = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
                 addElem(l2,p);
-                addElem((*normals),normalize(p));
+                addElem((*normals),normalize(p1));
                 addElem((*texCoords),POINT(m2/slices,(betaYoX*m1)/M_PI,0.0));
 
                 p = POINT(r2*cos((m2+1)*alfa),y2,r2*sin((m2+1)*alfa));// ^<
+                p1 = POINT(r2*cos((m2+1)*alfa),y2,r2*sin((m2+1)*alfa));// ^<
                 addElem(l2,p);
-                addElem((*normals),normalize(p));
+                addElem((*normals),normalize(p1));
                 addElem((*texCoords),POINT(m2/slices,(betaYoX*m1)/M_PI,0.0));
 
                 p = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));// ^>
+                p1 = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));// ^>
                 addElem(l2,p);
-                addElem((*normals),normalize(p));
+                addElem((*normals),normalize(p1));
                 addElem((*texCoords),POINT(m2/slices,(betaYoX*(m1+1))/M_PI,0.0));
             }
         }

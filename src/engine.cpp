@@ -93,13 +93,13 @@ static void printFiguras(map<string, Figura> figuras) {
 	for (it = figuras.begin(); it != figuras.end(); it++, dim++) {
 		Figura f = it->second;
 		printf("indicesTAM=%d\n", f.indicesTAM);
-		/*for (int i = 0; i < f.indicesTAM; i++) {
+		for (int i = 0; i < f.indicesTAM; i++) {
 			printf("%d, ", f.indexPoints[i]);
-		}*/
+		}
 		printf("\npointsTAM=%d\n", f.pointsTAM);
-		/*for (int i = 0; i < f.pointsTAM; i++) {
+		for (int i = 0; i < f.pointsTAM; i++) {
 			printf("%.5f, ", f.points[i]);
-		}*/
+		}/*
 		printf("indicesNormaisTAM=%d\n", f.indicesTAM);
 		for (int i = 0; i < f.indicesTAM; i++) {
 			printf("%d, ", f.indexNormals[i]);
@@ -115,7 +115,7 @@ static void printFiguras(map<string, Figura> figuras) {
 		printf("\ntexCoordsTAM=%d\n", f.texCoordsTAM);
 		for (int i = 0; i < f.texCoordsTAM; i++) {
 			printf("%.5f, ", f.texCoords[i]);
-		}
+		}*/
 		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"); // para separar as figuras de modo legível
 	}
 
@@ -315,7 +315,6 @@ void design(Group g) {
 		// usa array de normais 
 		glBindBuffer(GL_ARRAY_BUFFER, normals[count]);
 		glNormalPointer(GL_FLOAT, 0, 0);
-		printf("%d\n",count );
 		//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesNormals[count]);
 		if (nome_textura.compare("SPEC") != 0 && nome_textura.compare("EMI") != 0 && nome_textura.compare("DIFF") != 0 && nome_textura.compare("AMB") != 0) {
 			// usa array de coordenadas de imagem para aplicar textura
@@ -324,7 +323,6 @@ void design(Group g) {
 			//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesTexCoords[count]);
 		}
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesPoints[count]);
-		printf("%d\n",count );
 		glDrawElements(GL_TRIANGLES, tam, GL_UNSIGNED_INT, 0); // nº de vertices a desenhar
 		glBindTexture(GL_TEXTURE_2D, 0);
 		
@@ -523,6 +521,7 @@ int main(int argc, char** argv) {
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesTexCoords[nFiguras]);                                                                 // pega  indexesTexCoords[nFiguras]
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indexTexCoordsTAM), (it->second.indexTexCoords), GL_STATIC_DRAW); // preenche indexesTexCoords[nFiguras]
 	}
+	//printFiguras(figuras);
 	// enter GLUT's main cycle
 	glutMainLoop();
 
