@@ -381,10 +381,10 @@ void processSpecialKeys(int key, int xx, int yy) {
 	// put code to process special keys in here
 	switch (key) {
 	case GLUT_KEY_RIGHT:
-		alfa -= 0.1f;
+		alfa -= 0.01f;
 		break;
 	case GLUT_KEY_LEFT:
-		alfa += 0.1f;
+		alfa += 0.01f;
 		break;
 	case GLUT_KEY_UP:
 		beta += 0.1f;
@@ -397,14 +397,14 @@ void processSpecialKeys(int key, int xx, int yy) {
 			beta = -1.5f;
 		break;
 	case GLUT_KEY_PAGE_DOWN:
-		radius -= 50.0f;
+		radius -= 5.0f;
 		if (radius < 1.0f) {
 			//radius = 50.0f;
 			radius = 10.0f;
 		}
 		break;
 	case GLUT_KEY_PAGE_UP:
-		radius += 50.0f;
+		radius += 5.0f;
 		break;
 	}
 	spherical2Cartesian();
