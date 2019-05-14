@@ -392,7 +392,7 @@
                 </models>
             </group>
         </group>
-        <!--<group>
+        <group>
             <rotate axisX=0 axisY=1 axisZ=0 time=20 />
             <translate time=120 >
                 <point X=500.00000 Y=0.00000 Z=0 />
@@ -429,6 +429,6 @@
             <models>
                 <model file="teapot.3d" texture="DIFF" diffX=0.2 diffY=0.5 diffZ=0.2 />
             </models>
-        </group>-->
+        </group>
     </group>
 </scene>

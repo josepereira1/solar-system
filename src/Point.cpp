@@ -61,6 +61,7 @@ int equalsPoint(TAD_POINT point1, TAD_POINT point2){
 TAD_POINT normalize(TAD_POINT point) {
 
 	float l = sqrt((point->x)*(point->x) + (point->y)*(point->y) + (point->z)*(point->z));
+	if (l == 0.0f || l == -0.0f) l = 1.0f;
 	point->x = (point->x)/l;
 	point->y = (point->y)/l;
 	point->z = (point->z)/l;

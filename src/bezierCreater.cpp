@@ -38,36 +38,36 @@ static TAD_POINT getBezierNormal(int** arrayPatchs, TAD_ARRAY_LIST cps, int nume
 
 	float* bu = createPolyBernstein(u); // gerar o polinómio de Bernstein para o ponto U
     float* bv = createPolyBernstein(v); // gerar o polinómio de Bernstein para o ponto V
-	float* blu = createDerivBernstein(u); // gerar a derivada de Bernstein para o ponto U
-    float* blv = createDerivBernstein(v); // gerar a derivada de Bernstein para o ponto V
+	float* dbu = createDerivBernstein(u); // gerar a derivada de Bernstein para o ponto U
+    float* dbv = createDerivBernstein(v); // gerar a derivada de Bernstein para o ponto V
 
     float v1[3], v2[3];
-    v1[0] = v1[1] = v1[2] = v2[0] = v2[1] = v2[2] = 0.0f;
+    v1[0] = v1[1] = v1[2] = v2[0] = v2[1] = v2[2] = 0;
 
     /* fórmula usada:
-     * B(lu,v) = Bli(u) * Pij * Bj(v)
+     * B(lu,v) = dBi(u) * Pij * Bj(v)
      */
     for(int i = 0 ; i < 4 ; i++) {
     	for(int j = 0 ; j < 4 ; j++) {
     		int indiceNoPatch = i * 4 + j;
     		int indice_pc = arrayPatchs[numeroDoPatch][indiceNoPatch];
     		TAD_POINT p = (TAD_POINT) getElem(cps,indice_pc);
-    		v1[0] += blu[i] * getX(p) * bv[j];
-            v1[1] += blu[i] * getY(p) * bv[j];
-            v1[2] += blu[i] * getZ(p) * bv[j];
+    		v1[0] += dbu[i] * getX(p) * bv[j];
+            v1[1] += dbu[i] * getY(p) * bv[j];
+            v1[2] += dbu[i] * getZ(p) * bv[j];
     	}
     }
     /* fórmula usada:
-     * B(u,lv) = Bi(u) * Pij * Blj(v)
+     * B(u,lv) = Bi(u) * Pij * dBj(v)
      */
     for(int i = 0 ; i < 4 ; i++) {
     	for(int j = 0 ; j < 4 ; j++) {
     		int indiceNoPatch = i * 4 + j;
     		int indice_pc = arrayPatchs[numeroDoPatch][indiceNoPatch];
     		TAD_POINT p = (TAD_POINT) getElem(cps,indice_pc);
-    		v2[0] += bu[i] * getX(p) * blv[j];
-            v2[1] += bu[i] * getY(p) * blv[j];
-            v2[2] += bu[i] * getZ(p) * blv[j];
+    		v2[0] += bu[i] * getX(p) * dbv[j];
+            v2[1] += bu[i] * getY(p) * dbv[j];
+            v2[2] += bu[i] * getZ(p) * dbv[j];
     	}
     }
     return normalize(cross(v1, v2));

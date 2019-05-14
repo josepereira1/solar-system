@@ -38,9 +38,7 @@ int face = GL_FRONT;
 GLuint *buffers;
 GLuint *indexesPoints;
 GLuint *normals;
-GLuint *indexesNormals;
 GLuint *texturas;
-GLuint *indexesTexCoords;
 
 vector<TAD_POINT> p;
 int POINT_COUNT = 0;
@@ -315,12 +313,12 @@ void design(Group g) {
 		// usa array de normais 
 		glBindBuffer(GL_ARRAY_BUFFER, normals[count]);
 		glNormalPointer(GL_FLOAT, 0, 0);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesNormals[count]);
+		//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesNormals[count]);
 		if (nome_textura.compare("SPEC") != 0 && nome_textura.compare("EMI") != 0 && nome_textura.compare("DIFF") != 0 && nome_textura.compare("AMB") != 0) {
 			// usa array de coordenadas de imagem para aplicar textura
 			glBindBuffer(GL_ARRAY_BUFFER, texturas[count]);
 			glTexCoordPointer(2, GL_FLOAT, 0, 0);
-			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesTexCoords[count]);
+			//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesTexCoords[count]);
 		}
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesPoints[count]);
 		glDrawElements(GL_TRIANGLES, tam, GL_UNSIGNED_INT, 0); // nº de vertices a desenhar
@@ -495,15 +493,11 @@ int main(int argc, char** argv) {
 	buffers = buf2;
 	indexesPoints = indp;
 	normals = nor2;
-	indexesNormals = indn;
 	texturas = tex2;
-	indexesTexCoords = indt;
 	glGenBuffers(nFiguras, buffers);                                      // gera 3 buffers de coordenadas
 	glGenBuffers(nFiguras, indexesPoints);                                // gera 3 buffers de indices
 	glGenBuffers(nFiguras, normals);
-	glGenBuffers(nFiguras, indexesNormals);
 	glGenBuffers(nFiguras, texturas);
-	glGenBuffers(nFiguras, indexesTexCoords);
 	for (it = figuras.begin(), nFiguras = 0; it != figuras.end(); ++it, nFiguras++) {
 		//points
 		glBindBuffer(GL_ARRAY_BUFFER, buffers[nFiguras]);                                                          // pega no buffer[nFiguras]
@@ -513,14 +507,10 @@ int main(int argc, char** argv) {
 		//normals
 		glBindBuffer(GL_ARRAY_BUFFER, normals[nFiguras]);                                                        // pega  normals[nFiguras]
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.normalsTAM), it->second.normals, GL_STATIC_DRAW); // preenche normals[nFiguras] 
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesNormals[nFiguras]);                                                                 // pega  indexesNormals[nFiguras]
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indexNormalsTAM), (it->second.indexNormals), GL_STATIC_DRAW); // preenche indexesNormals[nFiguras]
 		//texture
 		glBindBuffer(GL_ARRAY_BUFFER, texturas[nFiguras]);                                                             // pega  texCoords[nFiguras]
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.texCoordsTAM), it->second.texCoords, GL_STATIC_DRAW); // preenche texCoords[nFiguras] 
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesTexCoords[nFiguras]);                                                                 // pega  indexesTexCoords[nFiguras]
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indexTexCoordsTAM), (it->second.indexTexCoords), GL_STATIC_DRAW); // preenche indexesTexCoords[nFiguras]
-	}
+		}
 	// enter GLUT's main cycle
 	glutMainLoop();
 
