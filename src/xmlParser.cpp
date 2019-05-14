@@ -9,7 +9,6 @@
 using namespace std;
 
 Textura loadTexture(string s) {
-    printf("%s\n",s.c_str() );
     unsigned int t,tw,th;
     unsigned char *texData;
     unsigned int texID;
@@ -216,41 +215,29 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
 							float* texCoords;
 							int texCoordsTAM;
 
-							file2list(name, &indicesTAM, &indexPoints, &points, &pointsTAM, &indexNormalsTAM, &indexNormals, &normals, &normalsTAM, &indexNormalsTAM, &indexTexCoordsTAM, &indexTexCoords, &texCoords, &texCoordsTAM);
-
+							file2list(name, &indicesTAM, &indexPoints, &points, &pointsTAM, &indexNormalsTAM, &indexNormals, &normals, &normalsTAM, &indexTexCoordsTAM, &indexTexCoords, &texCoords, &texCoordsTAM);
 							Figura f = Figura(indicesTAM, indexPoints, points, pointsTAM, indexNormalsTAM, indexNormals, normals, normalsTAM, indexTexCoordsTAM, indexTexCoords, texCoords, texCoordsTAM);
 
 							figuras.insert(pair<string, Figura>(name, f));
 						}
 
 						textura = (string)pChild->Attribute("texture");
-						
-						if (textura.compare("") != 0) {
+						if ((textura.compare("") != 0) && textura.compare("DIFF") != 0 && textura.compare("AMB") != 0 && textura.compare("EMI") != 0 && textura.compare("SPEC") != 0 ) {
 							if(texturas.find(textura) == texturas.end()) 
 								texturas.insert(pair<string, Textura>(textura, loadTexture(textura)));
 						}
 						else {
-							const char* diff = pChild->Attribute("diffX");
-							const char* amb = pChild->Attribute("ambX");
-							const char* emi = pChild->Attribute("emiX");
-							const char* spec = pChild->Attribute("specX");
-							TAD_POINT p = POINT(1.0f, 1.0f, 1.0f);
-							if (diff) {
-								p = POINT(atof(diff), atof(pChild->Attribute("diffY")), atof(pChild->Attribute("diffZ")));
-								textura = "DIFF";
-							}
-							else if (amb) {
-								p = POINT(atof(amb), atof(pChild->Attribute("ambY")), atof(pChild->Attribute("ambZ")));
-								textura = "AMB";
-							}
-							else if (emi) {
-								p = POINT(atof(emi), atof(pChild->Attribute("emitY")), atof(pChild->Attribute("emiZ")));
-								textura = "EMI";
-							}
-							else if (spec) {
-								p = POINT(atof(spec), atof(pChild->Attribute("specY")), atof(pChild->Attribute("specZ")));
-								textura = "SPEC";
-							}
+                            TAD_POINT p = POINT(1.0f, 1.0f, 1.0f);
+                            string diff,amb,emi,spec;
+                            if(textura.compare("DIFF") == 0){
+							    p = POINT(atof(pChild->Attribute("diffX")), atof(pChild->Attribute("diffY")), atof(pChild->Attribute("diffZ")));
+                            }
+                             else if(textura.compare("AMB") == 0)
+                                p = POINT(atof(pChild->Attribute("ambX")), atof(pChild->Attribute("ambY")), atof(pChild->Attribute("ambZ")));
+                             else if(textura.compare("EMI") == 0)
+                                p = POINT(atof(pChild->Attribute("emiX")), atof(pChild->Attribute("emitY")), atof(pChild->Attribute("emiZ")));
+                            else if(textura.compare("SPEC")) p = POINT(atof(pChild->Attribute("specX")), atof(pChild->Attribute("specY")), atof(pChild->Attribute("specZ")));
+                            else{}
 							group.materials.push_back(p);
 						}
 						group.ficheiros.push_back(name);
@@ -281,8 +268,6 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
 static vector<Light> searchLights(TiXmlElement *pRoot) {
 	vector<Light> lights = vector<Light>();
 
-	pRoot = pRoot->FirstChildElement("light");
-
 	string tipo = "";
 
 	while (pRoot) {
@@ -298,7 +283,6 @@ static vector<Light> searchLights(TiXmlElement *pRoot) {
 
 		string name = (string) pRoot->Value();
 		if (name.compare("light") == 0) {
-			cout << name + '\n';
 			tipo = (string) pRoot->Attribute("type");
 
 			posX = pRoot->Attribute("posX");

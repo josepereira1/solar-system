@@ -57,6 +57,84 @@ map<string, Figura> figuras;
 map<string, Figura>::iterator it;
 map<string, Textura>::iterator aux;
 
+
+
+// DEBUG
+static void printGroup(Group g) {
+	for (int i = 0; i < g.operacoes.size(); i++) {
+		Operation op = g.operacoes.at(i);
+		printf("Operacao: flag=%c, time=%d\n", op.flag, op.time);
+	}
+	for (int i = 0; i < g.ficheiros.size(); i++) {
+		string str = g.ficheiros.at(i);
+		cout << "Ficheiro=" + str + "\n";
+	}
+	for (int i = 0; i < g.texturas.size(); i++) {
+		string str = g.texturas.at(i);
+		cout << "Textura=" + str + "\n";
+	}
+	for (int i = 0; i <g.materials.size(); i++) {
+		TAD_POINT str = g.materials.at(i);
+		point2string(str);
+	}
+	for (int i = 0; i < g.filhos.size(); i++) {
+		Group a = g.filhos.at(i);
+		printf("GROUP:-----------------------------------------------\n");
+		printGroup(a);
+	}
+}
+
+// DEBUG
+static void printFiguras(map<string, Figura> figuras) {
+
+	map<string, Figura> ::iterator it;
+	int dim = 0;
+
+	for (it = figuras.begin(); it != figuras.end(); it++, dim++) {
+		Figura f = it->second;
+		printf("indicesTAM=%d\n", f.indicesTAM);
+		/*for (int i = 0; i < f.indicesTAM; i++) {
+			printf("%d, ", f.indexPoints[i]);
+		}*/
+		printf("\npointsTAM=%d\n", f.pointsTAM);
+		/*for (int i = 0; i < f.pointsTAM; i++) {
+			printf("%.5f, ", f.points[i]);
+		}*/
+		printf("indicesNormaisTAM=%d\n", f.indicesTAM);
+		for (int i = 0; i < f.indicesTAM; i++) {
+			printf("%d, ", f.indexNormals[i]);
+		}
+		printf("\nnormalsTAM=%d\n", f.normalsTAM);
+		for (int i = 0; i < f.normalsTAM; i++) {
+			printf("%.5f, ", f.normals[i]);
+		}
+		printf("indicesTexturasTAM=%d\n", f.indicesTAM);
+		for (int i = 0; i < f.indicesTAM; i++) {
+			printf("%d, ", f.indexTexCoords[i]);
+		}
+		printf("\ntexCoordsTAM=%d\n", f.texCoordsTAM);
+		for (int i = 0; i < f.texCoordsTAM; i++) {
+			printf("%.5f, ", f.texCoords[i]);
+		}
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"); // para separar as figuras de modo legível
+	}
+
+	printf("Numero de Figuras diferentes=%d\n", dim); // para saber quantas figuras existem
+}
+
+//DEBUG
+static void printLights(vector<Light> lights) {
+	int i = 0;
+	for (; i < lights.size(); i++) {
+		printf("tipo=%c\n", lights.at(i).tipo);
+		printf("pos= %f , %f , %f , %f\n", lights.at(i).posX, lights.at(i).posY, lights.at(i).posZ, lights.at(i).posD);
+		printf("diff= %f , %f , %f , %f\n", lights.at(i).diffX, lights.at(i).diffY, lights.at(i).diffZ, lights.at(i).diffD);
+		printf("amb= %f , %f , %f , %f\n", lights.at(i).ambX, lights.at(i).ambY, lights.at(i).ambZ, lights.at(i).ambZ);
+		printf("spot= %f , %f , %f\n", lights.at(i).spotX, lights.at(i).spotY, lights.at(i).spotZ);
+	}
+	printf("\nNumero de luzes=%d\n", i);
+}
+
 void spherical2Cartesian() {
 	camX = radius * cos(beta) * sin(alfa);
 	camY = radius * sin(beta);
@@ -167,6 +245,7 @@ void design(Group g) {
 	float deriv[3];
 	float time;
 	GLuint figTex;
+	string nome_textura, nome_ficheiro;
 	glPushMatrix();
 	for (unsigned i = 0; i < g.operacoes.size(); i++) {
 		Operation op = g.operacoes.at(i);
@@ -198,10 +277,9 @@ void design(Group g) {
 		}
 
 	}
-
 	for (unsigned i = 0, count = 0; i < g.ficheiros.size(); i++, count = 0) {
-		string nome_ficheiro = g.ficheiros[i];
-		string nome_textura = g.texturas[i];
+		nome_ficheiro = g.ficheiros[i];
+		if(i < g.texturas.size()) nome_textura = g.texturas[i];
 		int tam = 0;
 		int j = 0;
 		for (it = figuras.begin(); it != figuras.end(); ++it, count++) {
@@ -211,17 +289,17 @@ void design(Group g) {
 			}
 		}
 		if (nome_textura.compare("SPEC") != 0 && nome_textura.compare("EMI") != 0 && nome_textura.compare("DIFF") != 0 && nome_textura.compare("AMB") != 0) {
-			for (aux = textures.begin(); aux != textures.end(); ++it) {
+			for (aux = textures.begin(); aux != textures.end(); ++aux) {
 				if (aux->first.compare(nome_textura) == 0) {
 					figTex = aux->second.tex;
 					break;
 				}
 			}
 			// guardar a textura a ser usada neste desenho
-			glBindTexture(GL_TEXTURE_2D, figTex);
+			if(aux != textures.end()) glBindTexture(GL_TEXTURE_2D, figTex);
 		}
 		else {
-			TAD_POINT p = g.materials.at(j);
+			TAD_POINT p = g.materials.at(0);
 			float arr[4] = {getX(p) ,getY(p),getZ(p),1.0f };
 			if (nome_textura.compare("SPEC") == 0) glMaterialfv(GL_FRONT, GL_SPECULAR, arr);
 			else if (nome_textura.compare("EMI") == 0) glMaterialfv(GL_FRONT, GL_EMISSION, arr);
@@ -229,7 +307,6 @@ void design(Group g) {
 			else glMaterialfv(GL_FRONT, GL_AMBIENT, arr);
 			j += 1;
 		}
-
 		// count indica a posição no map que representa a posição no buffer e no index
 		glBindBuffer(GL_ARRAY_BUFFER, buffers[count]); // paga no buffer sphere
 		// nº de pontos para formar 1 vertice/ tipo da coordenada/ distancia entre indices dos vertices consecutivos / onde começa o array
@@ -242,7 +319,6 @@ void design(Group g) {
 		glBindBuffer(GL_ARRAY_BUFFER, normals[count]);
 		glNormalPointer(GL_FLOAT, 0, 0);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesNormals[count]);
-
 		if (nome_textura.compare("SPEC") != 0 && nome_textura.compare("EMI") != 0 && nome_textura.compare("DIFF") != 0 && nome_textura.compare("AMB") != 0) {
 			// usa array de coordenadas de imagem para aplicar textura
 			glBindBuffer(GL_ARRAY_BUFFER, texturas[count]);
@@ -251,11 +327,8 @@ void design(Group g) {
 		}
 
 		glDrawElements(GL_TRIANGLES, tam, GL_UNSIGNED_INT, 0); // nº de vertices a desenhar
-
-		if (nome_textura.compare("SPEC") != 0 && nome_textura.compare("EMI") != 0 && nome_textura.compare("DIFF") != 0 && nome_textura.compare("AMB") != 0) {
-			// limpar textura usada
-			glBindTexture(GL_TEXTURE_2D, 0);
-		}
+		glBindTexture(GL_TEXTURE_2D, 0);
+		
 	}
 	nextGt += 1;
 	for (unsigned i = 0; i < g.filhos.size(); i++)
@@ -343,78 +416,6 @@ void processSpecialKeys(int key, int xx, int yy) {
 	glutPostRedisplay();
 }
 
-// DEBUG
-static void printGroup(Group g) {
-	for (int i = 0; i < g.operacoes.size(); i++) {
-		Operation op = g.operacoes.at(i);
-		printf("Operacao: flag=%c, time=%d\n", op.flag, op.time);
-	}
-	for (int i = 0; i < g.ficheiros.size(); i++) {
-		string str = g.ficheiros.at(i);
-		cout << "Ficheiro=" + str + "\n";
-	}
-	for (int i = 0; i < g.texturas.size(); i++) {
-		string str = g.texturas.at(i);
-		cout << "Textura=" + str + "\n";
-	}
-	for (int i = 0; i < g.filhos.size(); i++) {
-		Group a = g.filhos.at(i);
-		printf("GROUP:-----------------------------------------------\n");
-		printGroup(a);
-	}
-}
-
-// DEBUG
-static void printFiguras(map<string, Figura> figuras) {
-
-	map<string, Figura> ::iterator it;
-	int dim = 0;
-
-	for (it = figuras.begin(); it != figuras.end(); it++, dim++) {
-		Figura f = it->second;
-		printf("indicesTAM=%d\n", f.indicesTAM);
-		/*for (int i = 0; i < f.indicesTAM; i++) {
-			printf("%d, ", f.indexPoints[i]);
-		}*/
-		printf("\npointsTAM=%d\n", f.pointsTAM);
-		/*for (int i = 0; i < f.pointsTAM; i++) {
-			printf("%.5f, ", f.points[i]);
-		}*/
-		printf("indicesNormaisTAM=%d\n", f.indicesTAM);
-		for (int i = 0; i < f.indicesTAM; i++) {
-			printf("%d, ", f.indexNormals[i]);
-		}
-		printf("\nnormalsTAM=%d\n", f.normalsTAM);
-		for (int i = 0; i < f.normalsTAM; i++) {
-			printf("%.5f, ", f.normals[i]);
-		}
-		printf("indicesTexturasTAM=%d\n", f.indicesTAM);
-		for (int i = 0; i < f.indicesTAM; i++) {
-			printf("%d, ", f.indexTexCoords[i]);
-		}
-		printf("\ntexCoordsTAM=%d\n", f.texCoordsTAM);
-		for (int i = 0; i < f.texCoordsTAM; i++) {
-			printf("%.5f, ", f.texCoords[i]);
-		}
-		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"); // para separar as figuras de modo legível
-	}
-
-	printf("Numero de Figuras diferentes=%d\n", dim); // para saber quantas figuras existem
-}
-
-//DEBUG
-static void printLights(vector<Light> lights) {
-	int i = 0;
-	for (; i < lights.size(); i++) {
-		printf("tipo=%c\n", lights.at(i).tipo);
-		printf("pos= %f , %f , %f , %f\n", lights.at(i).posX, lights.at(i).posY, lights.at(i).posZ, lights.at(i).posD);
-		printf("diff= %f , %f , %f , %f\n", lights.at(i).diffX, lights.at(i).diffY, lights.at(i).diffZ, lights.at(i).diffD);
-		printf("amb= %f , %f , %f , %f\n", lights.at(i).ambX, lights.at(i).ambY, lights.at(i).ambZ, lights.at(i).ambZ);
-		printf("spot= %f , %f , %f\n", lights.at(i).spotX, lights.at(i).spotY, lights.at(i).spotZ);
-	}
-	printf("\nNumero de luzes=%d\n", i);
-}
-
 void initGL() {
 	int nGrupos = 0;
 	parse(group, luzes, figuras, textures, &nGrupos, "file.xml");
@@ -484,8 +485,8 @@ int main(int argc, char** argv) {
 	initGL();
 	
 	//printGroup(group);    //  DEBUG
-	printFiguras(figuras); //  DEBUG
-	printLights(luzes); // DEBUG
+	//sprintFiguras(figuras); //  DEBUG
+	//printLights(luzes); // DEBUG
 
 	int nFiguras = figuras.size();
 	GLuint buf2[3];
@@ -506,10 +507,6 @@ int main(int argc, char** argv) {
 	glGenBuffers(nFiguras, indexesNormals);
 	glGenBuffers(nFiguras, texturas);
 	glGenBuffers(nFiguras, indexesTexCoords);
-
-	//corrigir amanhã
-
-
 	for (it = figuras.begin(), nFiguras = 0; it != figuras.end(); ++it, nFiguras++) {
 		//points
 		glBindBuffer(GL_ARRAY_BUFFER, buffers[nFiguras]);                                                          // pega no buffer[nFiguras]
@@ -520,14 +517,13 @@ int main(int argc, char** argv) {
 		glBindBuffer(GL_ARRAY_BUFFER, normals[nFiguras]);                                                        // pega  normals[nFiguras]
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.normalsTAM), it->second.normals, GL_STATIC_DRAW); // preenche normals[nFiguras] 
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesNormals[nFiguras]);                                                                 // pega  indexesNormals[nFiguras]
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indexNormals), GL_STATIC_DRAW); // preenche indexesNormals[nFiguras]
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indexNormalsTAM), (it->second.indexNormals), GL_STATIC_DRAW); // preenche indexesNormals[nFiguras]
 		//texture
 		glBindBuffer(GL_ARRAY_BUFFER, texturas[nFiguras]);                                                             // pega  texCoords[nFiguras]
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.texCoordsTAM), it->second.texCoords, GL_STATIC_DRAW); // preenche texCoords[nFiguras] 
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexesTexCoords[nFiguras]);                                                                 // pega  indexesTexCoords[nFiguras]
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indicesTAM), (it->second.indexTexCoords), GL_STATIC_DRAW); // preenche indexesTexCoords[nFiguras]
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*(it->second.indexTexCoordsTAM), (it->second.indexTexCoords), GL_STATIC_DRAW); // preenche indexesTexCoords[nFiguras]
 	}
-	printf("acabou de fazer os buffers\n");
 	// enter GLUT's main cycle
 	glutMainLoop();
 
