@@ -5,7 +5,6 @@
 #include <ArrayList.h>
 #include <Point.h>
 #include <toFile.h>
-#include <filterPoints.h>
 
 //	generators
 #include <coneGenerator.h>
@@ -22,41 +21,32 @@ static void printInstructions(){
 	puts(str);
 }
 
-static void write_points_to_file_index(TAD_ARRAY_LIST points, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST texCoords, const char* path) {
-	//TAD_ARRAY_LIST withoutRepeatedPoints;
-	//int size = getArraySize(points);
-	//int* indexPositions;
-	//filter(points, &withoutRepeatedPoints, &indexPositions);
-	//list2fileWindex(withoutRepeatedPoints,indexPositions,normals,texCoords,size,path);
-	list2fileWindex(points,normals,texCoords,path);
-}
-
 void design_sphere(float radius, int slices, int stacks, const char* patch) {
 	TAD_ARRAY_LIST normals;
 	TAD_ARRAY_LIST texCoords;
 	TAD_ARRAY_LIST points = getPointsOfSphere(radius,slices,stacks,&normals, &texCoords);
-	write_points_to_file_index(points,normals,texCoords,patch);
+	list2file(points,normals,texCoords,patch);
 }
 
 void design_plane(float side, const char* patch) {
 	TAD_ARRAY_LIST normals;
 	TAD_ARRAY_LIST texCoords;
 	TAD_ARRAY_LIST points = getPointsOfPlane(side, &normals, &texCoords);
-	write_points_to_file_index(points,normals,texCoords,patch);	
+	list2file(points,normals,texCoords,patch);	
 }
 
 void design_box(float x, float y, float z, int divisions, const char* patch) {
 	TAD_ARRAY_LIST normals;
 	TAD_ARRAY_LIST texCoords;
 	TAD_ARRAY_LIST points = getPointsOfBox(x, y, z, divisions, &normals, &texCoords);
-	write_points_to_file_index(points,normals,texCoords,patch);
+	list2file(points,normals,texCoords,patch);
 }
 
 void design_cone(float radius, float height, int slices, int stacks, const char* patch) {
 	TAD_ARRAY_LIST normals;
 	TAD_ARRAY_LIST texCoords;
 	TAD_ARRAY_LIST points = getPointsOfCone(radius, height, slices, stacks,&normals,&texCoords);
-	write_points_to_file_index(points,normals,texCoords,patch);
+	list2file(points,normals,texCoords,patch);
 }
 
 void create_bezier(const char* patch, const char* path, int tesselation) {
@@ -65,7 +55,7 @@ void create_bezier(const char* patch, const char* path, int tesselation) {
 	TAD_ARRAY_LIST texCoords = ARRAY_LIST(2);
 	addElem(texCoords,POINT(0,0,0));
 	TAD_ARRAY_LIST points = getPointsOfBezier(patch,tesselation,&normals);
-	write_points_to_file_index(points,normals,texCoords,path);
+	list2file(points,normals,texCoords,path);
 }
 
 int main(int argc, char** argv) {

@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void list2fileWindex(TAD_ARRAY_LIST points, /*int* indexPoints,*/ TAD_ARRAY_LIST normals, TAD_ARRAY_LIST texCoords,/*int tam,*/ const char* path) {
+void list2file(TAD_ARRAY_LIST points, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST texCoords, const char* path) {
 	FILE *file = fopen(path, "w");
 	
 	if (file == NULL) {

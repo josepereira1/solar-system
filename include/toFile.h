@@ -6,6 +6,6 @@
 
 using namespace std;
 
-void list2fileWindex(TAD_ARRAY_LIST points, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST texCoords, const char* path);
+void list2file(TAD_ARRAY_LIST points, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST texCoords, const char* path);
 
 #endif
