@@ -16,21 +16,25 @@ static int contains(TAD_ARRAY_LIST points, TAD_POINT point);
 static int* getPositions(TAD_ARRAY_LIST all_points, TAD_ARRAY_LIST filtered_points);
 static int getPosition(TAD_ARRAY_LIST points, TAD_POINT point);
 
-void filter(TAD_ARRAY_LIST points, TAD_ARRAY_LIST* withoutRepeated, int** positions){
+void filter(TAD_ARRAY_LIST points, TAD_ARRAY_LIST* withoutRepeated, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST* normalsWRepeat, TAD_ARRAY_LIST texCoords, TAD_ARRAY_LIST* texCoordsWRepeat, int** positions){
 	int size = getArraySize(points);
 	*withoutRepeated = ARRAY_LIST(size);
+	*normalsWRepeat = ARRAY_LIST(size);
+	*texCoordsWRepeat = ARRAY_LIST(size);
 	*positions = (int* )malloc(size*sizeof(int));
-	*withoutRepeated = removeRepeated(points);
+	*withoutRepeated = removeRepeated(points,normals,texCoords,normalsWRepeat,texCoordsWRepeat);
 	*positions = getPositions(points, *withoutRepeated);
 }
 
-static TAD_ARRAY_LIST removeRepeated(TAD_ARRAY_LIST points){
+static TAD_ARRAY_LIST removeRepeated(TAD_ARRAY_LIST points, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST texCoords, TAD_ARRAY_LIST* normalsWRepeat, TAD_ARRAY_LIST* texCoordsWRepeat){
 	int size = getArraySize(points);
 	TAD_ARRAY_LIST res = ARRAY_LIST(size);
 	for(int i = 0; i < size; i++){
 		TAD_POINT point = (TAD_POINT) getElem(points,i);
 		if(contains(res, point) == 0){
-			addElem(res, point);	
+			addElem(res, point);
+			addElem(*normalsWRepeat, getElem(normals,i));
+			addElem(*texCoordsWRepeat, getElem(texCoords,i));	
 		}
 	}
 	return res;
