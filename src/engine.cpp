@@ -55,8 +55,7 @@ map<string, Figura> figuras;
 map<string, Figura>::iterator it;
 map<string, Textura>::iterator aux;
 
-float luzAmbiente[]={1.0f, 1.0f, 1.0f, 1.0f};
-float white[] ={1.0f,1.0f,1.0f,1.0f};
+GLfloat dir[4] = {0.0, 0.0 ,1.0, 0.0};
 
 // DEBUG
 static void printGroup(Group g) {
@@ -230,6 +229,7 @@ void design(Group g) {
 	static float t = 0;
 	float pos[3];
 	float deriv[3];
+	float arr[] = {1.0f,1.0f,1.0f,1.0f};
 	float time;
 	GLuint figTex;
 	string nome_textura, nome_ficheiro, light_type;
@@ -258,15 +258,16 @@ void design(Group g) {
 		case 's':
 			glScalef(getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
 			break;
+		case 'e':
+			glMaterialfv(GL_FRONT, GL_EMISSION, arr);
+			break;
 		default:
 			perror("Modificação inexistente!\n");
 			exit(1);
 		}
 
-	}
-	for (unsigned i = 0, count = 0; i < g.ficheiros.size(); i++, count = 0) {
+	}	for (unsigned i = 0, count = 0; i < g.ficheiros.size(); i++, count = 0) {
 		nome_ficheiro = g.ficheiros[i];
-		//light_type = g.lightType[i];
 		if(i < g.texturas.size()) nome_textura = g.texturas[i];
 		int tam = 0;
 		int j = 0;
@@ -275,7 +276,7 @@ void design(Group g) {
 				tam = it->second.pointsTAM;
 				break;
 			}
-		}
+		} // bind textura
 		if (nome_textura.compare("SPEC") != 0 && nome_textura.compare("EMI") != 0 && nome_textura.compare("DIFF") != 0 && nome_textura.compare("AMB") != 0) {
 			for (aux = textures.begin(); aux != textures.end(); ++aux) {
 				if (aux->first.compare(nome_textura) == 0) {
@@ -286,7 +287,7 @@ void design(Group g) {
 				}
 			}
 		}
-		else {
+		else { // bind tipo textura 
 			TAD_POINT p = g.materials.at(0);
 			float arr[4] = {getX(p) ,getY(p),getZ(p),1.0f };
 			//glPushAttrib(GL_LIGHTING);
@@ -313,7 +314,7 @@ void design(Group g) {
 			glBindTexture(GL_TEXTURE_2D, 0);
 			glDisable(GL_TEXTURE_2D);
 		}
-		else glPopAttrib();
+		//else glPopAttrib();
 		
 	}
 	nextGt += 1;
@@ -326,18 +327,23 @@ void design(Group g) {
 void renderScene(void) {
 	float fps;
 	int time;
+	float pos[4] = {1.0, 1.0, 1.0, 0.0};
 	char s[64];
 	// clear buffers
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	// set the camera
 	glLoadIdentity();
+
+	//glClearColor(0, 0, 0, 0);
+	//glLightfv(GL_LIGHT0, GL_POSITION, pos);
+
+	//float white[4] = { 1,1,1,1 };
+	//glMaterialfv(GL_FRONT, GL_AMBIENT, white);
+	
 	gluLookAt(camX, camY, camZ,
 		px, py, pz,
 		0.0f, 1.0f, 0.0f);
-	for (int i = 0; i < luzes.size(); i++) {
-		float pos[4] = { luzes.at(i).posX,luzes.at(i).posY,luzes.at(i).posZ,luzes.at(i).posD };
-		glLightfv(GL_LIGHT0 + i, GL_POSITION, pos);
-	}
+
 	design(group);
 	nextGt = 0;
 
@@ -405,7 +411,7 @@ void processSpecialKeys(int key, int xx, int yy) {
 void initGL() {
 	int nGrupos = 0;
 	parse(group, luzes, figuras, textures, &nGrupos, "file.xml");
-	
+
 	myangArray = (float*)malloc(sizeof(float)*nGrupos);
 	mygtArray = (float*)malloc(sizeof(float)*nGrupos);
 	for (int i = 0; i < nGrupos; i++) {
@@ -416,10 +422,7 @@ void initGL() {
     // alguns settings para OpenGL
 	glEnable(GL_DEPTH_TEST);
 
-	spherical2Cartesian();
-
 	glEnable(GL_LIGHTING);
-	glMateriali(GL_FRONT, GL_SHININESS, 128.0);
 	for (int i = 0; i < luzes.size(); i++) {
 		glEnable(GL_LIGHT0 + i);
 		Light light = luzes.at(i);
@@ -430,19 +433,45 @@ void initGL() {
 			glLightfv(GL_LIGHT0 + i, GL_SPOT_DIRECTION, spot);
 			glLightf(GL_LIGHT0 + i, GL_SPOT_CUTOFF, 45.0);
 			glLightf(GL_LIGHT0 + i, GL_SPOT_EXPONENT, 0.0);
-		} else if (light.tipo == 'p'){
-			float point[3] = { light.spotX ,light.spotY,light.spotZ };
-			glLightfv(GL_LIGHT0, GL_POSITION,point );
-		} else if (light.tipo == 'd'){
-			float directional[3] = { light.spotX ,light.spotY,light.spotZ };
-			glLightfv(GL_LIGHT0, GL_POSITION, directional);
 		}
 		else {
 			float amb[4] = { light.ambX,light.ambY,light.ambZ,light.ambD };
 			glLightfv(GL_LIGHT0 + i, GL_AMBIENT, amb);
 		}
 	}
-	glShadeModel(GL_SMOOTH);
+
+	/*
+	glEnable(GL_LIGHTING);
+
+	for (int i = 0; i < luzes.size(); i++) {
+		Light light = luzes.at(i);
+		printf("light.tipo = %c\n",light.tipo );
+		float pos[4] = { light.posX,light.posY,light.posZ,light.posD };
+		glLightfv(GL_LIGHT0 + i , GL_POSITION, pos);
+
+		float diff[4] = { light.diffX,light.diffY,light.diffZ,light.diffD};
+		//glLightfv(GL_LIGHT0 + i, GL_DIFFUSE, diff);
+
+		if (light.tipo == 's') {
+			float spot[3] = { light.spotX ,light.spotY,light.spotZ };
+			glLightfv(GL_LIGHT0 + i, GL_SPOT_DIRECTION, spot);
+			glLightf(GL_LIGHT0 + i, GL_SPOT_CUTOFF, 45.0);
+			glLightf(GL_LIGHT0 + i, GL_SPOT_EXPONENT, 0.0);
+
+		} else if (light.tipo == 'p'){
+			float point[4] = { light.posX ,light.posY,light.posZ, light.posD };
+			glLightfv(GL_LIGHT0, GL_POINT,point );
+
+		} else if (light.tipo == 'd'){
+			float directional[4] = { light.posX ,light.posY,light.posZ, light.posD };
+			glLightfv(GL_LIGHT0, GL_DIFFUSE, directional);
+
+		} else {
+			float amb[4] = { light.ambX,light.ambY,light.ambZ,light.ambD };
+			glLightfv(GL_LIGHT0 + i, GL_AMBIENT, amb);
+		}
+	}
+	glShadeModel(GL_SMOOTH);*/
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_NORMAL_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -501,7 +530,9 @@ int main(int argc, char** argv) {
 		//texture
 		glBindBuffer(GL_ARRAY_BUFFER, texturas[nFiguras]);                                                             // pega  texCoords[nFiguras]
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(it->second.texCoordsTAM), it->second.texCoords, GL_STATIC_DRAW); // preenche texCoords[nFiguras] 
-		}
+	}
+
+	spherical2Cartesian();
 	// enter GLUT's main cycle
 	glutMainLoop();
 
