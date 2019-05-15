@@ -51,10 +51,8 @@ void design_cone(float radius, float height, int slices, int stacks, const char*
 
 void create_bezier(const char* patch, const char* path, int tesselation) {
 	TAD_ARRAY_LIST normals;
-	//Para não dar erro na escrita de ficheiro e leitura de ficheiro
-	TAD_ARRAY_LIST texCoords = ARRAY_LIST(2);
-	addElem(texCoords,POINT(0,0,0));
-	TAD_ARRAY_LIST points = getPointsOfBezier(patch,tesselation,&normals);
+	TAD_ARRAY_LIST texCoords;
+	TAD_ARRAY_LIST points = getPointsOfBezier(patch,tesselation,&normals,&texCoords);
 	list2file(points,normals,texCoords,path);
 }
 

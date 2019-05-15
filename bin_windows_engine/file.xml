@@ -1,14 +1,13 @@
 <scene>
     <lights>
-        <light type="POINT" posX=0 posY=0 posZ=0 />
-        <!--<light type="DIRECTIONAL" posX=55 posY=0 posZ=0/>
-        <light type="DIRECTIONAL" posX=-55 posY=0 posZ=0/>
-        <light type="SPOT" posX=0 posY=0 posZ=55 spotX=0 spotY=0 spotZ=-1 />
-        <light type="SPOT" posX=0 posY=0 posZ=-55 spotX=0 spotY=0 spotZ=1 />-->
+        <light type="POINT" posX="10" posY="30" posZ="0" />
+        <light type="DIRECTIONAL" posX="40" posY="0" posZ="50" />
+        <light type="SPOT" posX="4" posY="5" posZ="100" spotX="40" spotY="10" spotZ="4" />
+        <light type="POINT" posX="3" posY="4" posZ="0" />
     </lights>
     <group>
         <models>
-            <model file="sphere1.3d" texture="sun.jpg"/> <!-- Sol -->
+            <model file="sphere1.3d" texture="sun.jpg" light_type="e"/> <!-- Sol -->
         </models>
         <group>
             <rotate axisX=0 axisY=1 axisZ=0 time=10/>
@@ -101,7 +100,7 @@
                     <point X=13.70318 Y=0 Z=-6.10105 />
                 </translate>
                 <models>
-                    <model file="sphere3.3d" texture="sun.jpg"/> <!-- Lua -->
+                    <model file="sphere3.3d" texture="moon2.jpg"/> <!-- Lua -->
                 </models>
             </group>
         </group>
@@ -148,7 +147,7 @@
                     <point X=13.70318 Y=0 Z=-6.10105 />
                 </translate>
                 <models>
-                    <model file="sphere3.3d" texture="sun.jpg"/> <!-- Lua Marte -->
+                    <model file="sphere3.3d" texture="moon.jpg"/> <!-- Lua Marte -->
                 </models>
             </group>
        </group>
@@ -196,7 +195,7 @@
                 </translate>
                 <scale X=0.5 Y=0.5 Z=0.5 />
                 <models>
-                    <model file="sphere3.3d" texture="sun.jpg"/> <!-- Lua Jupiter -->
+                    <model file="sphere3.3d" texture="moon.jpg"/> <!-- Lua Jupiter -->
                 </models>
             </group>
             <group>
@@ -220,7 +219,7 @@
                 </translate>
                 <scale X=0.5 Y=0.5 Z=0.5 />
                 <models>
-                    <model file="sphere3.3d" texture="sun.jpg"/> <!-- Lua Jupiter -->
+                    <model file="sphere3.3d" texture="moon2.jpg"/> <!-- Lua Jupiter -->
                 </models>
             </group>
             <group>
@@ -244,28 +243,28 @@
                 </translate>
                 <scale X=0.5 Y=0.5 Z=0.5 />
                 <models>
-                    <model file="sphere3.3d" texture="sun.jpg"/> <!-- Lua Jupiter -->
+                    <model file="sphere3.3d" texture="moon2.jpg"/> <!-- Lua Jupiter -->
                 </models>
             </group>
         </group>
         <group>
             <rotate axisX=0 axisY=1 axisZ=0 time=11 />
-            <translate time=40 >
-                <point X=330.00000 Y=0 Z=0.00000/>
-                <point X=301.47000 Y=0 Z=134.22310/>
-                <point X=220.81310 Y=0 Z=245.23779/>
-                <point X=101.97559 Y=0 Z=313.84866/>
-                <point X=-34.49441 Y=0 Z=328.19223/>
-                <point X=-165.00002 Y=0 Z=285.78836/>
-                <point X=-266.97562 Y=0 Z=193.96912/>
-                <point X=-322.78873 Y=0 Z=68.61083/>
-                <point X=-322.78870 Y=0 Z=-68.61089/>
-                <point X=-266.97559 Y=0 Z=-193.96916/>
-                <point X=-164.99997 Y=0 Z=-285.78839/>
-                <point X=-34.49435 Y=0 Z=-328.19223/>
-                <point X=101.97565 Y=0 Z=-313.84863/>
-                <point X=220.81314 Y=0 Z=-245.23776/>
-                <point X=301.47003 Y=0 Z=-134.22304/>
+            <translate time=45 >
+                <point X=300.00000 Y=0 Z=0.00000/>
+                <point X=274.06363 Y=0 Z=122.02100/>
+                <point X=200.73918 Y=0 Z=222.94345/>
+                <point X=92.70509 Y=0 Z=285.31696/>
+                <point X=-31.35855 Y=0 Z=298.35657/>
+                <point X=-150.00002 Y=0 Z=259.80762/>
+                <point X=-242.70511 Y=0 Z=176.33556/>
+                <point X=-293.44427 Y=0 Z=62.37348/>
+                <point X=-293.44427 Y=0 Z=-62.37354/>
+                <point X=-242.70508 Y=0 Z=-176.33560/>
+                <point X=-149.99997 Y=0 Z=-259.80765/>
+                <point X=-31.35850 Y=0 Z=-298.35657/>
+                <point X=92.70514 Y=0 Z=-285.31696/>
+                <point X=200.73921 Y=0 Z=-222.94342/>
+                <point X=274.06366 Y=0 Z=-122.02095/>
             </translate>
             <scale X=1.2 Y=1.2 Z=1.2 />
             <models>
@@ -291,28 +290,28 @@
                     <point X=13.70318 Y=0 Z=-6.10105 />
                 </translate>
                 <models>
-                    <model file="sphere3.3d" texture="sun.jpg"/> <!-- Lua Saturno -->
+                    <model file="sphere3.3d" texture="moon2.jpg"/> <!-- Lua Saturno -->
                 </models>
             </group>
         </group>
         <group>
             <rotate axisX=0 axisY=1 axisZ=0 time=14 />
-            <translate time=50 >
-                <point X=370.00000 Y=0 Z=0.00000/>
-                <point X=338.01181 Y=0 Z=150.49257/>
-                <point X=247.57832 Y=0 Z=274.96359/>
-                <point X=114.33627 Y=0 Z=351.89093/>
-                <point X=-38.67555 Y=0 Z=367.97311/>
-                <point X=-185.00002 Y=0 Z=320.42938/>
-                <point X=-299.33630 Y=0 Z=217.48053/>
-                <point X=-361.91461 Y=0 Z=76.92730/>
-                <point X=-361.91461 Y=0 Z=-76.92736/>
-                <point X=-299.33627 Y=0 Z=-217.48058/>
-                <point X=-184.99997 Y=0 Z=-320.42941/>
-                <point X=-38.67548 Y=0 Z=-367.97311/>
-                <point X=114.33633 Y=0 Z=-351.89090/>
-                <point X=247.57837 Y=0 Z=-274.96356/>
-                <point X=338.01184 Y=0 Z=-150.49251/>
+            <translate time=60 >
+                <point X=340.00000 Y=0 Z=0.00000/>
+                <point X=310.60547 Y=0 Z=138.29047/>
+                <point X=227.50439 Y=0 Z=252.66925/>
+                <point X=105.06577 Y=0 Z=323.35922/>
+                <point X=-35.53969 Y=0 Z=338.13745/>
+                <point X=-170.00002 Y=0 Z=294.44864/>
+                <point X=-275.06580 Y=0 Z=199.84697/>
+                <point X=-332.57019 Y=0 Z=70.68995/>
+                <point X=-332.57019 Y=0 Z=-70.69000/>
+                <point X=-275.06577 Y=0 Z=-199.84702/>
+                <point X=-169.99997 Y=0 Z=-294.44867/>
+                <point X=-35.53963 Y=0 Z=-338.13745/>
+                <point X=105.06583 Y=0 Z=-323.35919/>
+                <point X=227.50444 Y=0 Z=-252.66920/>
+                <point X=310.60547 Y=0 Z=-138.29041/>
             </translate>
             <scale X=0.9 Y=0.9 Z=0.9 />
             <models>
@@ -338,28 +337,28 @@
                     <point X=13.70318 Y=0 Z=-6.10105 />
                 </translate>
                 <models>
-                    <model file="sphere3.3d" texture="sun.jpg"/> <!-- Lua Urano -->
+                    <model file="sphere3.3d" texture="moon.jpg"/> <!-- Lua Urano -->
                 </models>
             </group>
         </group>
         <group>
             <rotate axisX=0 axisY=1 axisZ=0 time=25 />
-            <translate time=60 >
-                <point X=400.00000 Y=0 Z=0.00000/>
-                <point X=365.41818 Y=0 Z=162.69466/>
-                <point X=267.65222 Y=0 Z=297.25793/>
-                <point X=123.60678 Y=0 Z=380.42261/>
-                <point X=-41.81141 Y=0 Z=397.80875/>
-                <point X=-200.00002 Y=0 Z=346.41016/>
-                <point X=-323.60681 Y=0 Z=235.11407/>
-                <point X=-391.25903 Y=0 Z=83.16464/>
-                <point X=-391.25903 Y=0 Z=-83.16471/>
-                <point X=-323.60678 Y=0 Z=-235.11414/>
-                <point X=-199.99995 Y=0 Z=-346.41019/>
-                <point X=-41.81133 Y=0 Z=-397.80878/>
-                <point X=123.60685 Y=0 Z=-380.42258/>
-                <point X=267.65228 Y=0 Z=-297.25790/>
-                <point X=365.41821 Y=0 Z=-162.69460/>
+            <translate time=80 >
+                <point X=390.00000 Y=0 Z=0.00000/>
+                <point X=356.28271 Y=0 Z=158.62729/>
+                <point X=260.96094 Y=0 Z=289.82648/>
+                <point X=120.51662 Y=0 Z=370.91205/>
+                <point X=-40.76612 Y=0 Z=387.86353/>
+                <point X=-195.00002 Y=0 Z=337.74991/>
+                <point X=-315.51663 Y=0 Z=229.23622/>
+                <point X=-381.47757 Y=0 Z=81.08553/>
+                <point X=-381.47757 Y=0 Z=-81.08559/>
+                <point X=-315.51660 Y=0 Z=-229.23628/>
+                <point X=-194.99995 Y=0 Z=-337.74994/>
+                <point X=-40.76605 Y=0 Z=-387.86356/>
+                <point X=120.51668 Y=0 Z=-370.91202/>
+                <point X=260.96097 Y=0 Z=-289.82645/>
+                <point X=356.28275 Y=0 Z=-158.62723/>
             </translate>
             <scale X=0.7 Y=0.7 Z=0.7 />
             <models>
@@ -385,12 +384,13 @@
                     <point X=13.70318 Y=0 Z=-6.10105 />
                 </translate>
                 <models>
-                    <model file="sphere3.3d" texture="sun.jpg"/> <!-- Lua Neptuno -->
+                    <model file="sphere3.3d" texture="moon.jpg"/> <!-- Lua Neptuno -->
                 </models>
             </group>
         </group>
         <group>
-            <translate time=90 >
+            <rotate axisX=0 axisY=1 axisZ=0 time=20 />
+            <translate time=120 >
                 <point X=500.00000 Y=0.00000 Z=0 />
                 <point X=493.44427 Y=15.59338 Z=0 />
                 <point X=474.06363 Y=30.50525 Z=0 />
@@ -423,7 +423,7 @@
                 <point X=493.44415 Y=-15.59352 Z=0 />
             </translate>
             <models>
-                <model file="teapot.3d" texture="DIFF" diffX=0.2 diffY=0.5 diffZ=0.2 />
+                <model file="teapot.3d" diffX=0.2 diffY=0.5 diffZ=0.2 />
             </models>
         </group>
     </group>
