@@ -5,7 +5,6 @@
 #include <ArrayList.h>
 #include <Point.h>
 #include <toFile.h>
-#include <filterPoints.h>
 
 //	generators
 #include <coneGenerator.h>
