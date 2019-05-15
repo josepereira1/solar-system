@@ -57,7 +57,7 @@ map<string, Textura>::iterator aux;
 
 GLfloat dir[4] = {0.0, 0.0 ,1.0, 0.0};
 float sol[]={1,1,0.7,1}; 
-float rocha[]={0,0,1,1}; 
+float rocha[]={1,1,1,1}; 
 float semluz[]={0,0,0,1};
 float reflexo = 120; 
 
