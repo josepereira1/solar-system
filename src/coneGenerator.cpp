@@ -1,6 +1,7 @@
 #define _USE_MATH_DEFINES 
 #include <math.h>
 
+#include <stdio.h>
 #include <Point.h>
 #include <ArrayList.h>
 
@@ -8,7 +9,7 @@ TAD_ARRAY_LIST getPointsOfCone(float radius, float height, int slices, int stack
   
     float angle = (2*M_PI)/slices;
     TAD_ARRAY_LIST l = ARRAY_LIST(300);
-	TAD_POINT p1, p2, p3, p4, p5, p6,p7,p8,p9 = nullptr;
+	TAD_POINT p1, p2, p3, p4, p5, p6,p7,p8,p9 = POINT(0,0,0);
 	*normals = ARRAY_LIST(300);
 	*texCoords = ARRAY_LIST(300);
     float tmp1, tmp2, fraction_height, last_fraction_height;
@@ -29,7 +30,7 @@ TAD_ARRAY_LIST getPointsOfCone(float radius, float height, int slices, int stack
 					addElem(*normals,POINT(0,-1,0));
 					addElem(*normals,POINT(0,-1,0));
 
-					addElem(*texCoords,POINT(0.15f + 0.15f + sin(angle*j),0.15f + 0.15f * cos(angle*j),0));
+					addElem(*texCoords,POINT(0.15f + 0.15f * sin(angle*j),0.15f + 0.15f * cos(angle*j),0));
 					addElem(*texCoords,POINT(0.15f,0.15f,0));
 					addElem(*texCoords,POINT(0.15f + 0.15f * sin(angle*(j+1)),0.15f + 0.15f * cos(angle*(j+1)),0));
                 }
@@ -62,12 +63,12 @@ TAD_ARRAY_LIST getPointsOfCone(float radius, float height, int slices, int stack
                 addElem(*normals,p9);
                 addElem(*normals,p9);
 
-                //addElem(*texCoords,POINT());
-                //addElem(*texCoords,POINT());
-                //addElem(*texCoords,POINT());
-                //addElem(*texCoords,POINT());
-                //addElem(*texCoords,POINT());
-                //addElem(*texCoords,POINT());
+                addElem(*texCoords,POINT(0.5f + 0.5f * sin(angle*(j+1)),0.3f + 0.7f * (j + 1) / stacks ,0));
+                addElem(*texCoords,POINT(0.5f + 0.5f * sin(angle*(j+1)),0.3f + 0.7f * (j + 1) / stacks,0));
+                addElem(*texCoords,POINT(0.5f + 0.5f * sin(angle*j),0.3f + 0.7f * j / stacks,0));
+                addElem(*texCoords,POINT(0.5f + 0.5f * sin(angle*(j+1)),0.3f + 0.7f * (j+1) / stacks,0));
+                addElem(*texCoords,POINT(0.5f + 0.5f * sin(angle*j),0.3f + 0.7f * j / stacks,0));
+                addElem(*texCoords,POINT(0.5f + 0.5f * sin(angle*j),0.3f + 0.7f * j / stacks,0));
             }
         }
   return l;
