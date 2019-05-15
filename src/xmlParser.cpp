@@ -167,51 +167,64 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
                     name = (string)pChild->Attribute("file");
 
                     if (name.compare("") != 0) {
-						(*nGrupos) += 1;
-						if (figuras.find(name) == figuras.end()) { // se não  existir 
-							//Tamanho dos indices iguais para todos
-							//int indicesTAM;
+                        (*nGrupos) += 1;
+                        if (figuras.find(name) == figuras.end()) { // se não  existir 
+                            //Tamanho dos indices iguais para todos
+                            //int indicesTAM;
 
-							//points
-							//unsigned int* indexPoints;
-							float* points;
-							int pointsTAM;
+                            //points
+                            //unsigned int* indexPoints;
+                            float* points;
+                            int pointsTAM;
 
-							//normals
-							float* normals;
-							int normalsTAM;
+                            //normals
+                            float* normals;
+                            int normalsTAM;
 
-							//texCoords
-							float* texCoords;
-							int texCoordsTAM;
+                            //texCoords
+                            float* texCoords;
+                            int texCoordsTAM;
 
-							file2list(name, &points, &pointsTAM, &normals, &normalsTAM, &texCoords, &texCoordsTAM);
-							Figura f = Figura(points, pointsTAM, normals, normalsTAM, texCoords, texCoordsTAM);
+                            file2list(name, &points, &pointsTAM, &normals, &normalsTAM, &texCoords, &texCoordsTAM);
+                            Figura f = Figura(points, pointsTAM, normals, normalsTAM, texCoords, texCoordsTAM);
 
-							figuras.insert(pair<string, Figura>(name, f));
-						}
+                            figuras.insert(pair<string, Figura>(name, f));
+                        }
 
-						textura = (string)pChild->Attribute("texture");
-						if ((textura.compare("") != 0) && textura.compare("DIFF") != 0 && textura.compare("AMB") != 0 && textura.compare("EMI") != 0 && textura.compare("SPEC") != 0 ) {
-							if(texturas.find(textura) == texturas.end()) 
-								texturas.insert(pair<string, Textura>(textura, loadTexture(textura)));
-						}
-						else {
+                        if (pChild->Attribute("texture")) {
+                            textura = (string)pChild->Attribute("texture");
+                            if(texturas.find(textura) == texturas.end()) 
+                                texturas.insert(pair<string, Textura>(textura, loadTexture(textura)));
+                        }
+                        else {
                             TAD_POINT p = POINT(1.0f, 1.0f, 1.0f);
                             string diff,amb,emi,spec;
-							if (textura.compare("DIFF") == 0)
-								p = POINT(atof(pChild->Attribute("diffX")), atof(pChild->Attribute("diffY")), atof(pChild->Attribute("diffZ")));
-                             else if(textura.compare("AMB") == 0)
+                            if (pChild->Attribute("diffX")){
+                                p = POINT(atof(pChild->Attribute("diffX")), atof(pChild->Attribute("diffY")), atof(pChild->Attribute("diffZ")));
+                                group.texturas.push_back("DIFF");
+                            }
+                             else if(pChild->Attribute("ambX")){
                                 p = POINT(atof(pChild->Attribute("ambX")), atof(pChild->Attribute("ambY")), atof(pChild->Attribute("ambZ")));
-                             else if(textura.compare("EMI") == 0)
+                                group.texturas.push_back("AMB");
+                            }
+                             else if(pChild->Attribute("emiX")){
                                 p = POINT(atof(pChild->Attribute("emiX")), atof(pChild->Attribute("emitY")), atof(pChild->Attribute("emiZ")));
-                            else if(textura.compare("SPEC")) p = POINT(atof(pChild->Attribute("specX")), atof(pChild->Attribute("specY")), atof(pChild->Attribute("specZ")));
+                                group.texturas.push_back("EMI");
+                             }
+                            else if(pChild->Attribute("specX")){
+                                p = POINT(atof(pChild->Attribute("specX")), atof(pChild->Attribute("specY")), atof(pChild->Attribute("specZ")));
+                                group.texturas.push_back("SPEC");
+                            }
                           
-							group.materials.push_back(p);
-						}
-						group.ficheiros.push_back(name);
-						if (textura.compare("") != 0)
-							group.texturas.push_back(textura);
+                            group.materials.push_back(p);
+                        }
+                        if(pChild->Attribute("light_type")){
+                            vector<TAD_POINT> points;
+                            group.operacoes.push_back(Operation('e',points,0));
+                        }
+                        group.ficheiros.push_back(name);
+                        if (textura.compare("") != 0)
+                            group.texturas.push_back(textura);
                     }
 
                     pChild = pChild->NextSiblingElement("model");
@@ -234,19 +247,24 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
     return group;
 }
 
+
 static vector<Light> searchLights(TiXmlElement *pRoot) {
 	vector<Light> lights = vector<Light>();
-
+    int nLuzes = 0;
 	string tipo = "";
+    glEnable(GL_LIGHTING);
 
-	while (pRoot) {
+	while (pRoot && nLuzes < 8) {
+
+        glEnable(GL_LIGHT0 + nLuzes);
+
 		const char *posX, *posY, *posZ, *spotX, *spotY, *spotZ;
 		float pos[4];
 		float diff[4];
 		float amb[4];
 		float spot[3];
 		pos[0] = 0; pos[1] = 0; pos[2] = 0; pos[3] = 1.0;
-		diff[0] = 1.0f; diff[1] = 1.0f; diff[2] = 1.0f; diff[3] = 1.0f;
+		diff[0] = 10.0f; diff[1] = 10.0f; diff[2] = 10.0f; diff[3] = 1.0f;
 		amb[0] = 0.2f; amb[1] = 0.2f; amb[2] = 0.2f; amb[3] = 1.0f;
 		spot[0] = 0; spot[1] = 0; spot[2] = 0;
 
@@ -280,7 +298,7 @@ static vector<Light> searchLights(TiXmlElement *pRoot) {
 				lights.push_back(Light('s', pos[0], pos[1], pos[2], pos[3], diff[0], diff[1], diff[2], diff[3], amb[0], amb[1], amb[2], amb[3], spot[0], spot[1], spot[2]));
 			}
 		}
-		
+		nLuzes++;
 		//printf("pos= %f , %f , %f , %f\n", pos[0], pos[1], pos[2], pos[3]);
 		//printf("diff= %f , %f , %f , %f\n", diff[0], diff[1], diff[2], diff[3]);
 		//printf("amb= %f , %f , %f , %f\n", amb[0], amb[1], amb[2], amb[3]);
