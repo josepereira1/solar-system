@@ -61,6 +61,8 @@ float rocha[]={1,1,1,1};
 float semluz[]={0,0,0,1};
 float reflexo = 120; 
 
+int isSun = 0;
+
 // DEBUG
 static void printGroup(Group g) {
 	for (int i = 0; i < g.operacoes.size(); i++) {
@@ -263,7 +265,7 @@ void design(Group g) {
 			glScalef(getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
 			break;
 		case 'e':
-			glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, sol);
+			isSun = 1;
 			break;
 		default:
 			perror("Modificação inexistente!\n");
@@ -274,7 +276,10 @@ void design(Group g) {
 		nome_ficheiro = g.ficheiros[i];
 		nome_textura = "";
 		if(i < g.texturas.size()) nome_textura = g.texturas[i];
-		if(nome_textura.compare("sun.jpg")){
+		if(isSun == 1){
+			glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, sol);
+			isSun = 0;
+		} else{
 			glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, semluz); // não têm luz se não são um sol
 			glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,rocha); // recebem luz ambiente e difusa
 			glMaterialf(GL_FRONT_AND_BACK,GL_SHININESS,reflexo); // reflexo = 100
@@ -433,8 +438,8 @@ void initGL() {
 	for (int i = 0; i < luzes.size(); i++) {
 		glEnable(GL_LIGHT0 + i);
 		Light light = luzes.at(i);
-		//float diff[4] = { light.diffX,light.diffY,light.diffZ,light.diffD};
-		//glLightfv(GL_LIGHT0 + i, GL_DIFFUSE, diff);
+		float diff[4] = { light.diffX,light.diffY,light.diffZ,light.diffD};
+		glLightfv(GL_LIGHT0 + i, GL_DIFFUSE, diff);
 		if (light.tipo == 's') {
 			float spot[3] = { light.spotX ,light.spotY,light.spotZ };
 			glLightfv(GL_LIGHT0 + i, GL_SPOT_DIRECTION, spot);
@@ -442,7 +447,6 @@ void initGL() {
 			glLightf(GL_LIGHT0 + i, GL_SPOT_EXPONENT, 0.0);
 		} else if (light.tipo == 'p'){
 			float point[3] = { light.spotX ,light.spotY,light.spotZ };
-			//loat point[3] = {1.0f,1.0f,1.0f};
 			glLightfv(GL_LIGHT0 + i, GL_POSITION,point );
 		} else if (light.tipo == 'd'){
 			float directional[3] = { light.spotX ,light.spotY,light.spotZ };
