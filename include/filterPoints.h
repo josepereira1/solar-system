@@ -12,6 +12,6 @@ output:
 withoutReapeated = [(1,2,3),(2,3,1),(3,4,1)]
 positions = [0,1,2,1,0]
 **/
-void filter(TAD_ARRAY_LIST points, TAD_ARRAY_LIST* withoutRepeat, int** positions);
+void filter(TAD_ARRAY_LIST points, TAD_ARRAY_LIST* withoutRepeated, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST* normalsWRepeat, TAD_ARRAY_LIST texCoords, TAD_ARRAY_LIST* texCoordsWRepeat, int** positions);
 
 #endif

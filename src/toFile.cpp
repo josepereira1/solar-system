@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void list2file(TAD_ARRAY_LIST points, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST texCoords, const char* path) {
+void list2file(int* indexPoints, TAD_ARRAY_LIST points, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST texCoords, int tam, const char* path) {
 	FILE *file = fopen(path, "w");
 	
 	if (file == NULL) {
@@ -17,31 +17,35 @@ void list2file(TAD_ARRAY_LIST points, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST tex
 		int i;
 
 		//pontos
+		fprintf(file, "%d\n", tam); // imprime número de triangulos
+
+		for (i = 0; i < tam - 1; i++) { // imprime indíces
+			fprintf(file, "%d, ", indexPoints[i]);
+		}
+
+		fprintf(file, "%d", indexPoints[i]); // último índice (para não ter vírgula)
+
 		int dim = getArraySize(points);
 
 		fprintf(file, "%d", dim); // imprime número de pontos
 
-		for(i=0; i<dim; i++) { // imprime pontos
+		for(i=0; i<tam; i++) { // imprime pontos
 			TAD_POINT point = (TAD_POINT) getElem(points, i);
 			fprintf(file, "\n%f, %f, %f", getX(point), getY(point), getZ(point));
 		}
 
 		//normais
-		dim = getArraySize(normals);
+		fprintf(file, "\n%d", tam); // imprime número de normais
 
-		fprintf(file, "\n%d", dim); // imprime número de normais
-
-		for(i=0; i<dim; i++) { // imprime normais
+		for(i=0; i<tam; i++) { // imprime normais
 			TAD_POINT point = (TAD_POINT) getElem(normals, i);
 			fprintf(file, "\n%f, %f, %f", getX(point), getY(point), getZ(point));
 		}
 
 		//Coordenadas de textura
-		dim = getArraySize(texCoords);
+		fprintf(file, "\n%d", tam); // imprime número de coordenadas de textura
 
-		fprintf(file, "\n%d", dim); // imprime número de coordenadas de textura
-
-		for(i=0; i<dim; i++) { // imprime coordenadas de textura
+		for(i=0; i<tam; i++) { // imprime coordenadas de textura
 			TAD_POINT point = (TAD_POINT) getElem(texCoords, i);
 			fprintf(file, "\n%f, %f", getX(point), getY(point));
 		}
