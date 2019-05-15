@@ -1,9 +1,6 @@
 <scene>
     <lights>
-        <light type="POINT" posX="10" posY="30" posZ="0" />
-        <light type="DIRECTIONAL" posX="40" posY="0" posZ="50" />
-        <light type="SPOT" posX="4" posY="5" posZ="100" spotX="40" spotY="10" spotZ="4" />
-        <light type="POINT" posX="3" posY="4" posZ="0" />
+        <light type="POINT" posX="0" posY="0" posZ="0" />
     </lights>
     <group>
         <models>
