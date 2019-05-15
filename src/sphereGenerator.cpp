@@ -39,16 +39,16 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
                 addElem(l2,p);
                 addElem((*normals),normalize(p1));
 
+                p = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
+                p1 = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
+                addElem(l2,p);
+                addElem((*normals),normalize(p1));
+
                 p = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
                 p1 = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
                 addElem(l2,p);
                 addElem((*normals),normalize(p1));
 
-
-                p = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
-                p1 = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
-                addElem(l2,p);
-                addElem((*normals),normalize(p1));
 
 
             } else if(m1 == (stacks-1)){
@@ -58,13 +58,13 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
                 addElem(l2,p);
                 addElem((*normals),normalize(p1));
 
+				p = POINT(r2*cos((m2 + 1)*alfa), y2, r2*sin((m2 + 1)*alfa));
+				p1 = POINT(r2*cos((m2 + 1)*alfa), y2, r2*sin((m2 + 1)*alfa));
+				addElem(l2, p);
+				addElem((*normals), normalize(p1));
+
                 p = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
                 p1 = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
-                addElem(l2,p);
-                addElem((*normals),normalize(p1));
-
-                p = POINT(r2*cos((m2+1)*alfa),y2,r2*sin((m2+1)*alfa));
-                p1 = POINT(r2*cos((m2+1)*alfa),y2,r2*sin((m2+1)*alfa));
                 addElem(l2,p);
                 addElem((*normals),normalize(p1));
 
