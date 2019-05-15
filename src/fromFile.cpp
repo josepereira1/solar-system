@@ -79,7 +79,7 @@ void readPatchFile(string path, int*** arrayPatchs, TAD_ARRAY_LIST * pontos){
 
 // guardar os tamanhos dos indices
 
-void file2list(string path, /*int* indicesTAM, unsigned int** indexPoints, */float** points, int* pointsTAM, float** normals, int* normalsTAM, float** texCoords, int* texCoordsTAM) {
+void file2list(string path, float** points, int* pointsTAM, float** normals, int* normalsTAM, float** texCoords, int* texCoordsTAM) {
 	string line;
 	char* ptr;
 	int i, index=0;
