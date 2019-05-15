@@ -249,63 +249,59 @@ static Group searchRec(map<string,Figura> &figuras, map<string,Textura> &textura
 
 
 static vector<Light> searchLights(TiXmlElement *pRoot) {
-	vector<Light> lights = vector<Light>();
-    int nLuzes = 0;
-	string tipo = "";
-    glEnable(GL_LIGHTING);
+    vector<Light> lights = vector<Light>();
 
-	while (pRoot && nLuzes < 8) {
+    string tipo = "";
 
-        glEnable(GL_LIGHT0 + nLuzes);
+    while (pRoot) {
+        const char *posX, *posY, *posZ, *spotX, *spotY, *spotZ;
+        float pos[4];
+        float diff[4];
+        float amb[4];
+        float spot[3];
+        pos[0] = 0; pos[1] = 0; pos[2] = 0; pos[3] = 1.0;
+        diff[0] = 0.7f; diff[1] = 0.7f; diff[2] = 0.7f; diff[3] = 1.0f;
+        amb[0] = 0.2f; amb[1] = 0.2f; amb[2] = 0.2f; amb[3] = 1.0f;
+        spot[0] = 1.0f; spot[1] = 1.0f; spot[2] = 1.0f;
 
-		const char *posX, *posY, *posZ, *spotX, *spotY, *spotZ;
-		float pos[4];
-		float diff[4];
-		float amb[4];
-		float spot[3];
-		pos[0] = 0; pos[1] = 0; pos[2] = 0; pos[3] = 1.0;
-		diff[0] = 10.0f; diff[1] = 10.0f; diff[2] = 10.0f; diff[3] = 1.0f;
-		amb[0] = 0.2f; amb[1] = 0.2f; amb[2] = 0.2f; amb[3] = 1.0f;
-		spot[0] = 0; spot[1] = 0; spot[2] = 0;
+        string name = (string) pRoot->Value();
+        if (name.compare("light") == 0) {
+            tipo = (string) pRoot->Attribute("type");
 
-		string name = (string) pRoot->Value();
-		if (name.compare("light") == 0) {
-			tipo = (string) pRoot->Attribute("type");
+            posX = pRoot->Attribute("posX");
+            if (posX) pos[0] = atof(posX);
+            posY = pRoot->Attribute("posY");
+            if (posY) pos[1] = atof(posY);
+            posZ = pRoot->Attribute("posZ");
+            if (posZ) pos[2] = atof(posZ);
 
-			posX = pRoot->Attribute("posX");
-			if (posX) pos[0] = atof(posX);
-			posY = pRoot->Attribute("posY");
-			if (posY) pos[1] = atof(posY);
-			posZ = pRoot->Attribute("posZ");
-			if (posZ) pos[2] = atof(posZ);
-
-			if (tipo.compare("POINT") == 0) {
-				pos[3] = 1.0f;
-				lights.push_back(Light('p', pos[0],pos[1],pos[2],pos[3], diff[0],diff[1],diff[2],diff[3], amb[0],amb[1],amb[2],amb[3], spot[0],spot[1],spot[2]));
-			}
-			else if (tipo.compare("DIRECTIONAL") == 0) {
-				pos[3] = 0;
-				lights.push_back(Light('d', pos[0], pos[1], pos[2], pos[3], diff[0], diff[1], diff[2], diff[3], amb[0], amb[1], amb[2], amb[3], spot[0], spot[1], spot[2]));
-			}
-			else if (tipo.compare("SPOT") == 0) {
-				pos[3] = 1.0f;
-				spotX = pRoot->Attribute("spotX");
-				if (spotX) spot[0] = atof(spotX);
-				spotY = pRoot->Attribute("spotY");
-				if (spotY) spot[1] = atof(spotY);
-				spotZ = pRoot->Attribute("spotZ");
-				if (spotZ) spot[2] = atof(spotZ);
-				lights.push_back(Light('s', pos[0], pos[1], pos[2], pos[3], diff[0], diff[1], diff[2], diff[3], amb[0], amb[1], amb[2], amb[3], spot[0], spot[1], spot[2]));
-			}
-		}
-		nLuzes++;
-		//printf("pos= %f , %f , %f , %f\n", pos[0], pos[1], pos[2], pos[3]);
-		//printf("diff= %f , %f , %f , %f\n", diff[0], diff[1], diff[2], diff[3]);
-		//printf("amb= %f , %f , %f , %f\n", amb[0], amb[1], amb[2], amb[3]);
-		//printf("spot= %f , %f , %f\n", spot[0], spot[1], spot[2], spot[3]);
-		pRoot = pRoot->NextSiblingElement(); //próximas luzes
-	}
-	return lights;
+            if (tipo.compare("POINT") == 0) {
+                pos[3] = 1.0f;
+                lights.push_back(Light('p', pos[0],pos[1],pos[2],pos[3], diff[0],diff[1],diff[2],diff[3], amb[0],amb[1],amb[2],amb[3], spot[0],spot[1],spot[2]));
+            }
+            else if (tipo.compare("DIRECTIONAL") == 0) {
+                pos[3] = 0;
+                lights.push_back(Light('d', pos[0], pos[1], pos[2], pos[3], diff[0], diff[1], diff[2], diff[3], amb[0], amb[1], amb[2], amb[3], spot[0], spot[1], spot[2]));
+            }
+            else if (tipo.compare("SPOT") == 0) {
+                pos[3] = 1.0f;
+                spotX = pRoot->Attribute("spotX");
+                if (spotX) spot[0] = atof(spotX);
+                spotY = pRoot->Attribute("spotY");
+                if (spotY) spot[1] = atof(spotY);
+                spotZ = pRoot->Attribute("spotZ");
+                if (spotZ) spot[2] = atof(spotZ);
+                lights.push_back(Light('s', pos[0], pos[1], pos[2], pos[3], diff[0], diff[1], diff[2], diff[3], amb[0], amb[1], amb[2], amb[3], spot[0], spot[1], spot[2]));
+            }
+        }
+        
+        //printf("pos= %f , %f , %f , %f\n", pos[0], pos[1], pos[2], pos[3]);
+        //printf("diff= %f , %f , %f , %f\n", diff[0], diff[1], diff[2], diff[3]);
+        //printf("amb= %f , %f , %f , %f\n", amb[0], amb[1], amb[2], amb[3]);
+        //printf("spot= %f , %f , %f\n", spot[0], spot[1], spot[2], spot[3]);
+        pRoot = pRoot->NextSiblingElement(); //próximas luzes
+    }
+    return lights;
 }
 
 void parse(Group &group, vector<Light> &lights, map<string,Figura> &figuras, map<string,Textura> &textures, int *nGrupos, const char* path){
