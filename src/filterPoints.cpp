@@ -11,7 +11,7 @@
 
 using namespace std;
 
-static TAD_ARRAY_LIST removeRepeated(TAD_ARRAY_LIST points);
+static TAD_ARRAY_LIST removeRepeated(TAD_ARRAY_LIST points, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST texCoords, TAD_ARRAY_LIST* normalsWRepeat, TAD_ARRAY_LIST* texCoordsWRepeat);
 static int contains(TAD_ARRAY_LIST points, TAD_POINT point);
 static int* getPositions(TAD_ARRAY_LIST all_points, TAD_ARRAY_LIST filtered_points);
 static int getPosition(TAD_ARRAY_LIST points, TAD_POINT point);

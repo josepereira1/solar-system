@@ -27,7 +27,7 @@ static void write_points_to_file_index(TAD_ARRAY_LIST points, TAD_ARRAY_LIST nor
 	TAD_ARRAY_LIST withoutRepeatedTexCoords;
 	int* indexPositions;
 	int size1 = getArraySize(points);
-	filter(points, &withoutRepeatedPoints, normals, &withoutRepeatedNormals, texCoords, &withoutRepeatedTexCoords,&positions);
+	filter(points, &withoutRepeatedPoints, normals, &withoutRepeatedNormals, texCoords, &withoutRepeatedTexCoords,&indexPositions);
 	list2file(indexPositions,withoutRepeatedPoints,withoutRepeatedNormals,withoutRepeatedTexCoords,size1,path);
 }
 

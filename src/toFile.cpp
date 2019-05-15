@@ -29,13 +29,15 @@ void list2file(int* indexPoints, TAD_ARRAY_LIST points, TAD_ARRAY_LIST normals, 
 
 		fprintf(file, "%d", dim); // imprime número de pontos
 
-		for(i=0; i<tam; i++) { // imprime pontos
+		for(i=0; i<dim; i++) { // imprime pontos
 			TAD_POINT point = (TAD_POINT) getElem(points, i);
 			fprintf(file, "\n%f, %f, %f", getX(point), getY(point), getZ(point));
 		}
 
 		//normais
-		fprintf(file, "\n%d", tam); // imprime número de normais
+		dim = getArraySize(normals);
+
+		fprintf(file, "\n%d", dim); // imprime número de normais
 
 		for(i=0; i<tam; i++) { // imprime normais
 			TAD_POINT point = (TAD_POINT) getElem(normals, i);
@@ -43,9 +45,11 @@ void list2file(int* indexPoints, TAD_ARRAY_LIST points, TAD_ARRAY_LIST normals, 
 		}
 
 		//Coordenadas de textura
-		fprintf(file, "\n%d", tam); // imprime número de coordenadas de textura
+		dim = getArraySize(texCoords);
 
-		for(i=0; i<tam; i++) { // imprime coordenadas de textura
+		fprintf(file, "\n%d", dim); // imprime número de coordenadas de textura
+
+		for(i=0; i<dim; i++) { // imprime coordenadas de textura
 			TAD_POINT point = (TAD_POINT) getElem(texCoords, i);
 			fprintf(file, "\n%f, %f", getX(point), getY(point));
 		}
