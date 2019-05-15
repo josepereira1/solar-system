@@ -55,7 +55,7 @@ map<string, Figura> figuras;
 map<string, Figura>::iterator it;
 map<string, Textura>::iterator aux;
 
-
+float luzAmbiente[]={0.2f, 0.2f, 0.2f, 1.0f};
 
 // DEBUG
 static void printGroup(Group g) {
@@ -241,7 +241,7 @@ void design(Group g) {
 			POINT_COUNT = op.points.size();
 			p = op.points;
 			renderCatmullRomCurve();
-			mygtArray[nextGt] += (float)(0.001f / time);
+			mygtArray[nextGt] += (float)(1.0f / time)*0.001;
 			mygt = mygtArray[nextGt];
 			if (mygt >= 1) {
 				mygt = 0.0;
@@ -251,13 +251,8 @@ void design(Group g) {
 			glTranslatef(pos[0], pos[1], pos[2]);
 			break;
 		case 'r':
-			myangArray[nextGt] += (float)(2 * M_PI / time) * 0.005;
-			mygtr = myangArray[nextGt];
-			if (mygtr >= 360) {
-				mygtr = 0.0;
-				mygtArray[nextGt] = 0.0;
-			}
-			glRotatef(mygtr, getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
+			myangArray[nextGt] += (float)(2 * M_PI / time) * 0.001;
+			glRotatef(myangArray[nextGt], getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
 			break;
 		case 's':
 			glScalef(getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
@@ -292,7 +287,7 @@ void design(Group g) {
 		else {
 			TAD_POINT p = g.materials.at(0);
 			float arr[4] = {getX(p) ,getY(p),getZ(p),1.0f };
-			glPushAttrib(GL_LIGHTING);
+			//glPushAttrib(GL_LIGHTING);
 			if (nome_textura.compare("SPEC") == 0) glMaterialfv(GL_FRONT, GL_SPECULAR, arr);
 			else if (nome_textura.compare("EMI") == 0) glMaterialfv(GL_FRONT, GL_EMISSION, arr);
 			else if (nome_textura.compare("DIFF") == 0) glMaterialfv(GL_FRONT, GL_DIFFUSE, arr);
@@ -422,6 +417,7 @@ void initGL() {
 	spherical2Cartesian();
 
 	glEnable(GL_LIGHTING);
+	glMateriali(GL_FRONT, GL_SHININESS, 2500);
 	for (int i = 0; i < luzes.size(); i++) {
 		glEnable(GL_LIGHT0 + i);
 		Light light = luzes.at(i);
@@ -432,13 +428,19 @@ void initGL() {
 			glLightfv(GL_LIGHT0 + i, GL_SPOT_DIRECTION, spot);
 			glLightf(GL_LIGHT0 + i, GL_SPOT_CUTOFF, 45.0);
 			glLightf(GL_LIGHT0 + i, GL_SPOT_EXPONENT, 0.0);
+		} else if (light.tipo == 'p'){
+			float point[3] = { light.spotX ,light.spotY,light.spotZ };
+			glLightfv(GL_LIGHT0, GL_POSITION,point );
+		} else if (light.tipo == 'd'){
+			float directional[3] = { light.spotX ,light.spotY,light.spotZ };
+			glLightfv(GL_LIGHT0, GL_POSITION, directional);
 		}
 		else {
 			float amb[4] = { light.ambX,light.ambY,light.ambZ,light.ambD };
 			glLightfv(GL_LIGHT0 + i, GL_AMBIENT, amb);
 		}
 	}
-
+	glShadeModel(GL_SMOOTH);
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_NORMAL_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
