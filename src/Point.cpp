@@ -71,9 +71,9 @@ TAD_POINT normalize(TAD_POINT point) {
 
 void cross(TAD_POINT a, TAD_POINT b, TAD_POINT res) {
 
-	res->x = (a->x)*(b->z) - (a->z)*(b->y);
-	res->y = (a->z)*(b->x) - (a->x)*(b->z);
-	res->z = (a->x)*(b->y) - (a->y)*(b->x);
+	res->x = getY(a)*getZ(b) - getZ(a)*getY(b);
+	res->y = getZ(a)*getX(b) - getX(a)*getZ(b);
+	res->z = getX(a)*getY(b) - getY(a)*getX(b);
 }
 
 void point2string(TAD_POINT point) {
