@@ -9,6 +9,9 @@ TAD_ARRAY_LIST getPointsOfCone(float radius, float height, int slices, int stack
     float angle = (2*M_PI)/slices;
     TAD_POINT p1, p2, p3, p4, p5, p6, p7, p8, p9;
     TAD_ARRAY_LIST l = ARRAY_LIST(300);
+	*normals = ARRAY_LIST(300);
+	*texCoords = ARRAY_LIST(300);
+	addElem(*texCoords, POINT(0, 0, 0));
     float tmp1, tmp2, fraction_height;
 
         for(int i = 0; i < stacks; i++){
@@ -19,15 +22,21 @@ TAD_ARRAY_LIST getPointsOfCone(float radius, float height, int slices, int stack
 
                 if(i == 0){ //  a base tem que ser voltada para baixo
                     p1 = POINT(tmp1*sin(angle*j),  fraction_height, tmp1*cos(angle*j));
-                    p2 = POINT(0.0,  (height/stacks)*i, 0.0);
+                    p2 = POINT(0.0, fraction_height, 0.0);
                     p3 = POINT(tmp1*sin(angle*(j+1)),  fraction_height, tmp1*cos(angle*(j+1)));
-                }/*else{
-                    p1 = POINT(tmp1*sin(angle*(j+1)),  fraction_height, tmp1*cos(angle*(j+1)));
-                    p2 = POINT(0.0,  (height/stacks)*i, 0.0);
-                    p3 = POINT(tmp1*sin(angle*j),  fraction_height, tmp1*cos(angle*j));
-                }*/
 
-                //  para não desenhar os triângulos interiores basta comentar as 3 linhas acima do else
+					addElem(l, p1);
+					addElem(l, p2);
+					addElem(l, p3);
+
+					addElem(*normals,POINT(0,-1,0));
+					addElem(*normals,POINT(0,-1,0));
+					addElem(*normals,POINT(0,-1,0));
+
+					//addElem(*texCoords,POINT());
+					//addElem(*texCoords,POINT());
+					//addElem(*texCoords,POINT());
+                }
 
                 p4 = POINT(tmp1*sin(angle*(j+1)),  fraction_height, tmp1*cos(angle*(j+1)));
                 p5 = POINT(tmp2*sin(angle*(j+1)), fraction_height+((height/stacks)), tmp2*cos(angle*(j+1)));
@@ -37,9 +46,6 @@ TAD_ARRAY_LIST getPointsOfCone(float radius, float height, int slices, int stack
                 p8 = POINT(tmp2*sin(angle*j), fraction_height+((height/stacks)), tmp2*cos(angle*j));
                 p9 = POINT(tmp1*sin(angle*j),  fraction_height, tmp1*cos(angle*j));
               
-                addElem(l,p1);
-                addElem(l,p2);
-                addElem(l,p3);
                 addElem(l,p4);
                 addElem(l,p5);
                 addElem(l,p6);
