@@ -108,7 +108,6 @@ int main(int argc, char** argv) {
  			perror("Invalid parameters to bezier!\n");
 			exit(1);
 		}
-		//bexier2file(argv[2],argv[3],atoi(argv[4]));
 		create_bezier(argv[2],argv[3],atoi(argv[4]));
 	}
 	else {

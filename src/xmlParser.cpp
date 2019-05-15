@@ -295,10 +295,6 @@ static vector<Light> searchLights(TiXmlElement *pRoot) {
             }
         }
         
-        //printf("pos= %f , %f , %f , %f\n", pos[0], pos[1], pos[2], pos[3]);
-        //printf("diff= %f , %f , %f , %f\n", diff[0], diff[1], diff[2], diff[3]);
-        //printf("amb= %f , %f , %f , %f\n", amb[0], amb[1], amb[2], amb[3]);
-        //printf("spot= %f , %f , %f\n", spot[0], spot[1], spot[2], spot[3]);
         pRoot = pRoot->NextSiblingElement(); //próximas luzes
     }
     return lights;

@@ -44,7 +44,7 @@ static int contains(TAD_ARRAY_LIST points, TAD_POINT point){
 	int size = getArraySize(points);
 	for(int i = 0; i < size; i++)
 		if(equalsPoint((TAD_POINT) getElem(points, i), point)) return 1;
-	return 0;	//	false
+	return 0;
 }
 
 static int* getPositions(TAD_ARRAY_LIST all_points, TAD_ARRAY_LIST filtered_points){
