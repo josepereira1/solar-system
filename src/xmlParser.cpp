@@ -245,7 +245,7 @@ static vector<Light> searchLights(TiXmlElement *pRoot) {
 		float diff[4];
 		float amb[4];
 		float spot[3];
-		pos[0] = 0; pos[1] = 0; pos[2] = 0; pos[3] = 0;
+		pos[0] = 0; pos[1] = 0; pos[2] = 0; pos[3] = 1.0;
 		diff[0] = 1.0f; diff[1] = 1.0f; diff[2] = 1.0f; diff[3] = 1.0f;
 		amb[0] = 0.2f; amb[1] = 0.2f; amb[2] = 0.2f; amb[3] = 1.0f;
 		spot[0] = 0; spot[1] = 0; spot[2] = 0;

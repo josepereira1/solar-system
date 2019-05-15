@@ -55,7 +55,8 @@ map<string, Figura> figuras;
 map<string, Figura>::iterator it;
 map<string, Textura>::iterator aux;
 
-float luzAmbiente[]={0.2f, 0.2f, 0.2f, 1.0f};
+float luzAmbiente[]={1.0f, 1.0f, 1.0f, 1.0f};
+float white[] ={1.0f,1.0f,1.0f,1.0f};
 
 // DEBUG
 static void printGroup(Group g) {
@@ -231,7 +232,7 @@ void design(Group g) {
 	float deriv[3];
 	float time;
 	GLuint figTex;
-	string nome_textura, nome_ficheiro;
+	string nome_textura, nome_ficheiro, light_type;
 	glPushMatrix();
 	for (unsigned i = 0; i < g.operacoes.size(); i++) {
 		Operation op = g.operacoes.at(i);
@@ -265,6 +266,7 @@ void design(Group g) {
 	}
 	for (unsigned i = 0, count = 0; i < g.ficheiros.size(); i++, count = 0) {
 		nome_ficheiro = g.ficheiros[i];
+		//light_type = g.lightType[i];
 		if(i < g.texturas.size()) nome_textura = g.texturas[i];
 		int tam = 0;
 		int j = 0;
@@ -293,7 +295,19 @@ void design(Group g) {
 			else if (nome_textura.compare("DIFF") == 0) glMaterialfv(GL_FRONT, GL_DIFFUSE, arr);
 			else glMaterialfv(GL_FRONT, GL_AMBIENT, arr);
 			j += 1;
-		}
+		}/*
+		//printf("coisas\n");
+		if(light_type.compare("a")){
+			glMaterialfv(GL_FRONT, GL_AMBIENT , white);
+		} else if(light_type.compare("d")){
+			glMaterialfv(GL_FRONT, GL_DIFFUSE , white);
+		} else if(light_type.compare("e")){
+			glMaterialfv(GL_FRONT, GL_EMISSION , white);
+		} else if(light_type.compare("s")){
+			glMaterialfv(GL_FRONT, GL_SPECULAR , white);
+		} else { // ad
+			glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE , white);
+		}*/
 		// count indica a posição no map que representa a posição no buffer e no index
 		glBindBuffer(GL_ARRAY_BUFFER, buffers[count]); // paga no buffer sphere
 		// nº de pontos para formar 1 vertice/ tipo da coordenada/ distancia entre indices dos vertices consecutivos / onde começa o array
@@ -417,7 +431,7 @@ void initGL() {
 	spherical2Cartesian();
 
 	glEnable(GL_LIGHTING);
-	glMateriali(GL_FRONT, GL_SHININESS, 2500);
+	glMateriali(GL_FRONT, GL_SHININESS, 128.0);
 	for (int i = 0; i < luzes.size(); i++) {
 		glEnable(GL_LIGHT0 + i);
 		Light light = luzes.at(i);

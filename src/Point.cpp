@@ -68,6 +68,14 @@ TAD_POINT normalize(TAD_POINT point) {
 	return point;
 }
 
+
+void cross(TAD_POINT *a, TAD_POINT *b, TAD_POINT *res) {
+
+	res->x = a->x*b->z - a->z*b->y;
+	res->y = a->z*b->x - a->x*b->z;
+	res->z = a->x*b->y - a->y*b->x;
+}
+
 void point2string(TAD_POINT point) {
 	printf("TAD_POINT{x=%.5f, y=%.5f, z=%.5f}\n", point->x, point->y, point->z);
 }

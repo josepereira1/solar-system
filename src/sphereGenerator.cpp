@@ -23,7 +23,7 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
     (* normals) = ARRAY_LIST(max);
     (*texCoords) = ARRAY_LIST(max);
     float m1,m2;
-    TAD_POINT p,p1;
+    TAD_POINT p0,p1,p2,p3,p4,p5;
     // tenho stack + 1 camadas para ligar, a 1ª e a ultima têm 1 vertice
     for(m1=0;m1<stacks;m1++){ // vertices nas pontas = nº de slices
         y2 = height;
@@ -34,96 +34,131 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
         for(m2=0;m2<slices;m2++){ //  vertices interiores = nº de slices * 2
             if(m1==0){
                 // pontos topo
-                p = POINT(0.0,y2,0.0);
-                p1 = POINT(0.0,y2,0.0);
-                addElem(l2,p);
-                addElem((*normals),normalize(p1));
-
-                p = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
+                p0 = POINT(0.0,y2,0.0);
                 p1 = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
-                addElem(l2,p);
-                addElem((*normals),normalize(p1));
+                p2 = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
+                addElem(l2,p0);
+                addElem(l2,p1);
+                addElem(l2,p2);
 
-                p = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
-                p1 = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
-                addElem(l2,p);
-                addElem((*normals),normalize(p1));
+                //normal topo
 
+                // p1-p0
+                p3 = POINT(getX(p1)-getX(p0),getY(p1)-getY(p0),getZ(p1)-getZ(p0));
+                //p2-p0
+                p4 = POINT(getX(p2)-getX(p0),getY(p2)-getY(p0),getZ(p2)-getZ(p0));
+                // p5 = p3*p4/|p3*p4|;
+                cross(p3,p4,p5);
 
+                addElem((*normals),normalize(p5));
+                addElem((*normals),normalize(p5));
+                addElem((*normals),normalize(p5));
+
+                // coordenadas textura topo
+
+                p0 = POINT((float)m2*slice_texture+(slice_texture/2),1.0,0.0);
+                p1 = POINT((float)m2*slice_texture,(float)1-(stack_texture*m1+stack_texture),0.0);
+                p2 = POINT((float)(m2*slice_texture+slice_texture),(float)1-(stack_texture*m1+stack_texture),0.0);
+
+                addElem(*texCoords,p0);
+                addElem(*texCoords,p1);
+                addElem(*texCoords,p2);
 
             } else if(m1 == (stacks-1)){
                 // pontos base
-                p = POINT(0.0,y1,0.0);
-                p1 = POINT(0.0,y1,0.0);
-                addElem(l2,p);
-                addElem((*normals),normalize(p1));
-
-				p = POINT(r2*cos((m2 + 1)*alfa), y2, r2*sin((m2 + 1)*alfa));
+                p0 = POINT(0.0,y1,0.0);
 				p1 = POINT(r2*cos((m2 + 1)*alfa), y2, r2*sin((m2 + 1)*alfa));
-				addElem(l2, p);
-				addElem((*normals), normalize(p1));
+                p2 = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
+                addElem(l2,p0);
+                addElem(l2,p1);
+                addElem(l2,p2);
 
-                p = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
-                p1 = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
-                addElem(l2,p);
-                addElem((*normals),normalize(p1));
+                //normal base
+                // p1-p0
+                p3 = POINT(getX(p1)-getX(p0),getY(p1)-getY(p0),getZ(p1)-getZ(p0));
+                //p2-p0
+                p4 = POINT(getX(p2)-getX(p0),getY(p2)-getY(p0),getZ(p2)-getZ(p0));
+                // p5 = p3*p4/|p3*p4|;
+                cross(p3,p4,p5);
+
+                addElem((*normals),normalize(p5));
+                addElem((*normals),normalize(p5));
+                addElem((*normals),normalize(p5));
+
+                // coordenadas textura base
+
+                p0 = POINT(m2*slice_texture+(slice_texture/2),0.0,0.0);
+                p1 = POINT(m2*slice_texture+slice_texture,1-(stack_texture*m1),0.0);
+                p2 = POINT(m2*slice_texture,1-(stack_texture*m1),0.0);
+
+                addElem(*texCoords,p0);
+                addElem(*texCoords,p1);
+                addElem(*texCoords,p2);
 
 
             } else{
-            //triangulo
-                p = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
-                p1 = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
-                addElem(l2,p);
-                addElem((*normals),normalize(p1));
 
-                p = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
+                //triangulo
+                p0 = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
                 p1 = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
-                addElem(l2,p);
-                addElem((*normals),normalize(p1));
+                p2 = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
 
-                p = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
-                p1 = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
-                addElem(l2,p);
-                addElem((*normals),normalize(p1));
+                addElem(l2,p0);
+                addElem(l2,p1);
+                addElem(l2,p2);
+
+                //normal triangulo topo
+                // p1-p0
+                p3 = POINT(getX(p1)-getX(p0),getY(p1)-getY(p0),getZ(p1)-getZ(p0));
+                //p2-p0
+                p4 = POINT(getX(p2)-getX(p0),getY(p2)-getY(p0),getZ(p2)-getZ(p0));
+                // p5 = p3*p4/|p3*p4|;
+                cross(p3,p4,p5);
+
+                addElem((*normals),normalize(p5));
+                addElem((*normals),normalize(p5));
+                addElem((*normals),normalize(p5));
+
+                // coordenadas textura triangulo topo lateral
+
+                p0 = POINT(m2*slice_texture,1-(m1*stack_texture),0.0);
+                p1 = POINT(m2*slice_texture,1-(m1*stack_texture+stack_texture),0.0);
+                p2 = POINT(m2*slice_texture+slice_texture,1-(m1*stack_texture+stack_texture),0.0);
+
+                addElem(*texCoords,p0);
+                addElem(*texCoords,p1);
+                addElem(*texCoords,p2);
                 
-            // triangulo inverso
-                p = POINT(r2*cos((m2+1)*alfa),y2,r2*sin((m2+1)*alfa));// ^<
-                p1 = POINT(r2*cos((m2+1)*alfa),y2,r2*sin((m2+1)*alfa));// ^<
+                // triangulo inverso
+                p0 = POINT(r2*cos((m2+1)*alfa),y2,r2*sin((m2+1)*alfa));// ^<
                 addElem(l2,p);
-                addElem((*normals),normalize(p1));
 
                 p = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));// <
-                p1 = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
                 addElem(l2,p);
-                addElem((*normals),normalize(p1));
 
                 p = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));// ^>
-                p1 = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));// ^>
                 addElem(l2,p);
-                addElem((*normals),normalize(p1));
-            }
-        }
-    }
-    for(m1=0;m1<stacks;m1++){
-        for(m2=0;m2<slices;m2++){
-            if(m1 == 0){
-                addElem(*texCoords,POINT((float)m2*slice_texture+(slice_texture/2),1.0,0.0));
-                addElem(*texCoords,POINT((float)m2*slice_texture,(float)1-(stack_texture*m1+stack_texture),0.0));
-                addElem(*texCoords,POINT((float)(m2*slice_texture+slice_texture),(float)1-(stack_texture*m1+stack_texture),0.0));
-            }
-            else if(m1 == (stacks-1)){
-                addElem(*texCoords,POINT(m2*slice_texture+(slice_texture/2),0.0,0.0));
-                addElem(*texCoords,POINT(m2*slice_texture+slice_texture,1-(stack_texture*m1),0.0));
-                addElem(*texCoords,POINT(m2*slice_texture,1-(stack_texture*m1),0.0));
 
-            } else{
-                addElem(*texCoords,POINT(m2*slice_texture,1-(m1*stack_texture),0.0));
-                addElem(*texCoords,POINT(m2*slice_texture,1-(m1*stack_texture+stack_texture),0.0));
-                addElem(*texCoords,POINT(m2*slice_texture+slice_texture,1-(m1*stack_texture+stack_texture),0.0));
+                //normal triangulo base
+                // p1-p0
+                p3 = POINT(getX(p1)-getX(p0),getY(p1)-getY(p0),getZ(p1)-getZ(p0));
+                //p2-p0
+                p4 = POINT(getX(p2)-getX(p0),getY(p2)-getY(p0),getZ(p2)-getZ(p0));
+                cross(p3,p4,p5);
 
-                addElem(*texCoords,POINT(m2*slice_texture+slice_texture,1-(m1*stack_texture),0.0));
-                addElem(*texCoords,POINT(m2*slice_texture,1-(m1*stack_texture),0.0));
-                addElem(*texCoords,POINT(m2*slice_texture+slice_texture,1-(m1*stack_texture+stack_texture),0.0));
+                addElem((*normals),normalize(p5));
+                addElem((*normals),normalize(p5));
+                addElem((*normals),normalize(p5));
+
+                // coodenadas textura triangulo base lateral
+
+                p0 = POINT(m2*slice_texture+slice_texture,1-(m1*stack_texture),0.0);
+                p1 = POINT(m2*slice_texture,1-(m1*stack_texture),0.0);
+                p2 = POINT(m2*slice_texture+slice_texture,1-(m1*stack_texture+stack_texture),0.0);
+
+                addElem(*texCoords,p0);
+                addElem(*texCoords,p1);
+                addElem(*texCoords,p2);
             }
         }
     }
