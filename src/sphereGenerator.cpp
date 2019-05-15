@@ -23,7 +23,7 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
     (* normals) = ARRAY_LIST(max);
     (*texCoords) = ARRAY_LIST(max);
     float m1,m2;
-    TAD_POINT p0,p1,p2,p3,p4,p5=nullptr;
+    TAD_POINT p0,p1,p2,p3,p4,p5;
     // tenho stack + 1 camadas para ligar, a 1ª e a ultima têm 1 vertice
     for(m1=0;m1<stacks;m1++){ // vertices nas pontas = nº de slices
         y2 = height;
