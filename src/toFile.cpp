@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void list2file(int* indexPoints, TAD_ARRAY_LIST points, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST texCoords, int tam, const char* path) {
+void list2file(TAD_ARRAY_LIST points, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST texCoords, const char* path) {
 	FILE *file = fopen(path, "w");
 	
 	if (file == NULL) {
@@ -13,18 +13,6 @@ void list2file(int* indexPoints, TAD_ARRAY_LIST points, TAD_ARRAY_LIST normals, 
 		exit(1);
 	} 
 	else {
-
-		int i;
-
-		//pontos
-		fprintf(file, "%d\n", tam); // imprime número de triangulos
-
-		for (i = 0; i < tam - 1; i++) { // imprime indíces
-			fprintf(file, "%d, ", indexPoints[i]);
-		}
-
-		fprintf(file, "%d", indexPoints[i]); // último índice (para não ter vírgula)
-
 		int dim = getArraySize(points);
 
 		fprintf(file, "%d", dim); // imprime número de pontos
