@@ -6,6 +6,6 @@ using namespace std;
 #include <ArrayList.h>
 #include <string>
 
-TAD_ARRAY_LIST getPointsOfBezier(string patchFile, int tLevel, TAD_ARRAY_LIST *normals);
+TAD_ARRAY_LIST getPointsOfBezier(string patchFile, int tLevel, TAD_ARRAY_LIST *normals, TAD_ARRAY_LIST *texCoords);
 
 #endif

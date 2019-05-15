@@ -99,7 +99,7 @@ static TAD_POINT getBezierPoint(int** arrayPatchs, TAD_ARRAY_LIST cps, int numer
     return POINT(x, y, z);
 }
 
-TAD_ARRAY_LIST getPointsOfBezier(string patchFile, int tLevel, TAD_ARRAY_LIST *normals) {
+TAD_ARRAY_LIST getPointsOfBezier(string patchFile, int tLevel, TAD_ARRAY_LIST *normals, TAD_ARRAY_LIST *texCoords) {
 
 	int** arrayPatchs = NULL;
 	TAD_ARRAY_LIST cps = ARRAY_LIST(25);
@@ -107,6 +107,7 @@ TAD_ARRAY_LIST getPointsOfBezier(string patchFile, int tLevel, TAD_ARRAY_LIST *n
 
 	TAD_ARRAY_LIST pontos = ARRAY_LIST(10000);
 	*normals = ARRAY_LIST(10000);
+	*texCoords = ARRAY_LIST(10000);
 
 	for (int i = 0; arrayPatchs[i] != (int*) NULL; i++) { // para cada patch
 		
@@ -150,6 +151,14 @@ TAD_ARRAY_LIST getPointsOfBezier(string patchFile, int tLevel, TAD_ARRAY_LIST *n
 				addElem(*normals,pl4);
 				addElem(*normals,pl5);
 				addElem(*normals,pl6);
+
+				//texCoords
+				addElem(*texCoords,POINT(u, v,0));
+				addElem(*texCoords,POINT(u + (1.0f / tLevel), v,0));
+				addElem(*texCoords,POINT(u + (1.0f / tLevel), v + (1.0f / tLevel),0));
+				addElem(*texCoords,POINT(u + (1.0f / tLevel),v + (1.0f / tLevel),0));
+				addElem(*texCoords,POINT(u,v + (1.0f / tLevel),0));
+				addElem(*texCoords,POINT(u,v,0));
 			}
 		}
 	}
