@@ -27,14 +27,13 @@ void readPatchFile(string path, int*** arrayPatchs, TAD_ARRAY_LIST * pontos){
 	numeroPatchs = atoi(line.c_str());
 
 	//	numeroPatchs + 1, para colocar NULL na última linha
-	*arrayPatchs = (int**)malloc((numeroPatchs+1)*sizeof(int*));	//	alocação da memória para o array que guarda os patchs
+	*arrayPatchs = (int**)malloc((numeroPatchs+1)*sizeof(int*)); //	alocação da memória para o array que guarda os patchs
 
 	(*arrayPatchs)[numeroPatchs] = (int*) NULL;	//	fim do array, para saber quando acaba
 
 	for(i = 0; i < numeroPatchs; i++){
 		getline(infile,line);
 		size = count(line.begin(),line.end(), ',') + 1;
-		//cout << i << "-" << line << " - size = " << size << "\n";
 
 		(*arrayPatchs)[i] = (int*)malloc((size+1)*sizeof(int));	//	última posição vai ter um NULL para saber quando acaba
 		(*arrayPatchs)[i][size] = -1;	//	para saber quando é a última linha
@@ -62,7 +61,7 @@ void readPatchFile(string path, int*** arrayPatchs, TAD_ARRAY_LIST * pontos){
 
 		char* init = (char*) line.c_str();	//	transforma a string num char*
 
-		for(j = 0; (ptr = strstr(init, ",")) != NULL ; j++){	//	encontra o apontador da ","
+		for(j = 0; (ptr = strstr(init, ",")) != NULL ; j++){ //	encontra o apontador da ","
 			char* tmp = ptr + sizeof(char);		//	guarda temporariamente a posição a seguir à vírgula, isto é, o apontador para o próximo número
 			*ptr = '\0';	//	fim da número, para o atoi saber onde termina a string
 			arr[j] = atof(init);	//	converte o char* num int

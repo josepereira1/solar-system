@@ -24,14 +24,13 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
     (*texCoords) = ARRAY_LIST(max);
     float m1,m2;
     TAD_POINT p0,p1,p2,p3,p4,p5 = POINT(0,0,0);
-    // tenho stack + 1 camadas para ligar, a 1ª e a ultima têm 1 vertice
-    for(m1=0;m1<stacks;m1++){ // vertices nas pontas = nº de slices
+    for(m1=0;m1<stacks;m1++){
         y2 = height;
         height = cos(betaYoX*(m1+1))*radius;
         y1 = height;
         r2 = sqrt((radius*radius)-(y2*y2));
         r1 = sqrt((radius*radius)-(y1*y1));
-        for(m2=0;m2<slices;m2++){ //  vertices interiores = nº de slices * 2
+        for(m2=0;m2<slices;m2++){
             if(m1==0){
                 // pontos topo
                 p0 = POINT(0.0,y2,0.0);
@@ -53,11 +52,7 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
                 addElem((*normals),normalize(p5));
                 addElem((*normals),normalize(p5));
                 addElem((*normals),normalize(p5));
-                /*
-                addElem((*normals),POINT(0.0,y2/radius,0.0));
-                addElem((*normals),POINT(r1*cos(m2*alfa)/radius,y1/radius,r1*sin(m2*alfa)/radius));
-                addElem((*normals),POINT(r1*cos((m2+1)*alfa)/radius,y1/radius,r1*sin((m2+1)*alfa)/radius));
-                */
+                
                 // coordenadas textura topo
 
                 p0 = POINT((float)m2*slice_texture+(slice_texture/2),1.0,0.0);
@@ -90,11 +85,7 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
                 addElem((*normals),normalize(p5));
                 addElem((*normals),normalize(p5));
                 addElem((*normals),normalize(p5));
-                /*
-                addElem((*normals),POINT(0.0,y1/radius,0.0));
-                addElem((*normals),POINT(r2*cos((m2 + 1)*alfa)/radius, y2/radius, r2*sin((m2 + 1)*alfa)/radius));
-                addElem((*normals),POINT(r2*cos(m2*alfa)/radius,y2/radius,r2*sin(m2*alfa)/radius));
-                */
+                
 
                 // coordenadas textura base
 
@@ -108,7 +99,8 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
 
             } else{
 
-                //triangulo
+                ///////////////triangulo base lateral////////////////////////
+
                 p0 = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
                 p1 = POINT(r1*cos(m2*alfa),y1,r1*sin(m2*alfa));
                 p2 = POINT(r1*cos((m2+1)*alfa),y1,r1*sin((m2+1)*alfa));
@@ -117,7 +109,7 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
                 addElem(l2,p1);
                 addElem(l2,p2);
 
-                ///////////////////normal triangulo topo///////////////////////
+                ///////////////////normal triangulo base lateral///////////////////////
                 
                 // p1-p0
                 p3 = POINT(getX(p1)-getX(p0),getY(p1)-getY(p0),getZ(p1)-getZ(p0));
@@ -129,13 +121,9 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
                 addElem((*normals),normalize(p5));
                 addElem((*normals),normalize(p5));
                 addElem((*normals),normalize(p5));
-                /*
-                addElem((*normals),POINT(r2*cos(m2*alfa)/radius,y2/radius,r2*sin(m2*alfa)/radius));
-                addElem((*normals),POINT(r1*cos(m2*alfa)/radius,y1/radius,r1*sin(m2*alfa)/radius));
-                addElem((*normals),POINT(r1*cos((m2+1)*alfa)/radius,y1/radius,r1*sin((m2+1)*alfa)/radius));
-                */
+                
 
-                ////////////coordenadas textura triangulo topo lateral////////////
+                ////////////coordenadas textura triangulo base lateral////////////
 
                 p0 = POINT(m2*slice_texture,1-(m1*stack_texture),0.0);
                 p1 = POINT(m2*slice_texture,1-(m1*stack_texture+stack_texture),0.0);
@@ -145,7 +133,7 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
                 addElem(*texCoords,p1);
                 addElem(*texCoords,p2);
                 
-                ///////////////////////// triangulo inverso/////////////////////////////
+                ///////////////////////// triangulo inverso lateral/////////////////////////////
 
                 p0 = POINT(r2*cos((m2+1)*alfa),y2,r2*sin((m2+1)*alfa));
                 p1 = POINT(r2*cos(m2*alfa),y2,r2*sin(m2*alfa));
@@ -155,7 +143,7 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
                 addElem(l2,p1);
                 addElem(l2,p2);
 
-                ///////////////////////normal triangulo base//////////////////////////
+                ///////////////////////normal triangulo topo lateral//////////////////////////
                 
                 // p1-p0
                 p3 = POINT(getX(p1)-getX(p0),getY(p1)-getY(p0),getZ(p1)-getZ(p0));
@@ -167,13 +155,9 @@ TAD_ARRAY_LIST getPointsOfSphere(float radius, int slices, int stacks, TAD_ARRAY
                 addElem((*normals),normalize(p5));
                 addElem((*normals),normalize(p5));
                 addElem((*normals),normalize(p5));
-                /*
-                addElem((*normals),POINT(r2*cos((m2+1)*alfa)/radius,y2/radius,r2*sin((m2+1)*alfa)/radius));
-                addElem((*normals),POINT(r2*cos(m2*alfa)/radius,y2/radius,r2*sin(m2*alfa)/radius));
-                addElem((*normals),POINT(r1*cos((m2+1)*alfa)/radius,y1/radius,r1*sin((m2+1)*alfa)/radius));
-                */
+               
                 
-                ////////////coodenadas textura triangulo base lateral/////////////
+                ////////////coodenadas textura triangulo topo lateral/////////////
 
                 p0 = POINT(m2*slice_texture+slice_texture,1-(m1*stack_texture),0.0);
                 p1 = POINT(m2*slice_texture,1-(m1*stack_texture),0.0);

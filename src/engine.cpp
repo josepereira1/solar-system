@@ -258,7 +258,7 @@ void design(Group g) {
 			glTranslatef(pos[0], pos[1], pos[2]);
 			break;
 		case 'r':
-			myangArray[nextGt] += (float)(2 * M_PI / time) * 0.001;
+			myangArray[nextGt] += (float)(40 * M_PI / time) * 0.001; // 40*M_PI para rodar mais rápido
 			glRotatef(myangArray[nextGt], getX(op.points[0]), getY(op.points[0]), getZ(op.points[0]));
 			break;
 		case 's':
@@ -276,7 +276,7 @@ void design(Group g) {
 		nome_ficheiro = g.ficheiros[i];
 		nome_textura = "";
 		if(i < g.texturas.size()) nome_textura = g.texturas[i];
-		if(isSun == 1){
+		if(isSun == 1){ // esfera com iluminação própria
 			glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, sol);
 			isSun = 0;
 		} else{
@@ -305,18 +305,18 @@ void design(Group g) {
 		else { // bind tipo textura 
 			TAD_POINT p = g.materials.at(0);
 			float arr[4] = {getX(p) ,getY(p),getZ(p),1.0f };
-			//glPushAttrib(GL_LIGHTING);
+
 			if (nome_textura.compare("SPEC") == 0) glMaterialfv(GL_FRONT, GL_SPECULAR, arr);
 			else if (nome_textura.compare("EMI") == 0) glMaterialfv(GL_FRONT, GL_EMISSION, arr);
 			else if (nome_textura.compare("DIFF") == 0) glMaterialfv(GL_FRONT, GL_DIFFUSE, arr);
-			else glMaterialfv(GL_FRONT, GL_AMBIENT, arr);
+			else glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, arr);
 			j += 1;
 		}
 		// count indica a posição no map que representa a posição no buffer e no index
 		glBindBuffer(GL_ARRAY_BUFFER, buffers[count]); // paga no buffer sphere
 		// nº de pontos para formar 1 vertice/ tipo da coordenada/ distancia entre indices dos vertices consecutivos / onde começa o array
 		glVertexPointer(3, GL_FLOAT, 0, 0); // digo que 3 pontos formam 1 vertice
-		// usa array de normais 
+		// usa array de normais para usar em iluminação
 		glBindBuffer(GL_ARRAY_BUFFER, normals[count]);
 		glNormalPointer(GL_FLOAT, 0, 0);
 		if (nome_textura.compare("SPEC") != 0 && nome_textura.compare("EMI") != 0 && nome_textura.compare("DIFF") != 0 && nome_textura.compare("AMB") != 0) {
@@ -329,7 +329,6 @@ void design(Group g) {
 			glBindTexture(GL_TEXTURE_2D, 0);
 			glDisable(GL_TEXTURE_2D);
 		}
-		//else glPopAttrib();
 		
 	}
 	nextGt += 1;
@@ -406,7 +405,6 @@ void processSpecialKeys(int key, int xx, int yy) {
 	case GLUT_KEY_PAGE_DOWN:
 		radius -= 5.0f;
 		if (radius < 1.0f) {
-			//radius = 50.0f;
 			radius = 10.0f;
 		}
 		break;
@@ -490,13 +488,8 @@ int main(int argc, char** argv) {
 #endif
 	
 	//  OpenGL settings
-	
 	initGL();
 	
-	//printGroup(group);    //  DEBUG
-	//sprintFiguras(figuras); //  DEBUG
-	//printLights(luzes); // DEBUG
-
 	int nFiguras = figuras.size();
 	GLuint buf2[4];
 	GLuint nor2[4];
@@ -520,6 +513,7 @@ int main(int argc, char** argv) {
 	}
 
 	spherical2Cartesian();
+
 	// enter GLUT's main cycle
 	glutMainLoop();
 
