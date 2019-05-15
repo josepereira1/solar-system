@@ -8,14 +8,13 @@ TAD_ARRAY_LIST getPointsOfCone(float radius, float height, int slices, int stack
   
     float angle = (2*M_PI)/slices;
     TAD_ARRAY_LIST l = ARRAY_LIST(300);
-	TAD_POINT p1, p2, p3, p4, p5, p6,p7,p8;
+	TAD_POINT p1, p2, p3, p4, p5, p6,p7,p8,p9 = nullptr;
 	*normals = ARRAY_LIST(300);
 	*texCoords = ARRAY_LIST(300);
     float tmp1, tmp2, fraction_height, last_fraction_height;
 
         for(int i = 0; i < stacks; i++){
             for(int j = 0; j < slices; j++){
-				TAD_POINT p9;
                 tmp1 = (radius - (radius/stacks)*i);
                 tmp2 = (radius - (radius/stacks)*(i+1));
                 last_fraction_height = fraction_height;
@@ -54,7 +53,7 @@ TAD_ARRAY_LIST getPointsOfCone(float radius, float height, int slices, int stack
 				p7 = POINT(getX(p2)-getX(p1),getY(p2)-getY(p1),getZ(p2)-getZ(p1));
 				//p3 - p1
 				p8 = POINT(getX(p3) - getX(p1), getY(p3) - getY(p1), getZ(p3) - getZ(p1));
-				cross(p7, p8, p9)
+				cross(p7, p8, p9);
 				normalize(p9);
                 addElem(*normals,p9);
                 addElem(*normals,p9);

@@ -18,6 +18,7 @@ void setZ(TAD_POINT point, float z);
 
 //normalize
 TAD_POINT normalize(TAD_POINT point);
+void cross(TAD_POINT a, TAD_POINT b, TAD_POINT res);
 
 //equals
 int equalsPoint(TAD_POINT point1, TAD_POINT point2);

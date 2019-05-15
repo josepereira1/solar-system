@@ -295,19 +295,7 @@ void design(Group g) {
 			else if (nome_textura.compare("DIFF") == 0) glMaterialfv(GL_FRONT, GL_DIFFUSE, arr);
 			else glMaterialfv(GL_FRONT, GL_AMBIENT, arr);
 			j += 1;
-		}/*
-		//printf("coisas\n");
-		if(light_type.compare("a")){
-			glMaterialfv(GL_FRONT, GL_AMBIENT , white);
-		} else if(light_type.compare("d")){
-			glMaterialfv(GL_FRONT, GL_DIFFUSE , white);
-		} else if(light_type.compare("e")){
-			glMaterialfv(GL_FRONT, GL_EMISSION , white);
-		} else if(light_type.compare("s")){
-			glMaterialfv(GL_FRONT, GL_SPECULAR , white);
-		} else { // ad
-			glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE , white);
-		}*/
+		}
 		// count indica a posição no map que representa a posição no buffer e no index
 		glBindBuffer(GL_ARRAY_BUFFER, buffers[count]); // paga no buffer sphere
 		// nº de pontos para formar 1 vertice/ tipo da coordenada/ distancia entre indices dos vertices consecutivos / onde começa o array
