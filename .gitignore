@@ -1,21 +1,30 @@
 .DS_Store
-*.3d
 generator
 parser
-xml
-bin/
 *.out
 teste
 test
 f2l
 
-bin/*
-!bin/*.3d
-!bin/*.xml
+engine_CMake/*
+!engine_CMake/CMakeLists.txt
 
-bin_windows_engine/*
-!bin_windows_engine/*.3d
-!bin_windows_engine/*.xml
+generator_CMake/*
+!generator_CMake/CMakeLists.txt
 
 bin_windows_generator/*
 !bin_windows_generator/*.txt
+!bin_windows_generator/*.patch
+
+bin_windows_engine/*
+!bin_windows_engine/*.txt
+!bin_windows_engine/*.xml
+!bin_windows_engine/*.3d
+!bin_windows_engine/*.jpg
+
+bin/*
+!bin/*.3d
+!bin/*.patch
+!bin/*.xml
+!bin/*.jpg
+!bin/*.patch

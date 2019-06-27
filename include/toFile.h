@@ -1,12 +1,11 @@
 #ifndef TOFILE_H
 #define TOFILE_H
 
-#include <Point.h>
 #include <ArrayList.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include <string>
 
-void list2file(TAD_ARRAY_LIST points, const char* path);
+using namespace std;
+
+void list2file(TAD_ARRAY_LIST points, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST texCoords, const char* path);
 
 #endif

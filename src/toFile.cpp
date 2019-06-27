@@ -1,41 +1,49 @@
 #include <toFile.h>
 
-int save_coordinates(TAD_POINT point, char* str, int deslocamento) {
-	char* tmp = (char*) malloc(256);
-	sprintf(tmp,"%.5f, %.5f, %.5f\n", getX(point),getY(point),getZ(point));
-	int len = strlen(tmp);
-	sprintf(str+deslocamento,"%s",tmp);
-	deslocamento+=len;
-	free(tmp);
-	return deslocamento;
-}
+#include <Point.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
-void list2file(TAD_ARRAY_LIST points, const char* path) {
-	FILE *file = fopen(path,"w");
-	if (file != NULL) {
-		int size = getArraySize(points);
-		char* str = (char*) malloc(140 * size);//alloc memory to final string
-		int deslocamento = 0;//displacement
-		//put number of points
-		char* tmp = (char*) malloc(256);
-		sprintf(tmp,"%d\n",size);
-		int len = strlen(tmp);
-		sprintf(str+deslocamento,"%s",tmp);
-		deslocamento+=len;
-		free(tmp);
-		//put the points (x,y,z)
-		printf("%d\n", size);
-		for(int i=0 ; i<size ; i++) {
-			TAD_POINT point = (TAD_POINT) getElem(points,i);
-			deslocamento = save_coordinates(point,str,deslocamento);
+void list2file(TAD_ARRAY_LIST points, TAD_ARRAY_LIST normals, TAD_ARRAY_LIST texCoords, const char* path) {
+	FILE *file = fopen(path, "w");
+	
+	if (file == NULL) {
+		perror("Error => could not open file");
+		exit(1);
+	} 
+	else {
+
+		int i;
+
+		//pontos
+		int dim = getArraySize(points);
+
+		fprintf(file, "%d", dim); // imprime número de pontos
+
+		for(i=0; i<dim; i++) { // imprime pontos
+			TAD_POINT point = (TAD_POINT) getElem(points, i);
+			fprintf(file, "\n%f, %f, %f", getX(point), getY(point), getZ(point));
 		}
-		deslocamento--;
-		sprintf(str+deslocamento,"%s","\0");
-		//save on file
-        fputs(str,file);
-        //close the file
-        fclose(file);
-        //free the final string
-		free(str);
+
+		//normais
+		dim = getArraySize(normals);
+
+		fprintf(file, "\n%d", dim); // imprime número de normais
+
+		for(i=0; i<dim; i++) { // imprime normais
+			TAD_POINT point = (TAD_POINT) getElem(normals, i);
+			fprintf(file, "\n%f, %f, %f", getX(point), getY(point), getZ(point));
+		}
+
+		//Coordenadas de textura
+		dim = getArraySize(texCoords);
+
+		fprintf(file, "\n%d", dim); // imprime número de coordenadas de textura
+
+		for(i=0; i<dim; i++) { // imprime coordenadas de textura
+			TAD_POINT point = (TAD_POINT) getElem(texCoords, i);
+			fprintf(file, "\n%f, %f", getX(point), getY(point));
+		}
 	}
 }

@@ -1,15 +1,17 @@
 #ifndef OPERATION_H
 #define OPERATION_H
 
-class Operation
- {
- public:
- 	Operation(char , float , float , float , float);
- 	char flag;
-    float x;
-    float y;
-    float z;
-    float ang;
+#include <Point.h>
+#include <vector>
+
+using namespace std;
+
+class Operation{
+public:
+	Operation(char , vector<TAD_POINT>, int);
+	char flag;
+	vector<TAD_POINT> points;
+	int time;
  };
 
 #endif

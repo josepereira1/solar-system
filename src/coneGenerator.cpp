@@ -1,51 +1,74 @@
 #define _USE_MATH_DEFINES 
 #include <math.h>
 
+#include <stdio.h>
 #include <Point.h>
 #include <ArrayList.h>
 
-TAD_ARRAY_LIST getPointsOfCone(float radius, float height, int slices, int stacks) {
+TAD_ARRAY_LIST getPointsOfCone(float radius, float height, int slices, int stacks, TAD_ARRAY_LIST *normals, TAD_ARRAY_LIST *texCoords) {
   
     float angle = (2*M_PI)/slices;
-    TAD_POINT p1, p2, p3, p4, p5, p6, p7, p8, p9;
     TAD_ARRAY_LIST l = ARRAY_LIST(300);
-    float tmp1, tmp2, fraction_height;
+	TAD_POINT p1, p2, p3, p4, p5, p6,p7,p8,p9 = POINT(0,0,0);
+	*normals = ARRAY_LIST(300);
+	*texCoords = ARRAY_LIST(300);
+    float tmp1, tmp2, fraction_height, last_fraction_height;
 
         for(int i = 0; i < stacks; i++){
             for(int j = 0; j < slices; j++){
                 tmp1 = (radius - (radius/stacks)*i);
                 tmp2 = (radius - (radius/stacks)*(i+1));
+                last_fraction_height = fraction_height;
                 fraction_height = (height/stacks)*i;
 
                 if(i == 0){ //  a base tem que ser voltada para baixo
-                    p1 = POINT(tmp1*sin(angle*j),  fraction_height, tmp1*cos(angle*j));
-                    p2 = POINT(0.0,  (height/stacks)*i, 0.0);
-                    p3 = POINT(tmp1*sin(angle*(j+1)),  fraction_height, tmp1*cos(angle*(j+1)));
-                }/*else{
-                    p1 = POINT(tmp1*sin(angle*(j+1)),  fraction_height, tmp1*cos(angle*(j+1)));
-                    p2 = POINT(0.0,  (height/stacks)*i, 0.0);
-                    p3 = POINT(tmp1*sin(angle*j),  fraction_height, tmp1*cos(angle*j));
-                }*/
+					addElem(l, POINT(tmp1*sin(angle*j),  fraction_height, tmp1*cos(angle*j)));
+					addElem(l, POINT(0.0, fraction_height, 0.0));
+					addElem(l, POINT(tmp1*sin(angle*(j+1)),  fraction_height, tmp1*cos(angle*(j+1))));
 
-                //  para não desenhar os triângulos interiores basta comentar as 3 linhas acima do else
+					addElem(*normals,POINT(0,-1,0));
+					addElem(*normals,POINT(0,-1,0));
+					addElem(*normals,POINT(0,-1,0));
 
-                p4 = POINT(tmp1*sin(angle*(j+1)),  fraction_height, tmp1*cos(angle*(j+1)));
-                p5 = POINT(tmp2*sin(angle*(j+1)), fraction_height+((height/stacks)), tmp2*cos(angle*(j+1)));
-                p6 = POINT(tmp1*sin(angle*j),  fraction_height, tmp1*cos(angle*j));
+					addElem(*texCoords,POINT(0.15f + 0.15f * sin(angle*j),0.15f + 0.15f * cos(angle*j),0));
+					addElem(*texCoords,POINT(0.15f,0.15f,0));
+					addElem(*texCoords,POINT(0.15f + 0.15f * sin(angle*(j+1)),0.15f + 0.15f * cos(angle*(j+1)),0));
+                }
+				p1 = POINT(tmp1*sin(angle*(j + 1)), fraction_height, tmp1*cos(angle*(j + 1)));
+				p2 = POINT(tmp2*sin(angle*(j + 1)), fraction_height + ((height / stacks)), tmp2*cos(angle*(j + 1)));
+				p3 = POINT(tmp1*sin(angle*j), fraction_height, tmp1*cos(angle*j));
 
-                p7 = POINT(tmp2*sin(angle*(j+1)), fraction_height+((height/stacks)), tmp2*cos(angle*(j+1)));
-                p8 = POINT(tmp2*sin(angle*j), fraction_height+((height/stacks)), tmp2*cos(angle*j));
-                p9 = POINT(tmp1*sin(angle*j),  fraction_height, tmp1*cos(angle*j));
-              
+				p4 = POINT(tmp2*sin(angle*(j + 1)), fraction_height + ((height / stacks)), tmp2*cos(angle*(j + 1)));
+				p5 = POINT(tmp2*sin(angle*j), fraction_height + ((height / stacks)), tmp2*cos(angle*j));
+				p6 = POINT(tmp1*sin(angle*j), fraction_height, tmp1*cos(angle*j));
+
                 addElem(l,p1);
                 addElem(l,p2);
                 addElem(l,p3);
+
                 addElem(l,p4);
                 addElem(l,p5);
                 addElem(l,p6);
-                addElem(l,p7);
-                addElem(l,p8);
-                addElem(l,p9);
+
+				//p2 - p1
+				p7 = POINT(getX(p2)-getX(p1),getY(p2)-getY(p1),getZ(p2)-getZ(p1));
+				//p3 - p1
+				p8 = POINT(getX(p3) - getX(p1), getY(p3) - getY(p1), getZ(p3) - getZ(p1));
+				cross(p7, p8, p9);
+				normalize(p9);
+                addElem(*normals,p9);
+                addElem(*normals,p9);
+                addElem(*normals,p9);
+                addElem(*normals,p9);
+                addElem(*normals,p9);
+                addElem(*normals,p9);
+
+                addElem(*texCoords,POINT(0.5f + 0.5f * sin(angle*(j+1)),0.3f + 0.7f * (j + 1) / stacks ,0));
+                addElem(*texCoords,POINT(0.5f + 0.5f * sin(angle*(j+1)),0.3f + 0.7f * (j + 1) / stacks,0));
+                addElem(*texCoords,POINT(0.5f + 0.5f * sin(angle*j),0.3f + 0.7f * j / stacks,0));
+                addElem(*texCoords,POINT(0.5f + 0.5f * sin(angle*(j+1)),0.3f + 0.7f * (j+1) / stacks,0));
+                addElem(*texCoords,POINT(0.5f + 0.5f * sin(angle*j),0.3f + 0.7f * j / stacks,0));
+                addElem(*texCoords,POINT(0.5f + 0.5f * sin(angle*j),0.3f + 0.7f * j / stacks,0));
             }
         }
   return l;

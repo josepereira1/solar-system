@@ -1,12 +1,10 @@
-#include <vector>
 #include <Figura.h>
 
-using namespace std;
-
-Figura:: Figura(){
-	vector<float> pontos;
-}
-
-Figura:: ~Figura(){
-	pontos.clear();
+Figura :: Figura (float* points, int pointsTAM, float* normals, int normalsTAM, float* texCoords, int texCoordsTAM){
+	this->points = points;
+	this->pointsTAM = pointsTAM;
+	this->normals = normals;
+	this->normalsTAM = normalsTAM;
+	this->texCoords = texCoords;
+	this->texCoordsTAM =  texCoordsTAM;
 }

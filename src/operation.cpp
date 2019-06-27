@@ -1,9 +1,12 @@
 #include <operation.h>
 
- Operation::Operation(char flag, float x, float y, float z, float angulo){
-        this->flag = flag;
-        this->x = x;
-        this->y = y;
-        this->z = z;
-        this->ang = angulo;
-    }
+#include <vector>
+#include <Point.h>
+
+using namespace std;
+
+Operation::Operation(char flag, vector<TAD_POINT> points, int time){
+	this->flag = flag;
+	this->points = points;
+	this->time = time;
+}
