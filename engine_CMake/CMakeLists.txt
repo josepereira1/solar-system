@@ -9,9 +9,7 @@ include_directories (
 ../include  
 ../tinyxml
 )
-
 add_executable(${PROJECT_NAME} ../src/engine.cpp ../tinyxml/tinystr.cpp ../tinyxml/tinyxml.cpp ../tinyxml/tinyxmlerror.cpp ../tinyxml/tinyxmlparser.cpp  ../src/ArrayList.cpp ../src/Figura.cpp ../src/Textura.cpp ../src/Point.cpp ../src/fromFile.cpp ../src/group.cpp ../src/toFile.cpp ../src/operation.cpp ../src/xmlParser.cpp ../src/Light.cpp)
-
 
 find_package(OpenGL REQUIRED)
 include_directories(${OpenGL_INCLUDE_DIRS})
